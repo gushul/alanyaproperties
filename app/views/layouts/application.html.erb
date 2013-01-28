@@ -25,11 +25,13 @@
 
     <!-- BEGIN header-->
     <div class="header clearfix">
-        <a class="logo" href="" title="Alanya"><%= image_tag 'logo.png', alt: 'Alanya' %></a>
+        <%= link_to root_path, class: 'logo', title: 'Alanya' do %>
+          <%= image_tag 'logo.png', alt: 'Alanya' %>
+        <% end %>
         <ul class="nav">
-            <li class="li" title="АКТИВНЫЙ ПУНКТ МЕНЮ, НЕ ССЫЛКА"><span>КУПИТЬ</span></li>
-            <li class="li"><a href="" title="">АРЕНДОВАТЬ</a></li>
-            <li class="li"><a class="act" href="" title="АКТИВНЫЙ ПУНКТ МЕНЮ, ССЫЛКА">УСЛУГИ</a><i class="nav_active"></i></li>
+            <li class="li"><%= menu_link "КУПИТЬ", buy_path %></li>
+            <li class="li"><%= menu_link "АРЕНДОВАТЬ", rent_path %></li>
+            <li class="li"><a class="" href="" title="">УСЛУГИ</a></li>
             <li class="li"><a href="" title="">О ТУРЦИИ</a></li>
             <li class="li"><a href="" title="">О НАС</a></li>
             <li class="li"><a href="" title="">КОНТАКТЫ</a></li>
@@ -48,8 +50,8 @@
     <div class="footer">
         <div class="inner clearfix">
             <ul class="fot_nav">
-                <li class="li first"><a href="" title="">Купить</a></li>
-                <li class="li"><a href="" title="">Арендовать</a></li>
+              <li class="li first"><%= menu_link "Купить", buy_path %></li>
+              <li class="li"><%= menu_link "Арендовать", rent_path %></li>
                 <li class="li"><a href="" title="">Услуги</a></li>
                 <li class="li"><a href="" title="">О Турции</a></li>
                 <li class="li"><a href="" title="">О нас</a></li>

@@ -1,5 +1,8 @@
 Alanya::Application.routes.draw do
 
+  get "buy" => "buy#index", as: :buy
+  get "rent" => "rent#index", as: :rent
+
   resources :cities
 
 

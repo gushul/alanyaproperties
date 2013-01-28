@@ -1,0 +1,191 @@
+<div class="top_sidebar clearfix">
+            <ul class="sidebar_nav clmn_left">
+                <li class="li"><a href="" title="">Листать предложения по аренде</a></li>
+                <li class="li"><a href="" title="">Правила аренды в Турции</a></li>
+                <li class="shadow"></li>
+                <li class="shadow bottom"></li>
+            </ul>
+            <div class="top_offer">
+              <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
+                    <span class="toffer_holder clearfix">
+                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                        <span class="cost">600 €</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="filter">
+            <h1 class="h1">Недвижимость в Турции на продажу</h1>
+            <div class="inner clearfix">
+                <div class="clmn fleft">
+                    <div class="filter_section square first">
+                        <h2>Общая площадь</h2>
+                        <input> &nbsp;кв. м
+                        <div class="id"><input placeholder="или введите ID объекта"></div>
+                    </div>
+                    <div class="filter_section type">
+                        <h2>Тип недвижимости</h2>
+                        <div class="filter_label_holder clearfix">
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />1+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />2+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />3+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />4+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Студия</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Пентхауз</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Вилла</label>
+                        </div>
+                    </div>
+                    <div class="filter_section cost">
+                        <h2>Стоимость</h2>
+                        <div>
+                            <input placeholder="желаемая сумма" />&nbsp; &plusmn; &nbsp;<input class="percents" value="10" /> &nbsp;%
+                        </div>
+
+                        <label class="filter_label label_radio"><input type="radio" name="filter-currency">EUR</label>
+                        <label class="filter_label label_radio"><input type="radio" name="filter-currency">USD</label>
+                        <label class="filter_label label_radio"><input type="radio" name="filter-currency">RUB</label>
+                    </div>
+                    <div class="filter_section distance">
+                        <h2>Общая площадь</h2>
+                        <div class="filter_label_holder clearfix">
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">100м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">200м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">400м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">500м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">800м</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="clmn fright">
+                    <div class="filter_section city">
+                        <h2>Выберите города</h2>
+                        <div class="filter_label_holder clearfix">
+                          <% @cities.each do |city| %>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-city" value="<%= city.id %>"><%= image_tag city.cover.asset.thumb %><span class="title"><%= city.name %></span></label>
+                          <% end %>
+                        </div>
+
+                        <span class="btn btn_input big">ИСКАТЬ<i class="input"><input type="submit" /></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="sidebar_nav clmn_left">
+            <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
+            <li class="li"><a href="" title="">Заказать трансфер</a></li>
+            <li class="shadow"></li>
+            <li class="shadow bottom"></li>
+        </ul>
+        <div class="clmn_right">
+            <ul class="apartment_list clearfix">
+                <li class="li">
+                    <div class="apatment_list_top">
+                      <div class="apatment_list_bot clearfix">
+                            <%= image_tag 'img.png' %>
+                            <div class="title">Жилой коплекс “Какой То”</div>
+                            <table class="table">
+                                <tr>
+                                    <th>город:</th>
+                                    <td>Алания</td>
+                                </tr>
+                                <tr>
+                                    <th>комнат/спален:</th>
+                                    <td>1+2</td>
+                                </tr>
+                            </table>
+                            <a class="btn" href="" title="">ПОДРОБНЕЕ</a>
+                            <div class="prise">45 000 €</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="li">
+                    <div class="apatment_list_top">
+                        <div class="apatment_list_bot clearfix">
+                            <img src="images/img.png" alt="" />
+                            <div class="title">Жилой коплекс “Какой То”</div>
+                            <table class="table">
+                                <tr>
+                                    <th>город:</th>
+                                    <td>Алания</td>
+                                </tr>
+                                <tr>
+                                    <th>комнат/спален:</th>
+                                    <td>1+2</td>
+                                </tr>
+                            </table>
+                            <a class="btn" href="" title="">ПОДРОБНЕЕ</a>
+                            <div class="prise">45 000 €</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="li">
+                    <div class="apatment_list_top">
+                        <div class="apatment_list_bot clearfix">
+                            <img src="images/img.png" alt="" />
+                            <div class="title">Жилой коплекс “Какой То”</div>
+                            <table class="table">
+                                <tr>
+                                    <th>город:</th>
+                                    <td>Алания</td>
+                                </tr>
+                                <tr>
+                                    <th>комнат/спален:</th>
+                                    <td>1+2</td>
+                                </tr>
+                            </table>
+                            <a class="btn" href="" title="">ПОДРОБНЕЕ</a>
+                            <div class="prise">45 000 €</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="clear"></li>
+                <li class="li">
+                    <div class="apatment_list_top">
+                        <div class="apatment_list_bot clearfix">
+                            <img src="images/img.png" alt="" />
+                            <div class="title">Жилой коплекс “Какой То”</div>
+                            <table class="table">
+                                <tr>
+                                    <th>город:</th>
+                                    <td>Алания</td>
+                                </tr>
+                                <tr>
+                                    <th>комнат/спален:</th>
+                                    <td>1+2</td>
+                                </tr>
+                            </table>
+                            <a class="btn" href="" title="">ПОДРОБНЕЕ</a>
+                            <div class="prise">45 000 €</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="li">
+                    <div class="apatment_list_top">
+                        <div class="apatment_list_bot clearfix">
+                            <img src="images/img.png" alt="" />
+                            <div class="title">Жилой коплекс “Какой То”</div>
+                            <table class="table">
+                                <tr>
+                                    <th>город:</th>
+                                    <td>Алания</td>
+                                </tr>
+                                <tr>
+                                    <th>комнат/спален:</th>
+                                    <td>1+2</td>
+                                </tr>
+                            </table>
+                            <a class="btn" href="" title="">ПОДРОБНЕЕ</a>
+                            <div class="prise">45 000 €</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <p class="text">
+                Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну. Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде решить по, по фон фирме огонь глубже.
+            </p>
+        </div>
+        <div class="clear"></div>
