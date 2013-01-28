@@ -1,4 +1,17 @@
 Alanya::Application.routes.draw do
+
+  resources :cities
+
+
+  devise_for :admin, controllers: { sessions: "admin/sessions" }
+  namespace :admin do
+    get :dashboard
+    resources :cities
+    get '', action: :index
+  end
+
+  root to: 'welcome#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -32,7 +45,7 @@ Alanya::Application.routes.draw do
   #   end
 
   # Sample resource route with more complex sub-resources
-  #   resources :products do
+  #   resources :products do'
   #     resources :comments
   #     resources :sales do
   #       get 'recent', :on => :collection
