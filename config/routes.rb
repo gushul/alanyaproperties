@@ -1,14 +1,17 @@
 Alanya::Application.routes.draw do
 
+
+
   get "buy" => "buy#index", as: :buy
   get "rent" => "rent#index", as: :rent
 
+  resources :properties
   resources :cities
-
 
   devise_for :admin, controllers: { sessions: "admin/sessions" }
   namespace :admin do
     get :dashboard
+    resources :properties
     resources :cities
     get '', action: :index
   end

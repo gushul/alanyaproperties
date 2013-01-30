@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128035402) do
+ActiveRecord::Schema.define(:version => 20130130134830) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -47,5 +47,22 @@ ActiveRecord::Schema.define(:version => 20130128035402) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "properties", :force => true do |t|
+    t.string   "name"
+    t.string   "article"
+    t.text     "description"
+    t.string   "property_type"
+    t.string   "property_kind"
+    t.integer  "price"
+    t.integer  "city_id"
+    t.string   "photo"
+    t.text     "geo"
+    t.text     "property_attributes"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "properties", ["city_id"], :name => "index_properties_on_city_id"
 
 end

@@ -30,6 +30,7 @@ gem 'devise'
 gem 'inherited_resources'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'simple_form_fancy_uploads'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

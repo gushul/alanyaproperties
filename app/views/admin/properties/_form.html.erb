@@ -1,0 +1,17 @@
+<%= simple_form_for [:admin, @property], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :article %>
+  <%= f.input :description %>
+  <%= f.input :property_type, collection: Property::TYPES %>
+  <%= f.input :property_kind, collection: Property::KINDS %>
+  <%= f.input :price %>
+  <%= f.association :city %>
+  <%= f.input :photo %>
+  <%# f.input :geo %>
+  <%# f.input :property_attributes %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_properties_path, :class => 'btn' %>
+  </div>
+<% end %>
