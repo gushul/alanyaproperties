@@ -1,5 +1,6 @@
 var duration = 400;
 var visible_popup = '';
+var browser_class;
 var document_scroll;
 
 function setBrowserClassToBody(){
