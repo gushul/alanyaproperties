@@ -105,6 +105,9 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redactor-rails (0.3.2)
+      mime-types
+      orm_adapter
     responders (0.9.3)
       railties (~> 3.1)
     sass (3.2.5)
@@ -148,11 +151,13 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
+  has_scope
   inherited_resources
   jquery-rails
   mini_magick
   mysql2
   rails (= 3.2.11)
+  redactor-rails
   sass-rails (~> 3.2.3)
   simple_form
   simple_form_fancy_uploads

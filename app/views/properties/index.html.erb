@@ -1,54 +1,91 @@
-<%- model_class = Property -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:article) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:property_type) %></th>
-      <th><%= model_class.human_attribute_name(:property_kind) %></th>
-      <th><%= model_class.human_attribute_name(:price) %></th>
-      <th><%= model_class.human_attribute_name(:city_id) %></th>
-      <th><%= model_class.human_attribute_name(:photo) %></th>
-      <th><%= model_class.human_attribute_name(:geo) %></th>
-      <th><%= model_class.human_attribute_name(:property_attributes) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr>
-        <td><%= link_to property.id, property_path(property) %></td>
-        <td><%= property.name %></td>
-        <td><%= property.article %></td>
-        <td><%= property.description %></td>
-        <td><%= property.property_type %></td>
-        <td><%= property.property_kind %></td>
-        <td><%= property.price %></td>
-        <td><%= property.city_id %></td>
-        <td><%= property.photo %></td>
-        <td><%= property.geo %></td>
-        <td><%= property.property_attributes %></td>
-        <td><%=l property.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_property_path(property), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      property_path(property),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="top_sidebar clearfix">
+            <ul class="sidebar_nav clmn_left">
+                <li class="li"><a href="" title="">Листать предложения по аренде</a></li>
+                <li class="li"><a href="" title="">Правила аренды в Турции</a></li>
+                <li class="shadow"></li>
+                <li class="shadow bottom"></li>
+            </ul>
+            <div class="top_offer">
+              <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
+                    <span class="toffer_holder clearfix">
+                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                        <span class="cost">600 €</span>
+                    </span>
+                </span>
+            </div>
+        </div>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_property_path,
-            :class => 'btn btn-primary' %>
+        <div class="filter">
+            <h1 class="h1">Недвижимость в Турции на продажу</h1>
+            <div class="inner clearfix">
+                <div class="clmn fleft">
+                    <div class="filter_section square first">
+                        <h2>Общая площадь</h2>
+                        <input> &nbsp;кв. м
+                        <div class="id"><input placeholder="или введите ID объекта"></div>
+                    </div>
+                    <div class="filter_section type">
+                        <h2>Тип недвижимости</h2>
+                        <div class="filter_label_holder clearfix">
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />1+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />2+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />3+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />4+1</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Студия</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Пентхауз</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Вилла</label>
+                        </div>
+                    </div>
+                    <div class="filter_section cost">
+                        <h2>Стоимость</h2>
+                        <div>
+                            <input placeholder="желаемая сумма" />&nbsp; &plusmn; &nbsp;<input class="percents" value="10" /> &nbsp;%
+                        </div>
+
+                        <label class="filter_label label_radio"><input type="radio" name="filter-currency">EUR</label>
+                        <label class="filter_label label_radio"><input type="radio" name="filter-currency">USD</label>
+                        <label class="filter_label label_radio"><input type="radio" name="filter-currency">RUB</label>
+                    </div>
+                    <div class="filter_section distance">
+                        <h2>Общая площадь</h2>
+                        <div class="filter_label_holder clearfix">
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">100м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">200м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">400м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">500м</label>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">800м</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="clmn fright">
+                    <div class="filter_section city">
+                        <h2>Выберите города</h2>
+                        <div class="filter_label_holder clearfix">
+                          <% @cities.each do |city| %>
+                            <label class="filter_label label_checkbox"><input type="checkbox" name="filter-city" value="<%= city.id %>"><%= image_tag city.cover.asset.thumb %><span class="title"><%= city.name %></span></label>
+                          <% end %>
+                        </div>
+
+                        <span class="btn btn_input big">ИСКАТЬ<i class="input"><input type="submit" /></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="sidebar_nav clmn_left">
+            <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
+            <li class="li"><a href="" title="">Заказать трансфер</a></li>
+            <li class="shadow"></li>
+            <li class="shadow bottom"></li>
+        </ul>
+        <div class="clmn_right">
+            <ul class="apartment_list clearfix">
+                <%= render @properties %>
+            </ul>
+
+            <p class="text">
+                Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну. Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде решить по, по фон фирме огонь глубже.
+            </p>
+        </div>
+        <div class="clear"></div>

@@ -2,20 +2,18 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
+<table class="table table-striped data-table">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:article) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:property_for) %></th>
       <th><%= model_class.human_attribute_name(:property_type) %></th>
       <th><%= model_class.human_attribute_name(:property_kind) %></th>
       <th><%= model_class.human_attribute_name(:price) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:photo) %></th>
-      <th><%= model_class.human_attribute_name(:geo) %></th>
-      <th><%= model_class.human_attribute_name(:property_attributes) %></th>
+      <th><%= model_class.human_attribute_name(:hot) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -26,15 +24,13 @@
         <td><%= link_to property.id, property_path(property) %></td>
         <td><%= property.name %></td>
         <td><%= property.article %></td>
-        <td><%= property.description %></td>
+        <td><%= property.property_for %></td>
         <td><%= property.property_type %></td>
         <td><%= property.property_kind %></td>
         <td><%= property.price %></td>
         <td><%= property.city.name %></td>
-        <td><%= property.photo %></td>
-        <td><%= property.geo %></td>
-        <td><%= property.property_attributes %></td>
-        <td><%=l property.created_at %></td>
+        <td><%= property.hot? ? 'hot' : '' %></td>
+        <td><%=l property.created_at, format: :short %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_property_path(property), :class => 'btn btn-mini' %>

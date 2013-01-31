@@ -10,4 +10,6 @@
  *
  *= require_self
  *= require bootstrap_and_overrides
+ *= require redactor-rails
+ *= require DT_bootstrap
  */

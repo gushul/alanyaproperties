@@ -28,9 +28,11 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'slim'
 gem 'devise'
 gem 'inherited_resources'
+gem 'has_scope'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'simple_form_fancy_uploads'
+gem 'redactor-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,12 +1,22 @@
 Alanya::Application.routes.draw do
 
+  mount RedactorRails::Engine => '/redactor_rails'
 
+  Property::ACTIONS.each do |action|
+    scope action.to_s, as: action do
+      resources :properties, only: [:show], some_var: "hello"
+      get "" => "properties#index", property_for: action
+    end
+  end
 
-  get "buy" => "buy#index", as: :buy
-  get "rent" => "rent#index", as: :rent
+  # get "rent" => "rent#index", as: :rent
 
-  resources :properties
-  resources :cities
+  # scope 'rent' do
+    # resources :properties
+  # end
+
+  # resources :properties
+  # resources :cities
 
   devise_for :admin, controllers: { sessions: "admin/sessions" }
   namespace :admin do
