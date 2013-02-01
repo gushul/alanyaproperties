@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131160051) do
+ActiveRecord::Schema.define(:version => 20130131191833) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(:version => 20130131160051) do
     t.text     "property_attributes"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.integer  "total_area"
-    t.string   "property_for"
     t.boolean  "hot"
     t.integer  "to_sea"
+    t.integer  "total_area"
+    t.string   "property_for"
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"
