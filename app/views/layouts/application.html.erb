@@ -28,15 +28,18 @@
         <%= link_to root_path, class: 'logo', title: 'Alanya' do %>
           <%= image_tag 'logo.png', alt: 'Alanya' %>
         <% end %>
-        <ul class="nav">
-            <li class="li"><%= menu_link "КУПИТЬ", buy_path %></li>
-            <li class="li"><%= menu_link "АРЕНДОВАТЬ", rent_path %></li>
-            <li class="li"><a class="" href="" title="">УСЛУГИ</a></li>
-            <li class="li"><a href="" title="">О ТУРЦИИ</a></li>
-            <li class="li"><a href="" title="">О НАС</a></li>
-            <li class="li"><a href="" title="">КОНТАКТЫ</a></li>
-            <li class="li"><a href="" title="">ПОИСК</a></li>
-        </ul>
+        <table class="nav"><tr>
+            <td class="td"><%= menu_link "КУПИТЬ", buy_path %></td>
+            <td class="td"><%= menu_link "АРЕНДОВАТЬ", rent_path %></td>
+            <td class="td"><a class="" href="" title="">УСЛУГИ</a></td>
+            <td class="td"><a href="" title="">О ТУРЦИИ</a></td>
+            <td class="td"><a href="" title="">О НАС</a></td>
+            <td class="td"><a href="" title="">КОНТАКТЫ</a></td>
+            <td class="td last_td">
+                <div class="search_item">ПОИСК</div>
+                <div class="search_input" style="display:none;"><input class="input" id="main-search-input" type="text" /><i class="search_btn"></i></div>
+            </td>
+        </tr></table>
     </div>
     <!-- END header-->
 
