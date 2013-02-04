@@ -7,10 +7,10 @@ class Property < ActiveRecord::Base
 
   belongs_to :city
   attr_accessible :article, :property_attributes, :description, :geo, :property_kind,
-    :name, :photo, :price, :property_type, :city_id, :property_for, :total_area, :photo_cache, :hot
+    :name, :photo, :price, :property_type, :city_id, :property_for, :total_area, :photo_cache, :hot, :to_sea
 
   validates :name, :article, :description, :property_kind, :photo, :price,
-    :property_type, :city, :property_for, :total_area, presence: true
+    :property_type, :city, :property_for, :total_area, :to_sea, presence: true
 
   KINDS    = %w{new_building secondary_residence}
   TYPES    = %w{studio 1+1 2+1 3+1 4+1 penthouse villa} # студио, 1+1, 2+1, 3+1, 4+1, пентхауз, вилла

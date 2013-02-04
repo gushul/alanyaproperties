@@ -1,39 +1,177 @@
-<%- model_class = Property -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
+<div class="buy_page">
+            <ul class="sidebar_nav clmn_left">
+                <li class="li"><a href="" title="">Листать предложения по продаже</a></li>
+                <li class="li"><a href="" title="">Процедура покупки недвижимости</a></li>
+                <li class="li"><a href="" title="">Вся недвижимость Алании</a></li>
+                <li class="shadow"></li>
+                <li class="shadow bottom"></li>
+            </ul>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @property.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:article) %>:</strong></dt>
-  <dd><%= @property.article %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @property.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
-  <dd><%= @property.type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:kind) %>:</strong></dt>
-  <dd><%= @property.kind %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-  <dd><%= @property.price %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:city_id) %>:</strong></dt>
-  <dd><%= @property.city_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
-  <dd><%= @property.photo %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:geo) %>:</strong></dt>
-  <dd><%= @property.geo %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:property_attributes) %>:</strong></dt>
-  <dd><%= @property.property_attributes %></dd>
-</dl>
+            <div class="buy_item">
+                <div class="item_price"><%= number_to_currency @property.price, 'euro' %></div>
+                <h1 class="h1"><%= @property.name %></h1>
+                <div class="hr"></div>
+                <div class="buy_item_text">
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              properties_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_property_path(@property), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              property_path(@property),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
+                    <div class="buy_item_photos clearfix">
+                        <div class="img big"><%= image_tag 'img.png' %></div>
+                        <div class="img"><%= image_tag 'img.png' %></div>
+                        <div class="img"><%= image_tag 'img.png' %></div>
+                        <div class="img"><%= image_tag 'img.png' %></div>
+                        <div class="img"><%= image_tag 'img.png' %><i class="play"></i></div>
+                    </div>
+
+
+                    <%= raw @property.description %>
+
+
+                    <span class="btn gray back_btn">НАЗАД</span>
+                    <span class="btn big send_offer">ОТПРАВИТЬ ЗАПРОС</span>
+                    <div class="clear"></div>
+                </div>
+                <div class="buy_item_info">
+
+                    <div class="line bt0">Город: <%= @property.city.name %></div>
+                    <%# <div class="line">Район: Анталия</div> %>
+                    <div class="line">Общая площадь: <%= @property.total_area %> кв. м</div>
+                    <div class="line">Количество комнат: 2</div>
+                    <div class="line">Количество спален: 1</div>
+                    <div class="line">Количество туалетов/ванн: 2</div>
+                    <div class="line">Год постройки: 2007</div>
+                    <div class="line">Тип отопления: печное</div>
+                    <div class="line">Этаж: 2</div>
+                    <div class="line">Размер объекта: 9</div>
+                    <div class="line">Лифт: да</div>
+                    <div class="line">Балкон: да</div>
+                    <div class="line">Парковка: да</div>
+                    <div class="line">Кондиционер: да</div>
+                    <div class="line">Кабельное TV/Спутник: нет</div>
+                    <div class="line">Расстояние до моря: <%= @property.to_sea %> м</div>
+
+                    <span class="buy_item_map">
+                        <span class="map">
+                            <%= image_tag 'map.png' %>
+                            <i class="marker"></i>
+                        </span>
+                        <span class="title">Смотреть на карте</span>
+                    </span>
+
+                </div>
+                <div class="clear"></div>
+                <div class="hr"></div>
+                <h3 class="relative_offers_title">Вас могут заинтересовать подобные предложения</h3>
+                <ul class="relative_offers clearfix">
+                    <li class="li">
+                        <div class="img"><%= image_tag 'img.png' %></div>
+                        <div class="relative_offer_content">
+                            <div class="title">Жилой коплекс “Семь Звезд”</div>
+                            <div class="text">
+                                город: Алания<br />
+                                комнат/спален: 1+1
+                            </div>
+                        </div>
+                        <div class="price">25 000 €</div>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                    </li>
+                    <li class="li">
+                        <div class="img"><%= image_tag 'img.png' %></div>
+                        <div class="relative_offer_content">
+                            <div class="title">Жилой коплекс “Семь Звезд”</div>
+                            <div class="text">
+                                город: Алания<br />
+                                комнат/спален: 1+1
+                            </div>
+                        </div>
+                        <div class="price">25 000 €</div>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                    </li>
+                    <li class="li">
+                        <div class="img"><%= image_tag 'img.png' %></div>
+                        <div class="relative_offer_content">
+                            <div class="title">Жилой коплекс “Семь Звезд”</div>
+                            <div class="text">
+                                город: Алания<br />
+                                комнат/спален: 1+1
+                            </div>
+                        </div>
+                        <div class="price">25 000 €</div>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="buy_filter">
+                <div class="filter_section square first">
+                    <h2>Общая площадь</h2>
+                    <input> &nbsp;кв. м
+                    <div class="id"><input placeholder="или введите ID объекта"></div>
+                </div>
+                <div class="filter_section type">
+                    <h2>Тип недвижимости</h2>
+                    <div class="filter_label_holder clearfix">
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />1+1</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />2+1</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />3+1</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />4+1</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Студия</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Пентхауз</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Вилла</label>
+                    </div>
+                </div>
+                <div class="filter_section cost">
+                    <h2>Стоимость</h2>
+                    <div>
+                        <input placeholder="желаемая сумма" />&nbsp; &plusmn; &nbsp;<input class="percents" value="10" /> &nbsp;%
+                    </div>
+
+                    <label class="filter_label label_radio"><input type="radio" name="filter-currency">EUR</label>
+                    <label class="filter_label label_radio"><input type="radio" name="filter-currency">USD</label>
+                    <label class="filter_label label_radio"><input type="radio" name="filter-currency">RUB</label>
+                </div>
+                <div class="filter_section distance">
+                    <h2>Общая площадь</h2>
+                    <div class="filter_label_holder clearfix">
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">100м</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">200м</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">400м</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">500м</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">800м</label>
+                    </div>
+                </div>
+                <div class="filter_section cities">
+                    <h2>Города Турции</h2>
+                    <div class="filter_label_holder clearfix">
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Алания</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Анталия</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Бодрум</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Белек</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Газипаша</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Каш</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Кемер</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Кестель</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Сиде</label>
+                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Махмутлар</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="bottom_sidebar clearfix">
+                <ul class="sidebar_nav clmn_left">
+                    <li class="li"><a href="" title="">Горячие предложения</a></li>
+                    <li class="li"><a class="large" href="" title="">Отправить запрос<br />На подбор недвижимости для покупки</a></li>
+                    <li class="shadow"></li>
+                    <li class="shadow bottom"></li>
+                </ul>
+                <div class="top_offer">
+                  <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
+                    <span class="toffer_holder clearfix">
+                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                        <span class="cost">600 €</span>
+                    </span>
+                </span>
+                </div>
+            </div>
+        </div>

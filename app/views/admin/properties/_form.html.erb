@@ -21,6 +21,7 @@
         <%= ff.input :lat, as: :hidden %>
         <%= ff.input :lng, as: :hidden %>
       <% end %>
+      <%= f.input :to_sea, collection: [100, 200, 400, 500, 800] %>
       <%# f.input :property_attributes %>
     </div>
   </div>
