@@ -34,18 +34,9 @@
                     <div class="line bt0">Город: <%= @property.city.name %></div>
                     <%# <div class="line">Район: Анталия</div> %>
                     <div class="line">Общая площадь: <%= @property.total_area %> кв. м</div>
-                    <div class="line">Количество комнат: 2</div>
-                    <div class="line">Количество спален: 1</div>
-                    <div class="line">Количество туалетов/ванн: 2</div>
-                    <div class="line">Год постройки: 2007</div>
-                    <div class="line">Тип отопления: печное</div>
-                    <div class="line">Этаж: 2</div>
-                    <div class="line">Размер объекта: 9</div>
-                    <div class="line">Лифт: да</div>
-                    <div class="line">Балкон: да</div>
-                    <div class="line">Парковка: да</div>
-                    <div class="line">Кондиционер: да</div>
-                    <div class="line">Кабельное TV/Спутник: нет</div>
+                    <% @property.property_attributes.each do |attr, value| %>
+                      <div class="line"><%=t "property_attribute.#{attr.name}" %>: <%= attr.answer(value) %></div>
+                    <% end %>
                     <div class="line">Расстояние до моря: <%= @property.to_sea %> м</div>
 
                     <span class="buy_item_map">

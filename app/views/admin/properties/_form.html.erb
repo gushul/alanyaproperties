@@ -24,6 +24,13 @@
       <%= f.input :to_sea, collection: [100, 200, 400, 500, 800] %>
       <%# f.input :property_attributes %>
     </div>
+    <div class="span4">
+      <%= f.simple_fields_for :property_attributes, @property.property_attributes do |ff| %>
+        <% PropertyAttribute.all.each do |attr| %>
+          <%= ff.input attr.name, as: attr.attribute_type %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

@@ -21,7 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'jquery-ui-rails'
 # Manage UI
 gem 'simple_form'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
