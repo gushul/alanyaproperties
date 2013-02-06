@@ -11,7 +11,6 @@
       <th><%= model_class.human_attribute_name(:attribute_type) %></th>
       <th><%= model_class.human_attribute_name(:options) %></th>
       <th><%= model_class.human_attribute_name(:default) %></th>
-      <th><%= model_class.human_attribute_name(:position) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -24,7 +23,6 @@
         <td><%= property_attribute.attribute_type %></td>
         <td><%= property_attribute.options %></td>
         <td><%= property_attribute.default %></td>
-        <td><%= property_attribute.position %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_property_attribute_path(property_attribute), :class => 'btn btn-mini' %>
