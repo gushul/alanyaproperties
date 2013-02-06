@@ -4,7 +4,7 @@ Alanya::Application.routes.draw do
 
   Property::ACTIONS.each do |action|
     scope action.to_s, as: action do
-      resources :properties, only: [:show], some_var: "hello"
+      resources :properties, only: [:show]
       get "" => "properties#index", property_for: action
     end
   end
@@ -21,7 +21,15 @@ Alanya::Application.routes.draw do
   devise_for :admin, controllers: { sessions: "admin/sessions" }
   namespace :admin do
     get :dashboard
-    resources :properties
+    resources :properties do
+      collection do
+        resources :property_attributes do
+          collection do
+            post 'sort'
+          end
+        end
+      end
+    end
     resources :cities
     get '', action: :index
   end

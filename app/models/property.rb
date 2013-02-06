@@ -1,5 +1,7 @@
+require 'property_attribute'
+
 class Property < ActiveRecord::Base
-  serialize :property_attributes, Hash
+  serialize :property_attributes, PropertyAttributesStruct
   serialize :geo, Hash
 
   mount_uploader :photo, PropertyPhotoUploader
@@ -19,5 +21,10 @@ class Property < ActiveRecord::Base
   after_initialize do
     @property_attributes ||= {}
     @geo ||= {}
+  end
+
+  def property_attributes=(attr={})
+    os = PropertyAttributesStruct.new(attr)
+    super(os)
   end
 end

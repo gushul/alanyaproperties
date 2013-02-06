@@ -48,7 +48,13 @@
           <div class="container nav-collapse">
             <ul class="nav">
               <li class="<%= 'active' if current_page?(admin_dashboard_path) %>"><%= link_to "Dashboard", admin_dashboard_path  %></li>
-              <li class="<%= 'active' if current_page?(admin_properties_path) || params[:controller] == 'admin/properties' %>"><%= link_to "Properties", admin_properties_path  %></li>
+              <li class="<%= 'active' if  params[:controller] =~ /admin\/propert/ %> dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="<%= 'active' if current_page?(admin_properties_path) %>"><%= link_to "List", admin_properties_path  %></li>
+                <li class="<%= 'active' if current_page?(admin_property_attributes_path) %>"><%= link_to "Attributes", admin_property_attributes_path  %></li>
+              </ul>
+              </li>
               <li class="<%= 'active' if params[:controller] == 'admin/cities' %>"><%= link_to "Cities", admin_cities_path  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
             </ul>

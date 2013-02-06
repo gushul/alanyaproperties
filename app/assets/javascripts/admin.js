@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.sortable
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require redactor-rails
@@ -28,4 +29,11 @@ $(function(){
     // "image": true, //Button to insert an image. Default true,
     // "color": false //Button to change color of font  
   // });
+  $('.sortable').sortable({
+    axis: 'y',
+    items: 'tbody > tr',
+    update: function(){
+      $.post($(this).data('sort-url'), $(this).sortable('serialize'))
+    }
+  })
 })
