@@ -17,3 +17,7 @@
 .img a:focus, a.buy_item_map:focus {
   outline: none;
 }
+
+.cboxIframe {
+  background: #e5e3df;
+}
