@@ -16,5 +16,5 @@
 //= require jquery.colorbox-min
 
 $(function(){
-  $('.property_photo').colorbox({rel: 'property'})
+  $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%'})
 })
