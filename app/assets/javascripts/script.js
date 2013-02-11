@@ -3,18 +3,6 @@ var visible_popup = '';
 var browser_class;
 var document_scroll;
 
-function setBrowserClassToBody(){
-    $.each(jQuery.browser, function(i, val) {
-        if( i == 'msie' ) return false;
-        browser_class = i;
-        return false;
-    });
-
-    // for IE we use conditional comments in html
-    $('html').addClass(browser_class);
-    /* mozilla, webkit, opera, ie_7, ie_8 */
-}
-
 function trim(string){
     return string.replace(/(^\s+)|(\s+$)/g, "");
 }
@@ -193,8 +181,6 @@ function navigationTween(stage){
 
 
 $(document).ready(function() {
-    // set class to body
-    setBrowserClassToBody();
 
     // init popups
     if( $('.popup').length ){

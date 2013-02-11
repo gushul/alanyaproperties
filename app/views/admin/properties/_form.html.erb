@@ -17,10 +17,13 @@
       <%= f.association :city %>
       <%= f.input :photo, as: :image_preview, input_html: { preview_version: :thumb } %>
       <%= f.input :photo_cache, as: :hidden %>
-      <%= f.simple_fields_for :geo do |ff| %>
-        <%= ff.input :lat, as: :hidden %>
-        <%= ff.input :lng, as: :hidden %>
-      <% end %>
+      <div class="row">
+        <h3>Map</h3>
+        <%# f.simple_fields_for :geo do |ff| %>
+          <%= f.input :lat, as: :float, wrapper_html: {class: 'span2'}, input_html: {class: 'input-medium'} %>
+          <%= f.input :lng, as: :float, wrapper_html: {class: 'span2'}, input_html: {class: 'input-medium'} %>
+        <%# end %>
+      </div>
       <%= f.input :to_sea, collection: [100, 200, 400, 500, 800] %>
       <%# f.input :property_attributes %>
     </div>

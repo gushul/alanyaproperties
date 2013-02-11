@@ -23,6 +23,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'modernizr-rails'
 
 # Manage UI
 gem 'simple_form'

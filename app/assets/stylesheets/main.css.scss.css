@@ -136,7 +136,7 @@ td { vertical-align: top; }
 .vam                { vertical-align:middle !important; }
 .vab                { vertical-align:bottom !important; }
 
-.opacity{
+body .opacity{
     opacity:0;
     -moz-opacity: 0;
     filter: alpha(opacity=0);
@@ -1296,6 +1296,13 @@ h1,h2,h3,h4,h5,h6{font-weight: 100;}
     font-size: 14px;
     line-height: 17px;
     text-align: center;
+}
+a.buy_item_map {
+  color: #6d6e70;
+  text-decoration: none;
+}
+a.buy_item_map:hover {
+  color: #00aeac;
 }
 .buy_item_map .map{
     display: block;

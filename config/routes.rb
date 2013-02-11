@@ -4,7 +4,9 @@ Alanya::Application.routes.draw do
 
   Property::ACTIONS.each do |action|
     scope action.to_s, as: action do
-      resources :properties, only: [:show]
+      resources :properties, only: [:show] do
+        get 'map', on: :member, as: :map
+      end
       get "" => "properties#index", property_for: action
     end
   end
