@@ -5,6 +5,8 @@ class Property < ActiveRecord::Base
   serialize :geo, Hash
 
   mount_uploader :photo, PropertyPhotoUploader
+  has_many :photos, as: :gallery
+
   scope :property_for, ->(action){ where(property_for: action) }
 
   belongs_to :city

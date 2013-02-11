@@ -22,6 +22,7 @@ Alanya::Application.routes.draw do
   namespace :admin do
     get :dashboard
     resources :properties do
+      resources :photos
       collection do
         resources :property_attributes do
           collection do
