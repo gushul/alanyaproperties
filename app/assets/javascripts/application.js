@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require script
+//= require jquery.colorbox-min
+
+$(function(){
+  $('.property_photo').colorbox({rel: 'property'})
+})

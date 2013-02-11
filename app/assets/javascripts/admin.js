@@ -16,6 +16,7 @@
 //= require twitter/bootstrap
 //= require redactor-rails
 //= require jquery.dataTables.min
+//= require jquery-fileupload/basic
 //= require DT_bootstrap
 
 $(function(){
@@ -36,4 +37,8 @@ $(function(){
       $.post($(this).data('sort-url'), $(this).sortable('serialize'))
     }
   })
+
+  $('.new_photo').fileupload({
+    dataType: 'script'
+  });
 })

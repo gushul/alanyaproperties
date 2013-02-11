@@ -18,10 +18,12 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem "jquery-fileupload-rails"
 end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+
 # Manage UI
 gem 'simple_form'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'

@@ -12,13 +12,11 @@
                 <h1 class="h1"><%= @property.name %></h1>
                 <div class="hr"></div>
                 <div class="buy_item_text">
-
                     <div class="buy_item_photos clearfix">
-                        <div class="img big"><%= image_tag 'img.png' %></div>
-                        <div class="img"><%= image_tag 'img.png' %></div>
-                        <div class="img"><%= image_tag 'img.png' %></div>
-                        <div class="img"><%= image_tag 'img.png' %></div>
-                        <div class="img"><%= image_tag 'img.png' %><i class="play"></i></div>
+                        <div class="img big"><%= photo_tag (@property.photos.shift || @property.photo), style: :big %></div>
+                        <% @property.photos.each do |photo| %>
+                          <div class="img"><%= photo_tag photo, title: photo.title, alt: photo.alt %></div>
+                        <% end -%>
                     </div>
 
 
@@ -49,6 +47,7 @@
 
                 </div>
                 <div class="clear"></div>
+                <% if false # disable block %>
                 <div class="hr"></div>
                 <h3 class="relative_offers_title">Вас могут заинтересовать подобные предложения</h3>
                 <ul class="relative_offers clearfix">
@@ -89,6 +88,7 @@
                         <span class="btn">ПОДРОБНЕЕ</span>
                     </li>
                 </ul>
+              <% end %>
             </div>
 
             <div class="buy_filter">
@@ -115,7 +115,7 @@
                         <input placeholder="желаемая сумма" />&nbsp; &plusmn; &nbsp;<input class="percents" value="10" /> &nbsp;%
                     </div>
 
-                    <label class="filter_label label_radio"><input type="radio" name="filter-currency">EUR</label>
+                    <label class="filter_label label_radio act"><input type="radio" name="filter-currency">EUR</label>
                     <label class="filter_label label_radio"><input type="radio" name="filter-currency">USD</label>
                     <label class="filter_label label_radio"><input type="radio" name="filter-currency">RUB</label>
                 </div>
