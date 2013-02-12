@@ -5,7 +5,7 @@ class CreatePropertyAttributes < ActiveRecord::Migration
       t.string :attribute_type
       t.text :options
       t.string :default
-      t.string :position, default: 0, null: false
+      t.integer :position, default: 0, null: false
 
       t.timestamps
     end
