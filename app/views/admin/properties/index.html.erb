@@ -5,9 +5,9 @@
 <table class="table table-striped data-table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>#</th>
+      <th><%= model_class.human_attribute_name(:object_id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:article) %></th>
       <th><%= model_class.human_attribute_name(:property_for) %></th>
       <th><%= model_class.human_attribute_name(:property_type) %></th>
       <th><%= model_class.human_attribute_name(:property_kind) %></th>
@@ -19,11 +19,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @properties.each do |property| %>
+    <% @properties.each_with_index do |property, i| %>
       <tr>
-        <td><%= link_to property.id, property_path(property) %></td>
+        <td><%= i + 1 %></td>
+        <td><%= link_to property.object_id, property_path(property) %></td>
         <td><%= property.name %></td>
-        <td><%= property.article %></td>
         <td><%= property.property_for %></td>
         <td><%= property.property_type %></td>
         <td><%= property.property_kind %></td>

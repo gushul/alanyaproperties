@@ -11,10 +11,10 @@ class Property < ActiveRecord::Base
   scope :property_for, ->(action){ where(property_for: action) }
 
   belongs_to :city
-  attr_accessible :article, :property_attributes, :description, :geo, :property_kind,
+  attr_accessible :object_id, :property_attributes, :description, :geo, :property_kind,
     :name, :photo, :price, :property_type, :city_id, :property_for, :total_area, :photo_cache, :hot, :to_sea, :lat, :lng
 
-  validates :name, :article, :description, :property_kind, :photo, :price,
+  validates :name, :object_id, :description, :property_kind, :photo, :price,
     :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true
 
   KINDS    = %w{new_building secondary_residence}
