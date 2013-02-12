@@ -37,6 +37,7 @@ gem 'mini_magick'
 gem 'simple_form_fancy_uploads'
 gem 'redactor-rails'
 
+gem 'yaml_db'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
