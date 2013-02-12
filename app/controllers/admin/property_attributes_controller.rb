@@ -10,8 +10,10 @@ class Admin::PropertyAttributesController < AdminController
   end
 
   def sort
-    params[:property_attribute].each_with_index do |id, index|
-      PropertyAttribute.update_all({position: index + 1}, {id: id})
+    PropertyAttribute.transaction do
+      params[:property_attribute].each_with_index do |id, index|
+        PropertyAttribute.unscoped.where(id: id).update_all(position: index + 1)
+      end
     end
     render nothing: true
   end
