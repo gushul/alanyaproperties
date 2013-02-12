@@ -86,9 +86,9 @@ ActiveRecord::Schema.define(:version => 20130206145152) do
     t.string   "attribute_type"
     t.text     "options"
     t.string   "default"
-    t.string   "position",       :default => "0", :null => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.integer  "position",       :default => 0, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "redactor_assets", :force => true do |t|
