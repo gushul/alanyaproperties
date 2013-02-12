@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20130212163706) do
 
   create_table "properties", :force => true do |t|
     t.string   "name"
-    t.string   "object_id"
+    t.string   "oid"
     t.text     "description"
     t.string   "property_type"
     t.string   "property_kind"
@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(:version => 20130212163706) do
     t.text     "property_attributes"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.boolean  "hot"
-    t.integer  "to_sea"
     t.integer  "total_area"
     t.string   "property_for"
+    t.boolean  "hot"
+    t.integer  "to_sea"
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"

@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>#</th>
-      <th><%= model_class.human_attribute_name(:object_id) %></th>
+      <th><%= model_class.human_attribute_name(:oid) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:property_for) %></th>
       <th><%= model_class.human_attribute_name(:property_type) %></th>
@@ -22,7 +22,7 @@
     <% @properties.each_with_index do |property, i| %>
       <tr>
         <td><%= i + 1 %></td>
-        <td><%= link_to property.object_id, property_path(property) %></td>
+        <td><%= link_to property.oid, property_path(property) %></td>
         <td><%= property.name %></td>
         <td><%= property.property_for %></td>
         <td><%= property.property_type %></td>

@@ -2,7 +2,7 @@ ru:
   simple_form:
     labels:
       property:
-        object_id: 'ID'
+        oid: 'ID'
     hints:
       property:
     placeholders:

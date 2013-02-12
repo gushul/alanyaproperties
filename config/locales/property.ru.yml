@@ -2,4 +2,4 @@ ru:
   activerecord:
     attributes:
       property:
-        object_id: 'ID'
+        oid: 'ID'
