@@ -17,6 +17,6 @@
 //= require jquery.colorbox-min
 
 $(function(){
-  $('.property_photo').colorbox({rel: 'property', width: '80%', height: '90%'});
+  $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%'});
   $('.property_map').colorbox({iframe: true, width: '80%', height: '90%'});
 })
