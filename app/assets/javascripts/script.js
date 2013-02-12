@@ -3,6 +3,18 @@ var visible_popup = '';
 var browser_class;
 var document_scroll;
 
+function setBrowserClassToBody(){
+    $.each(jQuery.browser, function(i, val) {
+        if( i == 'msie' ) return false;
+        browser_class = i;
+        return false;
+    });
+
+    // for IE we use conditional comments in html
+    $('html').addClass(browser_class);
+    /* mozilla, webkit, opera, ie_7, ie_8 */
+}
+
 function trim(string){
     return string.replace(/(^\s+)|(\s+$)/g, "");
 }
@@ -181,6 +193,8 @@ function navigationTween(stage){
 
 
 $(document).ready(function() {
+    // set class to body
+    // setBrowserClassToBody();
 
     // init popups
     if( $('.popup').length ){
@@ -190,13 +204,11 @@ $(document).ready(function() {
     }
 
     // filter_label add click event, if inner input[type=checkbox] checked add class act to label
-    if( $('.label_checkbox').length ){
-
-        $('.label_checkbox').click(function(){
-            if( $(this).find('input').attr('checked') == 'checked') $(this).addClass('act')
-            else $(this).removeClass('act')
-        });
-    }
+    $('.label_checkbox').on('click', function(e){
+      // e.stopPropagation();
+      // e.preventDefault();
+      $('input', this).prop('checked') ? $(this).addClass('act') : $(this).removeClass('act');
+    })
 
     if( $('.label_radio').length ){
         $('.label_radio').click(function(){
