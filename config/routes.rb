@@ -1,5 +1,13 @@
 Alanya::Application.routes.draw do
 
+  resources :turkey_news, path: 'turkey' do
+    collection do
+      resources :cities, only: :show, on: :collection
+
+    end
+  end
+
+
   resources :services, only: [:index, :show]
 
 
@@ -38,6 +46,7 @@ Alanya::Application.routes.draw do
     end
     resources :cities
     resources :services
+    resources :turkey_news
     get '', action: :index
   end
 

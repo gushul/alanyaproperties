@@ -1,10 +1,11 @@
 <% @content_class = 'services_page' %>
 <%= render 'shared/turkey_navbar' %>
+
         <div class="right_clmn">
-            <h3> <%= @city.name %></h3>
+            <h3><%= @turkey_news.title %></h3>
 
             <div class="services_content clearfix">
-              Content
+              <%= raw @turkey_news.body %>
             </div>
         </div>
 
