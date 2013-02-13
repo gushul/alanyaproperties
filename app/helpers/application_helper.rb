@@ -1,8 +1,17 @@
 # encoding: utf-8
 module ApplicationHelper
   def menu_link(name, link)
-    link_to_unless_current name, link do
-      content_tag('span', name)
+    case request.path
+    when link
+      content_tag :span, name
+    when /#{link}/
+      # <div class="div"><a class="act" href="" title="АКТИВНЫЙ ПУНКТ МЕНЮ, ССЫЛКА">УСЛУГИ</a><i class="nav_active"></i></div>
+      content_tag :div, class: 'div' do
+        link_to(name, link, class: 'act') +
+        tag(:i, class: 'nav_active')
+      end
+    else
+      link_to name, link
     end
   end
 

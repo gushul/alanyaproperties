@@ -1,0 +1,41 @@
+<% @content_class = 'services_page' %>
+        <ul class="sidebar_nav clmn_left">
+          <% collection.each do |page| %>
+            <li class="li"><%= link_to_unless_current page.name, page %></li>
+          <% end -%>
+            <li class="shadow"></li>
+            <li class="shadow bottom"></li>
+        </ul>
+
+        <div class="right_clmn">
+            <div class="top_offer">
+                <span class="toffer_inner clearfix" style="background-image: url('<%= image_path 'top_offer.png' %> ')">
+                    <span class="toffer_holder clearfix">
+                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                        <span class="cost">45 000 €</span>
+                    </span>
+                </span>
+            </div>
+
+            <h1 class="h1"><%= @service.name %></h1>
+
+            <div class="services_content clearfix">
+              <%= raw @service.body %>
+            </div>
+        </div>
+
+        <span class="btn usk_question big">ЗАДАТЬ ВОПРОС</span>
+
+        <a class="some_tour" href="" title="">
+            <span class="img_holder">
+                <span class="title">ОЗНАКОМИТЕЛЬНЫЙ ТУР</span>
+                <%= image_tag 'some_tour_img.png' %>
+            </span>
+            <span class="text1">Хотите изучить недвижимость<br />в Турции за наш счет?</span>
+            <span class="text2">Участвуйте в наших<br />ознакомительных турах</span>
+        </a>
+
+
+
+        <div class="clear"></div>

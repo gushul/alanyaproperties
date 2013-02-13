@@ -1,5 +1,8 @@
 Alanya::Application.routes.draw do
 
+  resources :services, only: [:index, :show]
+
+
   mount RedactorRails::Engine => '/redactor_rails'
 
   Property::ACTIONS.each do |action|
@@ -34,6 +37,7 @@ Alanya::Application.routes.draw do
       end
     end
     resources :cities
+    resources :services
     get '', action: :index
   end
 

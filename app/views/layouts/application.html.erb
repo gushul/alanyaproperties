@@ -31,7 +31,7 @@
         <table class="nav"><tr>
             <td class="td"><%= menu_link "КУПИТЬ", buy_path %></td>
             <td class="td"><%= menu_link "АРЕНДОВАТЬ", rent_path %></td>
-            <td class="td"><a class="" href="" title="">УСЛУГИ</a></td>
+            <td class="td"><%= menu_link "УСЛУГИ", services_path %></td>
             <td class="td"><a href="" title="">О ТУРЦИИ</a></td>
             <td class="td"><a href="" title="">О НАС</a></td>
             <td class="td"><a href="" title="">КОНТАКТЫ</a></td>
@@ -44,7 +44,7 @@
     <!-- END header-->
 
     <!-- BEGIN content-->
-    <div class="content">
+    <div class="content <%= @content_class %>">
       <%= yield %>
     </div>
     <!-- END content-->
