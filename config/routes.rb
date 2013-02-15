@@ -1,5 +1,9 @@
 Alanya::Application.routes.draw do
 
+
+
+  get "contacts" => "contacts#index", as: :contacts
+
   resources :turkey_news, path: 'turkey' do
     collection do
       resources :cities, only: :show, on: :collection
@@ -47,6 +51,7 @@ Alanya::Application.routes.draw do
     resources :cities
     resources :services
     resources :turkey_news
+    resources :contact_people
     get '', action: :index
   end
 

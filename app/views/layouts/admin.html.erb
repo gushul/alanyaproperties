@@ -59,6 +59,12 @@
               <li class="<%= 'active' if params[:controller] == 'admin/cities' %>"><%= link_to "Cities", admin_cities_path %></li>
               <li class="<%= 'active' if params[:controller] == 'admin/services' %>"><%= link_to "Services", admin_services_path %></li>
               <li class="<%= 'active' if params[:controller] == 'admin/turkey_news' %>"><%= link_to "Turkey News", admin_turkey_news_index_path %></li>
+              <li class="<%= 'active' if  params[:controller] =~ /admin\/contacts/ %> dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="<%= 'active' if current_page?(admin_contact_people_path) %>"><%= link_to "Persons", admin_contact_people_path %></li>
+              </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
