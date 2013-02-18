@@ -10,6 +10,7 @@
  *
  *= require font
  *= require main
+ *= require jquery-ui-1.9.2.custom
  *= require colorbox/example2/colorbox
  *= require_self
  */
@@ -24,4 +25,8 @@
 
 h3 {
   font-size: 20px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default {
+  padding: 8px 0;
 }

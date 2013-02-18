@@ -22,6 +22,7 @@ Alanya::Application.routes.draw do
       resources :properties, only: [:show] do
         get 'map', on: :member, as: :map
       end
+      match 'search' => "properties#search", as: :search, property_for: action
       get "" => "properties#index", property_for: action
     end
   end

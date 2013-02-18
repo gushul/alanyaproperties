@@ -39,6 +39,8 @@ gem 'simple_form_fancy_uploads'
 gem 'redactor-rails'
 
 gem 'yaml_db'
+
+gem 'kaminari'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -53,3 +55,8 @@ gem 'unicorn'
 
 # To use debugger
 # gem 'debugger'
+
+# Search Engine
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+

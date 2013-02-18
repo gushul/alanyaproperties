@@ -219,17 +219,65 @@ $(document).ready(function() {
     }
 
     // datepickers
-    if( $('#date-start').length ){
+    if($('.filter_section.period').length ){
+    $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
+    var datepicker_active = false;
+    var current_period = null;
+
+    $('.filter_section.period label').unbind('click');
+    $('.filter_section.period label').on('click', function(e){
+      period = $(e.target).data('el');
+      if(!period) return;
+
+      console.log(period, current_period);
+      // current_period = period;
+      datepicker_inner = $('#datepicker-inner');
+
+      if(current_period == period || datepicker_active){
+        var toggled = current_period == period;
+        if(toggled){
+          datepicker_inner.slideUp(function(){
+            datepicker_inner.datepicker('destroy');
+          });
+          datepicker_active = false;
+        }else{
+          datepicker_inner.datepicker('destroy');
+        }
+        current_period = period;
+        $('.filter_section.period label').removeClass('act');
+        if(toggled) return;
+      }
+
+      if(datepicker_active){
+        
+      }
+
+      // $('#datepicker-inner').datepicker('destroy');
+      $('#datepicker-inner').datepicker({
+            altField: period,
+            dateFormat: "dd/mm/yy",
+            showOtherMonths: true
+            ,selectOtherMonths: true
+        });
+      if(!datepicker_active){ $('#datepicker-inner').slideToggle() }
+      $(e.target).addClass('act');
+      
+      datepicker_active = true;
+      current_period = period;
+
+    });
+    }
+    if( false ){
         $('#date-start-datepicker').datepicker({
             altField: "#date-start",
-            dateFormat: "dd-mm-yy"
-            ,showOtherMonths: true
+            // dateFormat: "dd-mm-yy"
+            showOtherMonths: true
             ,selectOtherMonths: true
         });
         $('#date-end-datepicker').datepicker({
             altField: "#date-end",
-            dateFormat: "dd-mm-yy"
-            ,showOtherMonths: true
+            // dateFormat: "dd-mm-yy"
+            showOtherMonths: true
             ,selectOtherMonths: true
         });
 

@@ -1,0 +1,82 @@
+                  <% case params[:property_for] %>
+                  <% when 'buy' %>
+                    <div class="filter_section square first">
+                        <h2>Общая площадь</h2>
+                        <input name="total_area" value="<%= params[:total_area] %>"> &nbsp;кв. м
+                        <div class="id"><input placeholder="или введите ID объекта" name="oid" value="<%= params[:oid] %>"></div>
+                      </div>
+                  <% when 'rent' %>
+                    <div class="filter_section period first">
+                        <h2>Срок пребывания</h2>
+                        <label class="filter_label label_radio fleft" data-el="#date-start"><input type="radio" name="filter-period-fly">Дата приезда</label>
+                        <label class="filter_label label_radio fright" data-el="#date-end"><input type="radio" name="filter-period-fly">Дата отъезда</label>
+                        <div class="clear"></div>
+
+                        <input readonly="readonly" id="date-start" class="fleft"/>
+                        <input readonly="readonly" id="date-end" class="fright" />
+                        <div class="clear"></div>
+
+                        <div class="datepicker_holder">
+                            <div id="datepicker-inner" style="display:none;"></div>
+                            <div id="date-start-datepicker"></div>
+                            <div id="date-end-datepicker"></div>
+                        </div>
+                    </div>
+                  <% end -%>
+                    <div class="filter_section type">
+                        <h2>Тип недвижимости</h2>
+                        <div class="filter_label_holder clearfix">
+                          <% Property::TYPES.each do |type| %>
+                          <% checked = (params[:property_type] || []).member?(type) %>
+                          <label class="filter_label label_checkbox<%= ' big' if type =~ /\A\D/ %><%= ' act' if checked %>">
+                            <%= check_box_tag 'property_type[]', type, checked %>
+                            <%= t("property.types.#{type}") %>
+                          </label>
+                          <% end%>
+                        </div>
+                    </div>
+                    <div class="filter_section cost">
+                        <% case params[:property_for] %>
+                        <% when 'buy' %>
+                        <h2>Стоимость</h2>
+                        <div>
+                          <input placeholder="желаемая сумма" name="price" value="<%= params[:price] %>"/>&nbsp; &plusmn; &nbsp;<input class="percents" name="percents" value="<%= params[:percents] || 10 %>" /> &nbsp;%
+                        </div>
+                        <% when 'rent' %>
+                        <h2>Аренда</h2>
+                        <div class="rent">
+                          <input placeholder="желаемая сумма за весь срок" name="price" value="<%= params[:price] %>"/>&plusmn;<input class="percents" name="percents" value="<%= params[:percents] || 10 %>" /> %
+                        </div>
+                        <% end -%>
+                        <% ['EUR', 'USD', 'RUB'].each do |currency| %>
+                          <% checked = params[:currency] == currency %>
+                          <label class="filter_label label_radio <%= 'act' if checked %>">
+                            <%= radio_button_tag 'currency', currency, checked %>
+                            <%= currency %>
+                          </label>
+                        <% end -%>
+                    </div>
+                    <div class="filter_section distance">
+                        <h2>Расстояние до моря</h2>
+                        <div class="filter_label_holder clearfix">
+                          <% [100, 200, 400, 500, 800].each do |distance| %>
+                            <% checked = (params[:to_sea] || []).member?(distance.to_s) %>
+                            <label class="filter_label label_checkbox<%= ' act' if checked %>">
+                              <%= check_box_tag 'to_sea[]', distance, checked %>
+                              <%= distance %>м</label>
+                          <% end %>
+                        </div>
+                    </div>
+                    <% if params[:action] != 'index' %>
+                    <div class="filter_section cities">
+                        <h2>Города Турции</h2>
+                        <div class="filter_label_holder clearfix">
+                          <% City.all.each do |city| %>
+                              <% checked = (params[:city_id] || []).member?(city.id.to_s) %>
+                              <label class="filter_label label_checkbox<%= ' act' if checked %>">
+                              <%= check_box_tag 'city_id[]', city.id, checked %>
+                              <%= city.name %></label>
+                            <% end -%>
+                        </div>
+                    </div>
+                    <% end -%>

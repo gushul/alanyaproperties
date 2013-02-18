@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-ru
+// require jquery-ui-1.9.2.custom.min
 //= require modernizr
 //= require script
 //= require jquery.colorbox-min

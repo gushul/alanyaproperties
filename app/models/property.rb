@@ -1,6 +1,7 @@
 require 'property_attribute'
 
 class Property < ActiveRecord::Base
+  paginates_per 1
   serialize :property_attributes, PropertyAttributesStruct
   # serialize :geo, Hash
   store :geo, accessors: [ :lat, :lng ]
@@ -18,7 +19,7 @@ class Property < ActiveRecord::Base
     :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true
 
   KINDS    = %w{new_building secondary_residence}
-  TYPES    = %w{studio 1+1 2+1 3+1 4+1 penthouse villa} # студио, 1+1, 2+1, 3+1, 4+1, пентхауз, вилла
+  TYPES    = %w{1+1 2+1 3+1 4+1 studio penthouse villa} # студио, 1+1, 2+1, 3+1, 4+1, пентхауз, вилла
   ACTIONS  = %w{buy rent}
 
   after_initialize do
@@ -33,5 +34,20 @@ class Property < ActiveRecord::Base
 
   def map_mini_image
     "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=16&size=197x111&markers=icon:http://dl.dropbox.com/u/3489459/map_marker.png%7C#{lat},#{lng}&sensor=false"
+  end
+
+  # Search
+
+  searchable do
+    text :name
+    text :description, :stored => true
+    string :oid
+    string :property_type
+    string :property_for
+    string :property_kind
+    boolean :hot, :using => :hot?
+    integer :total_area
+    double :price
+    integer :city_id, references: City
   end
 end

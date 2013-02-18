@@ -677,14 +677,14 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
 .filter h1,
 .filter h2,
 .filter h3{margin: 0}
-.h1{
+.h1, h1{
     font-weight: 100;
     font-size: 32px;
     line-height: 36px;
     margin: 0;
 }
-.filter .h1,
-.results .h1{
+.filter .h1, .filter h1,
+.results .h1, .result h1 {
     margin: 0 0 10px 250px;
 }
 .filter h2,
@@ -733,6 +733,8 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
 }
 .filter_label input{display: none}
 .filter_section.first{border-top: 0 !important;}
+.filter .clmn.fleft .filter_section,
+.results .clmn.fleft .filter_section,
 .results .clmn.fleft .filter_section{
     padding:  8px 5px 5px;
     border-top: 1px solid #e3e3e3;
@@ -846,6 +848,9 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
     padding: 2px 10px 1px;
     margin: 0 0 8px 8px;
 }
+.filter_section.type .filter_label:hover {
+  background: #e6e7e8;
+}
 .filter_section.type .filter_label.big {
 	margin: 0 -6px 8px 8px;;
 }
@@ -889,6 +894,8 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
     line-height: 17px;
 }
 .filter_section.cost input{width: 102px}
+.filter_section.cost .rent input {width: 158px; padding: 2px 2px 2px; font-size: 12px;}
+.filter_section.cost .rent .percents { width: 16px;}
 /* .filter_section.cost h2{margin-bottom: 5px} */
 .filter_section.cost .percents{
     width: 15px;
@@ -916,6 +923,7 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
 
 /* filter_section.period */
 .filter_section.period{
+    position:relative;
     color: #4d4d4d;
     font-size: 14px;
     line-height: 17px;
@@ -997,6 +1005,10 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
 
 .datepicker_holder{
     margin: 6px 0 -6px;
+    left: 0;
+    top: 102px;
+    width: 223px;
+    position: absolute;
 }
 
 .main_links{
@@ -1789,7 +1801,9 @@ a.buy_item_map:hover {
 	}
 	.pagination a,
 	.pagination a:link,
-	.pagination a:visited	{
+	.pagination a:visited,
+  .pagination .pages,
+  .pagination .current {
 		color: #939598;
 		font-size: 12px;
 		line-height: 120%;
@@ -1805,8 +1819,12 @@ a.buy_item_map:hover {
 		}
 		.pagination a:hover,
 		.pagination a:active,
-		.pagination a.on{
+		.pagination a.on,
+    .pagination .current {
 			color: #00aeac;
 			text-decoration: underline;
 			border-color: #00aeac;
 			}
+    .pagination .current {
+      text-decoration: none;
+    }
