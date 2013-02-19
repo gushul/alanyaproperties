@@ -13,7 +13,7 @@ class PropertiesController < ApplicationController#< InheritedResources::Base
       with(:property_for, params[:property_for] || 'buy')
       with(:city_id, params[:city_id]) if params[:city_id]
       with(:property_type, params[:property_type]) if params[:property_type]
-      with(:price, price_range(params[:price], params[:percents])) unless params[:price].empty?
+      with(:price, price_range(params[:price], params[:percents])) unless params[:price].blank?
 
       paginate :page => params[:page], :per_page => 9
     end.results
