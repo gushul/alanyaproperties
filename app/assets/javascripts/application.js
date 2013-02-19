@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-ru
+//= require period
 // require jquery-ui-1.9.2.custom.min
 //= require modernizr
 //= require script

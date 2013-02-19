@@ -8,18 +8,18 @@
                   <% when 'rent' %>
                     <div class="filter_section period first">
                         <h2>Срок пребывания</h2>
-                        <label class="filter_label label_radio fleft" data-el="#date-start"><input type="radio" name="filter-period-fly">Дата приезда</label>
-                        <label class="filter_label label_radio fright" data-el="#date-end"><input type="radio" name="filter-period-fly">Дата отъезда</label>
+                        <label class="filter_label label_radio fleft" id="date-start-label">Дата приезда</label>
+                        <label class="filter_label label_radio fright" id="date-end-label">Дата отъезда</label>
                         <div class="clear"></div>
 
-                        <input readonly="readonly" id="date-start" class="fleft"/>
-                        <input readonly="readonly" id="date-end" class="fright" />
+                        <input id="date-start" class="fleft" name="period_min" value="<%= params[:period_min] %>"/>
+                        <input id="date-end" class="fright" name="period_max" value="<%= params[:period_max] %>"/>
                         <div class="clear"></div>
 
                         <div class="datepicker_holder">
-                            <div id="datepicker-inner" style="display:none;"></div>
-                            <div id="date-start-datepicker"></div>
-                            <div id="date-end-datepicker"></div>
+                            <div id="datepicker-inner" style="display: block;"></div>
+                            <div id="date-start-datepicker" style="display: block;"></div>
+                            <div id="date-end-datepicker" style="display: block;"></div>
                         </div>
                     </div>
                   <% end -%>
