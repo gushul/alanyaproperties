@@ -25,12 +25,12 @@
             <div class="clmn_right">
                 <h2 class="h2">Выберите, кому вы хотите отправить сообщение</h2>
 
-                <form class="form">
+                <%= form_for @message, url: '', html: { class: 'form' } do |f| %>
 
                     <div class="persone_send_holder clearfix">
                       <% ContactPerson.all.each do |p| %>
-                        <label class="persone_send label_radio">
-                            <input type="radio" name="contact_person" value="<%= p.id %>" />
+                        <label class="persone_send label_radio <%= 'act' if p.default? %>">
+                            <%= f.radio_button :contact_person_id, p.id, checked: p.default? %>
                             <%= image_tag p.photo.thumb %>
                             <span class="name"><%= p.name %></span>
                             <span class="position"><%= p.post %></span>
@@ -41,30 +41,29 @@
                     <%= simple_format @setting.text %>
 
                     <div class="form_left">
-                        <input class="input" placeholder="Введите ваше имя" />
-                        <input class="input" placeholder="Ваш e-mail" />
-                        <input class="input" placeholder="Ваш телефон + xx xxx xxx xxxx" />
-                        <div class="select">
-                            <input type="hidden" value="" />
-                            <div class="sel_val"><span>Тема сообщения</span></div>
-                            <div class="sel_optns">
-                                <span class="sel_optn" rel="0">тема такая-то</span>
-                                <span class="sel_optn" rel="1">тема такая-то</span>
-                                <span class="sel_optn" rel="2">тема такая-то тема такая-то</span>
-                                <span class="sel_optn" rel="3">тема такая-то</span>
-                                <span class="sel_optn" rel="4">тема такая-то тема такая-то</span>
-                            </div>
+                      <%= f.text_field :contact_name, placeholder: 'Введите ваше имя', class: 'input' %>
+                      <%= f.text_field :contact_email, placeholder: 'Ваш e-mail', class: 'input' %>
+                      <%= f.text_field :contact_phone, placeholder: 'Ваш телефон + xx xxx xxx xxxx', class: 'input' %>
+                      <div class="select">
+                        <% first_topic = ContactTopic.first %>
+                        <%= f.hidden_field :contact_topic_id, value: first_topic.try(:id) %>
+                        <div class="sel_val"><span><%= first_topic.try(:name) %></span></div>
+                        <div class="sel_optns">
+                          <% ContactTopic.all.each do |topic| %>
+                          <span class="sel_optn" rel="<%= topic.id %>"><%= topic.name %></span>
+                          <% end -%>
                         </div>
+                      </div>
                     </div>
                     <div class="form_right">
-                      <textarea placeholder="Введите текст вашего сообщения"></textarea>
-                        <label class="label_send_to_me"><input type="checkbox" /> Отправить копию этого сообщения на мою почту</label>
+                      <%= f.text_area :message, placeholder: 'Введите текст вашего сообщения' %>
+                        <label class="label_send_to_me"><%= check_box_tag :send_me_copy %> Отправить копию этого сообщения на мою почту</label>
                     </div>
                     <div class="clear"></div>
 
                     <span class="btn btn_input big send_btn">ОТПРАВИТЬ<i class="input"><input type="submit" /></i></span>
                     <div class="clear"></div>
 
-                </form>
+                  <% end -%>
             </div>
         </div>

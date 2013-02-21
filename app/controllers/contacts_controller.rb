@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
   before_filter :settings
 
   def index
+    @message = ContactMessage.new
   end
 
   def map
@@ -9,6 +10,17 @@ class ContactsController < ApplicationController
     @property = OpenStruct.new lat: lat, lng: lng, name: ''
 
     render 'properties/map', layout: false
+  end
+
+  def send_message
+
+    @message = ContactMessage.new(params[:contact_message])
+
+    if @message.save
+      redirect_to contacts_thanks_path
+    else
+      render 'index'
+    end
   end
 
   private

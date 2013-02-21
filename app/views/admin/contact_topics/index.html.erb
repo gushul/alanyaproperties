@@ -1,4 +1,4 @@
-<%- model_class = ContactPerson -%>
+<%- model_class = ContactTopic -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
@@ -6,28 +6,22 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:photo) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:post) %></th>
-      <th style="text-align: center;"><%= model_class.human_attribute_name(:default) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @contact_people.each do |contact_person| %>
+    <% @contact_topics.each do |contact_topic| %>
       <tr>
-        <td><%= link_to contact_person.id, admin_contact_person_path(contact_person) %></td>
-        <td><%= image_tag contact_person.photo.thumb %></td>
-        <td><%= contact_person.name %></td>
-        <td><%= contact_person.post %></td>
-        <td style="text-align: center;"><%= '✓' if contact_person.default %></td>
-        <td><%=l contact_person.created_at, format: :short %></td>
+        <td><%= contact_topic.id %></td>
+        <td><%= contact_topic.name %></td>
+        <td><%=l contact_topic.created_at, format: :short %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_admin_contact_person_path(contact_person), :class => 'btn btn-mini' %>
+                      edit_admin_contact_topic_path(contact_topic), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      admin_contact_person_path(contact_person),
+                      admin_contact_topic_path(contact_topic),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
@@ -38,5 +32,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_admin_contact_person_path,
+            new_admin_contact_topic_path,
             :class => 'btn btn-primary' %>

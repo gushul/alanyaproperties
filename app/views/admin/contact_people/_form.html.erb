@@ -3,6 +3,7 @@
   <%= f.input :post %>
   <%= f.input :photo, as: :image_preview, input_html: { preview_version: :thumb } %>
   <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :default %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

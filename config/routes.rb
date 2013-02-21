@@ -1,7 +1,12 @@
 Alanya::Application.routes.draw do
 
-  get "contacts" => "contacts#index"
-  get "contacts/map"
+  # resources :contact_messages
+
+
+  get 'contacts' => 'contacts#index'
+  post 'contacts' => 'contacts#send_message'
+  get 'contacts/map'
+  get 'contacts/thanks'
 
   resources :turkey_news, path: 'turkey' do
     collection do
@@ -21,8 +26,8 @@ Alanya::Application.routes.draw do
       resources :properties, only: [:show] do
         get 'map', on: :member, as: :map
       end
-      match 'search' => "properties#search", as: :search, property_for: action
-      get "" => "properties#index", property_for: action
+      match 'search' => 'properties#search', as: :search, property_for: action
+      get '' => 'properties#index', property_for: action
     end
   end
 
@@ -35,7 +40,7 @@ Alanya::Application.routes.draw do
   # resources :properties
   # resources :cities
 
-  devise_for :admin, controllers: { sessions: "admin/sessions" }
+  devise_for :admin, controllers: { sessions: 'admin/sessions' }
   namespace :admin do
     get :dashboard
     resources :properties do
@@ -54,6 +59,7 @@ Alanya::Application.routes.draw do
     scope 'contacts' do
       # collection do
         resources :contact_people, path: 'people'
+        resources :contact_topics, path: 'topics'
       # end
       match 'settings' => 'contacts#settings', as: :contacts_settings
     end

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @contact_message.contact_name %>
+</p>
+
+<p>
+  <b>Contact email:</b>
+  <%= @contact_message.contact_email %>
+</p>
+
+<p>
+  <b>Contact phone:</b>
+  <%= @contact_message.contact_phone %>
+</p>
+
+<p>
+  <b>Contact topic:</b>
+  <%= @contact_message.contact_topic %>
+</p>
+
+<p>
+  <b>Contact person:</b>
+  <%= @contact_message.contact_person %>
+</p>
+
+<p>
+  <b>Property:</b>
+  <%= @contact_message.property %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_message_path(@contact_message) %> |
+<%= link_to 'Back', contact_messages_path %>

@@ -44,3 +44,7 @@ h3 {
 #date-start, #date-end, #main-search-input {
   outline: none;
 }
+
+.form .field_with_errors .input, .form .field_with_errors textarea {
+  border-color: red;
+}

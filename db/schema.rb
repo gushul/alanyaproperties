@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220144324) do
+ActiveRecord::Schema.define(:version => 20130221155628) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -48,10 +48,33 @@ ActiveRecord::Schema.define(:version => 20130220144324) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "contact_messages", :force => true do |t|
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.text     "message"
+    t.integer  "contact_topic_id"
+    t.integer  "contact_person_id"
+    t.integer  "property_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "contact_messages", ["contact_person_id"], :name => "index_contact_messages_on_contact_person_id"
+  add_index "contact_messages", ["contact_topic_id"], :name => "index_contact_messages_on_contact_topic_id"
+  add_index "contact_messages", ["property_id"], :name => "index_contact_messages_on_property_id"
+
   create_table "contact_people", :force => true do |t|
     t.string   "name"
     t.string   "post"
     t.string   "photo"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "default",    :default => false
+  end
+
+  create_table "contact_topics", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

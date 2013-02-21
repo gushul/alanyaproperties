@@ -355,6 +355,7 @@ a.btn:active{ color:#000000 }
     top: -2px;
     z-index: 1;
     font-size: 1000px;
+    width: auto !important;
 }
 
 /* Footer
