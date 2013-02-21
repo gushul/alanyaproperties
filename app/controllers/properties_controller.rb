@@ -23,6 +23,10 @@ class PropertiesController < ApplicationController#< InheritedResources::Base
     @property = Property.find(params[:id])
   end
 
+  def map
+    @property = Property.find(params[:id])
+  end
+
   def properties
     @properties = Property.property_for(params[:property_for] || 'buy')
   end
