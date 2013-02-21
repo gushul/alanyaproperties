@@ -17,3 +17,7 @@
 .form-inline .span4 .controls{
   margin-left: 0;
 }
+
+.form-horizontal textarea.text {
+  height: 50px;
+}

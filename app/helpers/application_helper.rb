@@ -25,4 +25,8 @@ module ApplicationHelper
       super(number, options)
     end
   end
+
+  def map_mini_image(lat, lng)
+    "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=16&size=197x111&markers=icon:http://dl.dropbox.com/u/3489459/map_marker.png%7C#{lat},#{lng}&sensor=false"
+  end
 end

@@ -39,7 +39,7 @@
                     <% end %>
 
                     <%= link_to [:map, @property], class: 'buy_item_map property_map' do %>
-                      <span class="map"><%= image_tag(@property.map_mini_image) %></span>
+                      <span class="map"><%= image_tag(map_mini_image(@property.lat, @property.lng)) %></span>
                       <span class="title">Смотреть на карте</span>
                     <% end -%>
 

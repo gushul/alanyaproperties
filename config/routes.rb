@@ -1,8 +1,7 @@
 Alanya::Application.routes.draw do
 
-
-
-  get "contacts" => "contacts#index", as: :contacts
+  get "contacts" => "contacts#index"
+  get "contacts/map"
 
   resources :turkey_news, path: 'turkey' do
     collection do
@@ -52,7 +51,12 @@ Alanya::Application.routes.draw do
     resources :cities
     resources :services
     resources :turkey_news
-    resources :contact_people
+    scope 'contacts' do
+      # collection do
+        resources :contact_people, path: 'people'
+      # end
+      match 'settings' => 'contacts#settings', as: :contacts_settings
+    end
     get '', action: :index
   end
 

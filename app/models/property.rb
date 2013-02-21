@@ -1,7 +1,6 @@
 require 'property_attribute'
 
 class Property < ActiveRecord::Base
-  paginates_per 1
   serialize :property_attributes, PropertyAttributesStruct
   # serialize :geo, Hash
   store :geo, accessors: [ :lat, :lng ]
@@ -30,10 +29,6 @@ class Property < ActiveRecord::Base
   def property_attributes=(attr={})
     os = PropertyAttributesStruct.new(attr)
     super(os)
-  end
-
-  def map_mini_image
-    "http://maps.googleapis.com/maps/api/staticmap?center=#{lat},#{lng}&zoom=16&size=197x111&markers=icon:http://dl.dropbox.com/u/3489459/map_marker.png%7C#{lat},#{lng}&sensor=false"
   end
 
   # Search

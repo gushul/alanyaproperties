@@ -1,29 +1,25 @@
         <div class="contacts_page clearfix">
             <div class="clmn_left">
                 <h2 class="h2">Адреc агенства</h2>
-                <div class="phone">+90 242 511 11 17</div>
-                <div class="phone">+90 242 513 44 17</div>
-                <div class="phone">+90 532 300 53 08</div>
+                <% @setting.phones.split(/\s*,\s*/).each do |phone| %>
+                  <div class="phone"><%= phone %></div>
+                <% end -%>
 
-                <p>
-                    Alanya Properties<br />
-                    Saray Mh. Atatürk Bulvarı. No: 127
-                    Demirağ Apt. D:
-                    107400 Alanya - Antalya Turkey
-                </p>
-
-                <span class="buy_item_map">
-                    <span class="map">
-                      <%= image_tag 'map.png' %>
-                        <i class="marker"></i>
-                    </span>
+                <%= simple_format @setting.address %>
+                
+                <% if @setting.geo %>
+                  <% lat, lng = @setting.geo.split(/\s*,\s*/) %>
+                  <%= link_to [:contacts, :map], class: 'buy_item_map property_map' do %>
+                    <span class="map"><%= image_tag(map_mini_image(lat, lng)) %></span>
                     <span class="title">Смотреть на карте</span>
-                </span>
+                  <% end -%>
+                <% end -%>
 
                 <div class="hr"></div>
 
-                <span class="skype">Звонить по Скайпу</span>
-
+                <% if @setting.skype %>
+                  <a class="skype" href="skype:<%= @setting.skype %>?call">Звонить по Скайпу</a>
+                <% end -%>
                 <span class="other_contacts">Контакты наших партнеров<br />в других странах</span>
             </div>
             <div class="clmn_right">
@@ -42,10 +38,7 @@
                       <% end -%>
                     </div>
 
-                    <p>
-                        Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про.
-                    </p>
-
+                    <%= simple_format @setting.text %>
 
                     <div class="form_left">
                         <input class="input" placeholder="Введите ваше имя" />
