@@ -17,7 +17,7 @@ class Setting < ActiveRecord::Base
       phones: { type: :string, hint: "Телефоны через запятую" },
       address: { type: :text, hint: 'Контактный адрес в левой панели' },
       skype: { type: :string },
-      geo: { type: :string, hint: "Lat, Lng. Пример: 42,9 -98,3" }
+      geo: { type: :string, hint: "Lat, Lng. Пример: 42.9, -98.3" }
     }
   }
 
