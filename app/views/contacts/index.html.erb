@@ -6,7 +6,7 @@
                 <% end -%>
 
                 <%= simple_format @setting.address %>
-                
+
                 <% if @setting.geo %>
                   <% lat, lng = @setting.geo.split(/\s*,\s*/) %>
                   <%= link_to [:contacts, :map], class: 'buy_item_map property_map' do %>
@@ -42,8 +42,8 @@
 
                     <div class="form_left">
                       <%= f.text_field :contact_name, placeholder: 'Введите ваше имя', class: 'input' %>
-                      <%= f.text_field :contact_email, placeholder: 'Ваш e-mail', class: 'input' %>
-                      <%= f.text_field :contact_phone, placeholder: 'Ваш телефон + xx xxx xxx xxxx', class: 'input' %>
+                      <%= f.email_field :contact_email, placeholder: 'Ваш e-mail', class: 'input' %>
+                      <%= f.phone_field :contact_phone, placeholder: 'Ваш телефон + xx xxx xxx xxxx', class: 'input' %>
                       <div class="select">
                         <% first_topic = ContactTopic.first %>
                         <%= f.hidden_field :contact_topic_id, value: first_topic.try(:id) %>

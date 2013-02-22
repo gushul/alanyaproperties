@@ -7,4 +7,16 @@ class ContactMessage < ActiveRecord::Base
   validates :contact_email, :contact_name, :contact_phone, :message, :contact_person_id, :contact_topic_id, presence: true
 
   validates :contact_email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
+  # validates :contact_phone, :phony_plausible => true, :with => /^\+\d+/
+  # validates_plausible_phone :contact_phone, :with => /^\+\d+/
+  # phony_normalize :contact_phone, :default_country_code => 'RU'
+  validates :contact_phone, :format => { :with => /\A\+[\d\s-\(\)]+\Z/ }
+  validates :contact_phone, :length => {
+    :minimum   => 10,
+    :maximum   => 14,
+    :tokenizer => lambda { |str| str.scan(/\d/) },
+    # :too_short => "must have at least %{count} words",
+    # :too_long  => "must have at most %{count} words"
+  }
+
 end
