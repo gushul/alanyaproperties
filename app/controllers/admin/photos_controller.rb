@@ -1,6 +1,6 @@
 class Admin::PhotosController < AdminController
   inherit_resources
-  belongs_to :property, polymorphic: true
+  belongs_to :property, :city, polymorphic: true
 
   def update
     update! { url_for [:admin, parent, :photos] }

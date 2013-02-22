@@ -8,7 +8,7 @@ Alanya::Application.routes.draw do
   get 'contacts/map'
   get 'contacts/thanks'
 
-  resources :turkey_news, path: 'turkey' do
+  resources :turkey_news, path: 'turkey', only: [:index, :show] do
     collection do
       resources :cities, only: :show, on: :collection
 
@@ -53,7 +53,9 @@ Alanya::Application.routes.draw do
         end
       end
     end
-    resources :cities
+    resources :cities do
+      resources :photos
+    end
     resources :services
     resources :turkey_news
     scope 'contacts' do

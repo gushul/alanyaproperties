@@ -212,8 +212,7 @@ $(document).ready(function() {
 
     if( $('.label_radio').length ){
         $('.label_radio').click(function(){
-            var name = $(this).find('input').attr('name');
-            $('input[name='+name+']').closest('.label_radio').removeClass('act');
+            $('.label_radio').removeClass('act');
             $(this).addClass('act');
         });
     }

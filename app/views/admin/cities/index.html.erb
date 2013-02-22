@@ -18,6 +18,9 @@
         <td><%= city.name %></td>
         <td><%=l city.created_at %></td>
         <td>
+          <a href="<%= admin_city_photos_path(city) %>" class="btn btn-mini btn-success">
+            <i class="icon-camera"></i> Photos
+          </a>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       [:edit, :admin, city], :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
