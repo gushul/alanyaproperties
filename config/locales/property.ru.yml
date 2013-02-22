@@ -3,3 +3,16 @@ ru:
     attributes:
       property:
         oid: 'ID объекта'
+  property:
+    for:
+      buy: "Продажа"
+      rent: "Аренда"
+    type:
+      1+1: 1+1
+      2+1: 2+1
+      3+1: 3+1
+      4+1: 4+1
+      studio: Студия
+      penthouse: Пентхауз
+      villa: Вилла
+

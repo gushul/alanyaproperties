@@ -1,4 +1,6 @@
-<div class="buy_page">
+<% title "#{@property.name}. #{t "property.for.#{@property.property_for}"} недвижимости в #{@property.city.name}, Турция." %>
+<% description "#{t "property.for.#{@property.property_for}"} недвижимости по цене #{@property.price} евро. Лучшие предолжения от застройщика в Турции. Большой выбор квартир и вилл у моря." %>
+        <div class="buy_page">
             <ul class="sidebar_nav clmn_left">
                 <li class="li"><a href="" title="">Листать предложения по продаже</a></li>
                 <li class="li"><a href="" title="">Процедура покупки недвижимости</a></li>
@@ -45,34 +47,10 @@
 
                 </div>
                 <div class="clear"></div>
-                <% if false # disable block %>
+              <% if false # disable block %>
                 <div class="hr"></div>
                 <h3 class="relative_offers_title">Вас могут заинтересовать подобные предложения</h3>
                 <ul class="relative_offers clearfix">
-                    <li class="li">
-                        <div class="img"><%= image_tag 'img.png' %></div>
-                        <div class="relative_offer_content">
-                            <div class="title">Жилой коплекс “Семь Звезд”</div>
-                            <div class="text">
-                                город: Алания<br />
-                                комнат/спален: 1+1
-                            </div>
-                        </div>
-                        <div class="price">25 000 €</div>
-                        <span class="btn">ПОДРОБНЕЕ</span>
-                    </li>
-                    <li class="li">
-                        <div class="img"><%= image_tag 'img.png' %></div>
-                        <div class="relative_offer_content">
-                            <div class="title">Жилой коплекс “Семь Звезд”</div>
-                            <div class="text">
-                                город: Алания<br />
-                                комнат/спален: 1+1
-                            </div>
-                        </div>
-                        <div class="price">25 000 €</div>
-                        <span class="btn">ПОДРОБНЕЕ</span>
-                    </li>
                     <li class="li">
                         <div class="img"><%= image_tag 'img.png' %></div>
                         <div class="relative_offer_content">
@@ -90,58 +68,7 @@
             </div>
 
             <div class="buy_filter">
-                <div class="filter_section square first">
-                    <h2>Общая площадь</h2>
-                    <input> &nbsp;кв. м
-                    <div class="id"><input placeholder="или введите ID объекта"></div>
-                </div>
-                <div class="filter_section type">
-                    <h2>Тип недвижимости</h2>
-                    <div class="filter_label_holder clearfix">
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />1+1</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />2+1</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />3+1</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />4+1</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Студия</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Пентхауз</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-type" />Вилла</label>
-                    </div>
-                </div>
-                <div class="filter_section cost">
-                    <h2>Стоимость</h2>
-                    <div>
-                        <input placeholder="желаемая сумма" />&nbsp; &plusmn; &nbsp;<input class="percents" value="10" /> &nbsp;%
-                    </div>
-
-                    <label class="filter_label label_radio act"><input type="radio" name="filter-currency">EUR</label>
-                    <label class="filter_label label_radio"><input type="radio" name="filter-currency">USD</label>
-                    <label class="filter_label label_radio"><input type="radio" name="filter-currency">RUB</label>
-                </div>
-                <div class="filter_section distance">
-                    <h2>Расстояние до моря</h2>
-                    <div class="filter_label_holder clearfix">
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">100м</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">200м</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">400м</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">500м</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">800м</label>
-                    </div>
-                </div>
-                <div class="filter_section cities">
-                    <h2>Города Турции</h2>
-                    <div class="filter_label_holder clearfix">
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Алания</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Анталия</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Бодрум</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Белек</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Газипаша</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Каш</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Кемер</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Кестель</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Сиде</label>
-                        <label class="filter_label label_checkbox"><input type="checkbox" name="filter-distance">Махмутлар</label>
-                    </div>
-                </div>
+                <%= render 'filter' %>
             </div>
 
             <div class="clear"></div>

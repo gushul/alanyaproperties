@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+//@function image-url($img){
+//  @return url(../images/#{$img});
+//}
+
 @font-face {
     font-family: 'MyriadPro';
     src: url('font/MyriadPro-Light.eot');
@@ -253,6 +257,16 @@ body .opacity{
     position: relative;
     top: 3px;
 }
+.plane_arrive{
+    background: image-url('plane_arrive.png') no-repeat 0 0;
+    width: 23px;
+    height: 21px;
+}
+.plane_off{
+    background: image-url('plane_off.png') no-repeat 0 0;
+    width: 24px;
+    height: 21px;
+}
 
 /* BTNS
 -----------------------------------------------------------------------------*/
@@ -339,6 +353,11 @@ a.btn:active{ color:#000000 }
     font-size: 22px;
     line-height: 22px;
     padding: 12px 0 8px;
+}
+.btn.middle{
+    font-size: 14px;
+    line-height: 17px;
+    padding: 6px 10px 5px;
 }
 .btn_input{
     position: relative;
@@ -528,6 +547,10 @@ a.btn:active{ color:#000000 }
 -----------------------------------------------------------------------------*/
 .content {
     padding: 0 0 90px;
+}
+.content .h2{
+  font-size: 24px;
+  line-height: 28px;
 }
 .content .clmn_left{
     width: 222px;
@@ -842,6 +865,7 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
 .filter_section.type .filter_label_holder{
     margin-left: -8px;
 }
+.field .filter_label,
 .filter_section.type .filter_label{
     background: white;
     -webkit-border-radius: 4px;
@@ -855,12 +879,15 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
     padding: 2px 10px 1px;
     margin: 0 0 8px 8px;
 }
+.field .filter_label:hover,
 .filter_section.type .filter_label:hover {
   background: #e6e7e8;
 }
+.field .filter_label.big,
 .filter_section.type .filter_label.big {
 	margin: 0 -6px 8px 8px;;
 }
+.field .filter_label.act,
 .filter_section.type .filter_label.act{
     background-color: #00aeac;
     color: white;
@@ -1835,3 +1862,87 @@ a.buy_item_map:hover {
     .pagination .current {
       text-decoration: none;
     }
+
+
+
+.transfer{}
+.transfer .hr{}
+.transfer_clmn{
+  width: 232px;
+  float: left;
+  margin: 0 30px 0 50px;
+}
+.transfer_form{
+  font-size: 12px;
+  line-height: 15px;
+}
+.transfer_form .field{
+  margin: 10px 0 15px;
+}
+.transfer_form .field .label{
+  display: block;
+}
+.transfer_form .field .input{
+  width: 210px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 3px 10px 2px;
+}
+.transfer_form .field.inline{
+  padding: 0 0 0 108px;
+}
+.transfer_form .field.inline .label{
+  float: left;
+  margin-left: -108px;
+  width: 100px;
+  padding: 4px 0 0;
+}
+.transfer_form .field.inline .input{
+  width: 103px;
+}
+.transfer_form .field .input.small{width: 24px}
+.transfer_plane{
+  background: white;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 1px 1px 3px 0px #a4a4a4;
+  box-shadow: 1px 1px 3px 0px #a4a4a4;
+  color: #4d4d4d;
+  position: relative;
+  z-index: 1;
+  padding: 3px 12px;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0 0 15px;
+}
+.transfer_plane .plane_arrive,
+.transfer_plane .plane_off{
+  position: absolute;
+  right: 100%;
+  top: 0;
+  z-index: 1;
+  margin: 0 13px 0 0;
+}
+.transfer .field .filter_label{
+  margin: 2px 0 10px;
+  font-size: 14px;
+  line-height: 17px;
+}
+.mt_5{margin-top: -5px !important;}
+.mb_10{margin-bottom: -10px !important;}
+
+.person_form_info {
+  margin: 20px 0 0;
+  font-size: 10px;
+  line-height: 13px;
+}
+.person_form_info .field{margin: 0 35px 0 0;width: 195px}
+.person_form_info .input{color: black;width: 173px !important;}
+.person_form_info .btn{
+  float: right;
+  margin: 10px 0 0;
+  width: 115px;
+}
+.mb10{margin-bottom: 10px !important;}
+.ml_20{margin-left: -20px !important;}

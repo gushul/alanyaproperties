@@ -1,4 +1,4 @@
-                  <% case params[:property_for] %>
+                  <% case params[:property_for] || @property.try(:property_for) %>
                   <% when 'buy' %>
                     <div class="filter_section square first">
                         <h2>Общая площадь</h2>
@@ -30,7 +30,7 @@
                           <% checked = (params[:property_type] || []).member?(type) %>
                           <label class="filter_label label_checkbox<%= ' big' if type =~ /\A\D/ %><%= ' act' if checked %>">
                             <%= check_box_tag 'property_type[]', type, checked %>
-                            <%= t("property.types.#{type}") %>
+                            <%= t("property.type.#{type}") %>
                           </label>
                           <% end%>
                         </div>
