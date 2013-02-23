@@ -9,16 +9,16 @@ class Setting < ActiveRecord::Base
   scope :type, ->(type) { where(model_type: type) }
 
   FIELDS = {
-    contacts: {
-      emails: { type: :text, hint: "Contact emails. Список через запятую", validate: { email_list: true } },
-      seo_title: { type: :string, hint: "Seo title" },
-      seo_description: { type: :text, hint: "Seo description" },
-      text: { type: :text, hint: "Текст над формой", html: true },
-      phones: { type: :string, hint: "Телефоны через запятую" },
-      address: { type: :text, hint: 'Контактный адрес в левой панели' },
-      skype: { type: :string },
-      geo: { type: :string, hint: "Lat, Lng. Пример: 42.9, -98.3" }
-    }
+      contacts: {
+          emails: {type: :text, hint: "Contact emails. Список через запятую", validate: {email_list: true}},
+          seo_title: {type: :string, hint: "Seo title"},
+          seo_description: {type: :text, hint: "Seo description"},
+          text: {type: :text, hint: "Текст над формой", html: true},
+          phones: {type: :string, hint: "Телефоны через запятую"},
+          address: {type: :text, hint: 'Контактный адрес в левой панели'},
+          skype: {type: :string},
+          geo: {type: :string, hint: "Lat, Lng. Пример: 42.9, -98.3"}
+      }
   }
 
   after_initialize do

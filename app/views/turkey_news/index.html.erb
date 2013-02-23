@@ -1,21 +1,22 @@
 <% @content_class = 'services_page' %>
 <%= render 'shared/turkey_navbar' %>
 
-        <div class="right_clmn">
-            <h3>Новости Турции, Алании и других городов побережья средиземного моря</h3>
+<div class="right_clmn">
+  <h3>Новости Турции, Алании и других городов побережья средиземного моря</h3>
 
-            <div class="services_content clearfix">
-              <% @turkey_news.each do |news| %>
-                <div>
-                  <%= image_tag news.photo.thumb %>
-                  <strong><%= news.title %></strong>
-                  <p><%= news.teaser %></p>
-                  <%= link_to "подробнее", news %>
-                </div>
-              <% end %>
-            </div>
+  <div class="services_content clearfix">
+    <% @turkey_news.each do |news| %>
+        <div>
+          <%= image_tag news.photo.thumb %>
+          <strong><%= news.title %></strong>
+
+          <p><%= news.teaser %></p>
+          <%= link_to "подробнее", news %>
         </div>
+    <% end %>
+  </div>
+</div>
 
 
-        <div class="clear"></div>
+<div class="clear"></div>
 

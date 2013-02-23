@@ -19,9 +19,9 @@
 //= require jquery-fileupload/basic
 //= require DT_bootstrap
 
-$(function(){
-  initDataTable('.data-table')
-  // $('#property_description').wysihtml5({
+$(function () {
+    initDataTable('.data-table')
+    // $('#property_description').wysihtml5({
     // "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
     // "emphasis": true, //Italics, bold, etc. Default true
     // "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
@@ -29,16 +29,16 @@ $(function(){
     // "link": true, //Button to insert a link. Default true
     // "image": true, //Button to insert an image. Default true,
     // "color": false //Button to change color of font  
-  // });
-  $('.sortable').sortable({
-    axis: 'y',
-    items: 'tbody > tr',
-    update: function(){
-      $.post($(this).data('sort-url'), $(this).sortable('serialize'))
-    }
-  })
+    // });
+    $('.sortable').sortable({
+        axis: 'y',
+        items: 'tbody > tr',
+        update: function () {
+            $.post($(this).data('sort-url'), $(this).sortable('serialize'))
+        }
+    })
 
-  $('.new_photo').fileupload({
-    dataType: 'script'
-  });
+    $('.new_photo').fileupload({
+        dataType: 'script'
+    });
 })

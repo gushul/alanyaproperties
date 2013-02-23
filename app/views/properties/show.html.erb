@@ -1,93 +1,95 @@
 <% title "#{@property.name}. #{t "property.for.#{@property.property_for}"} недвижимости в #{@property.city.name}, Турция." %>
 <% description "#{t "property.for.#{@property.property_for}"} недвижимости по цене #{@property.price} евро. Лучшие предолжения от застройщика в Турции. Большой выбор квартир и вилл у моря." %>
-        <div class="buy_page">
-            <ul class="sidebar_nav clmn_left">
-                <li class="li"><a href="" title="">Листать предложения по продаже</a></li>
-                <li class="li"><a href="" title="">Процедура покупки недвижимости</a></li>
-                <li class="li"><a href="" title="">Вся недвижимость Алании</a></li>
-                <li class="shadow"></li>
-                <li class="shadow bottom"></li>
-            </ul>
+<div class="buy_page">
+  <ul class="sidebar_nav clmn_left">
+    <li class="li"><a href="" title="">Листать предложения по продаже</a></li>
+    <li class="li"><a href="" title="">Процедура покупки недвижимости</a></li>
+    <li class="li"><a href="" title="">Вся недвижимость Алании</a></li>
+    <li class="shadow"></li>
+    <li class="shadow bottom"></li>
+  </ul>
 
-            <div class="buy_item">
-                <div class="item_price"><%= number_to_currency @property.price, 'euro' %></div>
-                <h1 class="h1"><%= @property.name %></h1>
-                <div class="hr"></div>
-                <div class="buy_item_text">
-                    <div class="buy_item_photos clearfix">
-                        <div class="img big"><%= photo_tag (@property.photos.shift || @property.photo), style: :big %></div>
-                        <% @property.photos.each do |photo| %>
-                          <div class="img"><%= photo_tag photo, title: photo.title, alt: photo.alt %></div>
-                        <% end -%>
-                    </div>
+  <div class="buy_item">
+    <div class="item_price"><%= number_to_currency @property.price, 'euro' %></div>
+    <h1 class="h1"><%= @property.name %></h1>
 
-
-                    <%= raw @property.description %>
+    <div class="hr"></div>
+    <div class="buy_item_text">
+      <div class="buy_item_photos clearfix">
+        <div class="img big"><%= photo_tag (@property.photos.shift || @property.photo), style: :big %></div>
+        <% @property.photos.each do |photo| %>
+            <div class="img"><%= photo_tag photo, title: photo.title, alt: photo.alt %></div>
+        <% end -%>
+      </div>
 
 
-                    <span class="btn gray back_btn">НАЗАД</span>
-                    <span class="btn big send_offer">ОТПРАВИТЬ ЗАПРОС</span>
-                    <div class="clear"></div>
-                </div>
-                <div class="buy_item_info">
+      <%= raw @property.description %>
 
-                    <div class="line bt0"><strong>ID объекта: <%= @property.oid %></strong></div>
-                    <div class="line">Город: <%= @property.city.name %></div>
-                    <div class="line">Тип недвижимости: <%= @property.property_type %></div>
-                    <div class="line">Общая площадь: <%= @property.total_area %> кв. м</div>
-                    <div class="line">Расстояние до моря: <%= @property.to_sea %> м</div>
-                    <% @property.property_attributes.each do |attr, value| %>
-                      <div class="line"><%=t "property_attribute.#{attr.name}" %>: <%= attr.answer(value) %></div>
-                    <% end %>
 
-                    <%= link_to [:map, @property], class: 'buy_item_map property_map' do %>
-                      <span class="map"><%= image_tag(map_mini_image(@property.lat, @property.lng)) %></span>
-                      <span class="title">Смотреть на карте</span>
-                    <% end -%>
+      <span class="btn gray back_btn">НАЗАД</span>
+      <span class="btn big send_offer">ОТПРАВИТЬ ЗАПРОС</span>
 
-                </div>
-                <div class="clear"></div>
-              <% if false # disable block %>
-                <div class="hr"></div>
-                <h3 class="relative_offers_title">Вас могут заинтересовать подобные предложения</h3>
-                <ul class="relative_offers clearfix">
-                    <li class="li">
-                        <div class="img"><%= image_tag 'img.png' %></div>
-                        <div class="relative_offer_content">
-                            <div class="title">Жилой коплекс “Семь Звезд”</div>
-                            <div class="text">
-                                город: Алания<br />
-                                комнат/спален: 1+1
-                            </div>
-                        </div>
-                        <div class="price">25 000 €</div>
-                        <span class="btn">ПОДРОБНЕЕ</span>
-                    </li>
-                </ul>
-              <% end %>
+      <div class="clear"></div>
+    </div>
+    <div class="buy_item_info">
+
+      <div class="line bt0"><strong>ID объекта: <%= @property.oid %></strong></div>
+      <div class="line">Город: <%= @property.city.name %></div>
+      <div class="line">Тип недвижимости: <%= @property.property_type %></div>
+      <div class="line">Общая площадь: <%= @property.total_area %> кв. м</div>
+      <div class="line">Расстояние до моря: <%= @property.to_sea %> м</div>
+      <% @property.property_attributes.each do |attr, value| %>
+          <div class="line"><%= t "property_attribute.#{attr.name}" %>: <%= attr.answer(value) %></div>
+      <% end %>
+
+      <%= link_to [:map, @property], class: 'buy_item_map property_map' do %>
+          <span class="map"><%= image_tag(map_mini_image(@property.lat, @property.lng)) %></span>
+          <span class="title">Смотреть на карте</span>
+      <% end -%>
+
+    </div>
+    <div class="clear"></div>
+    <% if false # disable block  %>
+        <div class="hr"></div>
+        <h3 class="relative_offers_title">Вас могут заинтересовать подобные предложения</h3>
+        <ul class="relative_offers clearfix">
+          <li class="li">
+            <div class="img"><%= image_tag 'img.png' %></div>
+            <div class="relative_offer_content">
+              <div class="title">Жилой коплекс “Семь Звезд”</div>
+              <div class="text">
+                город: Алания<br/>
+                комнат/спален: 1+1
+              </div>
             </div>
+            <div class="price">25 000 €</div>
+            <span class="btn">ПОДРОБНЕЕ</span>
+          </li>
+        </ul>
+    <% end %>
+  </div>
 
-            <div class="buy_filter">
-                <%= render 'filter' %>
-            </div>
+  <div class="buy_filter">
+    <%= render 'filter' %>
+  </div>
 
-            <div class="clear"></div>
+  <div class="clear"></div>
 
-            <div class="bottom_sidebar clearfix">
-                <ul class="sidebar_nav clmn_left">
-                    <li class="li"><a href="" title="">Горячие предложения</a></li>
-                    <li class="li"><a class="large" href="" title="">Отправить запрос<br />На подбор недвижимости для покупки</a></li>
-                    <li class="shadow"></li>
-                    <li class="shadow bottom"></li>
-                </ul>
-                <div class="top_offer">
+  <div class="bottom_sidebar clearfix">
+    <ul class="sidebar_nav clmn_left">
+      <li class="li"><a href="" title="">Горячие предложения</a></li>
+      <li class="li"><a class="large" href="" title="">Отправить запрос<br/>На подбор недвижимости для покупки</a></li>
+      <li class="shadow"></li>
+      <li class="shadow bottom"></li>
+    </ul>
+    <div class="top_offer">
                   <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
                     <span class="toffer_holder clearfix">
-                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="title">Алания, новый комплекс<br/>Рядом с морем, 2 недели</span>
                         <span class="btn">ПОДРОБНЕЕ</span>
                         <span class="cost">600 €</span>
                     </span>
                 </span>
-                </div>
-            </div>
-        </div>
+    </div>
+  </div>
+</div>

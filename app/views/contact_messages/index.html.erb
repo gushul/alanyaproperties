@@ -13,21 +13,21 @@
     <th></th>
   </tr>
 
-<% @contact_messages.each do |contact_message| %>
-  <tr>
-    <td><%= contact_message.contact_name %></td>
-    <td><%= contact_message.contact_email %></td>
-    <td><%= contact_message.contact_phone %></td>
-    <td><%= contact_message.contact_topic %></td>
-    <td><%= contact_message.contact_person %></td>
-    <td><%= contact_message.property %></td>
-    <td><%= link_to 'Show', contact_message %></td>
-    <td><%= link_to 'Edit', edit_contact_message_path(contact_message) %></td>
-    <td><%= link_to 'Destroy', contact_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% @contact_messages.each do |contact_message| %>
+      <tr>
+        <td><%= contact_message.contact_name %></td>
+        <td><%= contact_message.contact_email %></td>
+        <td><%= contact_message.contact_phone %></td>
+        <td><%= contact_message.contact_topic %></td>
+        <td><%= contact_message.contact_person %></td>
+        <td><%= contact_message.property %></td>
+        <td><%= link_to 'Show', contact_message %></td>
+        <td><%= link_to 'Edit', edit_contact_message_path(contact_message) %></td>
+        <td><%= link_to 'Destroy', contact_message, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New Contact message', new_contact_message_path %>

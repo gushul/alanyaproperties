@@ -1,8 +1,8 @@
-        <ul class="sidebar_nav clmn_left">
-            <li class="li"><%= link_to_unless_current "О Турции", turkey_news_index_path %></li>
-          <% City.all.each do |city| %>
-            <li class="li"><%= link_to_unless_current city.name, city %></li>
-          <% end -%>
-            <li class="shadow"></li>
-            <li class="shadow bottom"></li>
-        </ul>
+<ul class="sidebar_nav clmn_left">
+  <li class="li"><%= link_to_unless_current "О Турции", turkey_news_index_path %></li>
+  <% City.all.each do |city| %>
+      <li class="li"><%= link_to_unless_current city.name, city %></li>
+  <% end -%>
+  <li class="shadow"></li>
+  <li class="shadow bottom"></li>
+</ul>

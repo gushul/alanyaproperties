@@ -18,7 +18,7 @@ class SettingsControllerTest < ActionController::TestCase
 
   test "should create setting" do
     assert_difference('Setting.count') do
-      post :create, setting: { key: @setting.key, model_id: @setting.model_id, model_type: @setting.model_type, value: @setting.value }
+      post :create, setting: {key: @setting.key, model_id: @setting.model_id, model_type: @setting.model_type, value: @setting.value}
     end
 
     assert_redirected_to setting_path(assigns(:setting))
@@ -35,7 +35,7 @@ class SettingsControllerTest < ActionController::TestCase
   end
 
   test "should update setting" do
-    put :update, id: @setting, setting: { key: @setting.key, model_id: @setting.model_id, model_type: @setting.model_type, value: @setting.value }
+    put :update, id: @setting, setting: {key: @setting.key, model_id: @setting.model_id, model_type: @setting.model_type, value: @setting.value}
     assert_redirected_to setting_path(assigns(:setting))
   end
 

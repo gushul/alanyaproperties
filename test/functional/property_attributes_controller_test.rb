@@ -18,7 +18,7 @@ class PropertyAttributesControllerTest < ActionController::TestCase
 
   test "should create property_attribute" do
     assert_difference('PropertyAttribute.count') do
-      post :create, property_attribute: { default: @property_attribute.default, name: @property_attribute.name, options: @property_attribute.options, position: @property_attribute.position, property_type: @property_attribute.property_type }
+      post :create, property_attribute: {default: @property_attribute.default, name: @property_attribute.name, options: @property_attribute.options, position: @property_attribute.position, property_type: @property_attribute.property_type}
     end
 
     assert_redirected_to property_attribute_path(assigns(:property_attribute))
@@ -35,7 +35,7 @@ class PropertyAttributesControllerTest < ActionController::TestCase
   end
 
   test "should update property_attribute" do
-    put :update, id: @property_attribute, property_attribute: { default: @property_attribute.default, name: @property_attribute.name, options: @property_attribute.options, position: @property_attribute.position, property_type: @property_attribute.property_type }
+    put :update, id: @property_attribute, property_attribute: {default: @property_attribute.default, name: @property_attribute.name, options: @property_attribute.options, position: @property_attribute.position, property_type: @property_attribute.property_type}
     assert_redirected_to property_attribute_path(assigns(:property_attribute))
   end
 

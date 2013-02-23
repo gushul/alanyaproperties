@@ -1,5 +1,5 @@
 <% if @photo.new_record? %>
-    alert('Error');
+alert('Error');
 <% else %>
-    $("#photos").append("<%= j render(@photo) %>")
+$("#photos").append("<%= j render(@photo) %>")
 <% end %>

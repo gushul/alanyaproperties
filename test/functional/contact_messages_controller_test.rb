@@ -18,7 +18,7 @@ class ContactMessagesControllerTest < ActionController::TestCase
 
   test "should create contact_message" do
     assert_difference('ContactMessage.count') do
-      post :create, contact_message: { contact_email: @contact_message.contact_email, contact_name: @contact_message.contact_name, contact_phone: @contact_message.contact_phone }
+      post :create, contact_message: {contact_email: @contact_message.contact_email, contact_name: @contact_message.contact_name, contact_phone: @contact_message.contact_phone}
     end
 
     assert_redirected_to contact_message_path(assigns(:contact_message))
@@ -35,7 +35,7 @@ class ContactMessagesControllerTest < ActionController::TestCase
   end
 
   test "should update contact_message" do
-    put :update, id: @contact_message, contact_message: { contact_email: @contact_message.contact_email, contact_name: @contact_message.contact_name, contact_phone: @contact_message.contact_phone }
+    put :update, id: @contact_message, contact_message: {contact_email: @contact_message.contact_email, contact_name: @contact_message.contact_name, contact_phone: @contact_message.contact_phone}
     assert_redirected_to contact_message_path(assigns(:contact_message))
   end
 

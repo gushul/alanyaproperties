@@ -1,68 +1,74 @@
 <div class="top_sidebar clearfix">
-            <ul class="sidebar_nav clmn_left">
-              <% case params[:property_for] %>
-              <% when 'buy' %>
-                <li class="li"><%= link_to "Листать предложения по продаже", "/#{params[:property_for]}/search" %></li>
-                <li class="li"><a href="" title="">Правила покупки недвижимости</a></li>
-              <% when 'rent' %>
-                <li class="li"><%= link_to "Листать предложения по аренде", "/#{params[:property_for]}/search" %></li>
-                <li class="li"><a href="" title="">Правила аренды в Турции</a></li>
-              <% end -%>
-                <li class="shadow"></li>
-                <li class="shadow bottom"></li>
-            </ul>
-            <div class="top_offer">
+  <ul class="sidebar_nav clmn_left">
+    <% case params[:property_for] %>
+    <% when 'buy' %>
+        <li class="li"><%= link_to "Листать предложения по продаже", "/#{params[:property_for]}/search" %></li>
+        <li class="li"><a href="" title="">Правила покупки недвижимости</a></li>
+    <% when 'rent' %>
+        <li class="li"><%= link_to "Листать предложения по аренде", "/#{params[:property_for]}/search" %></li>
+        <li class="li"><a href="" title="">Правила аренды в Турции</a></li>
+    <% end -%>
+    <li class="shadow"></li>
+    <li class="shadow bottom"></li>
+  </ul>
+  <div class="top_offer">
               <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
                     <span class="toffer_holder clearfix">
-                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="title">Алания, новый комплекс<br/>Рядом с морем, 2 недели</span>
                         <span class="btn">ПОДРОБНЕЕ</span>
                         <span class="cost">600 €</span>
                     </span>
                 </span>
-            </div>
+  </div>
+</div>
+
+<div class="filter">
+  <% case params[:property_for] %>
+  <% when 'buy' %>
+      <h1>Недвижимость в Турции на продажу</h1>
+  <% when 'rent' %>
+      <h1>Недвижимость в Турции в аренду</h1>
+  <% end -%>
+  <div class="inner clearfix">
+    <form action="<%= "/#{params[:property_for]}/search" %>" method="GET">
+      <div class="clmn fleft">
+        <%= render 'filter' %>
+      </div>
+      <div class="clmn fright">
+        <div class="filter_section city">
+          <h2>Выберите города</h2>
+
+          <div class="filter_label_holder clearfix">
+            <% @cities.each do |city| %>
+                <label class="filter_label label_checkbox"><input type="checkbox" name="city_id[]" value="<%= city.id %>"><%= image_tag city.cover.asset.thumb %>
+                  <span class="title"><%= city.name %></span></label>
+            <% end %>
+          </div>
+
+          <span class="btn btn_input big">ИСКАТЬ<i class="input"><input type="submit"/></i></span>
         </div>
+      </div>
+    </form>
+  </div>
+</div>
 
-        <div class="filter">
-            <% case params[:property_for] %>
-            <% when 'buy' %>
-              <h1>Недвижимость в Турции на продажу</h1>
-            <% when 'rent' %>
-              <h1>Недвижимость в Турции в аренду</h1>
-            <% end -%>
-            <div class="inner clearfix">
-              <form action="<%= "/#{params[:property_for]}/search" %>" method="GET">
-                <div class="clmn fleft">
-                  <%= render 'filter' %>
-                </div>
-                <div class="clmn fright">
-                    <div class="filter_section city">
-                        <h2>Выберите города</h2>
-                        <div class="filter_label_holder clearfix">
-                          <% @cities.each do |city| %>
-                            <label class="filter_label label_checkbox"><input type="checkbox" name="city_id[]" value="<%= city.id %>"><%= image_tag city.cover.asset.thumb %><span class="title"><%= city.name %></span></label>
-                          <% end %>
-                        </div>
+<ul class="sidebar_nav clmn_left">
+  <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
+  <li class="li"> <%= link_to "Заказать трансфер", transfer_index_path %></li>
+  <li class="shadow"></li>
+  <li class="shadow bottom"></li>
+</ul>
+<div class="clmn_right">
+  <ul class="apartment_list clearfix">
+    <%= render @properties %>
+  </ul>
 
-                        <span class="btn btn_input big">ИСКАТЬ<i class="input"><input type="submit" /></i></span>
-                    </div>
-                </div>
-                </form>
-            </div>
-        </div>
-
-        <ul class="sidebar_nav clmn_left">
-            <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
-            <li class="li"><a href="" title="">Заказать трансфер</a></li>
-            <li class="shadow"></li>
-            <li class="shadow bottom"></li>
-        </ul>
-        <div class="clmn_right">
-            <ul class="apartment_list clearfix">
-                <%= render @properties %>
-            </ul>
-
-            <p class="text">
-                Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну. Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде решить по, по фон фирме огонь глубже.
-            </p>
-        </div>
-        <div class="clear"></div>
+  <p class="text">
+    Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано
+    большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну.
+    Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета
+    университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде
+    решить по, по фон фирме огонь глубже.
+  </p>
+</div>
+<div class="clear"></div>

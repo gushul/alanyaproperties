@@ -4,7 +4,7 @@ class CreateContactMessages < ActiveRecord::Migration
       t.string :contact_name
       t.string :contact_email
       t.string :contact_phone
-      t.text   :message
+      t.text :message
       t.references :contact_topic
       t.references :contact_person
       t.references :property

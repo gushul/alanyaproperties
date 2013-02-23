@@ -16,35 +16,38 @@
  */
 
 .img a:focus, a.buy_item_map:focus {
-  outline: none;
+    outline: none;
 }
 
 .cboxIframe {
-  background: #e5e3df;
+    background: #e5e3df;
 }
 
 h3 {
-  font-size: 20px;
+    font-size: 20px;
 }
 
+#ui-datepicker-div {
+  width: 223px;
+}
 .ui-state-default, .ui-widget-content .ui-state-default {
-  padding: 8px 0;
+    padding: 8px 0;
 }
 
 .results .apartment_list {
-  width: 735px;
+    width: 735px;
 }
 
 #datepicker-inner #ui-datepicker-div {
-  left: 0 !important;
-  top: 0 !important;
-  position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    position: relative !important;
 }
 
 #date-start, #date-end, #main-search-input {
-  outline: none;
+    outline: none;
 }
 
 .form .field_with_errors .input, .form .field_with_errors textarea {
-  border-color: red;
+    border-color: red;
 }

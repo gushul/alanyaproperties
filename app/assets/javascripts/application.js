@@ -14,13 +14,14 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-ru
-//= require period
 // require jquery-ui-1.9.2.custom.min
 //= require modernizr
 //= require script
+//= require period
+//= require transfer
 //= require jquery.colorbox-min
 
-$(function(){
-  $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%'});
-  $('.property_map').colorbox({iframe: true, width: '80%', height: '90%'});
+$(function () {
+    $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%'});
+    $('.property_map').colorbox({iframe: true, width: '80%', height: '90%'});
 })

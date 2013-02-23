@@ -1,14 +1,14 @@
 <% @city.build_cover unless @city.cover %>
-<%= simple_form_for [:admin, @city], :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description, input_html: { class: 'redactor' } %>
-  <%= f.simple_fields_for :cover do |ff| %>
-    <%= ff.input :asset, as: :image_preview, input_html: { preview_version: :thumb }, label: "Cover" %>
-    <%= ff.input :asset_cache, :as => :hidden %>
-  <% end %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-      [:admin, :cities], :class => 'btn' %>
-  </div>
+<%= simple_form_for [:admin, @city], :html => {:class => 'form-horizontal', :multipart => true} do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description, input_html: {class: 'redactor'} %>
+    <%= f.simple_fields_for :cover do |ff| %>
+        <%= ff.input :asset, as: :image_preview, input_html: {preview_version: :thumb}, label: "Cover" %>
+        <%= ff.input :asset_cache, :as => :hidden %>
+    <% end %>
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  [:admin, :cities], :class => 'btn' %>
+    </div>
 <% end %>

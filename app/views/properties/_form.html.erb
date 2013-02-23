@@ -1,17 +1,17 @@
-<%= simple_form_for @property, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :article %>
-  <%= f.input :description %>
-  <%= f.input :type %>
-  <%= f.input :kind %>
-  <%= f.input :price %>
-  <%= f.input :city_id %>
-  <%= f.input :photo %>
-  <%= f.input :geo %>
-  <%= f.input :property_attributes %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                properties_path, :class => 'btn' %>
-  </div>
+<%= simple_form_for @property, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.input :name %>
+    <%= f.input :article %>
+    <%= f.input :description %>
+    <%= f.input :type %>
+    <%= f.input :kind %>
+    <%= f.input :price %>
+    <%= f.input :city_id %>
+    <%= f.input :photo %>
+    <%= f.input :geo %>
+    <%= f.input :property_attributes %>
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  properties_path, :class => 'btn' %>
+    </div>
 <% end %>

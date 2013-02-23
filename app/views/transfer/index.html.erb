@@ -1,0 +1,150 @@
+<% title 'Заказать трансфер' %>
+<% @content_class = 'services_page' %>
+<%= render :partial => 'services/sidebar_nav' %>
+
+<div class="right_clmn">
+  <%= render 'shared/top_offer' %>
+
+  <h1 class="h1">Трансфер</h1>
+
+  <div class="services_content clearfix">
+    <div class="transfer">
+      <p>
+        <img style="float: right;margin: 0 0 0 20px" src="images/transfer_img.png" alt="" />
+        Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну. Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде решить по, по фон фирме огонь глубже.
+      </p>
+
+      <div class="hr"></div>
+
+      <h2 class="h2">Заказать трансфер</h2>
+
+      <!--<div class="form transfer_form">-->
+      <%= form_for @transfer, url: '', html: {class: 'form transfer_form'} do |f| %>
+
+        <div class="transfer_clmn transfer_in <%= 'disabled' if @transfer.transfer_type == 'out' %>">
+          <label class="transfer_plane filter_label label_radio <%= 'act' if @transfer.transfer_type == 'in' %>">
+            <%= f.radio_button :transfer_type, 'in' %>
+            <i class="icon plane_arrive"></i>Из аэропорта Анталии до Алании
+          </label>
+          <% @transfer.build_in unless @transfer.in %>
+          <%= f.fields_for :in do |ff| %>
+          <fieldset class="field inline clearfix">
+            <%= ff.label :flight_number, 'Номер рейса:', class: 'label' %>
+            <%= ff.text_field :flight_number, class: 'input' %>
+          </fieldset>
+
+          <fieldset class="field inline clearfix">
+            <%= ff.label :date_arrival, 'Дата прилета:', class: 'label' %>
+            <%= ff.text_field :date_arrival, placeholder: 'число/месяц/год', class: 'input date-input' %>
+          </fieldset>
+
+          <fieldset class="field inline clearfix">
+            <%= ff.label :time_arrival, 'Время прилета:', class: 'label' %>
+            <%= ff.text_field :time_arrival, placeholder: 'часы : минуты', class: 'input' %>
+          </fieldset>
+
+          <fieldset class="field clearfix">
+            <label class="label <%= 'with_error' if @transfer.in.errors.include? :terminal %>">На какой терминал прибываете</label>
+            <label class="terminal filter_label label_radio <%= 'act' if @transfer.in.terminal == 1 %>"><%= ff.radio_button :terminal, 1 %>Терминал 1</label>
+            <label class="terminal filter_label label_radio fright <%= 'act' if @transfer.in.terminal == 2 %>"><%= ff.radio_button :terminal, 2 %>Терминал 2</label>
+          </fieldset>
+
+          <fieldset class="field clearfix">
+            <%= ff.label :address, 'По какому адресу доставить в Алании', class: 'label' %>
+            <%= ff.text_field :address, placeholder: '', class: 'input' %>
+          </fieldset>
+
+          <fieldset class="field inline clearfix">
+            <%= ff.label :people, class: 'label' do %>
+              Количество<br />пассажиров
+            <% end -%>
+            <%= ff.text_field :people, placeholder: 'XX', class: 'input small ml_20' %>
+          </fieldset>
+          <% end -%>
+          <div class="disabled_layer"></div>
+        </div>
+
+        <div class="transfer_clmn transfer_out <%= 'disabled' if @transfer.transfer_type == 'in' %>">
+          <label class="transfer_plane filter_label label_radio <%= 'act' if @transfer.transfer_type == 'out' %>">
+            <%= f.radio_button :transfer_type, 'out' %>
+            <i class="icon plane_off"></i>Из Алании до аэропорта Анталии
+          </label>
+          <% @transfer.build_out unless @transfer.out %>
+          <%= f.fields_for :out do |ff| %>
+          <fieldset class="field inline clearfix">
+            <%= ff.label :flight_number, 'Номер рейса:', class: 'label' %>
+            <%= ff.text_field :flight_number, class: 'input' %>
+          </fieldset>
+
+          <fieldset class="field inline clearfix">
+            <%= ff.label :date_arrival, 'Дата прилета:', class: 'label' %>
+            <%= ff.text_field :date_arrival, placeholder: 'число/месяц/год', class: 'input date-input' %>
+          </fieldset>
+
+          <fieldset class="field inline clearfix">
+            <%= ff.label :time_arrival, class: 'label mt_5 mb_10' do %>
+              Время прибытия<br />в аэропорт:
+            <% end -%>
+            <%= ff.text_field :time_arrival, placeholder: 'часы : минуты', class: 'input' %>
+          </fieldset>
+
+          <fieldset class="field clearfix">
+            <label class="label <%= 'with_error' if @transfer.out.errors.include? :terminal %>">На какой терминал доставить</label>
+            <label class="terminal filter_label label_radio <%= 'act' if @transfer.out.terminal == 1 %>"><%= ff.radio_button :terminal, 1 %>Терминал 1</label>
+            <label class="terminal filter_label label_radio fright <%= 'act' if @transfer.out.terminal == 2 %>"><%= ff.radio_button :terminal, 2 %>Терминал 2</label>
+          </fieldset>
+
+          <fieldset class="field clearfix">
+            <%= ff.label :address, 'С какого адреса забрать в Алании', class: 'label' %>
+            <%= ff.text_field :address, placeholder: '', class: 'input' %>
+          </fieldset>
+
+          <fieldset class="field inline clearfix">
+            <%= ff.label :people, class: 'label' do %>
+              Количество<br />пассажиров
+            <% end -%>
+            <%= ff.text_field :people, placeholder: 'XX', class: 'input small ml_20' %>
+          </fieldset>
+          <% end -%>
+          <div class="disabled_layer"></div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="hr"></div>
+
+        <div class="person_form_info clearfix">
+           <fieldset class="field clearfix fleft">
+            <%= f.text_field :contact_name, placeholder: 'Имя, фамилия', class: 'input' %>
+            Просьба заполнять латинскими буквами
+          </fieldset>
+
+          <fieldset class="field clearfix fleft">
+            <%= f.phone_field :contact_phone, placeholder: 'Ваш телефон +xx xxx xxxxxxxxx', class: 'input mb10' %>
+            <%= f.email_field :contact_email, placeholder: 'Ваш адрес электронной почты', class: 'input' %>
+          </fieldset>
+          <% if @transfer.transfer_type %>
+            <span class="btn middle btn_input">ЗАКАЗАТЬ<i class="input"><input type="submit" /></i></span>
+          <% else %>
+            <span class="btn middle btn_input disabled">ЗАКАЗАТЬ<i class="input"><input type="submit" disabled="disabled" /></i></span>
+          <% end -%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "ЗАДАТЬ ВОПРОС", contacts_path, class: 'btn usk_question big' %>
+
+<a class="some_tour" href="" title="">
+            <span class="img_holder">
+                <span class="title">ОЗНАКОМИТЕЛЬНЫЙ ТУР</span>
+              <%= image_tag 'some_tour_img.png' %>
+            </span>
+  <span class="text1">Хотите изучить недвижимость<br/>в Турции за наш счет?</span>
+  <span class="text2">Участвуйте в наших<br/>ознакомительных турах</span>
+</a>
+
+
+
+<div class="clear"></div>
+

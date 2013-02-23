@@ -1,11 +1,11 @@
-class PropertiesController < ApplicationController#< InheritedResources::Base
-  # has_scope :property_for, default: 'buy'
-  # custom_actions resource: :map, collection: :search
+class PropertiesController < ApplicationController #< InheritedResources::Base
+                                                   # has_scope :property_for, default: 'buy'
+                                                   # custom_actions resource: :map, collection: :search
   layout false, only: :map
 
   def index
-      @cities = City.all
-      @properties = properties.limit(3)
+    @cities = City.all
+    @properties = properties.limit(3)
   end
 
   def search

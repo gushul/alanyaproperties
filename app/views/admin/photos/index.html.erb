@@ -7,7 +7,7 @@
 </div>
 
 <%= form_for [:admin, parent, Photo.new] do |f| %>
-  <%= f.label :picture, "Upload photos:" %>
-  <%= f.file_field :picture, multiple: true, name: "photo[picture]" %>
+    <%= f.label :picture, "Upload photos:" %>
+    <%= f.file_field :picture, multiple: true, name: "photo[picture]" %>
 <% end %>
 

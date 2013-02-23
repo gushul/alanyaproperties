@@ -1,5 +1,7 @@
 Alanya::Application.routes.draw do
 
+
+
   # resources :contact_messages
 
 
@@ -16,7 +18,13 @@ Alanya::Application.routes.draw do
   end
 
 
-  resources :services, only: [:index, :show]
+  resources :services, only: [:index, :show] do
+    collection do
+      resources :transfer, only: [:index, :create] do
+        get 'thanks', on: :collection
+      end
+    end
+  end
 
 
   mount RedactorRails::Engine => '/redactor_rails'
@@ -34,13 +42,13 @@ Alanya::Application.routes.draw do
   # get "rent" => "rent#index", as: :rent
 
   # scope 'rent' do
-    # resources :properties
+  # resources :properties
   # end
 
   # resources :properties
   # resources :cities
 
-  devise_for :admin, controllers: { sessions: 'admin/sessions' }
+  devise_for :admin, controllers: {sessions: 'admin/sessions'}
   namespace :admin do
     get :dashboard
     resources :properties do
@@ -60,8 +68,8 @@ Alanya::Application.routes.draw do
     resources :turkey_news
     scope 'contacts' do
       # collection do
-        resources :contact_people, path: 'people'
-        resources :contact_topics, path: 'topics'
+      resources :contact_people, path: 'people'
+      resources :contact_topics, path: 'topics'
       # end
       match 'settings' => 'contacts#settings', as: :contacts_settings
     end

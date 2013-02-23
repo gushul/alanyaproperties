@@ -1,11 +1,11 @@
-<%= simple_form_for [:admin, @property_attribute], :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :attribute_type, collection: PropertyAttribute::ATTRIBUTE_TYPES %>
-  <%= f.input :options %>
-  <%= f.input :default %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                admin_property_attributes_path, :class => 'btn' %>
-  </div>
+<%= simple_form_for [:admin, @property_attribute], :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.input :name %>
+    <%= f.input :attribute_type, collection: PropertyAttribute::ATTRIBUTE_TYPES %>
+    <%= f.input :options %>
+    <%= f.input :default %>
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  admin_property_attributes_path, :class => 'btn' %>
+    </div>
 <% end %>

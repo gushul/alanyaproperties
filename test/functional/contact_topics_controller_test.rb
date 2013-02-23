@@ -18,7 +18,7 @@ class ContactTopicsControllerTest < ActionController::TestCase
 
   test "should create contact_topic" do
     assert_difference('ContactTopic.count') do
-      post :create, contact_topic: { name: @contact_topic.name }
+      post :create, contact_topic: {name: @contact_topic.name}
     end
 
     assert_redirected_to contact_topic_path(assigns(:contact_topic))
@@ -35,7 +35,7 @@ class ContactTopicsControllerTest < ActionController::TestCase
   end
 
   test "should update contact_topic" do
-    put :update, id: @contact_topic, contact_topic: { name: @contact_topic.name }
+    put :update, id: @contact_topic, contact_topic: {name: @contact_topic.name}
     assert_redirected_to contact_topic_path(assigns(:contact_topic))
   end
 

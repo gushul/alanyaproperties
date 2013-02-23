@@ -18,7 +18,7 @@ class TurkeyNewsControllerTest < ActionController::TestCase
 
   test "should create turkey_news" do
     assert_difference('TurkeyNews.count') do
-      post :create, turkey_news: { body: @turkey_news.body, name: @turkey_news.name, photo: @turkey_news.photo, slug: @turkey_news.slug }
+      post :create, turkey_news: {body: @turkey_news.body, name: @turkey_news.name, photo: @turkey_news.photo, slug: @turkey_news.slug}
     end
 
     assert_redirected_to turkey_news_path(assigns(:turkey_news))
@@ -35,7 +35,7 @@ class TurkeyNewsControllerTest < ActionController::TestCase
   end
 
   test "should update turkey_news" do
-    put :update, id: @turkey_news, turkey_news: { body: @turkey_news.body, name: @turkey_news.name, photo: @turkey_news.photo, slug: @turkey_news.slug }
+    put :update, id: @turkey_news, turkey_news: {body: @turkey_news.body, name: @turkey_news.name, photo: @turkey_news.photo, slug: @turkey_news.slug}
     assert_redirected_to turkey_news_path(assigns(:turkey_news))
   end
 

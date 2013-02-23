@@ -1,21 +1,22 @@
-                <li class="li">
-                    <div class="apatment_list_top">
-                      <div class="apatment_list_bot clearfix">
-                            <%= image_tag property.photo.thumb %>
-                            <div class="title"><%= property.name %></div>
-                            <table class="table">
-                                <tr>
-                                    <th>город:</th>
-                                    <td><%= property.city.name %></td>
-                                </tr>
-                                <tr>
-                                    <th>комнат/спален:</th>
-                                    <td><%= property.property_type %></td>
-                                </tr>
-                            </table>
-                            <%= link_to "ПОДРОБНЕЕ", property, class: 'btn' %>
-                            <div class="prise"><%= number_to_currency property.price, 'euro' %></div>
-                        </div>
-                    </div>
-                </li>
-                <% if (property_counter + 1) % 3  == 0 %><li class="clear"></li><% end %>
+<li class="li">
+  <div class="apatment_list_top">
+    <div class="apatment_list_bot clearfix">
+      <%= image_tag property.photo.thumb %>
+      <div class="title"><%= property.name %></div>
+      <table class="table">
+        <tr>
+          <th>город:</th>
+          <td><%= property.city.name %></td>
+        </tr>
+        <tr>
+          <th>комнат/спален:</th>
+          <td><%= property.property_type %></td>
+        </tr>
+      </table>
+      <%= link_to "ПОДРОБНЕЕ", property, class: 'btn' %>
+      <div class="prise"><%= number_to_currency property.price, 'euro' %></div>
+    </div>
+  </div>
+</li>
+<% if (property_counter + 1) % 3 == 0 %><li class="clear"></li>
+<% end %>

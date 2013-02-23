@@ -1,11 +1,11 @@
-<%= simple_form_for [:admin, parent, @photo], :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :alt %>
-  <%= f.input :picture, as: :image_preview, input_html: { preview_version: :small } %>
-  <%= f.input :picture_cache, as: :hidden %>
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                [:admin, parent, :photos], :class => 'btn' %>
-  </div>
+<%= simple_form_for [:admin, parent, @photo], :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.input :title %>
+    <%= f.input :alt %>
+    <%= f.input :picture, as: :image_preview, input_html: {preview_version: :small} %>
+    <%= f.input :picture_cache, as: :hidden %>
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  [:admin, parent, :photos], :class => 'btn' %>
+    </div>
 <% end %>
