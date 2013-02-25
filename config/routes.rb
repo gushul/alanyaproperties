@@ -33,11 +33,13 @@ Alanya::Application.routes.draw do
     scope action.to_s, as: action do
       resources :properties, only: [:show] do
         get 'map', on: :member, as: :map
+        match 'offer', on: :member, as: :offer
       end
       match 'search' => 'properties#search', as: :search, property_for: action
       get '' => 'properties#index', property_for: action
     end
   end
+  get 'properties/offer_thanks'
 
   # get "rent" => "rent#index", as: :rent
 

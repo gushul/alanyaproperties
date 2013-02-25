@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title><%= yield(:title) || "Alanya Properties" %></title>
+
+  <meta name="description" content="<%= yield :description %>"/>
+
+  <%= stylesheet_link_tag "application", :media => "screen, projection" %>
+  <!-- что бы телефон не ломался из-за скайпа -->
+  <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+
+  <%= javascript_include_tag "application" %>
+  <style type="text/css">
+    html, body {
+        min-width: 400px;
+        min-height: 527px;
+        overflow: hidden;
+    }
+  </style>
+  <%= csrf_meta_tags %>
+
+  <!--[if IE 7]>
+  <script>browser_class = 'ie_7';</script><![endif]-->
+  <!--[if IE 8]>
+  <script>browser_class = 'ie_8';</script><![endif]-->
+</head>
+
+<body>
+<div class="order_popup" style="background: #f1f1f1;padding: 25px; height: 527px;">
+  <div class="order_info clearfix">
+    <%= image_tag @property.photo.thumb, class: 'order_img', size: '216x131' %>
+    <table class="order_table">
+      <thead>
+      <tr>
+        <th colspan="2"><%= @property.name %></th>
+      </tr>
+      </thead>
+      <tr>
+        <td>город:</td>
+        <td class="td2"><%= @property.city.name %></td>
+      </tr>
+      <tr>
+        <td>комнат/спален:</td>
+        <td class="td2"><%= t "property.type.#{@property.property_type}" %></td>
+      </tr>
+      <tr>
+        <td>этаж:</td>
+        <td class="td2"></td>
+      </tr>
+      <tfoot>
+      <tr>
+        <td>ID объекта:</td>
+        <td class="td2"><%= @property.oid %></td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="clear"></div>
+
+  <%= form_for @offer, url: '' do |f| %>
+  <div class="form order_form">
+    <%= f.text_field :contact_name, placeholder: 'Введите Ваше имя и фамилию', class: 'input' %>
+    <%= f.email_field :contact_email, placeholder: 'Ваш e-mail', class: 'input' %>
+    <%= f.phone_field :contact_phone, placeholder: 'Ваш телефон + xx xxx xxx xxxx', class: 'input' %>
+    <div class="help_text">Просьба заполнять латинскими буквами</div>
+    <%= f.text_area :message, placeholder: 'Введите текст вашего сообщения' %>
+    <label class="label"><%= check_box_tag :send_me_copy %>&nbsp;Отправить копию этого сообщения на мою почту</label>
+
+    <span class="btn big btn_input">ОТПРАВИТЬ ЗАПРОС<i class="input"><input type="submit"/></i></span>
+  </div>
+  <% end %>
+
+</div>
+</body>
+</html>

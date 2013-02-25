@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController #< InheritedResources::Base
                                                    # has_scope :property_for, default: 'buy'
                                                    # custom_actions resource: :map, collection: :search
-  layout false, only: :map
+  layout false, only: [:map, :offer, :offer_thanks]
 
   def index
     @cities = City.all
@@ -25,6 +25,19 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
 
   def map
     @property = Property.find(params[:id])
+  end
+
+  def offer
+    @property = Property.find(params[:id])
+
+    @offer = ContactMessage.new(params[:contact_message])
+    @offer.property = @property
+
+    if request.post?
+      if @offer.save
+        redirect_to properties_offer_thanks_path
+      end
+    end
   end
 
   def properties

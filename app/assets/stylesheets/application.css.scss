@@ -11,7 +11,7 @@
  *= require font
  *= require main
  *= require jquery-ui-1.9.2.custom
- *= require colorbox/example2/colorbox
+ *= require colorbox
  *= require_self
  */
 
@@ -50,4 +50,56 @@ h3 {
 
 .form .field_with_errors .input, .form .field_with_errors textarea {
     border-color: red;
+}
+
+.order_form .field_with_errors .input, .order_form .field_with_errors textarea {
+
+  color: #ed1c24;
+
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: #ed1c24;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #ed1c24;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #ed1c24;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #ed1c24;
+  }
+}
+
+label.with_error {
+  color: red;
+}
+.transfer_form fieldset {
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -ms-transition: all 200ms;
+  -o-transition: all 200ms;
+  transition: all 200ms;
+}
+.transfer_in.disabled, .transfer_out.disabled {
+  fieldset {
+    opacity: .2;
+  }
+  .disabled_layer {
+    bottom: 0;
+    width: 235px;
+    position: absolute;
+    height: 286px;
+    /* background: white; */
+    /* opacity: .2; */
+    z-index: 2;
+  }
+}
+
+.btn.disabled {
+  background: #939598;
+  text-transform: none;
+  //font-size: 12px;
+  //line-height: 15px;
+  color: white;
+  //padding: 2px 6px 1px;
 }

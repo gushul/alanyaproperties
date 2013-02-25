@@ -24,4 +24,5 @@
 $(function () {
     $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%'});
     $('.property_map').colorbox({iframe: true, width: '80%', height: '90%'});
+    $('.send_offer').colorbox({iframe: true, width: '500px', height: '560px'});
 })
