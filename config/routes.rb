@@ -17,6 +17,8 @@ Alanya::Application.routes.draw do
     end
   end
 
+  match 'news' => 'turkey_news#index', format: :atom, constraints: { format: /rss|atom/ }
+
 
   resources :services, only: [:index, :show] do
     collection do

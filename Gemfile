@@ -41,6 +41,9 @@ gem 'redactor-rails'
 gem 'yaml_db'
 
 gem 'kaminari'
+
+gem "friendly_id", "~> 4.0.9"
+gem 'babosa'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

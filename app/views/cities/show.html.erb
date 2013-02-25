@@ -1,14 +1,34 @@
-<% @content_class = 'services_page' %>
+<% @content_class = 'city_page' %>
 <%= render 'shared/turkey_navbar' %>
 <div class="right_clmn">
-  <h3> <%= @city.name %></h3>
+  <%= render 'shared/mini_slider' %>
 
-  <div class="services_content clearfix">
-    <%= raw @city.description %>
+  <div class="city_content">
+
+    <div class="city_text">
+      <%= link_to "Купить недвижимость в #{@city.name_case}", buy_search_path(city_id: [@city.id]), class: 'order_link' %>
+      <%= link_to "Арендовать жилье в #{@city.name_case}", rent_search_path(city_id: [@city.id]), class: 'order_link' %>
+
+      <div class="clear"></div>
+
+      <%= raw @city.description %>
+    </div>
+
+    <% unless @city.photos.blank? %>
+    <h1 class="h2">Фото <%= @city.name_case %></h1>
+    <ul class="photo_list">
+      <% @city.photos.each do |photo| %>
+      <li class="li">
+        <span class="img">
+            <%= photo_tag photo.picture, style: :thumb2 %>
+        </span>
+      </li>
+      <% end %>
+    </ul>
+    <% end %>
   </div>
 </div>
 
-
+<span class="earthquake_map">Карта сейсмоактивности Турции</span>
+<%= render 'shared/tour' %>
 <div class="clear"></div>
-
-

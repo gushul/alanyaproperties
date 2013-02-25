@@ -39,6 +39,10 @@ class PhotoPictureUploader < CarrierWave::Uploader::Base
   version :thumb do
     process resize_to_fill: [370, 108]
   end
+
+  version :thumb2 do
+    process resize_to_fill: [222, 149]
+  end
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #

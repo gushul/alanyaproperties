@@ -11,6 +11,8 @@
   <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
 
   <%= javascript_include_tag "application" %>
+  <%= auto_discovery_link_tag :atom, "/news" %>
+  <%= auto_discovery_link_tag :rss, "/news.rss" %>
   <%= csrf_meta_tags %>
 
   <!--[if IE 7]>
@@ -71,7 +73,7 @@
 
         <div class="phone">Телефон : 02544511548411</div>
         <i class="fot_separ"></i>
-        <a class="icon fot_rss" href="" title=""></a>
+        <a class="icon fot_rss" href="<%= news_path %>" title="RSS Feed"></a>
         <i class="fot_separ"></i>
         <a class="icon fot_fb" href="https://www.facebook.com/AlanyaProperties?fref=ts" title="Facebook Page" target="_blank"></a>
       </div>

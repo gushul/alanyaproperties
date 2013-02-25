@@ -1,7 +1,13 @@
 <ul class="sidebar_nav clmn_left">
-  <li class="li"><%= link_to_unless_current "О Турции", turkey_news_index_path %></li>
+  <li class="li title"><%= link_to_unless_current "О Турции", turkey_news_index_path do |title| %>
+    <span><%= title %></span>
+    <% end %>
+  </li>
   <% City.all.each do |city| %>
-      <li class="li"><%= link_to_unless_current city.name, city %></li>
+      <li class="li"><%= link_to_unless_current city.name, city do |title| %>
+        <span><%= title %></span>
+        <% end %>
+      </li>
   <% end -%>
   <li class="shadow"></li>
   <li class="shadow bottom"></li>

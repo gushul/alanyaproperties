@@ -1,22 +1,36 @@
-<% @content_class = 'services_page' %>
+<% @content_class = 'city_page' %>
 <%= render 'shared/turkey_navbar' %>
 
 <div class="right_clmn">
-  <h3>Новости Турции, Алании и других городов побережья средиземного моря</h3>
+  <%= render 'shared/mini_slider' %>
+  <div class="city_content">
 
-  <div class="services_content clearfix">
-    <% @turkey_news.each do |news| %>
-        <div>
-          <%= image_tag news.photo.thumb %>
-          <strong><%= news.title %></strong>
+    <div class="city_text inner">
+      <div>Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну. Тем конечного превосходные об. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде решить. <a class="more_link" href="" title="">Читать далее...</a></div>
+    </div>
 
-          <p><%= news.teaser %></p>
-          <%= link_to "подробнее", news %>
-        </div>
-    <% end %>
+    <h1 class="h3">Новости Турции, Алании и других городов побережья средиземного моря</h1>
+    <ul class="new_list">
+      <% @turkey_news.each do |news| %>
+          <li class="li clearfix">
+            <%= link_to image_tag(news.photo.thumb), news, class: 'img' %>
+            <div class="info"><%= news.teaser %></div>
+            <%= link_to 'Подробнее', news, class: 'more' %>
+          </li>
+      <% end %>
+    </ul>
+
+    <!--<a class="city_next" href="" title="">Далее</a>-->
+    <div class="clear"></div>
   </div>
 </div>
 
+<span class="earthquake_map">Карта сейсмоактивности Турции</span>
+
+<%= render 'shared/tour' %>
+
+
 
 <div class="clear"></div>
+
 

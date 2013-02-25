@@ -1,0 +1,48 @@
+<div class="main_slider_holder inner_slider_holder">
+  <div class="main_slider inner_slider" id="main-slider">
+    <div class="items_holder">
+      <% if @city %>
+          <div class="item" style="background-image: url('<%= asset_path 'slider_img.png' %>');">
+                            <span class="item_info">
+                                <span class="item_header"><%= @city.name %></span>
+                            </span>
+          </div>          
+      <% else %>
+      <div class="item" style="background-image: url('<%= asset_path 'slider_img.png' %>');">
+                            <span class="item_info">
+                                <span class="item_header">Турция</span>
+                            </span>
+      </div>
+      <div class="item" style="background-image: url('<%= asset_path 'slider_img1.png' %>');">
+                            <span class="item_info">
+                                <span class="item_header">Алания</span>
+                            </span>
+      </div>
+      <div class="item" style="background-image: url('<%= asset_path 'slider_img.png' %>');">
+                            <span class="item_info">
+                                <span class="item_header">Анталия</span>
+                            </span>
+      </div>
+      <div class="item" style="background-image: url('<%= asset_path 'slider_img1.png' %>');">
+                            <span class="item_info">
+                                <span class="item_header">Бодрум</span>
+                            </span>
+      </div>
+      <div class="item" style="background-image: url('<%= asset_path 'slider_img.png' %>');">
+                            <span class="item_info">
+                                <span class="item_header">Белек</span>
+                            </span>
+      </div>
+      <% end %>
+    </div>
+    <div class="toggles">
+      <i class="toggle"></i>
+      <i class="toggle"></i>
+      <i class="toggle act"></i>
+      <i class="toggle"></i>
+      <i class="toggle"></i>
+    </div>
+    <div class="arrow left"></div>
+    <div class="arrow right"></div>
+  </div>
+</div>
