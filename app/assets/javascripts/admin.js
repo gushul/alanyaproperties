@@ -41,4 +41,6 @@ $(function () {
     $('.new_photo').fileupload({
         dataType: 'script'
     });
+
+    $('.redactor2').redactor({convertDivs: false});
 })
