@@ -32,7 +32,7 @@ class Admin::Service < ActionMailer::Base
   #
   def order(order)
     @settings = Setting.type('contacts').first
-    @order = contact_message
+    @order = order
 
     mail to: @settings.emails, subject: "Новый запрос ##{@order.id}"
   end
