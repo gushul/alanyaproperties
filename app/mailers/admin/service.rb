@@ -7,10 +7,11 @@ class Admin::Service < ActionMailer::Base
   #
   #   en.admin.service.transfer.subject
   #
-  def transfer
-    @greeting = "Hi"
+  def transfer(transfer)
+    @settings = Setting.type('contacts').first
+    @transfer = transfer
 
-    mail to: "to@example.org"
+    mail to: @settings.emails, subject: "Заказ трансфера ##{@transfer.id}"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

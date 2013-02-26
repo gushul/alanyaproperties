@@ -33,6 +33,10 @@ class Transfer < ActiveRecord::Base
     true
   end
 
+  after_save do
+    Admin::Service.transfer(self).deliver
+  end
+
 end
 
 class TransferBasic

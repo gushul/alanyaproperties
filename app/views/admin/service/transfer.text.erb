@@ -1,3 +1,22 @@
-Admin::Service#transfer
+Заказ трансфера №<%= @transfer.id %>
+-----------------------------------------
 
-<%= @greeting %>, find me in app/views/app/views/admin/service/transfer.text.erb
+<% if @transfer.transfer_type == 'in' %>
+    Из аэропорта Анталии до Алании
+<% else %>
+    Из Алании до аэропорта Анталии
+<% end %>
+
+Рейс № <%= @transfer.flight_number %>
+Дата: <%= @transfer.date_arrival %>
+Время: <%= @transfer.time_arrival %>
+Терминал: <%= @transfer.terminal %>
+Адрес: <%= @transfer.address %>
+Кол-во человек: <%= @transfer.people %>
+
+-----------------------------------------
+
+Контакт:
+<%= @transfer.contact_name %>
+<%= @transfer.contact_email %>
+<%= @transfer.contact_phone %>

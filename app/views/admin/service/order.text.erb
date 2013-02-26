@@ -1,4 +1,9 @@
-Новый запрос по недвижимости <%= @order.property.name %>
+Новый запрос по недвижимости:
+
+<%= @order.property.name %>
+город: <%= @order.property.city.name %>
+комнат/спален: <%= t "property.type.#{@order.property.property_type}" %>
+ID обьекта: <%= @order.property.oid %>
 
 ----------------------------------------------------------------
 От:
