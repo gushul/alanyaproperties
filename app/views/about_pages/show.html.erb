@@ -1,0 +1,15 @@
+<% @content_class = 'services_page' %>
+<%= render 'sidebar_nav' %>
+
+<div class="right_clmn">
+  <%= render 'shared/mini_slider' %>
+  <!--<%# render 'shared/top_offer' %>-->
+
+  <h1 class="h1"><%= @about_page.title %></h1>
+
+  <!--<div class="services_content clearfix">-->
+    <%= raw @about_page.body %>
+  <!--</div>-->
+</div>
+
+<div class="clear"></div>

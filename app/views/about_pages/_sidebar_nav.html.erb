@@ -1,0 +1,11 @@
+<ul class="sidebar_nav clmn_left">
+  <% AboutPage.all.each do |page| %>
+      <li class="li">
+        <%= link_to_unless_current page.title, page do |title| %>
+            <span><%= title %></span>
+        <% end %>
+      </li>
+  <% end -%>
+  <li class="shadow"></li>
+  <li class="shadow bottom"></li>
+</ul>

@@ -1,6 +1,6 @@
 <% @city.build_cover unless @city.cover %>
 <%= simple_form_for [:admin, @city], :html => {:class => 'form-horizontal', :multipart => true} do |f| %>
-    <%= f.input :url %>
+    <%= f.input :url, as: :text %>
     <%= f.input :name %>
     <%= f.input :name_case, hint: "Имя в падеже" %>
     <%= f.input :description, input_html: {class: 'redactor'} %>

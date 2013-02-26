@@ -2,6 +2,9 @@ Alanya::Application.routes.draw do
 
 
 
+  resources :about_pages, path: 'about'
+
+
   # resources :contact_messages
 
 
@@ -70,6 +73,7 @@ Alanya::Application.routes.draw do
     end
     resources :services
     resources :turkey_news
+    resources :about_pages
     scope 'contacts' do
       # collection do
       resources :contact_people, path: 'people'
