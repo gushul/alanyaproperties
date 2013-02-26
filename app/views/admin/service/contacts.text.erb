@@ -1,0 +1,18 @@
+Новое сообщение c формы контактов.
+-----------------------------------------------------
+
+Кому: <%= @contact_message.contact_person.name %>
+Тема: <%= @contact_message.contact_topic.name %>
+
+-----------------------------------------------------
+
+От:
+    <%= @contact_message.contact_name %>
+    <%= @contact_message.contact_email %>
+    <%= @contact_message.contact_phone %>
+
+-----------------------------------------------------
+
+Сообщение:
+
+<%= @contact_message.message %>

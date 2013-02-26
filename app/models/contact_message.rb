@@ -18,4 +18,11 @@ class ContactMessage < ActiveRecord::Base
       # :too_long  => "must have at most %{count} words"
   }
 
+  after_save do
+    if property.blank?
+      Admin::Service.contacts(self).deliver
+    else
+      Admin::Service.order(self).deliver
+    end
+  end
 end
