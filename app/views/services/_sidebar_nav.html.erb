@@ -1,6 +1,10 @@
 <ul class="sidebar_nav clmn_left">
   <% Service.all.each do |page| %>
-      <li class="li"><%= link_to_unless_current page.name, page %></li>
+      <li class="li">
+        <%= link_to_unless_current page.name, page do |name| %>
+        <span><%= name %></span>
+        <% end %>
+      </li>
   <% end -%>
   <li class="shadow"></li>
   <li class="shadow bottom"></li>

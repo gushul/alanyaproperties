@@ -7,7 +7,7 @@ class Transfer < ActiveRecord::Base
 
   # with_options if: => 
   validates :contact_email, :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/}
-  validates :contact_phone, :format => {:with => /\A\+[\d\s-\(\)]+\Z/}
+  validates :contact_phone, :format => {:with => /\A\+[\d\s\-\(\)]+\Z/}
   validates :contact_phone, :length => {
       :minimum => 10,
       :maximum => 14,
@@ -23,10 +23,11 @@ class Transfer < ActiveRecord::Base
   accepts_nested_attributes_for :in, :out
 
   before_validation do
-    return unless transfer_type
-    fields = self.send(transfer_type.to_sym)
-    %w{address date_arrival flight_number people terminal time_arrival}.each do |field|
-      self.send("#{field}=", fields.send(field))
+    if transfer_type
+      fields = self.send(transfer_type.to_sym)
+      %w{address date_arrival flight_number people terminal time_arrival}.each do |field|
+        self.send("#{field}=", fields.send(field))
+      end
     end
 
     # logger.info self.inspect
@@ -34,7 +35,7 @@ class Transfer < ActiveRecord::Base
   end
 
   after_save do
-    Admin::Service.transfer(self).deliver
+    Admin::ServiceMailer.transfer(self).deliver
   end
 
 end

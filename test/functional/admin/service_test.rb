@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::ServiceTest < ActionMailer::TestCase
   test "transfer" do
-    mail = Admin::Service.transfer
+    mail = Admin::ServiceMailer.transfer
     assert_equal "Transfer", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
@@ -10,7 +10,7 @@ class Admin::ServiceTest < ActionMailer::TestCase
   end
 
   test "contacts" do
-    mail = Admin::Service.contacts
+    mail = Admin::ServiceMailer.contacts
     assert_equal "Contacts", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
@@ -18,7 +18,7 @@ class Admin::ServiceTest < ActionMailer::TestCase
   end
 
   test "order" do
-    mail = Admin::Service.order
+    mail = Admin::ServiceMailer.order
     assert_equal "Order", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from

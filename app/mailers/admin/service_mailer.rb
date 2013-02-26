@@ -1,11 +1,11 @@
 # encoding: utf-8
-class Admin::Service < ActionMailer::Base
+class Admin::ServiceMailer < ActionMailer::Base
   default from: "admin@alanyaproperties.ru"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.admin.service.transfer.subject
+  #   en.admin.service_mailer.transfer.subject
   #
   def transfer(transfer)
     @settings = Setting.type('contacts').first
@@ -17,7 +17,7 @@ class Admin::Service < ActionMailer::Base
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.admin.service.contacts.subject
+  #   en.admin.service_mailer.contacts.subject
   #
   def contacts(contact_message)
     @settings = Setting.type('contacts').first
@@ -29,7 +29,7 @@ class Admin::Service < ActionMailer::Base
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.admin.service.order.subject
+  #   en.admin.service_mailer.order.subject
   #
   def order(order)
     @settings = Setting.type('contacts').first

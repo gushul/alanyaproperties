@@ -16,15 +16,15 @@ class ServicesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create service" do
-    assert_difference('Service.count') do
-      post :create, service: {body: @service.body, is_main: @service.is_main, name: @service.name, slug: @service.slug}
+  test "should create service_mailer" do
+    assert_difference('ServiceMailer.count') do
+      post :create, service_mailer: {body: @service.body, is_main: @service.is_main, name: @service.name, slug: @service.slug}
     end
 
-    assert_redirected_to service_path(assigns(:service))
+    assert_redirected_to service_path(assigns(:service_mailer))
   end
 
-  test "should show service" do
+  test "should show service_mailer" do
     get :show, id: @service
     assert_response :success
   end
@@ -34,13 +34,13 @@ class ServicesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update service" do
-    put :update, id: @service, service: {body: @service.body, is_main: @service.is_main, name: @service.name, slug: @service.slug}
-    assert_redirected_to service_path(assigns(:service))
+  test "should update service_mailer" do
+    put :update, id: @service, service_mailer: {body: @service.body, is_main: @service.is_main, name: @service.name, slug: @service.slug}
+    assert_redirected_to service_path(assigns(:service_mailer))
   end
 
-  test "should destroy service" do
-    assert_difference('Service.count', -1) do
+  test "should destroy service_mailer" do
+    assert_difference('ServiceMailer.count', -1) do
       delete :destroy, id: @service
     end
 

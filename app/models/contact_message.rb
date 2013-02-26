@@ -20,9 +20,9 @@ class ContactMessage < ActiveRecord::Base
 
   after_save do
     if property.blank?
-      Admin::Service.contacts(self).deliver
+      Admin::ServiceMailer.contacts(self).deliver
     else
-      Admin::Service.order(self).deliver
+      Admin::ServiceMailer.order(self).deliver
     end
   end
 end
