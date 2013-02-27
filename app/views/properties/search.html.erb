@@ -21,9 +21,11 @@
 
   <div class="inner clearfix">
     <div class="clmn fleft">
+      <form class="live-form" action="<%= "/#{params[:property_for]}/search" %>" method="GET" data-push="true">
       <%= render 'filter' %>
+      </form>
     </div>
-    <div class="clmn fright">
+    <div class="clmn fright" role="live" id="live">
       <ul class="apartment_list clearfix">
         <%= render @properties %>
       </ul>

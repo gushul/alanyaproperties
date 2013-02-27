@@ -15,6 +15,7 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-ru
 // require jquery-ui-1.9.2.custom.min
+//= require wiselinks
 //= require modernizr
 //= require script
 //= require period
@@ -22,7 +23,19 @@
 //= require jquery.colorbox-min
 
 $(function () {
+    window.wiselinks = new Wiselinks();
+
     $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%'});
     $('.property_map').colorbox({iframe: true, width: '80%', height: '90%'});
     $('.send_offer').colorbox({iframe: true, width: '500px', height: '560px'});
+
+    $('.live-form').change(function(e){
+        // Wiselinks load
+        var url = $(this).attr('action') + '?' + $(this).serialize();
+        console.log(url)
+        wiselinks.load(url, "#live", 'partial')
+
+
+//        $('.live-form').submit();
+    })
 })

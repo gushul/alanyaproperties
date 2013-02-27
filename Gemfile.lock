@@ -188,6 +188,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.1)
       rack (>= 1.0)
+    wiselinks (0.5.3)
     yaml_db (0.2.3)
 
 PLATFORMS
@@ -221,4 +222,5 @@ DEPENDENCIES
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
   unicorn
+  wiselinks
   yaml_db
