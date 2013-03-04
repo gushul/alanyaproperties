@@ -42,6 +42,7 @@ class Property < ActiveRecord::Base
     string :property_kind
     boolean :hot, :using => :hot?
     integer :total_area
+    integer :to_sea
     double :price
     integer :city_id, references: City
   end

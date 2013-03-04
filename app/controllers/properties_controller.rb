@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
       with(:city_id, params[:city_id]) if params[:city_id]
       with(:property_type, params[:property_type]) if params[:property_type]
       with(:price, price_range(params[:price], params[:percents])) unless params[:price].blank?
+      with(:to_sea, params[:to_sea]) if params[:to_sea]
 
       paginate :page => params[:page], :per_page => 9
     end.results

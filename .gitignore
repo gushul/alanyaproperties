@@ -17,3 +17,6 @@
 
 # Ignore ide
 /.idea
+
+# Solr
+/solr/data
