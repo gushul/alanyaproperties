@@ -86,11 +86,27 @@
   <a class="mlink mlink5" href="<%= service_path(1) %>"><i></i>Ознакомительный тур</a>
 </div>
 
+<!-- Begin MailChimp Signup Form -->
 <div class="email_subscribe">
-  Введите свой e-mail, чтобы подписаться на новости и горячие предложения
-  <input class="email_input"/>
-  <span class="btn white">Подписаться<i class="icon email_icon"></i></span>
+  <form action="http://alanyaproperties.us6.list-manage.com/subscribe/post?u=614113bd37&amp;id=015a5b2c51" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<label for="mce-EMAIL">Введите свой e-mail, чтобы подписаться на новости и горячие предложения</label>
+  <input type="email" value="" name="EMAIL" class="email email_input" id="mce-EMAIL" placeholder="email address" />
+  <span class="btn white btn_input"><i class="input"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" /></i> Подписаться<i class="icon email_icon"></i></span>
+  </form>
+
 </div>
+<!--End mc_embed_signup-->
+
+
+<%# <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css"> %>
+<%# <style type="text/css"> %>
+	<%# #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; } %>
+	<%# /* Add your own MailChimp form style overrides in your site stylesheet or in this style block. %>
+		 <%# We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */ %>
+<%# </style> %>
+<%# <div id="mc_embed_signup"> %>
+<%# </div> %>
+
 
 <div class="offers clearfix">
   <% @properties.each do |property| %>
