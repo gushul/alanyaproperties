@@ -95,11 +95,11 @@
 <div class="offers clearfix">
   <% @properties.each do |property| %>
     <%= link_to property, class: 'offer_link' do %>
-      <%= image_tag property.photo.thumb %>
+      <%= image_tag property.photo.thumb2 %>
       <%= content_tag(:i, '', class: 'ribbon_plus_orange plus') %>
       <%= content_tag(:i, '', class: 'ribbon_hot_dial') if property.hot? %>
       <span class="offer_info clearfix">
-        <span class="price"><%= property.price %></span>
+        <span class="price"><%= number_to_currency property.price, 'euro' %></span>
         <span class="title"><%= property.city.name %></span>
         <%= property.name %>
       </span>
