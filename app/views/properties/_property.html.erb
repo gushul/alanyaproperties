@@ -2,6 +2,7 @@
   <div class="apatment_list_top">
     <div class="apatment_list_bot clearfix">
       <%= image_tag property.photo.thumb %>
+      <%= content_tag(:i, '', class: 'ribbon_hot_dial') if property.hot? %>
       <div class="title"><%= property.name %></div>
       <table class="table">
         <tr>
