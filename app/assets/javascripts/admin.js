@@ -17,6 +17,7 @@
 //= require redactor-rails
 //= require jquery.dataTables.min
 //= require jquery-fileupload/basic
+//= require bootstrap-datepicker
 //= require DT_bootstrap
 
 $(function () {
@@ -43,4 +44,12 @@ $(function () {
     });
 
     $('.redactor2').redactor({convertDivs: false});
+
+    $('.datepicker').datepicker({
+      weekStart: 1,
+      autoclose: true,
+      todayHighlight: true,
+      todayBtn: 'linked',
+      format: 'yyyy-mm-dd'
+    })
 })

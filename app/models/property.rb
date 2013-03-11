@@ -12,7 +12,8 @@ class Property < ActiveRecord::Base
 
   belongs_to :city
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
-                  :name, :photo, :price, :property_type, :city_id, :property_for, :total_area, :photo_cache, :hot, :to_sea, :lat, :lng
+                  :name, :photo, :price, :property_type, :city_id, :property_for,
+                  :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until
 
   validates :name, :oid, :description, :property_kind, :photo, :price,
             :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true
@@ -29,6 +30,10 @@ class Property < ActiveRecord::Base
   def property_attributes=(attr={})
     os = PropertyAttributesStruct.new(attr)
     super(os)
+  end
+
+  def new?
+    Date.today < new_until if new_until
   end
 
   # Search

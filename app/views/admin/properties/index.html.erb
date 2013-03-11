@@ -14,6 +14,7 @@
     <th><%= model_class.human_attribute_name(:price) %></th>
     <th><%= model_class.human_attribute_name(:city) %></th>
     <th><%= model_class.human_attribute_name(:hot) %></th>
+    <th><%= model_class.human_attribute_name(:new) %></th>
     <th><%= model_class.human_attribute_name(:created_at) %></th>
     <th><%= t '.actions', :default => t("helpers.actions") %></th>
   </tr>
@@ -30,6 +31,7 @@
         <td><%= property.price %></td>
         <td><%= property.city.name %></td>
         <td><%= property.hot? ? 'hot' : '' %></td>
+        <td><%= 'new' if property.new? %></td>
         <td><%= l property.created_at, format: :short %></td>
         <td>
           <a href="<%= admin_property_photos_path(property) %>" class="btn btn-mini btn-success">

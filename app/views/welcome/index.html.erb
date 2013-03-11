@@ -110,10 +110,18 @@
 
 <div class="offers clearfix">
   <% @properties.each do |property| %>
-    <%= link_to property, class: 'offer_link' do %>
+    <%= link_to property, class: "offer_link#{' new' if property.new? }" do %>
       <%= image_tag property.photo.thumb2 %>
-      <%= content_tag(:i, '', class: 'ribbon_plus_orange plus') %>
-      <%= content_tag(:i, '', class: 'ribbon_hot_dial') if property.hot? %>
+      <% if property.hot? %>
+        <i class="ribbon_plus_orange plus"></i>
+        <i class="ribbon_hot_dial"></i>
+      <% elsif property.new? %>
+        <i class="ribbon_plus_blue plus"></i>
+        <i class="ribbon_new"></i>
+      <% else %>
+        <i class="ribbon_plus_orange plus"></i>
+      <% end -%>
+
       <span class="offer_info clearfix">
         <span class="price"><%= number_to_currency property.price, 'euro' %></span>
         <span class="title"><%= property.city.name %></span>
@@ -121,16 +129,6 @@
       </span>
     <% end %>
   <% end %>
-  <!-- a class="offer_link new" href="" title="">
-    <%= image_tag 'img.png' %>
-    <i class="ribbon_plus_blue"></i>
-    <i class="ribbon_new"></i>
-                <span class="offer_info clearfix">
-                    <span class="price">25 000 €</span>
-                    <span class="title">Анталия</span>
-                    4-х комнатная квартира около моря
-                </span>
-  </a -->
 </div>
 
 <div class="main_text">
