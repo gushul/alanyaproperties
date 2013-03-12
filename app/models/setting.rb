@@ -42,7 +42,7 @@ TYPE
   end
 
   def self.fields
-    TYPES[type_by_class_name]
+    TYPES[type_by_class_name.to_sym]
   end
 
   def fields
@@ -50,8 +50,11 @@ TYPE
   end
 
   def self.type_by_class_name
-    p self
-    self.name.demodulize.underscore.to_sym
+    self.name.demodulize.underscore
+  end
+
+  def self.humanize_type
+    type_by_class_name.humanize
   end
 
   def self.setup_fields

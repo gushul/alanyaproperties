@@ -1,5 +1,5 @@
 <%- model_class = Setting -%>
 <div class="page-header">
-  <h1><%= t '.title', :default => [:'helpers.titles.edit', '%{type} settings'], :type => @setting.model_type.humanize %></h1>
+  <h1><%= t '.title', :default => [:'helpers.titles.edit', '%{type} settings'], :type => @setting.class.humanize_type %></h1>
 </div>
 <%= render :partial => 'form' %>

@@ -2,11 +2,11 @@ class Admin::SettingsController < AdminController
   inherit_resources
 
   def edit
-    link = [:admin, params[:settings_type], :settings]
+    # link = [:admin, params[:settings_type], :settings]
     if request.post?
-      create! { link }
+      create!
     elsif request.put?
-      update! { link }
+      update!
     else
       edit!
     end
