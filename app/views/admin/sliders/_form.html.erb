@@ -1,0 +1,18 @@
+<%= simple_form_for [:admin, @slider], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :photo, as: :image_preview, input_html: { preview_version: :thumb } %>
+  <%= f.input :model_type, as: :hidden %>
+  <%= f.input :model_id, as: :hidden %>
+  <% if @slider.model_type == 'main' %>
+    <%= f.simple_fields_for :data, @slider.data do |ff| %>
+      <%= ff.input :title %>
+      <%= ff.input :price, as: :integer %>
+      <%= ff.input :description, as: :text %>
+      <%= ff.input :link %>
+    <% end -%>
+  <% end %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_sliders_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,73 +1,25 @@
 <div class="main_slider_holder">
   <div class="main_slider" id="main-slider">
     <div class="items_holder">
-      <div class="item" style="background-image: url('<%= image_path 'slider_img.png' %>');">
-                        <span class="item_info">
-                            <span class="item_header">
-                                <span class="item_price">35 001 €</span>
-                                <span class="item_title">Кто написано большого</span>
-                            </span>
-                            <span class="item_content">
-                                <span class="item_text">Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про.</span>
-                                <span class="item_more">Читать далее</span>
-                            </span>
-                        </span>
+      <% @sliders.each do |slider| %>
+      <div class="item" style="background-image: url('<%= image_path slider.photo.big %>');">
+        <span class="item_info">
+            <span class="item_header">
+                <span class="item_price"><%= number_to_currency slider.data['price'], 'euro' %></span>
+                <span class="item_title"><%= slider.data['title'] %></span>
+            </span>
+            <span class="item_content">
+                <span class="item_text"><%= slider.data['description'] %></span>
+                <a class="item_more" href="<%= slider.data['link'] %>">Читать далее</a>
+            </span>
+        </span>
       </div>
-      <div class="item" style="background-image: url('<%= image_path 'slider_img1.png' %>');">
-                        <span class="item_info">
-                            <span class="item_header">
-                                <span class="item_price">35 002 €</span>
-                                <span class="item_title">Кто написано большого</span>
-                            </span>
-                            <span class="item_content">
-                                <span class="item_text">Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про.</span>
-                                <span class="item_more">Читать далее</span>
-                            </span>
-                        </span>
-      </div>
-      <div class="item" style="background-image: url('<%= image_path 'slider_img.png' %>');">
-                        <span class="item_info">
-                            <span class="item_header">
-                                <span class="item_price">35 003 €</span>
-                                <span class="item_title">Кто написано большого</span>
-                            </span>
-                            <span class="item_content">
-                                <span class="item_text">Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про.</span>
-                                <span class="item_more">Читать далее</span>
-                            </span>
-                        </span>
-      </div>
-      <div class="item" style="background-image: url('<%= image_path 'slider_img1.png' %>');">
-                        <span class="item_info">
-                            <span class="item_header">
-                                <span class="item_price">35 004 €</span>
-                                <span class="item_title">Кто написано большого</span>
-                            </span>
-                            <span class="item_content">
-                                <span class="item_text">Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про.</span>
-                                <span class="item_more">Читать далее</span>
-                            </span>
-                        </span>
-      </div>
-      <div class="item" style="background-image: url('<%= image_path 'slider_img.png' %>');">
-                        <span class="item_info">
-                            <span class="item_header">
-                                <span class="item_price">35 005 €</span>
-                                <span class="item_title">Кто написано большого</span>
-                            </span>
-                            <span class="item_content">
-                                <span class="item_text">Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про.</span>
-                                <span class="item_more">Читать далее</span>
-                            </span>
-                        </span>
-      </div>
+      <% end -%>
     </div>
     <div class="toggles">
-      <i class="toggle"></i>
-      <i class="toggle"></i>
-      <i class="toggle act"></i>
-      <i class="toggle"></i>
-      <i class="toggle"></i>
+      <% @sliders.each do %>
+        <i class="toggle"></i>
+      <% end -%>
     </div>
     <div class="arrow left"></div>
     <div class="arrow right"></div>

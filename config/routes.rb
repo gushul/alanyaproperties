@@ -1,7 +1,5 @@
 Alanya::Application.routes.draw do
 
-
-
   resources :about_pages, path: 'about'
 
 
@@ -80,6 +78,9 @@ Alanya::Application.routes.draw do
       resources :contact_topics, path: 'topics'
       # end
       match 'settings' => 'contacts#settings', as: :contacts_settings
+    end
+    scope 'settings' do
+      resources :sliders, slider_type: 'main'
     end
     get '', action: :index
   end
