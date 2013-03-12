@@ -3,12 +3,12 @@
   <%= f.input :model_type, as: :hidden %>
   <%= f.input :model_id, as: :hidden %>
   <% if @slider.model_type == 'main' %>
-    <%= f.simple_fields_for :data, @slider.data do |ff| %>
-      <%= ff.input :title %>
-      <%= ff.input :price, as: :integer %>
-      <%= ff.input :description, as: :text %>
-      <%= ff.input :link %>
-    <% end -%>
+    <%#= f.simple_fields_for :data, @slider.data do |ff| %>
+      <%= f.input :title %>
+      <%= f.input :price, as: :integer %>
+      <%= f.input :description, as: :text %>
+      <%= f.input :link %>
+    <%# end - %>
   <% end %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
