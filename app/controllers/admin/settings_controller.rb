@@ -3,9 +3,7 @@ class Admin::SettingsController < AdminController
 
   def edit
     # link = [:admin, params[:settings_type], :settings]
-    if request.post?
-      create!
-    elsif request.put?
+    if request.post? || request.put?
       update!
     else
       edit!
