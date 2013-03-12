@@ -62,7 +62,6 @@ TYPE
     attr_accessible *fields.keys
 
     fields.each do |field, options|
-      logger.info "Valudate #{field}"
       validates(field, options[:validate].clone) if options[:validate]
     end
   end
