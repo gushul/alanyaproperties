@@ -111,13 +111,14 @@ function initMainSlider() {
     var ar_r = slider.find('.arrow.right');
     var toggles = slider.find('.toggle');
     var items = slider.find('.item');
+    var item_width = $(items[0]).outerWidth();
 
     toggles.removeClass('act');
     $(toggles[active]).addClass('act');
 
     items.each(function (index, item) {
         if (active == index) {
-            $(item).animate({width: 958}, 0);
+            $(item).animate({width: item_width}, 0);
             $(item).find('.item_info').show();
             $(item).addClass('act');
         }
@@ -157,7 +158,7 @@ function initMainSlider() {
             active = next;
             toggles.removeClass('act');
             $(toggles[active]).addClass('act');
-            $(items[active]).animate({width: 958}, 0);
+            $(items[active]).animate({width: item_width}, 0);
         });
     };
 

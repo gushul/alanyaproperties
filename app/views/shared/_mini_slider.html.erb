@@ -6,11 +6,11 @@
     <div class="items_holder">
       <% sliders.each do |slider| %>
       <div class="item" style="background-image: url('<%= image_path slider.photo.small %>');">
-        <% if @city %>
         <span class="item_info">
+        <% if @city %>
             <span class="item_header"><%= @city.name %></span>
-        </span>
         <% end -%>
+        </span>
       </div>
       <% end -%>
     </div>
