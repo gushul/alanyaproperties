@@ -8,12 +8,12 @@
       <div class="item" style="background-image: url('<%= image_path slider.photo.big %>');">
         <span class="item_info">
             <span class="item_header">
-                <span class="item_price"><%= number_to_currency slider.data['price'], 'euro' %></span>
-                <span class="item_title"><%= slider.data['title'] %></span>
+                <span class="item_price"><%= number_to_currency slider.price, 'euro' %></span>
+                <span class="item_title"><%= slider.title %></span>
             </span>
             <span class="item_content">
-                <span class="item_text"><%= slider.data['description'] %></span>
-                <a class="item_more" href="<%= slider.data['link'] %>">Читать далее</a>
+                <span class="item_text"><%= slider.description %></span>
+                <a class="item_more" href="<%= slider.link %>">Читать далее</a>
             </span>
         </span>
       </div>
