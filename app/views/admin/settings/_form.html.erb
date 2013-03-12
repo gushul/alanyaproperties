@@ -1,11 +1,13 @@
-<%= simple_form_for @setting, url: '', :html => {:class => 'form-horizontal'} do |f| %>
-    <% Setting::FIELDS[@setting.model_type.to_sym].each do |field, options| %>
-        <%= f.input field, as: options[:type], hint: options[:hint], input_html: {class: 'input-xxlarge'} %>
-    <% end -%>
-    <%= f.input :model_type, as: :hidden %>
-    <div class="form-actions">
-      <%= f.button :submit, :class => 'btn-primary' %>
-      <%# link_to t('.cancel', :default => t("helpers.links.cancel")),
+<%= simple_form_for @setting, url: '', as: :setting, html: {:class => 'form-horizontal'} do |f| %>
+  <% @setting.fields.each do |field, options| %>
+    <% klass = 'input-xxlarge' %>
+    <% klass << ' redactor' if options[:html] %>
+    <%= f.input field, as: options[:type], hint: options[:hint], input_html: {class: klass} %>
+  <% end -%>
+  <%= f.input :model_type, as: :hidden %>
+  <div class="form-actions">
+    <%= f.button :submit, 'Save', :class => 'btn-primary' %>
+    <%# link_to t('.cancel', :default => t("helpers.links.cancel")),
                 settings_path, :class => 'btn' %>
-    </div>
+  </div>
 <% end %>

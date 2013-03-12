@@ -86,10 +86,13 @@ Alanya::Application.routes.draw do
       resources :contact_people, path: 'people'
       resources :contact_topics, path: 'topics'
       # end
-      match 'settings' => 'contacts#settings', as: :contacts_settings
+      match 'settings' => 'settings#edit', as: :contacts_settings, settings_type: :contacts
     end
     scope 'settings' do
       resources :sliders, slider_type: 'main', as: :main_sliders
+      match 'global' => "settings#edit", settings_type: 'global', as: :global_settings
+      match 'main' => "settings#edit", settings_type: 'main', as: :main_settings
+
     end
     get '', action: :index
   end

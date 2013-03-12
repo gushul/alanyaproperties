@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312122558) do
+ActiveRecord::Schema.define(:version => 20130312201909) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -173,7 +173,10 @@ ActiveRecord::Schema.define(:version => 20130312122558) do
     t.string   "model_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "type"
   end
+
+  add_index "settings", ["type"], :name => "index_settings_on_type"
 
   create_table "sliders", :force => true do |t|
     t.string   "photo"

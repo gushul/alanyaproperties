@@ -71,14 +71,14 @@
       <div class="fright">
         <i class="fot_separ"></i>
 
-        <div class="phone">Телефон : 02544511548411</div>
+        <div class="phone">Телефон : <%= @global_settings.phone %></div>
         <i class="fot_separ"></i>
         <a class="icon fot_rss" href="<%= news_path %>" title="RSS Feed"></a>
         <i class="fot_separ"></i>
-        <a class="icon fot_fb" href="https://www.facebook.com/AlanyaProperties?fref=ts" title="Facebook Page" target="_blank"></a>
+        <a class="icon fot_fb" href="<%= @global_settings.facebook %>" title="Facebook Page" target="_blank"></a>
       </div>
     </div>
-    <div class="copyright">&copy; 2013 Alanya Properties copyright Все права защищены</div>
+    <div class="copyright"><%= @global_settings.copyright %></div>
   </div>
   <!-- END footer-->
 </div>
