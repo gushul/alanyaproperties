@@ -60,8 +60,20 @@
             </li>
             <li class="<%= 'active' if params[:controller] == 'admin/cities' %>"><%= link_to "Cities", admin_cities_path %></li>
             <li class="<%= 'active' if params[:controller] == 'admin/services' %>"><%= link_to "Services", admin_services_path %></li>
-            <li class="<%= 'active' if params[:controller] == 'admin/turkey_news' %>"><%= link_to "Turkey News", admin_turkey_news_index_path %></li>
-            <li class="<%= 'active' if params[:controller] == 'admin/about_pages' %>"><%= link_to "About Pages", admin_about_pages_path %></li>
+            <li class="<%= 'active' if  params[:controller] =~ /admin\/turkey_news/ %> dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Turkey News <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="<%= 'active' if params[:controller] == 'admin/turkey_news' %>"><%= link_to "Turkey News", admin_turkey_news_index_path %></li>
+                <li class="<%= 'active' if current_page?(admin_turkey_news_sliders_path) %>"><%= link_to "Slider", admin_turkey_news_sliders_path %></li>
+              </ul>
+            </li>
+            <li class="<%= 'active' if  params[:controller] =~ /admin\/about_pages/ %> dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Pages <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="<%= 'active' if params[:controller] == 'admin/about_pages' %>"><%= link_to "About Pages", admin_about_pages_path %></li>
+                <li class="<%= 'active' if current_page?(admin_about_pages_sliders_path) %>"><%= link_to "Slider", admin_about_pages_sliders_path %></li>
+              </ul>
+            </li>
             <li class="<%= 'active' if  params[:controller] =~ /admin\/contacts/ %> dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -73,7 +85,7 @@
             <li class="<%= 'active' if  params[:controller] =~ /admin\/settings/ %> dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class="<%= 'active' if current_page?(admin_sliders_path) %>"><%= link_to "Sliders", admin_sliders_path %></li>
+                <li class="<%= 'active' if current_page?(admin_main_sliders_path) %>"><%= link_to "Main Slider", admin_sliders_path %></li>
               </ul>
             </li>
           </ul>

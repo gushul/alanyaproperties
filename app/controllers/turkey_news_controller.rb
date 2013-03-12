@@ -4,6 +4,7 @@ class TurkeyNewsController < InheritedResources::Base
   respond_to :atom, :rss, only: :index
 
   def index
+    @sliders = Slider.slider_type('turkey_news')
     super do |format|
       format.atom do
         @title = "Новости Турции, Алании и других городов побережья средиземного моря"

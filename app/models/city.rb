@@ -11,6 +11,7 @@ class City < ActiveRecord::Base
   validates :name, :cover, :name_case, presence: true
 
   has_many :photos, as: :gallery
+  has_many :sliders, as: :model
 
   def to_slugged
     url || name

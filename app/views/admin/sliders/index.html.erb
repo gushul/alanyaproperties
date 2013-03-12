@@ -25,9 +25,9 @@
         <td><%=l slider.created_at, format: :short %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_admin_slider_path(slider), :class => 'btn btn-mini' %>
+                      parent? ? [:edit, :admin, parent, slider] : [:edit, :admin, params[:slider_type], slider], :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      admin_slider_path(slider),
+                      parent? ? [:admin, parent, slider] : [:admin, params[:slider_type], slider],
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
@@ -38,5 +38,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_admin_slider_path,
+            parent? ? [:new, :admin, parent, :slider]: [:new, :admin, params[:slider_type], :slider],
             :class => 'btn btn-primary' %>

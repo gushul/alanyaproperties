@@ -16,8 +16,11 @@
       <tr>
         <td><%= link_to city.id, [:admin, city] %></td>
         <td><%= city.name %></td>
-        <td><%= l city.created_at %></td>
+        <td><%= l city.created_at, format: :short %></td>
         <td>
+          <a href="<%= admin_city_sliders_path(city) %>" class="btn btn-mini btn-success">
+            <i class="icon-camera"></i> Sliders
+          </a>
           <a href="<%= admin_city_photos_path(city) %>" class="btn btn-mini btn-success">
             <i class="icon-camera"></i> Photos
           </a>

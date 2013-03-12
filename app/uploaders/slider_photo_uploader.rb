@@ -5,4 +5,7 @@ class SliderPhotoUploader < AssetUploader
   version :big do
     process resize_to_fill: [956, 426]
   end
+  version :small do
+    process resize_to_fill: [708, 258]
+  end
 end

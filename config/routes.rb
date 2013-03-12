@@ -68,10 +68,19 @@ Alanya::Application.routes.draw do
     end
     resources :cities do
       resources :photos
+      resources :sliders
     end
     resources :services
-    resources :turkey_news
-    resources :about_pages
+    resources :turkey_news do
+      collection do
+        resources :sliders, slider_type: 'turkey_news', as: :turkey_news_sliders
+      end
+    end
+    resources :about_pages do
+      collection do
+        resources :sliders, slider_type: 'about_pages', as: :about_pages_sliders
+      end
+    end
     scope 'contacts' do
       # collection do
       resources :contact_people, path: 'people'
@@ -80,7 +89,7 @@ Alanya::Application.routes.draw do
       match 'settings' => 'contacts#settings', as: :contacts_settings
     end
     scope 'settings' do
-      resources :sliders, slider_type: 'main'
+      resources :sliders, slider_type: 'main', as: :main_sliders
     end
     get '', action: :index
   end

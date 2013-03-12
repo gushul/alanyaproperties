@@ -2,13 +2,14 @@ class Admin::SlidersController < AdminController
   inherit_resources
 
   has_scope :slider_type
+  belongs_to :city, polymorphic: true, optional: true
 
   def create
-    create! { admin_sliders_path }
+    create! { parent? ? [:admin, parent, :sliders] : [:admin, params[:slider_type], :sliders] }
   end
 
   def update
-    update! { admin_sliders_path }
+    update! { parent? ? [:admin, parent, :sliders] : [:admin, params[:slider_type], :sliders] }
   end
 
   protected
