@@ -3,7 +3,7 @@ class SliderPhotoUploader < AssetUploader
     process resize_to_fill: [200, 200]
   end
   version :big do
-    process resize_to_fill: [956, 426]
+    process resize_to_fill: [958, 426]
   end
   version :small do
     process resize_to_fill: [708, 258]
