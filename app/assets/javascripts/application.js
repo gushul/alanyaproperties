@@ -21,6 +21,7 @@
 //= require period
 //= require transfer
 //= require jquery.colorbox-min
+//= require jquery.expander
 
 $(function () {
     window.wiselinks = new Wiselinks();
@@ -38,4 +39,11 @@ $(function () {
 
 //        $('.live-form').submit();
     })
+
+    $('div.expander').expander({
+      slicePoint: 518,
+      expandText: 'Читать далее...',
+      expandPrefix: '. ',
+      userCollapseText: 'свернуть..'
+    });
 })

@@ -38,4 +38,14 @@ module ApplicationHelper
   def description(page_description)
     content_for(:description) { page_description }
   end
+
+  def readmore(text, length = 75)
+    chars = text.mb_chars
+    if chars.length > length
+      chars.insert(length, ' <a href="#" class="read_more">Read more..</a><span class="read_more" style="display:none;">')
+      chars << "</span>"
+    end
+
+    chars.html_safe
+  end
 end

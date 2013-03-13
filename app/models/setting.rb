@@ -27,6 +27,7 @@ class Setting < ActiveRecord::Base
     main: {
       title: { type: :string, hint: "Title on main page", validate: { presence: true } },
       description: { type: :text, hint: "Description on main page", validate: { presence: true } },
+      seo_title: { type: :string, hint: "Title over seo text on bottom" },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true }
     },
     buy: {

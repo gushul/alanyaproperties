@@ -87,5 +87,8 @@
 </div>
 
 <div class="main_text">
-  <%= raw @settings.seo_text %>
+  <h3><%= @settings.seo_title %></h3>
+  <div class="expander">
+    <%= simple_format @settings.seo_text %>
+  </div>
 </div>
