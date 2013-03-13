@@ -25,6 +25,6 @@ class ContactsController < ApplicationController
 
   private
   def settings
-    @setting = Setting.type('contacts').first
+    @setting = Setting.get('contacts')
   end
 end
