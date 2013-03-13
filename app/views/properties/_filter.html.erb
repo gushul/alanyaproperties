@@ -1,4 +1,5 @@
-<% case params[:property_for] || @property.try(:property_for) %>
+<% property_for = params[:property_for] || @property.try(:property_for) %>
+<% case property_for %>
 <% when 'buy' %>
     <div class="filter_section square first">
       <h2>Общая площадь</h2>
@@ -39,7 +40,7 @@
   </div>
 </div>
 <div class="filter_section cost">
-  <% case params[:property_for] %>
+  <% case property_for %>
   <% when 'buy' %>
       <h2>Стоимость</h2>
 
