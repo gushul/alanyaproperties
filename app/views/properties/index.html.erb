@@ -1,28 +1,6 @@
 <% title @settings.title %>
 <% description @settings.description %>
-<div class="top_sidebar clearfix">
-  <ul class="sidebar_nav clmn_left">
-    <% case params[:property_for] %>
-    <% when 'buy' %>
-        <li class="li"><%= link_to "Листать предложения по продаже", "/#{params[:property_for]}/search" %></li>
-        <li class="li"><a href="" title="">Правила покупки недвижимости</a></li>
-    <% when 'rent' %>
-        <li class="li"><%= link_to "Листать предложения по аренде", "/#{params[:property_for]}/search" %></li>
-        <li class="li"><a href="" title="">Правила аренды в Турции</a></li>
-    <% end -%>
-    <li class="shadow"></li>
-    <li class="shadow bottom"></li>
-  </ul>
-  <div class="top_offer">
-              <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
-                    <span class="toffer_holder clearfix">
-                        <span class="title">Алания, новый комплекс<br/>Рядом с морем, 2 недели</span>
-                        <span class="btn">ПОДРОБНЕЕ</span>
-                        <span class="cost">600 €</span>
-                    </span>
-                </span>
-  </div>
-</div>
+<%= render 'top_sidebar' %>
 
 <div class="filter">
   <% case params[:property_for] %>
