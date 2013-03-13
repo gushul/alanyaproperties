@@ -41,9 +41,9 @@ $(function () {
     })
 
     $('div.expander').expander({
-      slicePoint: 518,
-      expandText: 'Читать далее...',
-      expandPrefix: '. ',
+      slicePoint: 510,
+      expandText: 'Читать далее',
+      // expandPrefix: '. ',
       userCollapseText: 'свернуть..'
     });
 })
