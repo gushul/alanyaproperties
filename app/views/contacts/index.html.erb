@@ -22,7 +22,7 @@
     <% if @setting.skype %>
         <a class="skype" href="skype:<%= @setting.skype %>?call">Звонить по Скайпу</a>
     <% end -%>
-    <span class="other_contacts">Контакты наших партнеров<br/>в других странах</span>
+    <a class="other_contacts" href="<%= AboutPage.exists?(3) ? url_for(AboutPage.find(5)) : '#' %> ">Контакты наших партнеров<br/>в других странах</a>
   </div>
   <div class="clmn_right">
     <h2 class="h2">Выберите, кому вы хотите отправить сообщение</h2>
