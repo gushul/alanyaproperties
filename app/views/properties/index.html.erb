@@ -1,3 +1,5 @@
+<% title @settings.title %>
+<% description @settings.description %>
 <div class="top_sidebar clearfix">
   <ul class="sidebar_nav clmn_left">
     <% case params[:property_for] %>
@@ -54,7 +56,7 @@
 
 <ul class="sidebar_nav clmn_left">
   <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
-  <li class="li"> <%= link_to "Заказать трансфер", transfer_index_path %></li>
+  <li class="li"><%= link_to "Заказать трансфер", transfer_index_path %></li>
   <li class="shadow"></li>
   <li class="shadow bottom"></li>
 </ul>
@@ -64,11 +66,7 @@
   </ul>
 
   <p class="text">
-    Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано
-    большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну.
-    Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета
-    университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде
-    решить по, по фон фирме огонь глубже.
+    <%= @settings.seo_text %>
   </p>
 </div>
 <div class="clear"></div>

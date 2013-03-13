@@ -6,13 +6,13 @@
     <li class="shadow bottom"></li>
   </ul>
   <div class="top_offer">
-                <span class="toffer_inner clearfix" style="background-image: url('images/top_offer.png')">
-                    <span class="toffer_holder clearfix">
-                        <span class="title">Алания, новый комплекс<br/>Рядом с морем, 2 недели</span>
-                        <span class="btn">ПОДРОБНЕЕ</span>
-                        <span class="cost">600 €</span>
-                    </span>
-                </span>
+    <span class="toffer_inner clearfix" style="background-image: url('images/top_offer.png')">
+        <span class="toffer_holder clearfix">
+            <span class="title">Алания, новый комплекс<br/>Рядом с морем, 2 недели</span>
+            <span class="btn">ПОДРОБНЕЕ</span>
+            <span class="cost">600 €</span>
+        </span>
+    </span>
   </div>
 </div>
 
@@ -27,7 +27,7 @@
     </div>
     <div class="clmn fright" role="live" id="live">
       <ul class="apartment_list clearfix">
-        <%= render @properties %>
+        <%= render(@properties) || "<li class='nothin'>Результатов нет</li>".html_safe %>
       </ul>
       <%= paginate @properties %>
       <%# <div class="pagination fright clearfix"> %>
@@ -43,17 +43,13 @@
 
 <ul class="sidebar_nav clmn_left">
   <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
-  <li class="li"><a href="" title="">Заказать трансфер</a></li>
+  <li class="li"><%= link_to "Заказать трансфер", transfer_index_path %></li>
   <li class="shadow"></li>
   <li class="shadow bottom"></li>
 </ul>
 <div class="clmn_right">
   <p class="text">
-    Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано
-    большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну.
-    Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета
-    университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде
-    решить по, по фон фирме огонь глубже.
+    <%= @settings.seo_text %>
   </p>
 </div>
 <div class="clear"></div>

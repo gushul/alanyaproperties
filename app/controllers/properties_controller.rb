@@ -6,9 +6,11 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
   def index
     @cities = City.all
     @properties = properties.limit(3)
+    @settings = Setting.get(params[:property_for] || 'buy')
   end
 
   def search
+    @settings = Setting.get(params[:property_for] || 'buy')
     @properties = Property.search do
       with(:property_for, params[:property_for] || 'buy')
       with(:city_id, params[:city_id]) if params[:city_id]
@@ -42,7 +44,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
   end
 
   def properties
-    @properties = Property.property_for(params[:property_for] || 'buy')
+    @properties ||= Property.property_for(params[:property_for] || 'buy')
   end
 
   private

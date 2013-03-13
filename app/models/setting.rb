@@ -10,14 +10,14 @@ class Setting < ActiveRecord::Base
 
   TYPES = {
     contacts: {
-        emails: {type: :text, hint: "Contact emails. Список через запятую", validate: {email_list: true}},
-        seo_title: {type: :string, hint: "Seo title"},
-        seo_description: {type: :text, hint: "Seo description"},
-        text: {type: :text, hint: "Текст над формой", html: true},
-        phones: {type: :string, hint: "Телефоны через запятую"},
-        address: {type: :text, hint: 'Контактный адрес в левой панели'},
-        skype: {type: :string},
-        geo: {type: :string, hint: "Lat, Lng. Пример: 42.9, -98.3"}
+      emails: {type: :text, hint: "Contact emails. Список через запятую", validate: {email_list: true}},
+      seo_title: {type: :string, hint: "Seo title"},
+      seo_description: {type: :text, hint: "Seo description"},
+      text: {type: :text, hint: "Текст над формой", html: true},
+      phones: {type: :string, hint: "Телефоны через запятую"},
+      address: {type: :text, hint: 'Контактный адрес в левой панели'},
+      skype: {type: :string},
+      geo: {type: :string, hint: "Lat, Lng. Пример: 42.9, -98.3"}
     },
     global: {
       phone: { type: :string, hint: "Phone on footer", validate: {presence: true} },
@@ -28,6 +28,16 @@ class Setting < ActiveRecord::Base
       title: { type: :string, hint: "Title on main page", validate: { presence: true } },
       description: { type: :text, hint: "Description on main page", validate: { presence: true } },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true }
+    },
+    buy: {
+      title: { type: :string, hint: "Title on buy page", validate: { presence: true } },
+      description: { type: :text, hint: "Description on buy page", validate: { presence: true } },
+      seo_text: { type: :text, hint: "Seo text on bottom" }
+    },
+    rent: {
+      title: { type: :string, hint: "Title on rent page", validate: { presence: true } },
+      description: { type: :text, hint: "Description on rent page", validate: { presence: true } },
+      seo_text: { type: :text, hint: "Seo text on bottom" }
     }
   }
 
