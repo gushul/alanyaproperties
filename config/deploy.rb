@@ -22,7 +22,7 @@ after "deploy:restart", "deploy:cleanup"
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
-set :shared_children, shared_children + %w{public/uploads solr/data}
+set :shared_children, shared_children + %w{public/uploads solr}
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
