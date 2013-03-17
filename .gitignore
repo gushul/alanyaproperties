@@ -12,6 +12,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/sunspot-solr-development.log.lck
 /tmp
 /public/uploads
 
@@ -20,3 +21,4 @@
 
 # Solr
 /solr/data
+/solr/pids
