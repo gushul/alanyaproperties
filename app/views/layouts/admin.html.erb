@@ -92,6 +92,7 @@
                 <li class="<%= 'active' if current_page?(admin_rent_settings_path) %>"><%= link_to "Rent Settings", admin_rent_settings_path %></li>
               </ul>
             </li>
+            <li><%= link_to('Logout', destroy_admin_session_path, :method => :delete) %></li>
           </ul>
         </div>
         <!--/.nav-collapse -->

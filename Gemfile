@@ -33,6 +33,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'slim'
 gem 'devise'
 gem 'inherited_resources'
+gem 'responders'
 gem 'has_scope'
 gem 'carrierwave'
 gem 'mini_magick'

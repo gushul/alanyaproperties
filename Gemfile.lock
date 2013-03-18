@@ -211,6 +211,7 @@ DEPENDENCIES
   mysql2
   rails (= 3.2.12)
   redactor-rails
+  responders
   sass-rails (~> 3.2.3)
   simple_form
   simple_form_fancy_uploads

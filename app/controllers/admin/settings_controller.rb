@@ -2,9 +2,11 @@ class Admin::SettingsController < AdminController
   inherit_resources
 
   def edit
-    # link = [:admin, params[:settings_type], :settings]
+    link = [:admin, params[:settings_type], :settings]
     if request.post? || request.put?
-      update!
+      update! do |format|
+        format.html { redirect_to url_for(link) + "?#{rand(10)}", notice: "Settings was successfully updated." }
+      end
     else
       edit!
     end
