@@ -13,9 +13,10 @@
   <%= javascript_include_tag "application" %>
   <style type="text/css">
     html, body {
-        min-width: 400px;
+        min-width: 450px;
         min-height: 527px;
         overflow: hidden;
+        background: #f1f1f1;
     }
   </style>
   <%= csrf_meta_tags %>
@@ -27,7 +28,7 @@
 </head>
 
 <body>
-<div class="order_popup" style="background: #f1f1f1;padding: 25px; height: 527px;">
+<div class="order_popup" style="background: #f1f1f1;height: 527px;">
   <div class="order_info clearfix">
     <%= image_tag @property.photo.thumb, class: 'order_img', size: '216x131' %>
     <table class="order_table">

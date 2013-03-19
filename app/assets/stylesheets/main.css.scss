@@ -1001,6 +1001,10 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
     left: 0;
     top: 0;
 }
+#cboxOverlay {
+   background: image-url('back_bg.png') repeat;
+}
+
 .popup_table{
     position: absolute;
     left: 0;
@@ -1017,32 +1021,50 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
     padding: 0;
     vertical-align: middle;
 }
-.popup{
+.popup, #colorbox {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -webkit-box-shadow: 0px 1px 30px 5px #000000;
   box-shadow: 0px 1px 30px 5px #000000;
-  margin: 30px auto;
+  /* margin: 30px auto; */
     position: relative;
     z-index: 2;
     padding: 25px;
     width: 670px;
     background: #f1f1f1;
 }
-.close{
+.close, #cboxClose{
     height: 14px;
-  padding: 0 22px 0 0;
+    padding: 0 22px 0 0;
     background: image-url('close.png') no-repeat right 0;
     display: block;
     cursor: pointer;
-  font-size: 10px;
-  line-height: 14px;
-  color: #bec0c2;
+    font-size: 10px;
+    line-height: 14px;
+    color: #bec0c2;
 }
-.popup .close{
+.popup .close, #cboxClose{
     position: absolute;
-    right: 3px;
-    top: 3px;
+    right: -22px;
+    top: -22px;
+    width: 59px;
+}
+
+#colorbox.property_box #cboxTitle {
+  position: absolute;
+  top: 9px;
+  left: 20px;
+  color: #000;
+}
+
+#colorbox.property_box {
+  padding: 0;
+}
+
+#colorbox.property_box #cboxClose {
+  top: 4px;
+  right: 8px;
+  text-indent: -9999px;
 }
 
 .datepicker_holder{
