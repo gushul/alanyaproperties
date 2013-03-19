@@ -21,4 +21,9 @@ class City < ActiveRecord::Base
   def normalize_friendly_id(text)
     text.to_slug.normalize! transliterations: :russian
   end
+
+  searchable do
+    text :name
+    text :description, :stored => true
+  end
 end

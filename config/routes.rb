@@ -1,5 +1,7 @@
 Alanya::Application.routes.draw do
 
+  get "search" => "search#index"
+
   resources :about_pages, path: 'about'
 
 

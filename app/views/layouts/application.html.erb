@@ -42,7 +42,10 @@
           <a class="search_item">ПОИСК</a>
 
           <div class="search_input" style="display:none;">
-            <input class="input" id="main-search-input" type="text"/><i class="search_btn"></i></div>
+            <form action="/search" method="GET">
+              <input class="input" id="main-search-input" type="text" name="q"/><i class="search_btn"></i>
+            </form>
+          </div>
         </td>
       </tr>
     </table>

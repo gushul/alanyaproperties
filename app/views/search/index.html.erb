@@ -1,0 +1,122 @@
+<% @content_class = 'search_page' %>
+<% title "Результаты поиска: #{params[:q]}" %>
+        <ul class="sidebar_nav clmn_left">
+            <li class="li"><%= link_to "Листать предложения по продаже", "/buy/search" %></li>
+            <li class="li"><%= link_to "Правила покупки недвижимости", Service.exists?(5) ? Service.find(5) : '#' %></li>
+            <li class="shadow"></li>
+            <li class="shadow bottom"></li>
+        </ul>
+
+        <div class="right_clmn">
+            <div class="top_offer">
+                <span class="toffer_inner clearfix" style="background-image: url('images/top_offer.png')">
+                    <span class="toffer_holder clearfix">
+                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                        <span class="cost">45 000 €</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="search_results clearfix">
+            <h1 class="h2 right_clmn main_title">Результаты поиска: <%= params[:q] %></h1>
+            <div class="clear"></div>
+            <div class="search_filter">
+                <form action="" method="GET">
+                  <h2 class="h2">Расширенный поиск</h2>
+                  <input class="input" type="text" placeholder="введите сочетание слов для поиска" name="q" value="<%= params[:q] %>"/>
+                  <div class="hr"></div>
+
+                  <label class="filter_label label_radio <%= 'act' if params[:type].blank? || params[:type] == 'all' %>"><%= radio_button_tag 'type', 'all', params[:type].blank? || params[:type] == 'all'  %>Искать по всему сайту</label>
+                  <label class="filter_label label_radio <%= 'act' if params[:type] == 'buy' %>"><%= radio_button_tag 'type', 'buy', params[:type] == 'buy' %>Искать в материалах о покупке<br />и продаже недвижимости</label>
+                  <label class="filter_label label_radio <%= 'act' if params[:type] == 'rent' %>"><%= radio_button_tag 'type', 'rent', params[:type] == 'rent' %>Искать в материалах об аренде</label>
+                  <label class="filter_label label_radio <%= 'act' if params[:type] == 'id' %>"><%= radio_button_tag 'type', 'id', params[:type] == 'id' %>Искать по ID объекта</label>
+
+                  <span class="btn big btn_input">ИСКАТЬ<i class="input"><input type="submit" /></i></span>
+                </form>
+            </div>
+            <div class="search_content right_clmn">
+              <% if [@cities, @articles, @properties_buy, @properies_rent].map {|t| !t.blank? }.any? %>
+                <h3 class="h2">Ничего не найденно</h3>
+                <div>&nbsp;</div>
+                <% end %>
+                <% if !@cities.blank? %>
+                <h3 class="h2">Найденные города</h3>
+                <div class="hr"></div>
+
+                <ul class="search_list">
+                  <% @cities.each do |city| %>
+                    <li class="li">
+                      <%= link_to image_tag(city.cover.asset.thumb), city, class: 'img' %>
+                      <%= link_to city.name, city, class: 'title' %>
+                      <span class="text">
+                        <%= truncate sanitize(city.description), length: 200 %>
+                      </span>
+                    </li>
+                  <% end %>
+                </ul>
+                <% end %>
+
+                <% if !@articles.blank? %>
+                <h3 class="h2">Найденные статьи</h3>
+                <div class="hr"></div>
+                <ul class="search_list">
+                  <% @articles.each do |article| %>
+                    <li class="li">
+                      <%= link_to image_tag(article.photo.thumb), article, class: 'img' %>
+                      <%= link_to article.title, article, class: 'title' %>
+                      <span class="text">
+                        <%= truncate article.teaser, length: 200 %>
+                      </span>
+                    </li>
+                  <% end %>
+                </ul>
+                <% end %>
+                <% if !@properties_buy.blank? %>
+                <h3 class="h2">Найденные объекты на продажу</h3>
+                <div class="hr"></div>
+                <ul class="search_list small">
+                  <% @properties_buy.each do |property| %>
+                    <li class="li">
+                      <%= link_to image_tag(property.photo.thumb), property, class: 'img' %>
+                      <span class="text">
+                        <%= property.name %><br />
+                        город: <%= property.city.name %><br />
+                        комнат/спален: <%= property.property_type %><br />
+                        <%= number_to_currency property.price, 'euro' %>
+                      </span>
+                      <%= link_to 'ПОДРОБНЕЕ', property, class: 'more' %>
+                    </li>
+                  <% end %>
+                </ul>
+                <% end %>
+                <% if !@properties_rent.blank? %>
+                <h3 class="h2">Найденные объекты для аренды</h3>
+                <div class="hr"></div>
+                <ul class="search_list small">
+                  <% @properties_rent.each do |property| %>
+                    <li class="li">
+                      <%= link_to image_tag(property.photo.thumb), property, class: 'img' %>
+                      <span class="text">
+                        <%= property.name %><br />
+                        город: <%= property.city.name %><br />
+                        комнат/спален: <%= property.property_type %><br />
+                        <%= number_to_currency property.price, 'euro' %>
+                      </span>
+                      <%= link_to 'ПОДРОБНЕЕ', property, class: 'more' %>
+                    </li>
+                  <% end %>
+                </ul>
+                <% end %>
+            </div>
+            <ul class="sidebar_nav">
+                <li class="li"><%= link_to "Горячие предложения", '/buy/search?hot=true' %></li>
+                <li class="li"><%= link_to contacts_path do %>Отправить запрос<br />На подбор недвижимости для покупки<% end %></li>
+                <li class="shadow"></li>
+                <li class="shadow bottom"></li>
+            </ul>
+            <%= paginate @pager if @pager %>
+        </div>

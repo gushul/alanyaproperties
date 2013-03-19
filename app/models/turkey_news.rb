@@ -4,4 +4,10 @@ class TurkeyNews < ActiveRecord::Base
   validates :title, :teaser, :body, :photo, :slug, presence: true
   validates :teaser, :length => {:maximum => 360}
   mount_uploader :photo, TurkeyNewsPhotoUploader
+
+  searchable do
+    text :title
+    text :teaser
+    text :body
+  end
 end
