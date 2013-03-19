@@ -2056,12 +2056,12 @@ a.buy_item_map:hover {
   text-decoration: none;
   float: left;
   clear: left;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-size: 14px;
   line-height: 17px;
   margin: 0 0 30px;
 }
-.earthquake_map:hover{background-position: 0 bottom;color: white}
+.earthquake_map:hover, .earthquake_map.act{background-position: 0 bottom;color: white}
 .photo_list{
   padding: 0;
   margin: 0 0 0 -20px;

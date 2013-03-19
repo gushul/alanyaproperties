@@ -1,5 +1,5 @@
 <%- model_class = TurkeyNews -%>
 <div class="page-header">
-  <h1><%= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
+  <h1><%= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => @turkey_news.article_type == 'seismic_map' ? 'Seismic map' : model_class.model_name.human %></h1>
 </div>
 <%= render :partial => 'form' %>

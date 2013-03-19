@@ -16,4 +16,8 @@ class TurkeyNewsController < InheritedResources::Base
       format.rss { redirect_to news_path }
     end
   end
+  protected
+  def collection
+    @turkey_news ||= end_of_association_chain.where(article_type: nil)
+  end
 end

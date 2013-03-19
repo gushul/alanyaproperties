@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312201909) do
+ActiveRecord::Schema.define(:version => 20130319181421) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -208,8 +208,9 @@ ActiveRecord::Schema.define(:version => 20130312201909) do
     t.text     "body"
     t.string   "slug"
     t.string   "photo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "article_type"
   end
 
 end

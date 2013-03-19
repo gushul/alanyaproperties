@@ -25,7 +25,9 @@
   </div>
 </div>
 
-<span class="earthquake_map">Карта сейсмоактивности Турции</span>
+<%= link_to_unless_current "Карта сейсмоактивности Турции", TurkeyNews.get_seismic_map, class: 'earthquake_map' do |name| %>
+  <span class="earthquake_map act">Карта сейсмоактивности Турции</span>
+<% end %>
 
 <%= render 'shared/tour' %>
 

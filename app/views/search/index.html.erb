@@ -39,7 +39,7 @@
                 </form>
             </div>
             <div class="search_content right_clmn">
-              <% if [@cities, @articles, @properties_buy, @properies_rent].map {|t| !t.blank? }.any? %>
+              <% unless [@cities, @articles, @properties_buy, @properies_rent].map {|t| !t.blank? }.any? %>
                 <h3 class="h2">Ничего не найденно</h3>
                 <div>&nbsp;</div>
                 <% end %>
