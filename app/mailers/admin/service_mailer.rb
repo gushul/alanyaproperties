@@ -8,7 +8,7 @@ class Admin::ServiceMailer < ActionMailer::Base
   #   en.admin.service_mailer.transfer.subject
   #
   def transfer(transfer)
-    @settings = Setting.type('contacts').first
+    @settings = Setting.get('contacts')
     @transfer = transfer
 
     mail to: @settings.emails, subject: "Заказ трансфера ##{@transfer.id}"
@@ -20,7 +20,7 @@ class Admin::ServiceMailer < ActionMailer::Base
   #   en.admin.service_mailer.contacts.subject
   #
   def contacts(contact_message)
-    @settings = Setting.type('contacts').first
+    @settings = Setting.get('contacts')
     @contact_message = contact_message
 
     mail to: @settings.emails, subject: "Новое сообщение ##{@contact_message.id}"

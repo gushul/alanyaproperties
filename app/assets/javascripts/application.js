@@ -28,7 +28,7 @@ $(function () {
 
     $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%', className: 'property_box'});
     $('.property_map').colorbox({iframe: true, width: '80%', height: '90%', className: 'property_box'});
-    $('.send_offer').colorbox({iframe: true, width: '450px', height: '476px', close: 'Закрыть окно'});
+    $('.send_offer').colorbox({iframe: true, width: '490px', height: '516px', close: 'Закрыть окно', fastIframe: false});
 
     $('.live-form').change(function(e){
         // Wiselinks load

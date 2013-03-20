@@ -6,6 +6,10 @@
 ID обьекта: <%= @order.property.oid %>
 
 ----------------------------------------------------------------
+<% if @order.property.property_for == 'rent' %>
+Дата приезда: <%= @order.from %>
+Дата отьезда: <%= @order.to %>
+<% end %>
 От:
     <%= @order.contact_name %>
     <%= @order.contact_email %>

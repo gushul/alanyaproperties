@@ -7,6 +7,7 @@
   <meta name="description" content="<%= yield :description %>"/>
 
   <%= stylesheet_link_tag "application", :media => "screen, projection" %>
+  <%# javascript_include_tag "application" %>
   <!-- что бы телефон не ломался из-за скайпа -->
   <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
 
@@ -18,8 +19,34 @@
         overflow: hidden;
         background: #f1f1f1;
     }
+
+    .period {
+      float: right;
+      width: 214px;
+      position: relative;
+      top:-45px;
+    }
+    .period .field_with_errors {
+      display: inline-block;
+    }
+
+    .order_form .input.date {
+      width: 80px;
+      display: inline-block;
+      margin:0;
+    }
+
+    .order_form .input.date.act {
+      border-color: #00aeac;
+    }
   </style>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript" charset="utf-8">
+$(function(){
+  //alert('hello')
+})
+  </script>
 
   <!--[if IE 7]>
   <script>browser_class = 'ie_7';</script><![endif]-->
@@ -28,7 +55,7 @@
 </head>
 
 <body>
-<div class="order_popup" style="background: #f1f1f1;height: 527px;">
+<div class="order_popup" style="background: #f1f1f1; margin: 20px; height: 527px;">
   <div class="order_info clearfix">
     <%= image_tag @property.photo.thumb, class: 'order_img', size: '216x131' %>
     <table class="order_table">
@@ -45,10 +72,10 @@
         <td>комнат/спален:</td>
         <td class="td2"><%= t "property.type.#{@property.property_type}" %></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <td>этаж:</td>
         <td class="td2"></td>
-      </tr>
+      </tr> -->
       <tfoot>
       <tr>
         <td>ID объекта:</td>
@@ -61,7 +88,15 @@
   <div class="clear"></div>
 
   <%= form_for @offer, url: '' do |f| %>
-  <div class="form order_form">
+    <div class="form order_form">
+      <% if @property.property_for == 'rent' %>
+      <div style="" class="filter_section period">
+        <h4 style="font-size:12px">Срок пребывания</h4>
+        <%= f.text_field :from, id: "date-start", class: "input date", style: "margin-right: 6px;", placeholder: "Дата приезда" %>
+        <%= f.text_field :to, id: "date-end", class: "input date", placeholder: "Дата отьезда" %>
+        <div id="datepicker-inner" style="position: absolute;"></div>
+      </div>
+      <% end %>
     <%= f.text_field :contact_name, placeholder: 'Введите Ваше имя и фамилию', class: 'input' %>
     <%= f.email_field :contact_email, placeholder: 'Ваш e-mail', class: 'input' %>
     <%= f.phone_field :contact_phone, placeholder: 'Ваш телефон + xx xxx xxx xxxx', class: 'input' %>

@@ -9,10 +9,10 @@ $(function () {
         beforeShow: function (input, inst) {
             console.log(input, inst);
             $('#datepicker-inner').html(inst.dpDiv);
-            $('#date-start-label').addClass('act')
+            $('#date-start-label, #date-start.date').addClass('act')
         },
         onClose: function () {
-            $('#date-start-label').removeClass('act')
+            $('#date-start-label, #date-start.date').removeClass('act')
         }
     });
 
@@ -22,10 +22,10 @@ $(function () {
         beforeShow: function (input, inst) {
             console.log(input, inst);
             $('#datepicker-inner').html(inst.dpDiv);
-            $('#date-end-label').addClass('act')
+            $('#date-end-label, #date-end.date').addClass('act')
         },
         onClose: function () {
-            $('#date-end-label').removeClass('act')
+            $('#date-end-label, #date-end.date').removeClass('act')
         }
     });
 
