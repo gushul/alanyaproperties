@@ -1,13 +1,7 @@
 <% title "#{@property.name}. #{t "property.for.#{@property.property_for}"} недвижимости в #{@property.city.name}, Турция." %>
 <% description "#{t "property.for.#{@property.property_for}"} недвижимости по цене #{@property.price} евро. Лучшие предолжения от застройщика в Турции. Большой выбор квартир и вилл у моря." %>
 <div class="buy_page">
-  <ul class="sidebar_nav clmn_left">
-    <li class="li"><a href="" title="">Листать предложения по продаже</a></li>
-    <li class="li"><a href="" title="">Процедура покупки недвижимости</a></li>
-    <li class="li"><a href="" title="">Вся недвижимость Алании</a></li>
-    <li class="shadow"></li>
-    <li class="shadow bottom"></li>
-  </ul>
+  <%= render 'sidebar_nav' %>
 
   <div class="buy_item">
     <div class="item_price"><%= number_to_currency @property.price, 'euro' %></div>

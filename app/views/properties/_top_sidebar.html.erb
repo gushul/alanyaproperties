@@ -1,6 +1,6 @@
 <div class="top_sidebar clearfix">
   <ul class="sidebar_nav clmn_left">
-    <% case params[:property_for] %>
+    <% case params[:property_for] || @property.try(:property_for) %>
     <% when 'buy' %>
         <li class="li"><%= link_to "Листать предложения по продаже", "/#{params[:property_for]}/search" %></li>
         <li class="li"><%= link_to "Правила покупки недвижимости", Service.exists?(5) ? Service.find(5) : '#' %></li>
@@ -11,6 +11,7 @@
     <li class="shadow"></li>
     <li class="shadow bottom"></li>
   </ul>
+  <% if !@property %>
   <div class="top_offer">
     <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
         <span class="toffer_holder clearfix">
@@ -20,4 +21,5 @@
         </span>
     </span>
   </div>
+  <% end %>
 </div>
