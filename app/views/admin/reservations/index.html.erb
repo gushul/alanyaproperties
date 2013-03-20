@@ -1,0 +1,48 @@
+<%- model_class = Reservation -%>
+<div class="page-header">
+  <h1><%= parent? ? @property.name : '' %> Reservations</h1>
+</div>
+<table class="table table-striped data-table">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:oid) %></th>
+      <th><%= model_class.human_attribute_name(:from) %></th>
+      <th><%= model_class.human_attribute_name(:to) %></th>
+      <th><%= model_class.human_attribute_name(:contact_name) %></th>
+      <th><%= model_class.human_attribute_name(:contact_email) %></th>
+      <th><%= model_class.human_attribute_name(:contact_phone) %></th>
+      <th><%= model_class.human_attribute_name(:property) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= link_to reservation.id, resource_url(reservation) %></td>
+        <td><%= reservation.oid %></td>
+        <td><%= reservation.from %></td>
+        <td><%= reservation.to %></td>
+        <td><%= reservation.contact_name %></td>
+        <td><%= reservation.contact_email %></td>
+        <td><%= reservation.contact_phone %></td>
+        <td><%= link_to reservation.property.oid, reservation.property %></td>
+        <td><%=l reservation.created_at, format: :short %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_resource_url(reservation), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      resource_url(reservation),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_resource_url,
+            :class => 'btn btn-primary' %>

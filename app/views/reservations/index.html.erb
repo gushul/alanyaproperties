@@ -1,0 +1,127 @@
+<%= params[:property_for] = 'rent' %>
+        <div class="top_sidebar clearfix">
+            <ul class="sidebar_nav clmn_left">
+                <li class="li"><a href="" title="">Листать предложения по аренде</a></li>
+                <li class="li"><a href="" title="">Правила аренды в Турции</a></li>
+                <li class="shadow"></li>
+                <li class="shadow bottom"></li>
+            </ul>
+            <div class="top_offer">
+                <span class="toffer_inner clearfix" style="background-image: url('images/top_offer.png')">
+                    <span class="toffer_holder clearfix">
+                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
+                        <span class="btn">ПОДРОБНЕЕ</span>
+                        <span class="cost">600 €</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="filter">
+            <h1 class="h1">Ваша резервация</h1>
+            <div class="inner clearfix">
+                <div class="clmn fleft">
+                <%= render 'properties/filter' %>
+                </div>
+                <div class="clmn fright">
+                    <div class="reservation_block">
+                      <div class="reservation_info">
+                        <% if @reservation %>
+                            <div class="reserv_flat">
+                              <%= image_tag @reservation.property.photo.thumb, class: 'img' %>
+                                <table class="">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2"><%= @reservation.property.name %></th>
+                                    </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>город:</td>
+                                        <td class="td2"><%= @reservation.property.city.name %></td>
+                                    </tr>
+                                    <tr>
+                                        <td>комнат/спален:</td>
+                                        <td class="td2"><%= @reservation.property.property_type %></td>
+                                    </tr>
+                                    <tr>
+                                        <td>срок аренды:</td>
+                                        <td class="td2"><%= @reservation.days %> <%= Russian::pluralize @reservation.days, 'день', 'дня', 'дней' %></td>
+                                    </tr>
+                                    <tfoot>
+                                    <tr>
+                                        <td>Номер резервации:</td>
+                                        <td class="td2"><%= @reservation.oid %></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <% end %>
+                            <%
+                              from = @reservation.try(:from) || Date.today
+                              to = @reservation.try(:to) || Date.today
+
+                              reserv_range = (from..to)
+
+                              start_date = from.at_beginning_of_month
+                              end_date = to.next_month.at_beginning_of_month
+
+                              active_range = (start_date..end_date)
+
+                              start_date = start_date.monday? ? start_date : (start_date - (start_date.wday - 1))
+                              end_date = end_date.sunday? ? end_date : (end_date + (7 - end_date.wday))
+                            %>
+                            <%# date = Date.today %>
+                            <%# range = Date.today.at_beginning_of_month..Date.today.next_month.at_beginning_of_month %>
+                            <%# start_date = date.at_beginning_of_month %>
+                            <%# start_date = (start_date - (start_date.wday - 1)) unless start_date.monday? %>
+                            <%# end_date = date.next_month.at_beginning_of_month %>
+                            <%# end_date = (end_date + (7 - end_date.wday)) unless end_date.sunday?%>
+                            <div class="reserv_calendar">
+                                <div class="cal_line cal_header">
+                                    <div class="cal_day">ПН</div>
+                                    <div class="cal_day">вТ</div>
+                                    <div class="cal_day">СР</div>
+                                    <div class="cal_day">ЧТ</div>
+                                    <div class="cal_day">ПТ</div>
+                                    <div class="cal_day">СБ</div>
+                                    <div class="cal_day">ВС</div>
+                                </div>
+                                <% last_month = nil %>
+                                <% (start_date..end_date).each do |d| %>
+                                  <% if d.monday? %>
+                                  <div class="cal_line <%= cycle('even', 'odd') %>">
+                                    <% if last_month != d.month %><div class="cal_month"><%= t('date.month_self_name')[d.month] %></div><% end %>
+                                    <% last_month = d.month %>
+                                  <% end %>
+                                    <div class="cal_day <%= 'cal_other_month' unless active_range.include?(d) %> <%= 'active' if reserv_range.include?(d) %>"><%= d.day %></div>
+                                  <% if d.sunday? %>
+                                  </div>
+                                  <% end %>
+                                <% end %>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="legend">
+                                <div class="line"><div class="color"></div>Цветом отмечена ваша резервация</div>
+                            </div>
+                        </div>
+                        <form action="" method="GET">
+                          <input class="input" type="text" placeholder="Введите номер вашей резервации" name="oid" />
+                          <span class="btn btn_check middle btn_input">ПРОВЕРИТЬ РЕЗЕРВАЦИЮ<i class="input"><input type="submit"/></i></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="sidebar_nav clmn_left">
+            <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
+            <li class="li"><a href="" title="">Заказать трансфер</a></li>
+            <li class="shadow"></li>
+            <li class="shadow bottom"></li>
+        </ul>
+        <div class="clmn_right">
+            <p class="text">
+                Свою полугода состоянии то это. Ну главное раздутых лет, труда программ эти во, там кучу стратегии но. Кто написано большого маленький во, мои опять должны до, бог ну зону действия. Во если мирам получить про. Понять двигает вот ну. Тем конечного превосходные об. Об делаете одиночку обеспечении том, работу поговорить несерьёзный про то, взлета университет тд бы. Об его шагов ничего, мы несчастье остальные уже, без не выдают поработать работающих. Фон коде решить по, по фон фирме огонь глубже.
+            </p>
+        </div>
+        <div class="clear"></div>

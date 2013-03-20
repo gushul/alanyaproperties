@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320012145) do
+ActiveRecord::Schema.define(:version => 20130320121814) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -158,6 +158,18 @@ ActiveRecord::Schema.define(:version => 20130320012145) do
 
   add_index "redactor_assets", ["assetable_type", "assetable_id"], :name => "idx_redactor_assetable"
   add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_redactor_assetable_type"
+
+  create_table "reservations", :force => true do |t|
+    t.string   "oid"
+    t.date     "from"
+    t.date     "to"
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_phone"
+    t.integer  "property_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "services", :force => true do |t|
     t.string   "name"

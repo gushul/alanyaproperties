@@ -56,6 +56,7 @@
               <ul class="dropdown-menu">
                 <li class="<%= 'active' if current_page?(admin_properties_path) %>"><%= link_to "List", admin_properties_path %></li>
                 <li class="<%= 'active' if current_page?(admin_property_attributes_path) %>"><%= link_to "Attributes", admin_property_attributes_path %></li>
+                <li class="<%= 'active' if current_page?(admin_reservations_path) %>"><%= link_to "All Reservations", admin_reservations_path %></li>
               </ul>
             </li>
             <li class="<%= 'active' if params[:controller] == 'admin/cities' %>"><%= link_to "Cities", admin_cities_path %></li>

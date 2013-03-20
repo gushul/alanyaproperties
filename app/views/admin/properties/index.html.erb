@@ -34,6 +34,7 @@
         <td><%= 'new' if property.new? %></td>
         <td><%= l property.created_at, format: :short %></td>
         <td>
+          <%= link_to("Reservations", admin_property_reservations_path(property), class: 'btn btn-mini') if property.property_for == 'rent' %>
           <a href="<%= admin_property_photos_path(property) %>" class="btn btn-mini btn-success">
             <i class="icon-camera"></i> Photos
           </a>

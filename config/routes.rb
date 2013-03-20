@@ -1,5 +1,8 @@
 Alanya::Application.routes.draw do
 
+  match 'reservations' => 'reservations#index'
+
+
   get "search" => "search#index"
 
   resources :about_pages, path: 'about'
@@ -58,8 +61,10 @@ Alanya::Application.routes.draw do
   devise_for :admin, controllers: {sessions: 'admin/sessions'}
   namespace :admin do
     get :dashboard
+    resources :reservations #, only: [:index, :show]
     resources :properties do
       resources :photos
+      resources :reservations
       collection do
         resources :property_attributes do
           collection do
