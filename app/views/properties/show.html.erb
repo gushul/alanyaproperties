@@ -26,7 +26,7 @@
       <%= raw @property.description %>
 
 
-      <span class="btn gray back_btn">НАЗАД</span>
+      <%= link_to "НАЗАД", request.env["HTTP_REFERER"] || "/#{@property.property_for}/search", class: "btn gray back_btn" %>
       <a class="btn big send_offer" href="<%= offer_property_path(@property) %>">ОТПРАВИТЬ ЗАПРОС</a>
 
       <div class="clear"></div>
