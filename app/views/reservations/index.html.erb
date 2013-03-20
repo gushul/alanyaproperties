@@ -26,6 +26,16 @@
                 <div class="clmn fright">
                     <div class="reservation_block">
                       <div class="reservation_info">
+                        <% if !@reservation && params[:oid] %>
+                          <div class="reserv_flat" style="padding-top:40px;">
+                            <h3 style="color: red;text-align:center;">Резервации<br /> не найденно</h3>
+                          </div>
+                        <% end %>
+                        <% if !@reservation && !params[:oid] %>
+                          <div class="reserv_flat" style="padding-top:40px;">
+                            <h3 style="text-align:center;">Введите номер<br> вашей резервации</h3>
+                          </div>
+                        <% end %>
                         <% if @reservation %>
                             <div class="reserv_flat">
                               <%= image_tag @reservation.property.photo.thumb, class: 'img' %>
