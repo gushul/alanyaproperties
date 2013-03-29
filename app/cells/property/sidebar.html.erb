@@ -2,15 +2,15 @@
 <% if @position %><div class="<%= @position %>_sidebar clearfix"><% end %>
     <ul class="sidebar_nav clmn_left">
     <% case @for %>
-    <% when 'buy' %>
-      <% if @position == 'bottom' %>
+    <% when 'buy', 'search', 'search-bottom' %>
+      <% if @position == 'bottom' || @for == 'search-bottom' %>
         <li class="li"><%= link_to "Горячие предложения", '/buy/search?hot=true' %></li>
         <li class="li"><a class="large" href="<%= contacts_path %>">Отправить запрос<br/>На подбор недвижимости для покупки</a></li>
       <% else %>
         <li class="li"><%= link_to "Листать предложения по продаже", "/buy/search" %></li>
         <li class="li"><%= link_to "Правила покупки недвижимости", Service.exists?(5) ? Service.find(5) : '#' %></li>
       <% end %>
-    <% when 'rent' %>
+    <% when 'rent', 'reservation' %>
       <% if @position == 'bottom' %>
         <li class="li"><%= link_to "Горячие предложения", '/rent/search?hot=true' %></li>
         <li class="li"><a class="large" href="<%= contacts_path %>">Отправить запрос<br/>На подбор недвижимости для аренды</a></li>
@@ -32,15 +32,7 @@
       <li class="shadow bottom"></li>
     </ul>
     <% if @banner %>
-    <div class="top_offer">
-      <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
-        <span class="toffer_holder clearfix">
-          <span class="title">Алания, новый комплекс<br/>Рядом с морем, 2 недели</span>
-          <span class="btn">ПОДРОБНЕЕ</span>
-          <span class="cost">600 €</span>
-        </span>
-      </span>
-    </div>
+      <%= render_cell :banner, :top, @for %>
     <% end %>
 <% if @position %></div><% end %>
 

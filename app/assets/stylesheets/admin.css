@@ -15,6 +15,10 @@
  *= require_self
  */
 
+.container, .navbar-fixed-top .container {
+  width: 1188px;
+}
+
 .form-inline .span4 .controls {
     margin-left: 0;
 }

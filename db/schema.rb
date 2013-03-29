@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320121814) do
+ActiveRecord::Schema.define(:version => 20130329020248) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -53,6 +53,22 @@ ActiveRecord::Schema.define(:version => 20130320121814) do
   end
 
   add_index "assets", ["attachment_id", "attachment_type"], :name => "index_assets_on_attachment_id_and_attachment_type"
+
+  create_table "banners", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "tip"
+    t.string   "link"
+    t.string   "position"
+    t.integer  "price"
+    t.date     "until"
+    t.boolean  "active"
+    t.string   "picture"
+    t.string   "for"
+    t.integer  "city_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "cities", :force => true do |t|
     t.string   "name"

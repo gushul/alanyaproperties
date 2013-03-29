@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  tip: MyString
+  link: MyString
+  position: MyString
+  until: 2013-03-29
+  active: false
+  picture: MyString
+
+two:
+  name: MyString
+  description: MyString
+  tip: MyString
+  link: MyString
+  position: MyString
+  until: 2013-03-29
+  active: false
+  picture: MyString

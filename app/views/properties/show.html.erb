@@ -1,7 +1,6 @@
 <% title "#{@property.name}. #{t "property.for.#{@property.property_for}"} недвижимости в #{@property.city.name}, Турция." %>
 <% description "#{t "property.for.#{@property.property_for}"} недвижимости по цене #{@property.price} евро. Лучшие предолжения от застройщика в Турции. Большой выбор квартир и вилл у моря." %>
 <div class="buy_page">
-  <% render 'sidebar_nav' %>
   <%= render_cell :property, :sidebar, for: @property.property_for, city: @property.city %>
 
   <div class="buy_item">
@@ -69,5 +68,5 @@
   </div>
 
   <div class="clear"></div>
-  <%= render_cell :property, :sidebar, position: 'bottom', for: @property.property_for %>
+  <%= render_cell :property, :sidebar, position: 'bottom', for: @property.property_for, banner: true %>
 </div>

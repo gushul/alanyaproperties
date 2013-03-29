@@ -1,0 +1,19 @@
+<%= simple_form_for [:admin, @banner], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :tip %>
+  <%= f.input :link, as: :url %>
+  <%= f.input :price %>
+  <%= f.input :position, collection: ['top', 'left'] %>
+  <%= f.input :for, collection: ['buy', 'rent'] %>
+  <%= f.association :city %>
+  <%= f.input :until, as: :string, input_html: { class: 'datepicker' } %>
+  <%= f.input :active %>
+  <%= f.input :picture, as: :image_preview, input_html: {preview_version: :thumb} %>
+  <%= f.input :picture_cache, as: :hidden %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                collection_path, :class => 'btn' %>
+  </div>
+<% end %>

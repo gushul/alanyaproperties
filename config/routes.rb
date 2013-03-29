@@ -1,5 +1,7 @@
 Alanya::Application.routes.draw do
 
+
+
   match 'reservations' => 'reservations#index'
 
 
@@ -103,6 +105,7 @@ Alanya::Application.routes.draw do
         match settings_for => 'settings#edit', as: :"#{settings_for}_settings", settings_type: settings_for
       end
     end
+    resources :banners
     get '', action: :index
   end
 

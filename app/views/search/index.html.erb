@@ -1,23 +1,6 @@
 <% @content_class = 'search_page' %>
 <% title "Результаты поиска: #{params[:q]}" %>
-        <ul class="sidebar_nav clmn_left">
-            <li class="li"><%= link_to "Листать предложения по продаже", "/buy/search" %></li>
-            <li class="li"><%= link_to "Правила покупки недвижимости", Service.exists?(5) ? Service.find(5) : '#' %></li>
-            <li class="shadow"></li>
-            <li class="shadow bottom"></li>
-        </ul>
-
-        <div class="right_clmn">
-            <div class="top_offer">
-                <span class="toffer_inner clearfix" style="background-image: url('images/top_offer.png')">
-                    <span class="toffer_holder clearfix">
-                        <span class="title">Алания, новый комплекс<br />Рядом с морем, 2 недели</span>
-                        <span class="btn">ПОДРОБНЕЕ</span>
-                        <span class="cost">45 000 €</span>
-                    </span>
-                </span>
-            </div>
-        </div>
+<%= render_cell :property, :sidebar, for: 'search', banner: true %>
 
         <div class="clear"></div>
 
@@ -112,11 +95,6 @@
                 </ul>
                 <% end %>
             </div>
-            <ul class="sidebar_nav">
-                <li class="li"><%= link_to "Горячие предложения", '/buy/search?hot=true' %></li>
-                <li class="li"><%= link_to contacts_path do %>Отправить запрос<br />На подбор недвижимости для покупки<% end %></li>
-                <li class="shadow"></li>
-                <li class="shadow bottom"></li>
-            </ul>
+            <%= render_cell :property, :sidebar, for: 'search-bottom' %>
             <%= paginate @pager if @pager %>
         </div>

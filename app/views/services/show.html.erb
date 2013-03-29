@@ -2,7 +2,8 @@
 <%= render 'sidebar_nav' %>
 
 <div class="right_clmn">
-  <%= render 'shared/top_offer' %>
+  <%# render 'shared/top_offer' %>
+  <%= render_cell :banner, :top %>
 
   <h1 class="h1"><%= @service.name %></h1>
 
@@ -13,15 +14,6 @@
 
 <%= link_to "ЗАДАТЬ ВОПРОС", contacts_path, class: 'btn usk_question big' %>
 
-<a class="some_tour" href="" title="">
-  <span class="img_holder">
-    <span class="title">ОЗНАКОМИТЕЛЬНЫЙ ТУР</span>
-    <%= image_tag 'some_tour_img.png' %>
-  </span>
-  <span class="text1">Хотите изучить недвижимость<br/>в Турции за наш счет?</span>
-  <span class="text2">Участвуйте в наших<br/>ознакомительных турах</span>
-</a>
-
-
+<%= render_cell :banner, :left %>
 
 <div class="clear"></div>

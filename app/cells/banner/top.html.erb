@@ -1,0 +1,9 @@
+    <div class="top_offer">
+      <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path @banner.picture.top %>')">
+        <span class="toffer_holder clearfix">
+          <span class="title"><%= @banner.name %><br/><%= @banner.description %></span>
+          <a class="btn" href="<%= @banner.link %>">ПОДРОБНЕЕ</a>
+          <span class="cost"><%= number_to_currency @banner.price, 'euro' %></span>
+        </span>
+      </span>
+    </div>
