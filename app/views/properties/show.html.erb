@@ -10,7 +10,8 @@
     <div class="hr"></div>
     <div class="buy_item_text">
       <div class="buy_item_photos clearfix">
-        <div class="img big"><%= photo_tag (@property.photos.shift || @property.photo), style: :big %></div>
+        <% master_photo = @property.photos.shift || @property.photo %>
+        <div class="img big"><%= photo_tag master_photo, style: :big, title: master_photo.respond_to?(:title) ? master_photo.title : @property.name, alt: master_photo.respond_to?(:alt) ? master_photo.alt : @property.name %></div>
         <% @property.photos.each do |photo| %>
             <div class="img"><%= photo_tag photo, title: photo.title, alt: photo.alt %></div>
         <% end -%>
