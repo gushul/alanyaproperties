@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130329114520) do
+ActiveRecord::Schema.define(:version => 20130329120302) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130329114520) do
     t.string   "name_case"
     t.string   "url"
     t.string   "slug"
+    t.string   "name_case2"
   end
 
   add_index "cities", ["slug"], :name => "index_cities_on_slug", :unique => true

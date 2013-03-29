@@ -15,12 +15,12 @@
     </div>
 
     <% unless @city.photos.blank? %>
-    <h1 class="h2">Фото <%= @city.name_case %></h1>
+    <h1 class="h2">Фото <%= @city.name_case2 %></h1>
     <ul class="photo_list">
       <% @city.photos.each do |photo| %>
       <li class="li">
         <span class="img">
-            <%= photo_tag photo.picture, style: :thumb2 %>
+            <%= photo_tag photo.picture, style: :thumb2, title: photo.title, alt: photo.alt %>
         </span>
       </li>
       <% end %>
