@@ -11,7 +11,13 @@
     </div>
     <div class="clmn fright" role="live" id="live">
       <ul class="apartment_list clearfix">
-        <%= render(@properties) || "<li class='nothin'>Результатов нет</li>".html_safe %>
+        <% if @properties.size > 0 %>
+          <%= render @properties %>
+        <% else %>
+          <li style="text-align: center;" class="nothin">
+            <h3>Результатов нет</h3>
+          </li>
+        <% end %>
       </ul>
       <%= paginate @properties %>
     </div>
