@@ -101,7 +101,7 @@ Alanya::Application.routes.draw do
       resources :sliders, slider_type: 'main', as: :main_sliders
       match 'global' => "settings#edit", settings_type: 'global', as: :global_settings
       match 'main' => "settings#edit", settings_type: 'main', as: :main_settings
-      ['buy', 'rent'].each do |settings_for|
+      ['buy', 'rent', 'transfer'].each do |settings_for|
         match settings_for => 'settings#edit', as: :"#{settings_for}_settings", settings_type: settings_for
       end
     end

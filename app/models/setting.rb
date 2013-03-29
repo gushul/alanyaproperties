@@ -39,6 +39,11 @@ class Setting < ActiveRecord::Base
       title: { type: :string, hint: "Title on rent page", validate: { presence: true } },
       description: { type: :text, hint: "Description on rent page", validate: { presence: true } },
       seo_text: { type: :text, hint: "Seo text on bottom" }
+    },
+    transfer: {
+      title: { type: :string, hint: "Title on transfer page", validate: { presence: true } },
+      description: { type: :text, hint: "Description on rent page", validate: { presence: true } },
+      seo_text: { type: :text, hint: "Seo text on bottom", html: true }
     }
   }
 

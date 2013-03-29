@@ -1,4 +1,6 @@
 class TransferController < ApplicationController
+  before_filter :settings
+
   def index
     @transfer = Transfer.new
   end
@@ -18,5 +20,10 @@ class TransferController < ApplicationController
     else
       render :index
     end
+  end
+
+  private
+  def settings
+    @settings = Setting.get('transfer')
   end
 end
