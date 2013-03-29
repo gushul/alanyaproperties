@@ -1,4 +1,8 @@
 <ul class="apartment_list clearfix">
-  <%= render @properties %>
+  <% if @properties.size > 0 %>
+    <%= render @properties %>
+  <% else %>
+    <li style="text-align: center;" class="nothin"><h3>Результатов нет</h3></li>
+  <% end %>
 </ul>
 <%= paginate @properties %>
