@@ -1,7 +1,8 @@
 <% title "#{@property.name}. #{t "property.for.#{@property.property_for}"} недвижимости в #{@property.city.name}, Турция." %>
 <% description "#{t "property.for.#{@property.property_for}"} недвижимости по цене #{@property.price} евро. Лучшие предолжения от застройщика в Турции. Большой выбор квартир и вилл у моря." %>
 <div class="buy_page">
-  <%= render 'sidebar_nav' %>
+  <% render 'sidebar_nav' %>
+  <%= render_cell :property, :sidebar, for: @property.property_for, city: @property.city %>
 
   <div class="buy_item">
     <div class="item_price"><%= number_to_currency @property.price, 'euro' %></div>
@@ -68,22 +69,5 @@
   </div>
 
   <div class="clear"></div>
-
-  <div class="bottom_sidebar clearfix">
-    <ul class="sidebar_nav clmn_left">
-      <li class="li"><a href="" title="">Горячие предложения</a></li>
-      <li class="li"><a class="large" href="" title="">Отправить запрос<br/>На подбор недвижимости для покупки</a></li>
-      <li class="shadow"></li>
-      <li class="shadow bottom"></li>
-    </ul>
-    <div class="top_offer">
-                  <span class="toffer_inner clearfix" style="background-image: url('<%= asset_path 'top_offer.png' %>')">
-                    <span class="toffer_holder clearfix">
-                        <span class="title">Алания, новый комплекс<br/>Рядом с морем, 2 недели</span>
-                        <span class="btn">ПОДРОБНЕЕ</span>
-                        <span class="cost">600 €</span>
-                    </span>
-                </span>
-    </div>
-  </div>
+  <%= render_cell :property, :sidebar, position: 'bottom', for: @property.property_for %>
 </div>

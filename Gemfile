@@ -39,6 +39,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'simple_form_fancy_uploads'
 gem 'redactor-rails'
+gem 'cells'
 
 gem 'yaml_db'
 

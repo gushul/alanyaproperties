@@ -1,6 +1,8 @@
 <% title @settings.title %>
 <% description @settings.description %>
-<%= render 'top_sidebar' %>
+<% render 'top_sidebar' %>
+<%= render_cell :property, :sidebar, position: 'top', for: params[:property_for], banner: true %>
+
 
 <div class="filter">
   <% case params[:property_for] %>
@@ -32,12 +34,8 @@
   </div>
 </div>
 
-<ul class="sidebar_nav clmn_left">
-  <li class="li"><%= link_to "Проверка резерваций аренды", reservations_path %></li>
-  <li class="li"><%= link_to "Заказать трансфер", transfer_index_path %></li>
-  <li class="shadow"></li>
-  <li class="shadow bottom"></li>
-</ul>
+<%= render_cell :property, :sidebar, type: 'reservation' %>
+
 <div class="clmn_right">
   <ul class="apartment_list clearfix">
     <%= render @properties %>

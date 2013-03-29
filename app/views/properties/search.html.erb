@@ -1,4 +1,4 @@
-<%= render 'top_sidebar' %>
+<%= render_cell :property, :sidebar, position: 'top', for: params[:property_for], banner: true %>
 
 <div class="results">
   <h1 class="h1">Результаты поиска</h1>
@@ -14,23 +14,12 @@
         <%= render(@properties) || "<li class='nothin'>Результатов нет</li>".html_safe %>
       </ul>
       <%= paginate @properties %>
-      <%# <div class="pagination fright clearfix"> %>
-      <%# <a href="#" class="pages">Страница 1 из 2</a> %>
-      <%# <a href="#" style='display:none'>&laquo;</a> %>
-      <%# <a href="#">1</a> %>
-      <%# <a href="#">2</a> %>
-      <%# <a href="#">&raquo;</a> %>
-      <%# </div> %>
     </div>
   </div>
 </div>
 
-<ul class="sidebar_nav clmn_left">
-  <li class="li"><a href="" title="">Проверка резерваций аренды</a></li>
-  <li class="li"><%= link_to "Заказать трансфер", transfer_index_path %></li>
-  <li class="shadow"></li>
-  <li class="shadow bottom"></li>
-</ul>
+<%= render_cell :property, :sidebar, type: 'reservation' %>
+
 <div class="clmn_right">
   <p class="text">
     <%= @settings.seo_text %>
