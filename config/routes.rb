@@ -85,6 +85,7 @@ Alanya::Application.routes.draw do
         resources :sliders, slider_type: 'turkey_news', as: :turkey_news_sliders
       end
     end
+    match 'about_pages/settings' => 'settings#edit', as: :about_pages_settings, settings_type: :about_pages
     resources :about_pages do
       collection do
         resources :sliders, slider_type: 'about_pages', as: :about_pages_sliders

@@ -5,6 +5,7 @@ class TurkeyNewsController < InheritedResources::Base
 
   def index
     @sliders = Slider.slider_type('turkey_news')
+    @settings = Setting.get('about_pages')
     super do |format|
       format.atom do
         @title = "Новости Турции, Алании и других городов побережья средиземного моря"
