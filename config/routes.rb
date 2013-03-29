@@ -77,18 +77,24 @@ Alanya::Application.routes.draw do
     end
     resources :cities do
       resources :photos
-      resources :sliders
+      resources :sliders do
+        post 'sort', on: :collection
+      end
     end
     resources :services
     resources :turkey_news do
       collection do
-        resources :sliders, slider_type: 'turkey_news', as: :turkey_news_sliders
+        resources :sliders, slider_type: 'turkey_news', as: :turkey_news_sliders do
+          post 'sort', on: :collection
+        end
       end
     end
     match 'about_pages/settings' => 'settings#edit', as: :about_pages_settings, settings_type: :about_pages
     resources :about_pages do
       collection do
-        resources :sliders, slider_type: 'about_pages', as: :about_pages_sliders
+        resources :sliders, slider_type: 'about_pages', as: :about_pages_sliders do
+          post 'sort', on: :collection
+        end
       end
     end
     scope 'contacts' do
@@ -99,7 +105,9 @@ Alanya::Application.routes.draw do
       match 'settings' => 'settings#edit', as: :contacts_settings, settings_type: :contacts
     end
     scope 'settings' do
-      resources :sliders, slider_type: 'main', as: :main_sliders
+      resources :sliders, slider_type: 'main', as: :main_sliders do
+        post 'sort', on: :collection
+      end
       match 'global' => "settings#edit", settings_type: 'global', as: :global_settings
       match 'main' => "settings#edit", settings_type: 'main', as: :main_settings
       ['buy', 'rent', 'transfer', 'reservation'].each do |settings_for|

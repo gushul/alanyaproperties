@@ -2,9 +2,10 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped data-table">
+<table class="table table-striped sortable" id="sliders" data-sort-url="<%= url_for [:sort, :admin, parent || params[:slider_type], :sliders] %>">
   <thead>
     <tr>
+      <th></th>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:photo) %></th>
       <th><%= model_class.human_attribute_name(:data) %></th>
@@ -14,7 +15,8 @@
   </thead>
   <tbody>
     <% @sliders.each do |slider| %>
-      <tr>
+      <tr id="<%= dom_id(slider) %>">
+        <td style="text-align:center;"><i class="icon-move"></i></td>
         <td><%= slider.id %></td>
         <td><%= image_tag slider.photo.thumb %></td>
         <td>
