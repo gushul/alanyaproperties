@@ -9,6 +9,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:photo) %></th>
       <th><%= model_class.human_attribute_name(:data) %></th>
+      <th><%= model_class.human_attribute_name(:video) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -24,6 +25,7 @@
             <%= slider.data['title'] %>
           <% end -%>
         </td>
+        <td><%= 'yes' if slider.video? %></td>
         <td><%=l slider.created_at, format: :short %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
