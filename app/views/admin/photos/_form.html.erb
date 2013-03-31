@@ -3,6 +3,7 @@
     <%= f.input :alt %>
     <%= f.input :picture, as: :image_preview, input_html: {preview_version: :small} %>
     <%= f.input :picture_cache, as: :hidden %>
+    <%= f.input :video %>
     <div class="form-actions">
       <%= f.button :submit, :class => 'btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

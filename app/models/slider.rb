@@ -1,6 +1,6 @@
 class Slider < ActiveRecord::Base
   default_scope { order(:position) }
-  attr_accessible :data, :model_id, :model_type, :photo
+  attr_accessible :data, :model_id, :model_type, :photo, :video
   store :data, accessors: [:title, :price, :description, :link]
   attr_accessible :title, :price, :description, :link
 

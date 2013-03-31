@@ -27,8 +27,10 @@ $(function () {
     window.wiselinks = new Wiselinks();
 
     $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%', className: 'property_box'});
+    $('.property_video').colorbox({rel: 'property', innerWidth:500, innerHeight:409, className: 'property_box', iframe: true});
     $('.property_map').colorbox({iframe: true, width: '80%', height: '90%', className: 'property_box'});
     $('.send_offer').colorbox({iframe: true, width: '490px', height: '516px', close: 'Закрыть окно', fastIframe: false});
+    $('.main_slider .video').colorbox({iframe:true, innerWidth:500, innerHeight:409});
 
     $('.live-form').change(function(e){
         // Wiselinks load

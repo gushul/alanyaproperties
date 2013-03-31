@@ -6,6 +6,7 @@
     <div class="items_holder">
       <% sliders.each do |slider| %>
       <div class="item" style="background-image: url('<%= image_path slider.photo.small %>');">
+        <%= link_to("Video link", slider.video, class: 'video') if slider.video? %>
         <span class="item_info">
         <% if @city %>
             <span class="item_header"><%= @city.name %></span>

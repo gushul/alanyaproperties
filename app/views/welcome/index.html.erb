@@ -6,6 +6,7 @@
     <div class="items_holder">
       <% @sliders.each do |slider| %>
       <div class="item" style="background-image: url('<%= image_path slider.photo.big %>');">
+        <%= link_to(image_tag('play_video_mini.png', size: '64x52'), slider.video, class: 'video play_video') if slider.video? %>
         <span class="item_info">
             <span class="item_header">
                 <span class="item_price"><%= number_to_currency slider.price, 'euro' %></span>

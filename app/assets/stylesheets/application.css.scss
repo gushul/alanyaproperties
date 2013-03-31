@@ -142,3 +142,23 @@ a.offer_link:hover {
   }
 }
 
+.play_video {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+}
+
+.buy_item_photos .property_video .play_video {
+  height: 26px;
+  width: 32px;
+  margin-top: -13px;
+  margin-left: -16px;
+}
+
+.main_slider .play_video {
+  width: 64px;
+  height: 52px;
+  margin-top: -26px;
+  margin-left: -32px;
+}
+

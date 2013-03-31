@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130329120302) do
+ActiveRecord::Schema.define(:version => 20130331011331) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20130329120302) do
     t.string   "gallery_type"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "video"
   end
 
   add_index "photos", ["gallery_id", "gallery_type"], :name => "index_photos_on_gallery_id_and_gallery_type"
@@ -217,6 +218,7 @@ ActiveRecord::Schema.define(:version => 20130329120302) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.integer  "position",   :default => 0
+    t.string   "video"
   end
 
   create_table "transfers", :force => true do |t|
