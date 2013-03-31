@@ -143,16 +143,18 @@ a.offer_link:hover {
 }
 
 .play_video {
+  z-index: 100;
   left: 50%;
   top: 50%;
   position: absolute;
 }
 
-.buy_item_photos .property_video .play_video {
+.buy_item_photos .property_video .play_video, .photo_list img.play_video{
   height: 26px;
   width: 32px;
   margin-top: -13px;
   margin-left: -16px;
+  border: 0;
 }
 
 .main_slider .play_video {
@@ -162,3 +164,6 @@ a.offer_link:hover {
   margin-left: -32px;
 }
 
+.photo_list .img {
+  position: relative;
+}

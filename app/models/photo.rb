@@ -5,5 +5,5 @@ class Photo < ActiveRecord::Base
   belongs_to :gallery, polymorphic: true
 
   mount_uploader :picture, PhotoPictureUploader
-  delegate :big, :small, :url, to: :picture
+  delegate :thumb, :thumb2, :big, :small, :url, to: :picture
 end

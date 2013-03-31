@@ -19,9 +19,11 @@
     <ul class="photo_list">
       <% @city.photos.each do |photo| %>
       <li class="li">
-        <span class="img">
-            <%= photo_tag photo.picture, style: :thumb2, title: photo.title, alt: photo.alt %>
-        </span>
+        <div class="img">
+          <%= photo_tag photo, style: :thumb2, title: photo.title, alt: photo.alt %>
+        </div>
+        <!-- span class="img">
+        </span -->
       </li>
       <% end %>
     </ul>
