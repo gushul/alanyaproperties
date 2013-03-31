@@ -22,7 +22,7 @@
         <td><%= image_tag slider.photo.thumb %></td>
         <td>
           <% if slider.model_type == 'main' %>
-            <%= slider.data['title'] %>
+            <%= slider.title %>
           <% end -%>
         </td>
         <td><%= 'yes' if slider.video? %></td>
