@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController #< InheritedResources::Base
                                                    # has_scope :property_for, default: 'buy'
                                                    # custom_actions resource: :map, collection: :search
+  include PropertiesHelper
   layout false, only: [:map, :offer, :offer_thanks]
 
   def index
@@ -10,6 +11,11 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
   end
 
   def search
+    if params[:oid].present?
+      redirect_to Property.find_by_oid(params[:oid]) if Property.exists?(oid: params[:oid])
+      params[:oid] = nil
+    end
+
     @settings = Setting.get(params[:property_for] || 'buy')
     @properties = Property.search do
       with(:property_for, params[:property_for] || 'buy')

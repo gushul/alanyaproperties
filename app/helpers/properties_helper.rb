@@ -2,6 +2,7 @@ module PropertiesHelper
   def property_path(property)
     url_for build_path(property)
   end
+  alias :property_url :property_path
 
   def map_property_path(property)
     url_for build_path(property, :map)
