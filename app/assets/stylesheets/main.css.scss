@@ -459,24 +459,24 @@ a.btn:active{ color:#000000 }
 -----------------------------------------------------------------------------*/
 .header {
     background: image-url('header.png') no-repeat 0 23px;
-    margin: 0 -2px;
+    margin: 0 -3px;
     font-size: 14px;
     line-height: 17px;
-    padding: 14px 0 0 23px;
+    padding: 14px 0 0 24px;
 }
 .logo{
     float: left;
     width: 129px;
     height: 56px;
-    margin: 0 0 0 23px;
+    margin: 0 0 0 26px;
 }
 .logo img{vertical-align: bottom}
 .nav {
     padding: 0;
-    margin: 13px 0 0 20px;
+    margin: 14px 0 0 76px;
     list-style: none;
     float: left;
-    width: 744px;
+    width: 695px;
     border-collapse: collapse;
 }
 .nav .search_item{ cursor:pointer; }

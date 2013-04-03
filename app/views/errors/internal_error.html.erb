@@ -1,0 +1,16 @@
+<% @content_class = 'services_page' %>
+
+<% title "Страница не найдена" %>
+
+<div class="error_text">
+  <h2>Ошибка</h1>
+  <h1>502</h1>
+  <p>Извините, пожалуйста!<br/> Эта страница слишком долго загружается.<br /> Попробуйте перезагрузить её или зайти на неё позже.</p>
+</div>
+<div class="right_clmn" style="height: 594px;">
+  <%= image_tag '502.png', class: 'error_image' %>
+  <%= link_to "Вернуться назад", request.referer || root_path, class: 'error_back' %>
+</div>
+
+<div class="clear"></div>
+

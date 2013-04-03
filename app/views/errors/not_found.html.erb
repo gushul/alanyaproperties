@@ -1,0 +1,16 @@
+<% @content_class = 'services_page' %>
+
+<% title "Страница не найдена" %>
+
+<div class="error_text">
+  <h2>Ошибка</h1>
+  <h1>404</h1>
+  <p>Эта страница не найдена.
+Попробуйте вернуться назад</p>
+</div>
+<div class="right_clmn" style="height: 594px;">
+  <%= image_tag '404.png', class: 'error_image' %>
+  <%= link_to "Вернуться назад", request.referer || root_path, class: 'error_back' %>
+</div>
+
+<div class="clear"></div>

@@ -122,6 +122,9 @@ Alanya::Application.routes.draw do
 
   root to: 'welcome#index'
 
+  match '404' => "errors#not_found"
+  match '500' => "errors#internal_error"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

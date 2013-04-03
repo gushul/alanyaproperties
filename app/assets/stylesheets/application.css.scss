@@ -180,3 +180,50 @@ a.offer_link:hover {
 .photo_list .img {
   position: relative;
 }
+
+.error_text {
+  float: left;
+  width: 240px;
+  padding-left: 6px;
+  margin-top: 16px;
+
+  h2 {
+    font-size: 40px;
+    font-weight: 400;
+    color: #4d4d4d;
+    line-height: 20px;
+    margin-left: 3px;
+  }
+  h1 {
+    font-size: 128px;
+    color: #f27321;
+    font-weight: 400;
+    line-height: 55px;
+  }
+  p {
+    font-size: 17px;
+  }
+}
+
+.error_image {
+  position: relative;
+  left: -24px;
+  top: 4px;
+}
+
+.error_back {
+  background: image-url('error_back.png') no-repeat;
+  width: 222px;
+  height: 41px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  line-height: 45px;
+  position: absolute;
+  top: 555px;
+  left: 384px;
+}
+
