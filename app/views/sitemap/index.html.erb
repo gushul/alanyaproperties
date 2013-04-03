@@ -9,13 +9,13 @@
       <li><%= link_to 'Купить', buy_path %>
           <ul>
             <li><%= link_to "Листать предложения по продаже", '/buy/search' %></li>
-            <li><%= link_to "Правила покупки недвижимости", Service.exists?(3) ? Sevice.find(3) : '#' %></li>
+            <li><%= link_to "Правила покупки недвижимости", Service.exists?(3) ? Service.find(3) : '#' %></li>
           </ul>
       </li>
       <li><%= link_to 'Арендовать', rent_path %>
           <ul>
             <li><%= link_to "Листать предложения по аренде", '/rent/search' %></li>
-            <li><%= link_to "Правила аренды в Турции", Service.exists?(5) ? Sevice.find(5) : '#' %></li>
+            <li><%= link_to "Правила аренды в Турции", Service.exists?(5) ? Service.find(5) : '#' %></li>
             <li><%= link_to "Проверка резерваций аренды", reservations_path %></li>
             <li><%= link_to "Заказать трансфер", transfer_index_path %></li>
           </ul>
