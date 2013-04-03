@@ -8,7 +8,7 @@
         <li class="li"><a class="large" href="<%= contacts_path %>">Отправить запрос<br/>На подбор недвижимости для покупки</a></li>
       <% else %>
         <li class="li"><%= link_to "Листать предложения по продаже", "/buy/search" %></li>
-        <li class="li"><%= link_to "Правила покупки недвижимости", Service.exists?(5) ? Service.find(5) : '#' %></li>
+        <li class="li"><%= link_to "Правила покупки недвижимости", Service.exists?(3) ? Service.find(3) : '#' %></li>
       <% end %>
     <% when 'rent', 'reservation' %>
       <% if @position == 'bottom' %>
