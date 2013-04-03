@@ -158,10 +158,23 @@ a.offer_link:hover {
 }
 
 .main_slider .play_video {
-  width: 64px;
-  height: 52px;
-  margin-top: -26px;
-  margin-left: -32px;
+  outline: none;
+  -webkit-transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+
+  background: image-url('play_video.png') no-repeat;
+  width: 69px;
+  height: 68px;
+  margin-top: -34px;
+  margin-left: -34px;
+}
+
+.main_slider .play_video:hover {
+  background-position: 0 -68px;
 }
 
 .photo_list .img {
