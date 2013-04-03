@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-ru
+//= require jquery.ui.tooltip
 // require jquery-ui-1.9.2.custom.min
 //= require wiselinks
 //= require modernizr
@@ -48,4 +49,20 @@ $(function () {
       // expandPrefix: '. ',
       userCollapseText: 'свернуть..'
     });
+
+    $('.has-tooltip').tooltip({
+			track: true,
+		  position: {
+        my: "center top+20",
+        at: "center bottom",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+		  }
+		});
 })

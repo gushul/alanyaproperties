@@ -70,54 +70,55 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 /* Tooltips
 -----------------------------------------------*/
- .ui-tooltip, .arrow:after {
-//background: #FAEBD8;
-//border: 1px solid white;
+.ui-tooltip, .arrow:after {
+  background: #FAEBD8;
+  border: 1px solid white;
 }
 .ui-tooltip {
-padding: 6px 10px;
-color: #6d6e70;
-font-size: 12px;
-border-radius: 4px;
-box-shadow: 0 0 2px #BDBDBD;
-z-index: 200;
-position: absolute;
+  font-family: 'MyriadPro', Tahoma, Geneva, sans-serif;
+  padding: 6px 10px;
+  color: #6d6e70;
+  font-size: 12px;
+  border-radius: 4px;
+  box-shadow: 0 0 2px #BDBDBD;
+  z-index: 200;
+  position: absolute;
 }
 .arrow {
-width: 70px;
-height: 16px;
-overflow: hidden;
-position: absolute;
-left: 50%;
-margin-left: -35px;
-bottom: -16px;
-z-index: 200;
+  width: 70px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  margin-left: -35px;
+  bottom: -16px;
+  z-index: 200;
 }
 .arrow.top {
-top: -16px;
-bottom: auto;
-z-index: 200;
+  top: -16px;
+  bottom: auto;
+  z-index: 200;
 }
 .arrow.left {
-left: 50%;
-z-index: 200;
+  left: 50%;
+  z-index: 200;
 }
 .arrow:after {
-content: "";
-position: absolute;
-left: 20px;
-top: -20px;
-width: 25px;
-height: 25px;
--webkit-transform: rotate(45deg);
--moz-transform: rotate(45deg);
--ms-transform: rotate(45deg);
--o-transform: rotate(45deg);
-tranform: rotate(45deg);
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: -20px;
+  width: 25px;
+  height: 25px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  tranform: rotate(45deg);
 }
 .arrow.top:after {
-bottom: -20px;
-top: auto;
+  bottom: -20px;
+  top: auto;
 }
 .has-tooltip{cursor: help;}
 /* =============================================================================

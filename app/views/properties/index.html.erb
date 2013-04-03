@@ -17,11 +17,12 @@
       </div>
       <div class="clmn fright">
         <div class="filter_section city">
-          <h2>Выберите города</h2>
+          <h2><span class="has-tooltip" title="Кликните на любые несколько интересующих вас городов">Выберите города</span></h2>
 
           <div class="filter_label_holder clearfix">
             <% @cities.each do |city| %>
-                <label class="filter_label label_checkbox"><input type="checkbox" name="city_id[]" value="<%= city.id %>"><%= image_tag city.cover.asset.thumb %>
+              <label class="filter_label label_checkbox"><input type="checkbox" name="city_id[]" value="<%= city.id %>"><%= image_tag city.cover.asset.thumb %>
+                <div class="readmore"><p>Подробнее о городе <a href="<%= url_for city %>">Здесь ▶</a></p></div>
                   <span class="title"><%= city.name %></span></label>
             <% end %>
           </div>

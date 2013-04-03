@@ -323,6 +323,10 @@ button.ui-button::-moz-focus-inner {
     display: none;
 }
 
+.ui-datepicker {
+    border-radius: 0 !important;
+}
+
 .ui-datepicker .ui-datepicker-header {
     position: relative;
     padding: 3px 0 0;
@@ -893,12 +897,12 @@ button.ui-button::-moz-focus-inner {
 }
 
 .ui-tooltip {
-    padding: 0;
+/*    padding: 0;
     position: absolute;
     z-index: 9999;
     max-width: 300px;
     -webkit-box-shadow: 0 0 5px #aaa;
-    box-shadow: 0 0 5px #aaa;
+    box-shadow: 0 0 5px #aaa;*/
 }
 
 /* Fades and background-images don't work well together in IE6, drop the image */
@@ -906,9 +910,9 @@ button.ui-button::-moz-focus-inner {
     background-image: none;
 }
 
-body .ui-tooltip {
+/*body .ui-tooltip {
     border-width: 2px;
-}
+}*/
 
 /* Component containers
 ----------------------------------*/
@@ -929,8 +933,8 @@ body .ui-tooltip {
 .ui-widget-content {
     color: #333333;
     background: #f1f1f1;
-    -webkit-border-radius: 0 !important;
-    border-radius: 0 !important;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     border: 1px solid #e3e3e3;
 }
 

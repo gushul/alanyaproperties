@@ -9,8 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require font
- *= require main
  *= require jquery-ui-1.9.2.custom
+ * require jquery.ui.datepicker
+ *= require main
  *= require colorbox
  *= require_self
  */
