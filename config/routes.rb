@@ -2,6 +2,8 @@ Alanya::Application.routes.draw do
 
 
 
+  get "sitemap" => "sitemap#index"
+
   match 'reservations' => 'reservations#index'
 
 

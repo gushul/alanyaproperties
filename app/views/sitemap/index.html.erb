@@ -1,0 +1,49 @@
+<% @content_class = 'services_page' %>
+<% title "Карта сайта" %>
+
+<div class="">
+
+  <h1 class="h1">Карта сайта</h1>
+  <div class="about_us clearfix">
+    <ul>
+      <li><%= link_to 'Купить', buy_path %>
+          <ul>
+            <li><%= link_to "Листать предложения по продаже", '/buy/search' %></li>
+            <li><%= link_to "Правила покупки недвижимости", Service.exists?(3) ? Sevice.find(3) : '#' %></li>
+          </ul>
+      </li>
+      <li><%= link_to 'Арендовать', rent_path %>
+          <ul>
+            <li><%= link_to "Листать предложения по аренде", '/rent/search' %></li>
+            <li><%= link_to "Правила аренды в Турции", Service.exists?(5) ? Sevice.find(5) : '#' %></li>
+            <li><%= link_to "Проверка резерваций аренды", reservations_path %></li>
+            <li><%= link_to "Заказать трансфер", transfer_index_path %></li>
+          </ul>
+      </li>
+      <li><%= link_to "Услуги", services_path %>
+        <ul>
+          <% Service.all.each do |service| %>
+            <li><%= link_to service.name, service %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li><%= link_to "О Турции", turkey_news_index_path %>
+        <ul>
+          <% City.all.each do |city| %>
+            <li><%= link_to city.name, city %></li>
+          <% end %>
+          <li><%= link_to "Карта сейсмоактивности Турции", TurkeyNews.get_seismic_map %></li>
+        </ul>
+      </li>
+      <li><%= link_to "О нас", about_pages_path %>
+        <ul>
+          <% AboutPage.all.each do |page| %>
+            <li><%= link_to page.title, page %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li><%= link_to "Контакты", contacts_path %></li>
+      <li><%= link_to "Поиск", search_path %></li>
+    </ul>
+  </div>
+</div>
