@@ -3,12 +3,12 @@ class City < ActiveRecord::Base
 
   friendly_id :to_slugged, :use => :slugged
 
-  attr_accessible :name, :cover_attributes, :description, :name_case, :name_case2, :url
+  attr_accessible :name, :cover_attributes, :description, :name_case, :name_case2, :name_case3, :url
   has_many :properties
   has_one :cover, as: :attachment, class_name: Asset::CityCover, dependent: :destroy
   accepts_nested_attributes_for :cover
 
-  validates :name, :cover, :name_case, :name_case2, presence: true
+  validates :name, :cover, :name_case, :name_case2, :name_case3, presence: true
 
   has_many :photos, as: :gallery
   has_many :sliders, as: :model

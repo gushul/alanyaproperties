@@ -4,6 +4,7 @@
     <%= f.input :name %>
     <%= f.input :name_case, hint: "Имя в падеже" %>
     <%= f.input :name_case2, hint: "Имя в падеже для ФОТО" %>
+    <%= f.input :name_case3, hint: "Имя в падеже для \"Купить недвижимость в ...\"" %>
     <%= f.input :description, input_html: {class: 'redactor'} %>
     <%= f.simple_fields_for :cover do |ff| %>
         <%= ff.input :asset, as: :image_preview, input_html: {preview_version: :thumb}, label: "Cover" %>
