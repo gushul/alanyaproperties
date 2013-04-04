@@ -2124,12 +2124,13 @@ a.buy_item_map:hover {
   line-height: 17px;
 }
 .order_link{
+  position: relative;
   text-align: center;
   float: left;
   height: 24px;
-  padding: 6px 0 0;
-  width: 223px;
-  background: image-url('order_link.png') no-repeat 0 0;
+  padding: 6px 6px 0;
+  /* width: 223px; */
+  background: image-url('order_link_bg.png') repeat-x 0 0;
   text-decoration: none;
   -webkit-transition: none ;
   -moz-transition: none ;
@@ -2141,9 +2142,33 @@ a.buy_item_map:hover {
   font-size: 14px;
   line-height: 17px;
 }
+.order_link:before, .order_link:after {
+  background: image-url('order_link.png') no-repeat 0 0;
+  /* float: left; */
+  position: absolute;
+  top: 0px;
+  content: '';
+  width: 7px;
+  height: 30px;
+  /* background: red; */
+  display: block;
+}
+.order_link:before {
+    left: -6px;
+}
+.order_link:after {
+  background-position: -216px 0;
+  /* float: right; */
+  right: -6px;
+}
+
 .order_link:hover{
   background-position: 0 bottom;
   color: white;
+}
+
+.order_link:hover:after, .order_link:hover:before {
+  background-position-y: bottom;
 }
 
 .order_popup{
