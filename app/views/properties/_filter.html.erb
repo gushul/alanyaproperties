@@ -51,7 +51,7 @@
       <h2><span class="has-tooltip" title="<%= t("tooltips.#{property_for}.price") %>">Аренда</span></h2>
 
       <div class="rent">
-        <input placeholder="желаемая сумма аренды за неделю" name="price" value="<%= params[:price] %>"/>&plusmn;<input class="percents" name="percents" value="<%= params[:percents] || 10 %>"/>
+        <input placeholder="сумма аренды за неделю" name="price" value="<%= params[:price] %>"/>&plusmn;<input class="percents" name="percents" value="<%= params[:percents] || 10 %>"/>
         %
       </div>
   <% end -%>
