@@ -17,7 +17,7 @@
       </div>
       <div class="clmn fright">
         <div class="filter_section city">
-          <h2><span class="has-tooltip" title="Кликните на любые несколько интересующих вас городов">Выберите города</span></h2>
+          <h2><span class="has-tooltip" title="<%= t("tooltips.#{params[:property_for]}.city") %>">Выберите города</span></h2>
 
           <div class="filter_label_holder clearfix">
             <% @cities.each do |city| %>

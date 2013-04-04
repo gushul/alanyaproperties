@@ -75,6 +75,7 @@ img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
   border: 1px solid white;
 }
 .ui-tooltip {
+  max-width: 300px;
   font-family: 'MyriadPro', Tahoma, Geneva, sans-serif;
   padding: 6px 10px;
   color: #6d6e70;
