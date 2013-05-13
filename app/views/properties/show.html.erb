@@ -15,7 +15,7 @@
         <% @property.photos.each do |photo| %>
             <div class="img"><%= photo_tag photo, title: photo.title, alt: photo.alt %></div>
         <% end -%>
-      </div>
+      </div>}
 
 
       <%= raw @property.description %>
@@ -65,7 +65,12 @@
   </div>
 
   <div class="buy_filter">
+    <form action="<%= "/#{@property.property_for}/search" %>" method="GET">
     <%= render 'filter' %>
+    <div class="filter_section city">
+      <span class="btn btn_input big">ИСКАТЬ<i class="input"><input type="submit"/></i></span>
+    </div>
+    </form>
   </div>
 
   <div class="clear"></div>
