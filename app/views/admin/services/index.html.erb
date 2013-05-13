@@ -20,6 +20,7 @@
         <td><%= service.is_main %></td>
         <td><%= l service.created_at %></td>
         <td>
+          <%= link_to "Settings", admin_service_page_settings_path(service), class: 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_service_path(service), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

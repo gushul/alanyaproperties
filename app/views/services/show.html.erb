@@ -1,4 +1,8 @@
 <% @content_class = 'services_page' %>
+
+<% title @settings.title || @service.name %>
+<% description @settings.description %>
+
 <%= render 'sidebar_nav' %>
 
 <div class="right_clmn">

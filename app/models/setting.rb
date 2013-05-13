@@ -7,6 +7,7 @@ class Setting < ActiveRecord::Base
   belongs_to :model, polymorphic: true
 
   scope :type, ->(type) { where(model_type: type) }
+  scope :model, ->(model) { where(model_type: model.class.to_s, model_id: model.id) if model }
 
   TYPES = {
     contacts: {
@@ -54,6 +55,10 @@ class Setting < ActiveRecord::Base
       title: { type: :string, hint: "Title on about turkey page", validate: { presence: true } },
       description: { type: :text, hint: "Description on about turkey page", validate: { presence: true } },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true }
+    },
+    service_page: {
+      title: { type: :string, hint: "Title on service page", validate: { presence: true } },
+      description: { type: :text, hint: "Description on service page", validate: { presence: true } },
     }
   }
 
@@ -92,9 +97,9 @@ TYPE
     end
   end
 
-  def self.get(type)
+  def self.get(type, parent = nil)
     klass = "Setting::#{type.to_s.camelize}".constantize
-    klass.first_or_initialize
+    klass.model(parent).first_or_initialize
   end
 end
 

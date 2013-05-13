@@ -1,6 +1,8 @@
 class Admin::SettingsController < AdminController
   inherit_resources
 
+  belongs_to :service, polymorphic: true, optional: true
+
   def edit
     link = [:admin, params[:settings_type], :settings]
     if request.post? || request.put?
@@ -14,6 +16,6 @@ class Admin::SettingsController < AdminController
 
   protected
   def resource
-    get_resource_ivar || set_resource_ivar(Setting.get(params[:settings_type]))
+    get_resource_ivar || set_resource_ivar(Setting.get(params[:settings_type], parent))
   end
 end
