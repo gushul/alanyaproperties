@@ -14,7 +14,7 @@ class City < ActiveRecord::Base
   has_many :sliders, as: :model
 
   def to_slugged
-    url || name
+    url.blank? ? name : url
   end
 
   # Babosa russian normalization bone

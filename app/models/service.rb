@@ -8,7 +8,7 @@ class Service < ActiveRecord::Base
   include FriendlyId
   friendly_id :to_slugged, :use => :slugged
   def to_slugged
-    url || name
+    url.blank? ? name : url
   end
 
   # Babosa russian normalization bone
