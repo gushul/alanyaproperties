@@ -1,13 +1,13 @@
 <li class="li">
   <div class="apatment_list_top">
     <div class="apatment_list_bot clearfix">
-      <%= image_tag property.photo.thumb %>
+      <%= link_to image_tag(property.photo.thumb), property %>
       <% if property.hot? %>
         <i class="ribbon_hot_dial"></i>
       <% elsif property.new? %>
         <i class="ribbon_new"></i>
       <% end -%>
-      <div class="title"><%= property.name %></div>
+      <div class="title"><%= link_to property.name, property %></div>
       <table class="table">
         <tr>
           <th>город:</th>
