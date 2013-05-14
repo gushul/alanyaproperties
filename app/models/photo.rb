@@ -6,4 +6,8 @@ class Photo < ActiveRecord::Base
 
   mount_uploader :picture, PhotoPictureUploader
   delegate :thumb, :thumb2, :big, :small, :url, to: :picture
+
+  def video?
+    !video.blank?
+  end
 end

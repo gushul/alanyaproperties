@@ -10,4 +10,9 @@ class PropertyPhotoUploader < AssetUploader
   version :big do
     process resize_to_fill: [450, 250]
   end
+
+
+  def video?
+    false
+  end
 end
