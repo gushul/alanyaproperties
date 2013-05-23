@@ -63,6 +63,10 @@ class Setting < ActiveRecord::Base
     service_page: {
       title: { type: :string, hint: "Title on service page", validate: { presence: true } },
       description: { type: :text, hint: "Description on service page", validate: { presence: true } },
+    },
+    city: {
+      title: { type: :string, hint: "Title on city page", validate: { presence: true } },
+      description: { type: :text, hint: "Description on city page", validate: { presence: true } }
     }
   }
 

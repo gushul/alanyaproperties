@@ -78,6 +78,7 @@ Alanya::Application.routes.draw do
       end
     end
     resources :cities do
+      match 'settings' => 'settings#edit', as: :settings, settings_type: :city
       resources :photos
       resources :sliders do
         post 'sort', on: :collection

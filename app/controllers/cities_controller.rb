@@ -15,6 +15,8 @@ class CitiesController < ApplicationController
   def show
     @city = City.find(params[:id])
 
+    @settings = Setting.get('city', @city)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @city }

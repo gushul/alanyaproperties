@@ -1,4 +1,8 @@
 <% @content_class = 'city_page' %>
+
+<% title @settings.title || @city.name %>
+<% description @settings.description %>
+
 <%= render 'shared/turkey_navbar' %>
 <div class="right_clmn">
   <%= render 'shared/mini_slider' %>

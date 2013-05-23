@@ -1,7 +1,5 @@
 class City < ActiveRecord::Base
-  include FriendlyId
 
-  friendly_id :to_slugged, :use => :slugged
 
   attr_accessible :name, :cover_attributes, :description, :name_case, :name_case2, :name_case3, :url
   has_many :properties
@@ -10,9 +8,12 @@ class City < ActiveRecord::Base
 
   validates :name, :cover, :name_case, :name_case2, :name_case3, presence: true
 
-  has_many :photos, as: :gallery
+  has_many :photos,  as: :gallery
   has_many :sliders, as: :model
+  has_one  :setting, as: :model
 
+  include FriendlyId
+  friendly_id :to_slugged, :use => :slugged
   def to_slugged
     url.blank? ? name : url
   end
