@@ -53,11 +53,11 @@ class Setting < ActiveRecord::Base
       description: { type: :text, hint: "Description on reservation page", validate: { presence: true } },
       seo_text: { type: :text, hint: "Seo text on bottom" }
     },
-    about_pages: {
-      title: { type: :string, hint: "Title on about turkey page", validate: { presence: true } },
-      description: { type: :text, hint: "Description on about turkey page", validate: { presence: true } },
-      seo_text: { type: :text, hint: "Seo text on bottom", html: true }
-    },
+    # about_pages: { # deprecated
+      # title: { type: :string, hint: "Title on about turkey page", validate: { presence: true } },
+      # description: { type: :text, hint: "Description on about turkey page", validate: { presence: true } },
+      # seo_text: { type: :text, hint: "Seo text on bottom", html: true }
+    # },
     about_page: {
       title: { type: :string, hint: "Title on AboutPage", validate: { presence: true } },
       description: { type: :text, hint: "Description on AboutPage", validate: { presence: true } }
@@ -69,6 +69,11 @@ class Setting < ActiveRecord::Base
     city: {
       title: { type: :string, hint: "Title on city page", validate: { presence: true } },
       description: { type: :text, hint: "Description on city page", validate: { presence: true } }
+    },
+    turkey_news_index: {
+      title: { type: :string, hint: "Title on about turkey page", validate: { presence: true } },
+      description: { type: :text, hint: "Description on about turkey page", validate: { presence: true } },
+      seo_text: { type: :text, hint: "Seo text on bottom", html: true }
     },
     turkey_news: {
       title: { type: :string, hint: "Title on turkey news page", validate: { presence: true } },

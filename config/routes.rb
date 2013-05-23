@@ -88,6 +88,8 @@ Alanya::Application.routes.draw do
     resources :services do
       match 'settings' => 'settings#edit', as: :page_settings, settings_type: :service_page
     end
+
+    match 'turkey_news/settings' => 'settings#edit', as: :turkey_news_index_settings, settings_type: :turkey_news_index
     resources :turkey_news do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :turkey_news
       collection do
@@ -96,7 +98,9 @@ Alanya::Application.routes.draw do
         end
       end
     end
-    match 'about_pages/settings' => 'settings#edit', as: :about_pages_settings, settings_type: :about_pages
+
+    # Depricated
+    # match 'about_pages/settings' => 'settings#edit', as: :about_pages_settings, settings_type: :about_pages
     resources :about_pages do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :about_page
       collection do

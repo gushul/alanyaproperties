@@ -67,6 +67,7 @@
                 <li class="<%= 'active' if params[:controller] == 'admin/turkey_news' %>"><%= link_to "Turkey News", admin_turkey_news_index_path %></li>
                 <li class="<%= 'active' if current_page?(admin_turkey_news_sliders_path) %>"><%= link_to "Slider", admin_turkey_news_sliders_path %></li>
                 <li class="<%= 'active' if current_page?([:edit, :admin, TurkeyNews.get_seismic_map]) %>"><%= link_to "Seismic map", [:edit, :admin, TurkeyNews.get_seismic_map] %></li>
+                <li class="<%= 'active' if current_page?(admin_turkey_news_index_settings_path) %>"><%= link_to "Settings", admin_turkey_news_index_settings_path %></li>
               </ul>
             </li>
             <li class="<%= 'active' if  params[:controller] =~ /admin\/about_pages/ %> dropdown">
@@ -74,7 +75,6 @@
               <ul class="dropdown-menu">
                 <li class="<%= 'active' if params[:controller] == 'admin/about_pages' %>"><%= link_to "About Pages", admin_about_pages_path %></li>
                 <li class="<%= 'active' if current_page?(admin_about_pages_sliders_path) %>"><%= link_to "Slider", admin_about_pages_sliders_path %></li>
-                <li class="<%= 'active' if current_page?(admin_about_pages_settings_path) %>"><%= link_to "Settings", admin_about_pages_settings_path %></li>
               </ul>
             </li>
             <li class="<%= 'active' if  params[:controller] =~ /admin\/contacts/ %> dropdown">
