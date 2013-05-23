@@ -20,6 +20,7 @@
         <td><%= about_page.slug %></td>
         <td><%=l about_page.created_at, format: :short %></td>
         <td>
+          <%= link_to "Settings", admin_about_page_settings_path(about_page), class: 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_about_page_path(about_page), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

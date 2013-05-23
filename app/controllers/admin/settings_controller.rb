@@ -1,7 +1,7 @@
 class Admin::SettingsController < AdminController
   inherit_resources
 
-  belongs_to :service, polymorphic: true, optional: true
+  belongs_to :service, :about_page, polymorphic: true, optional: true
 
   def edit
     link = [:admin, params[:settings_type], :settings]

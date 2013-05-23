@@ -56,6 +56,10 @@ class Setting < ActiveRecord::Base
       description: { type: :text, hint: "Description on about turkey page", validate: { presence: true } },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true }
     },
+    about_page: {
+      title: { type: :string, hint: "Title on AboutPage", validate: { presence: true } },
+      description: { type: :text, hint: "Description on AboutPage", validate: { presence: true } }
+    },
     service_page: {
       title: { type: :string, hint: "Title on service page", validate: { presence: true } },
       description: { type: :text, hint: "Description on service page", validate: { presence: true } },

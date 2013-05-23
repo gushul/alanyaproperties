@@ -95,6 +95,7 @@ Alanya::Application.routes.draw do
     end
     match 'about_pages/settings' => 'settings#edit', as: :about_pages_settings, settings_type: :about_pages
     resources :about_pages do
+      match 'settings' => 'settings#edit', as: :settings, settings_type: :about_page
       collection do
         resources :sliders, slider_type: 'about_pages', as: :about_pages_sliders do
           post 'sort', on: :collection
