@@ -1,7 +1,6 @@
 # encoding: utf-8
 module ApplicationHelper
   def menu_link(name, link)
-    logger.info "#{request.protocol}#{request.host_with_port}/#{link}"
     case "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
       when link
         content_tag :span, name

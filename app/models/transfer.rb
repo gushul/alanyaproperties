@@ -30,7 +30,6 @@ class Transfer < ActiveRecord::Base
       end
     end
 
-    # logger.info self.inspect
     true
   end
 
@@ -52,7 +51,6 @@ class TransferBasic
   attr_writer :transfer_id
 
   def initialize(*attrs)
-    Rails.logger.info(attrs)
     options = attrs[0]
     FIELDS.each do |field|
       self.send("#{field}=", options[field])

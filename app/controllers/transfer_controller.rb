@@ -12,7 +12,6 @@ class TransferController < ApplicationController
     when 'out'
       exclude = :in_attributes
     end
-    logger.info params[:transfer].except(exclude).inspect
     @transfer = Transfer.new(params[:transfer].except(exclude))
 
     if @transfer.save
