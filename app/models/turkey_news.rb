@@ -1,7 +1,4 @@
 class TurkeyNews < ActiveRecord::Base
-  include FriendlyId
-
-  friendly_id :to_slugged, :use => :slugged
 
   attr_accessible :body, :title, :teaser, :photo, :url, :photo_cache
 
@@ -9,14 +6,18 @@ class TurkeyNews < ActiveRecord::Base
   validates :teaser, :length => {:maximum => 360}
   mount_uploader :photo, TurkeyNewsPhotoUploader
 
+  has_one :setting, as: :model
+
   searchable do
     text :title
     text :teaser
     text :body
   end
 
+  include FriendlyId
+  friendly_id :to_slugged, :use => :slugged
   def to_slugged
-    url || title
+    url.blank? ? title : url
   end
 
   def self.get_seismic_map

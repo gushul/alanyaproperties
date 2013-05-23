@@ -67,6 +67,10 @@ class Setting < ActiveRecord::Base
     city: {
       title: { type: :string, hint: "Title on city page", validate: { presence: true } },
       description: { type: :text, hint: "Description on city page", validate: { presence: true } }
+    },
+    turkey_news: {
+      title: { type: :string, hint: "Title on turkey news page", validate: { presence: true } },
+      description: { type: :text, hint: "Description on turkey news page", validate: { presence: true } }
     }
   }
 

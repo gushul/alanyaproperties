@@ -88,6 +88,7 @@ Alanya::Application.routes.draw do
       match 'settings' => 'settings#edit', as: :page_settings, settings_type: :service_page
     end
     resources :turkey_news do
+      match 'settings' => 'settings#edit', as: :settings, settings_type: :turkey_news
       collection do
         resources :sliders, slider_type: 'turkey_news', as: :turkey_news_sliders do
           post 'sort', on: :collection

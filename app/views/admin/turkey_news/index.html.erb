@@ -22,6 +22,7 @@
         <td><%= turkey_news.teaser %></td>
         <td><%= l turkey_news.created_at, format: :short %></td>
         <td>
+          <%= link_to "Settings", admin_turkey_news_settings_path(turkey_news), class: 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_turkey_news_path(turkey_news), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
