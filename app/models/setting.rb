@@ -34,12 +34,14 @@ class Setting < ActiveRecord::Base
     buy: {
       title: { type: :string, hint: "Title on buy page", validate: { presence: true } },
       description: { type: :text, hint: "Description on buy page", validate: { presence: true } },
-      seo_text: { type: :text, hint: "Seo text on bottom", html: true }
+      seo_text: { type: :text, hint: "Seo text on bottom", html: true },
+      search_seo_text: { type: :text, hint: "Seo text on bottom on search page", html: true }
     },
     rent: {
       title: { type: :string, hint: "Title on rent page", validate: { presence: true } },
       description: { type: :text, hint: "Description on rent page", validate: { presence: true } },
-      seo_text: { type: :text, hint: "Seo text on bottom", html: true }
+      seo_text: { type: :text, hint: "Seo text on bottom", html: true },
+      search_seo_text: { type: :text, hint: "Seo text on bottom on search page", html: true }
     },
     transfer: {
       title: { type: :string, hint: "Title on transfer page", validate: { presence: true } },
