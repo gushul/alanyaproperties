@@ -31,6 +31,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
 
   def show
     @property = Property.find(params[:id])
+    @settings = Setting.get('property', @property)
   end
 
   def map

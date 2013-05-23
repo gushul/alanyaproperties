@@ -38,6 +38,7 @@
           <a href="<%= admin_property_photos_path(property) %>" class="btn btn-mini btn-success">
             <i class="icon-camera"></i> Photos
           </a>
+          <%= link_to "Settings", admin_property_settings_path(property), class: 'btn btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_property_path(property), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

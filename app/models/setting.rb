@@ -71,6 +71,10 @@ class Setting < ActiveRecord::Base
     turkey_news: {
       title: { type: :string, hint: "Title on turkey news page", validate: { presence: true } },
       description: { type: :text, hint: "Description on turkey news page", validate: { presence: true } }
+    },
+    property: {
+      title: { type: :string, hint: "Title on property page. Leave blank for default title", validate: { presence: false } },
+      description: { type: :text, hint: "Description on property page. Leav blank for default description", validate: { presence: false } }
     }
   }
 
