@@ -37,9 +37,11 @@
 <%= render_cell :property, :sidebar, type: 'reservation' %>
 
 <div class="clmn_right">
+  <% if false # Disabled %>
   <ul class="apartment_list clearfix">
     <%= render @properties %>
   </ul>
+  <% end %>
 
   <div class="text">
     <%= raw @settings.seo_text %>
