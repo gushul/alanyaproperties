@@ -29,7 +29,7 @@
     <div class="buy_item_info">
 
       <div class="line bt0"><strong>ID объекта: <%= @property.oid %></strong></div>
-      <div class="line">Город: <%= @property.city.name %></div>
+      <div class="line">Город: <%= link_to @property.city.name, @property.city %></div>
       <div class="line">Тип недвижимости: <%= @property.property_type %></div>
       <div class="line">Общая площадь: <%= @property.total_area %> кв. м</div>
       <div class="line">Расстояние до моря: <%= @property.to_sea %> м</div>
