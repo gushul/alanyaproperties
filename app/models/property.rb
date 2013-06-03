@@ -11,7 +11,7 @@ class Property < ActiveRecord::Base
   scope :property_for, ->(action) { where(property_for: action) }
 
   belongs_to :city
-  has_many :reservations, dependent: :desctroy
+  has_many :reservations, dependent: :destroy
   has_one :setting, as: :model, dependent: :destroy
 
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
