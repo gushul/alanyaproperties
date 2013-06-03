@@ -6,7 +6,7 @@ class Property < ActiveRecord::Base
   store :geo, accessors: [:lat, :lng]
 
   mount_uploader :photo, PropertyPhotoUploader
-  has_many :photos, as: :gallery, dependent: :desctroy
+  has_many :photos, as: :gallery, dependent: :destroy
 
   scope :property_for, ->(action) { where(property_for: action) }
 
