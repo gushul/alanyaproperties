@@ -19,7 +19,7 @@
     </div>
 
     <% unless @city.photos.blank? %>
-    <h1 class="h2">Фото <%= @city.name_case2 %></h1>
+    <h2 class="h2">Фото <%= @city.name_case2 %></h2>
     <ul class="photo_list">
       <% @city.photos.each do |photo| %>
       <li class="li">

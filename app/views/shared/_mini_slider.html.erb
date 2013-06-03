@@ -9,7 +9,7 @@
         <%= link_to(''.html_safe, slider.video, class: 'video play_video', alt: 'Play Video') if slider.video? %>
         <span class="item_info">
         <% if @city %>
-            <span class="item_header"><%= @city.name %></span>
+            <h1 class="item_header"><%= @city.name %></h1>
         <% end -%>
         </span>
       </div>
