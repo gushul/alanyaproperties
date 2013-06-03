@@ -6,7 +6,7 @@ class TurkeyNews < ActiveRecord::Base
   validates :teaser, :length => {:maximum => 360}
   mount_uploader :photo, TurkeyNewsPhotoUploader
 
-  has_one :setting, as: :model
+  has_one :setting, as: :model, dependent: :destroy
 
   searchable do
     text :title

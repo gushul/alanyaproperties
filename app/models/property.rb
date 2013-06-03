@@ -6,13 +6,13 @@ class Property < ActiveRecord::Base
   store :geo, accessors: [:lat, :lng]
 
   mount_uploader :photo, PropertyPhotoUploader
-  has_many :photos, as: :gallery
+  has_many :photos, as: :gallery, dependent: :desctroy
 
   scope :property_for, ->(action) { where(property_for: action) }
 
   belongs_to :city
-  has_many :reservations
-  has_one :setting, as: :model
+  has_many :reservations, dependent: :desctroy
+  has_one :setting, as: :model, dependent: :destroy
 
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
                   :name, :photo, :price, :property_type, :city_id, :property_for,

@@ -3,7 +3,7 @@ class Service < ActiveRecord::Base
 
   validates :body, :name, presence: true
 
-  has_one :setting, as: :model
+  has_one :setting, as: :model, dependent: :destroy
 
   include FriendlyId
   friendly_id :to_slugged, :use => :slugged

@@ -4,7 +4,7 @@ class AboutPage < ActiveRecord::Base
 
   validates :body, :title, :url, presence: true
 
-  has_one :setting, as: :model
+  has_one :setting, as: :model, dependent: :destroy
 
   include FriendlyId
   friendly_id :to_slugged, :use => :slugged
