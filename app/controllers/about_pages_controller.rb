@@ -7,8 +7,9 @@ class AboutPagesController < InheritedResources::Base
   end
 
   def show
-    @settings = Setting.get('about_page', @about_page)
-    super
+    show! do
+      @settings = Setting.get(@about_page)
+    end
   end
 
   def sliders

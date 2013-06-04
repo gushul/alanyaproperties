@@ -1,3 +1,4 @@
+# TODO: Remove notusage actions
 class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
@@ -15,7 +16,7 @@ class CitiesController < ApplicationController
   def show
     @city = City.find(params[:id])
 
-    @settings = Setting.get('city', @city)
+    @settings = Setting.get(@city)
 
     respond_to do |format|
       format.html # show.html.erb

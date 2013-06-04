@@ -9,7 +9,7 @@ class TurkeyNewsController < InheritedResources::Base
     super do |format|
       format.atom do
         @title = "Новости Турции, Алании и других городов побережья средиземного моря"
-        @updated_at = @turkey_news.first.updated_at unless @turkey_news.blank?
+        @updated_at = @turkey_news.unscope.last.updated_at unless @turkey_news.blank?
 
         render layout: false
 
@@ -19,9 +19,9 @@ class TurkeyNewsController < InheritedResources::Base
   end
 
   def show
-    @settings = Setting.get('turkey_news', @turkey_news)
-
-    super
+    show! do
+      @settings = Setting.get(@turkey_news)
+    end
   end
 
   protected

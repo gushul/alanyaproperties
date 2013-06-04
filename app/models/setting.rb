@@ -120,9 +120,35 @@ TYPE
     end
   end
 
-  def self.get(type, parent = nil)
-    klass = "Setting::#{type.to_s.camelize}".constantize
-    klass.model(parent).first_or_initialize
+  # Get settings of type
+  # @contcact_settings = Setting.get('Contacts') => #<Setting::Contacts:0x007fd63d4939d0> from db or new if not excist
+  #
+  # @city = City.find(1)
+  # @city_settings = Setting.get(@city)
+  # or
+  # @city_settings = Setting.get(class: 'City', id: 1)
+  #
+  # Also
+  # @settings = Setting.get('some_type', Model.new)
+  #
+  def self.get(params, m = nil)
+    case params
+    when String, Symbol
+      type = params.to_s
+    when ActiveRecord::Base
+      type = params.class.to_s
+      m = params
+    when Hash
+      require 'ostruct'
+      params.symbolize_keys!
+
+      type = params[:class]
+      m = OpenStruct.new params
+    end
+
+    logger.info params.inspect
+    klass = "Setting::#{type.camelize}".constantize
+    klass.model(m).first_or_initialize
   end
 end
 
