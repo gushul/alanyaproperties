@@ -27,8 +27,8 @@
 <%= render_cell :property, :sidebar, type: 'reservation' %>
 
 <div class="clmn_right">
-  <p class="text">
-    <%= @settings.search_seo_text.html_safe if request.query_string.blank? %>
-  </p>
+  <div class="text" id="seo-text">
+    <%= @seo_text %>
+  </div>
 </div>
 <div class="clear"></div>

@@ -19,19 +19,25 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
     @settings = Setting.get(params[:property_for] || 'buy')
     @properties = Property.search do
       with(:property_for, params[:property_for] || 'buy')
-      with(:city_id, params[:city_id]) if params[:city_id]
-      with(:property_type, params[:property_type]) if params[:property_type]
-      with(:price, price_range(params[:price], params[:percents])) unless params[:price].blank?
-      with(:to_sea, params[:to_sea]) if params[:to_sea]
-      with(:hot, true) if params[:hot]
+      with(:city_id, params[:city_id]) if params[:city_id].present?
+      with(:property_type, params[:property_type]) if params[:property_type].present?
+      with(:price, price_range(params[:price], params[:percents])) if params[:price].present?
+      with(:to_sea, params[:to_sea]) if params[:to_sea].present?
+      with(:hot, true) if params[:hot].present?
 
       paginate :page => params[:page], :per_page => 9
     end.results
+    @seo_text =
+      case
+      when request.query_string.blank? then @settings.search_seo_text
+      when params[:city_id].present? && params[:city_id].size == 1
+        Setting.get(class: 'City', id: params[:city_id].first).search_seo_text
+      end.try(:html_safe)
   end
 
   def show
     @property = Property.find(params[:id])
-    @settings = Setting.get('property', @property)
+    @settings = Setting.get(@property)
   end
 
   def map
