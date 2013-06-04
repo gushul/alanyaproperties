@@ -28,7 +28,7 @@
 
 <div class="clmn_right">
   <p class="text">
-    <%= raw @settings.search_seo_text %>
+    <%= @settings.search_seo_text.html_safe if request.query_string.blank? %>
   </p>
 </div>
 <div class="clear"></div>
