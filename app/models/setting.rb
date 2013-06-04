@@ -68,7 +68,8 @@ class Setting < ActiveRecord::Base
     },
     city: {
       title: { type: :string, hint: "Title on city page", validate: { presence: true } },
-      description: { type: :text, hint: "Description on city page", validate: { presence: true } }
+      description: { type: :text, hint: "Description on city page", validate: { presence: true } },
+      search_seo_text: { type: :text, hint: "Seo text on bottom on search page", html: true }
     },
     turkey_news_index: {
       title: { type: :string, hint: "Title on about turkey page", validate: { presence: true } },
@@ -131,6 +132,8 @@ TYPE
   # Also
   # @settings = Setting.get('some_type', Model.new)
   #
+  # TODO: need test
+  #
   def self.get(params, m = nil)
     case params
     when String, Symbol
@@ -139,16 +142,24 @@ TYPE
       type = params.class.to_s
       m = params
     when Hash
-      require 'ostruct'
       params.symbolize_keys!
 
       type = params[:class]
-      m = OpenStruct.new params
+      m = Setting::LazyModel.new params
     end
 
     logger.info params.inspect
     klass = "Setting::#{type.camelize}".constantize
     klass.model(m).first_or_initialize
+  end
+end
+
+# Lazy Model
+class Setting::LazyModel
+  attr_accessor :class, :id
+  def initialize(options = {})
+    @class = options[:class]
+    @id = options[:id]
   end
 end
 
