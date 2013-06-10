@@ -15,5 +15,6 @@
       <%= f.button :submit, 'Save', :class => 'btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                   admin_turkey_news_index_path, :class => 'btn' %>
+      <%= link_to("Settings", admin_turkey_news_settings_path(@turkey_news), class: 'btn btn-success') if @turkey_news.article_type == 'seismic_map' %>
     </div>
 <% end %>
