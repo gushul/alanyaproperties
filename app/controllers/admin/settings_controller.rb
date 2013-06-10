@@ -8,7 +8,7 @@ class Admin::SettingsController < AdminController
     link = [:admin, params[:settings_type], :settings]
     if request.post? || request.put?
       update! do |format|
-        format.html { redirect_to url_for(link) + "?#{rand(10)}", notice: "Settings was successfully updated." }
+        format.html { redirect_to(url_for(link) + "?#{rand(10)}", notice: "Settings was successfully updated.") if resource.valid? }
       end
     else
       edit!
