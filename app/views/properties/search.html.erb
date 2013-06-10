@@ -1,7 +1,9 @@
+<%= title build_title(params) %>
+<%= description @settings.search_description %>
 <%= render_cell :property, :sidebar, position: 'top', for: params[:property_for], banner: true %>
 
 <div class="results">
-  <h1 class="h1">Результаты поиска</h1>
+  <h1 class="h1"><%= build_title params %></h1>
 
   <div class="inner clearfix">
     <div class="clmn fleft">
