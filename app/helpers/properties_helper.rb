@@ -32,7 +32,7 @@ module PropertiesHelper
   def build_title(options = params)
     t 'property.title.pattern',
       for: t("property.title.for.#{options[:property_for]}"),
-      type: options[:property_type].blank? ? t('property.title.type.blank') : options[:property_type].map {|type| t("property.title.type.#{type}") }.join(', '),
+      type: options[:property_type].blank? ? t('property.title.type.blank') : options[:property_type].map {|type| t("property.title.type.#{type}") }.uniq.join(', '),
       city: options[:city_id].blank? ? t('property.title.city.blank') : City.find(options[:city_id]).map {|city| city.name_case3 }.join(", "),
       suffix: options[:to_sea].blank? ? '' : " " << options[:to_sea].map {|dist| t("property.title.to_sea.#{dist}") }.reject(&:blank?).join(', ')
   end
