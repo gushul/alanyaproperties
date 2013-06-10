@@ -2,8 +2,9 @@
     <div class="row">
       <div class="span7">
         <div class="row">
-          <%= f.input :name, input_html: {class: 'input-xlarge'}, wrapper_html: {class: 'span4'} %>
-          <%= f.input :oid, input_html: {class: 'input-large'}, wrapper_html: {class: 'span3'} %>
+          <%= f.input :name, input_html: {class: 'input-xlarge'}, wrapper_html: {class: 'span3'} %>
+          <%= f.input :oid, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'} %>
+          <%= f.input :url, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}, label: "Slug", as: :string %>
         </div>
         <%= f.input :description, input_html: {size: '100x10', class: 'redactor'} %>
         <%= f.input :hot %>

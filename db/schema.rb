@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513103101) do
+ActiveRecord::Schema.define(:version => 20130610133749) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -148,9 +148,12 @@ ActiveRecord::Schema.define(:version => 20130513103101) do
     t.boolean  "hot"
     t.integer  "to_sea"
     t.date     "new_until"
+    t.string   "slug"
+    t.string   "url"
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"
+  add_index "properties", ["slug"], :name => "index_properties_on_slug"
 
   create_table "property_attributes", :force => true do |t|
     t.string   "name"

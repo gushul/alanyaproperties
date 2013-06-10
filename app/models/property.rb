@@ -16,7 +16,7 @@ class Property < ActiveRecord::Base
 
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
                   :name, :photo, :price, :property_type, :city_id, :property_for,
-                  :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until
+                  :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until, :url
 
   validates :name, :oid, :description, :property_kind, :photo, :price,
             :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true
@@ -53,5 +53,17 @@ class Property < ActiveRecord::Base
     integer :to_sea
     double :price
     integer :city_id, references: City
+  end
+
+  ## Slug
+  include FriendlyId
+  friendly_id :to_slugged, :use => :slugged
+  def to_slugged
+    url.blank? ? name : url
+  end
+
+  # Babosa russian normalization bone
+  def normalize_friendly_id(text)
+    text.to_slug.normalize! transliterations: :russian
   end
 end
