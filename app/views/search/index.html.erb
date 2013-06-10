@@ -1,5 +1,5 @@
 <% @content_class = 'search_page' %>
-<% title "Результаты поиска: #{params[:q]}" %>
+<% title build_title_with_page "Результаты поиска: #{params[:q]}" %>
 <%= render_cell :property, :sidebar, for: 'search', banner: true %>
 
         <div class="clear"></div>

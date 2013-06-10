@@ -24,7 +24,12 @@ module PropertiesHelper
     [property.property_for, property].unshift(action)
   end
 
-  def build_title(options = {})
+  def build_title_with_page(title = build_title)
+    page = params[:page].to_i
+    page > 1 ? t('property.title.with_page', page: page, title: title) : title
+  end
+
+  def build_title(options = params)
     t 'property.title.pattern',
       for: t("property.title.for.#{options[:property_for]}"),
       type: options[:property_type].blank? ? t('property.title.type.blank') : options[:property_type].map {|type| t("property.title.type.#{type}") }.join(', '),

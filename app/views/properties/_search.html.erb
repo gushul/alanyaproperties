@@ -1,4 +1,4 @@
-<% wiselinks_title build_title(params) %>
+<% wiselinks_title build_title_with_page %>
 <ul class="apartment_list clearfix">
   <% if @properties.size > 0 %>
     <%= render @properties %>
@@ -9,5 +9,5 @@
 <%= paginate @properties %>
 <script>
   $('#seo-text').html("<%= j @seo_text %>");
-  $('h1').text("<%= build_title params %>")
+  $('h1').text("<%= build_title %>")
 </script>

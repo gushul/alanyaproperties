@@ -16,6 +16,7 @@ ru:
       penthouse: Пентхауз
       villa: Вилла
     title:
+      with_page: "Страница номер %{page}. %{title}"
       pattern: "%{for} %{type} в %{city}%{suffix}"
       for:
         buy: "Купить"
