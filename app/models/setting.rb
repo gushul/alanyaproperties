@@ -150,7 +150,6 @@ TYPE
       m = Setting::LazyModel.new params
     end
 
-    logger.info params.inspect
     klass = "Setting::#{type.camelize}".constantize
     klass.model(m).first_or_initialize
   end
