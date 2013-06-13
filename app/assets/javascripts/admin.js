@@ -43,7 +43,7 @@ $(function () {
         dataType: 'script'
     });
 
-    $('.redactor2').redactor({convertDivs: false});
+    // $('.redactor2').redactor({convertDivs: false});
 
     $('.datepicker').datepicker({
       weekStart: 1,

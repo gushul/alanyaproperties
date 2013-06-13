@@ -6,7 +6,7 @@
     <% if @turkey_news.article_type == 'seismic_map' %>
       <%= f.input :teaser, as: :hidden %>
     <% else %>
-      <%= f.input :teaser, input_html: {class: 'redactor2', style: "width: 975px; height: 50px;"} %>
+      <%= f.input :teaser, input_html: {class: 'redactor', style: "width: 975px; height: 50px;"} %>
     <% end %>
     <%= f.input :body, input_html: {class: 'redactor', style: "width: 975px; height: 50px;"} %>
     <%= f.input :photo, as: :image_preview, input_html: {preview_version: :thumb} %>
