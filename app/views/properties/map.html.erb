@@ -17,31 +17,90 @@
       #map_canvas {
           height: 100%
       }
+      .gm-style div.gmnoprint {
+        -webkit-transition: opacity 0.5s ease;  /* Chrome 1-25, Safari 3.2+ */
+        -moz-transition: opacity 0.5s ease;  /* Firefox 4-15 */
+        -o-transition: opacity 0.5s ease;  /* Opera 10.50–12.00 */
+        transition: opacity 0.5s ease;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+        opacity: 1;
+      }
+      #map_canvas.unstyled .gm-style div.gmnoprint {
+        opacity: 0;
+        /* display: none; */
+      }
+      #customControl {
+        position: relative;
+        right: 24px;
+      }
   </style>
   <script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsRfoexWRijXAex3c65sUoXxtb-e1muR4&sensor=false">
   </script>
   <script type="text/javascript">
+      var map, marker;
+      var property = new google.maps.LatLng(<%= @property.lat %>, <%= @property.lng %>);
+
+      var icon = '<%= image_path 'map_marker.png' %>';
+      var title = '<%= @property.name %>';
+
+      google.maps.visualRefresh = true;
+
       function initialize() {
-          var property = new google.maps.LatLng(<%= @property.lat %>, <%= @property.lng %>);
           var mapOptions = {
               center: property,
               zoom: 14,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              mapTypeControl: true,
+              mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                position: google.maps.ControlPosition.RIGHT_TOP
+              }
           };
-          var map = new google.maps.Map(document.getElementById("map_canvas"),
+          map = new google.maps.Map(document.getElementById("map_canvas"),
                   mapOptions);
-          var marker = new google.maps.Marker({
+          marker = new google.maps.Marker({
               position: property,
               map: map,
               /* animation: google.maps.Animation.DROP, */
-              icon: '<%= image_path 'map_marker.png' %>',
-              title: '<%= @property.name %>'
+              icon: icon,
+              title: title
           });
+
+          // MapTypeControl better style
+          google.maps.event.addDomListener(map, 'tilesloaded', function(){
+            if(!document.getElementById('customControl')){
+              setTimeout(function(){
+                var els = document.querySelectorAll('div.gmnoprint');
+
+                // Wrap mapTypeControl
+                var mapTypeControl = els[els.length - 1]; // Last
+                var wrapper = document.createElement('div');
+                wrapper.id = 'customControl';
+
+                mapTypeControl.parentNode.insertBefore(wrapper, mapTypeControl);
+                mapTypeControl.parentNode.removeChild(mapTypeControl);
+                wrapper.appendChild(mapTypeControl);
+
+                // Effect
+                setTimeout(function(){
+                  document.getElementById('map_canvas').className = "";
+                }, 1);
+
+
+              }, 100);
+            }
+          })
+
+          // MapTypeControl style
+          //var els = document.getElementsByClassName('gmnoprint')
+          //console.log(els)
+          //var mapTypeControl = els[els.length - 1]
+          //console.log(mapTypeControl)
+          //mapTypeControl.style.right = "24px"
       }
   </script>
 </head>
 <body onload="initialize()">
-<div id="map_canvas" style="width:100%; height:100%"></div>
+<div id="map_canvas" style="width:100%; height:100%" class="unstyled"></div>
 </body>
 </html>

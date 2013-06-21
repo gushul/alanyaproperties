@@ -1069,9 +1069,11 @@ h1,h2,h3,h4,h5,h6{font-weight: 100; positon: relative;}
 }
 
 #colorbox.property_box #cboxClose {
-  top: 4px;
+  top: 7px;
   right: 8px;
   text-indent: -9999px;
+  padding: 0;
+  width: 14px;
 }
 
 .datepicker_holder{
