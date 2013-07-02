@@ -7,7 +7,7 @@
 
   <div class="inner clearfix">
     <div class="clmn fleft">
-      <form class="live-form" action="<%= "/#{params[:property_for]}/search" %>" method="GET" data-push="true">
+      <form class="live-form" action="<%= "/#{params[:property_for]}/search" %>" method="GET" data-push="partial" data-target="#live">
       <%= render 'filter' %>
       </form>
     </div>
