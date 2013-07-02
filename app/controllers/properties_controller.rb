@@ -11,8 +11,16 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
   end
 
   def search
+    logger.info request.env.inspect
+    # make_array
+    [:property_type, :city_id, :to_sea].each {|param|
+      if params[param].is_a? String
+        params[param] = params[param].split(',')
+      end
+    }
+
     if params[:oid].present?
-      redirect_to Property.find_by_oid(params[:oid]) if Property.exists?(oid: params[:oid])
+      redirect_to Property.find_by_oid(parms[:oid]) if Property.exists?(oid: params[:oid])
       params[:oid] = nil
     end
 

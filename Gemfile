@@ -25,7 +25,7 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
-gem 'wiselinks'
+gem 'wiselinks', github: 'igor-alexandrov/wiselinks'
 
 # Manage UI
 gem 'simple_form'

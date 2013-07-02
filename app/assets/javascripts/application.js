@@ -35,13 +35,13 @@ $(function () {
 
     $('.live-form').change(function(e){
         // Wiselinks load
-        var url = $(this).attr('action') + '?' + $(this).serialize();
-        console.log(url)
-        wiselinks.load(url, "#live", 'partial')
+        // var url = $(this).attr('action') + '?' + $(this).serialize();
+        // console.log(url)
+        // wiselinks.load(url, "#live", 'partial')
 
 
-//        $('.live-form').submit();
-    })
+       $('.live-form').submit();
+    });
 
     $('div.expander').expander({
       slicePoint: 510,
@@ -52,7 +52,7 @@ $(function () {
 
     $('.has-tooltip').tooltip({
 			track: true,
-		  position: {
+      position: {
         my: "center top+20",
         at: "center bottom",
         using: function( position, feedback ) {
@@ -63,6 +63,6 @@ $(function () {
             .addClass( feedback.horizontal )
             .appendTo( this );
         }
-		  }
+      }
 		});
-})
+});
