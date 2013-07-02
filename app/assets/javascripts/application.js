@@ -40,7 +40,7 @@ $(function () {
         // wiselinks.load(url, "#live", 'partial')
 
 
-       $('.live-form').submit();
+       setTimeout(function(){ $('.live-form').submit(); });
     });
 
     $('div.expander').expander({
