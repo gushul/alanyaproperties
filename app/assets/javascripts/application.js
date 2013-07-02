@@ -25,7 +25,7 @@
 //= require jquery.expander
 
 $(function () {
-    window.wiselinks = new Wiselinks();
+    window.wiselinks = new Wiselinks($('body'), {html4: false});
 
     $('.property_photo').colorbox({rel: 'property', maxWidth: '80%', maxHeight: '90%', className: 'property_box'});
     $('.property_video').colorbox({rel: 'property', innerWidth:500, innerHeight:409, className: 'property_box', iframe: true});
