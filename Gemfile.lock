@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/igor-alexandrov/wiselinks.git
-  revision: 70adb0e6f526a5c60fc295ac5137cd8da1236754
+  revision: 9926093a3f52b000f25d5c9086762cbeb9343c18
   specs:
-    wiselinks (0.7.0)
+    wiselinks (0.7.1)
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
