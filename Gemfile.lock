@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/igor-alexandrov/wiselinks.git
-  revision: 9926093a3f52b000f25d5c9086762cbeb9343c18
+  remote: git://github.com/faustman/wiselinks.git
+  revision: 3ceebb046aec1971f6a7ab214aa3d28bd6473a93
+  branch: hot-fix
   specs:
     wiselinks (0.7.1)
 
