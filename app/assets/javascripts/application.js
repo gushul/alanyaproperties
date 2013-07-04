@@ -38,6 +38,7 @@ $(function () {
         // var url = $(this).attr('action') + '?' + $(this).serialize();
         // console.log(url)
         // wiselinks.load(url, "#live", 'partial')
+        // Precompilation assets hook
 
 
        setTimeout(function(){ $('.live-form').submit(); });
