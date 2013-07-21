@@ -18,7 +18,7 @@
       <% @turkey_news.each do |news| %>
           <li class="li clearfix">
             <%= link_to image_tag(news.photo.thumb), news, class: 'img' %>
-            <div class="info"><%= news.teaser %></div>
+            <div class="info"><%= news.teaser.html_safe %></div>
             <%= link_to 'Подробнее', news, class: 'more' %>
           </li>
       <% end %>
