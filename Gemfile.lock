@@ -59,6 +59,7 @@ GEM
     cells (3.8.8)
       actionpack (>= 3.0)
       railties (>= 3.0)
+    chronic (0.9.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -200,6 +201,9 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.1)
       rack (>= 1.0)
+    whenever (0.8.4)
+      activesupport (>= 2.3.4)
+      chronic (>= 0.6.3)
     yaml_db (0.2.3)
 
 PLATFORMS
@@ -236,5 +240,6 @@ DEPENDENCIES
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
   unicorn
+  whenever
   wiselinks!
   yaml_db

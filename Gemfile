@@ -41,6 +41,8 @@ gem 'simple_form_fancy_uploads'
 gem 'redactor-rails'
 gem 'cells'
 gem 'sitemap_generator'
+# Cron
+gem 'whenever', :require => false
 
 gem 'yaml_db'
 
