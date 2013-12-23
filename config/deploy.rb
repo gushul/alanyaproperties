@@ -1,6 +1,6 @@
+require "bundler/capistrano"
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
-require "bundler/capistrano"
 
 set :application, "alanyaproperties"
 set :deploy_to, "/var/www/#{application}"
