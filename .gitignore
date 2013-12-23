@@ -22,3 +22,6 @@
 # Solr
 /solr/data
 /solr/pids
+
+# Sitemap
+/public/sitemap.xml.gz
