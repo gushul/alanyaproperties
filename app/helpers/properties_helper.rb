@@ -1,15 +1,15 @@
 module PropertiesHelper
   def property_path(property)
-    url_for build_path(property)
+    polymorphic_path build_path(property)
   end
   alias :property_url :property_path
 
   def map_property_path(property)
-    url_for build_path(property, :map)
+    polymorphic_path build_path(property, :map)
   end
 
   def offer_property_path(property)
-    url_for build_path(property, :offer)
+    polymorphic_path build_path(property, :offer)
   end
 
   def photo_tag(photo, argv)

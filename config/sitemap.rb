@@ -2,7 +2,9 @@
 SitemapGenerator::Sitemap.default_host = "http://www.alanyaproperties.ru"
 
 # Add Yandex ping
-SitemapGenerator::Sitemap.search_engines[:yandex] ='http://webmaster.yandex.com/site/map.xml?host=%s'
+SitemapGenerator::Sitemap.search_engines[:yandex] ='http://blogs.yandex.ru/pings/?status=success&url=%s'
+
+SitemapGenerator::Interpreter.send :include, PropertiesHelper
 
 SitemapGenerator::Sitemap.create do
   add root_path, changefreq: 'daily', priority: 1
@@ -25,16 +27,16 @@ SitemapGenerator::Sitemap.create do
     add service_path(service), priority: 0.5
   end
 
-  add turkey_news_index_url, changefreq: 'daily', priority: 0.6
+  add turkey_news_index_path, changefreq: 'daily', priority: 0.6
   TurkeyNews.find_each do |news|
-    add url_for(news), priority: 0.6
+    add turkey_news_path(news), priority: 0.6
   end
 
 
   add about_pages_path
 
   AboutPage.find_each do |a|
-    add url_for(a)
+    add about_page_path(a)
   end
 
   add contacts_path

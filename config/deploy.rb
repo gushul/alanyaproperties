@@ -13,7 +13,7 @@ set :user, "deploy" # you could even do `set :user, application` here
 # intentionally can't, no problem:
 set :use_sudo, false
 
-server "198.211.121.83", :app, :web, :db, :primary => true
+server "alanyaproperties.ru", :app, :web, :db, :primary => true
 
 set :keep_releases, 5
 # if you want to clean up old releases on each deploy uncomment this:
