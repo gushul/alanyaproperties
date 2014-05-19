@@ -31,6 +31,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
       with(:price, price_range(params[:price], params[:percents])) if params[:price].present?
       with(:to_sea, params[:to_sea]) if params[:to_sea].present?
       with(:hot, true) if params[:hot].present?
+      order_by :price, :asc
 
       paginate :page => params[:page], :per_page => 9
     end.results
