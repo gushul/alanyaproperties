@@ -19,7 +19,7 @@ class TurkeyNewsController < InheritedResources::Base
   end
 
   def show
-    attr_writer :attr_names
+    # attr_writer :attr_names
     show! do
       @settings = Setting.get(@turkey_news)
     end
