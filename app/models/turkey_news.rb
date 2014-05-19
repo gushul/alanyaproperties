@@ -8,6 +8,8 @@ class TurkeyNews < ActiveRecord::Base
 
   has_one :setting, as: :model, dependent: :destroy
 
+  default_scope { order('updated_at DESC') }
+
   searchable do
     text :title
     text :teaser
