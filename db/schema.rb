@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610133749) do
+ActiveRecord::Schema.define(:version => 20140519102013) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -141,8 +141,8 @@ ActiveRecord::Schema.define(:version => 20130610133749) do
     t.string   "photo"
     t.text     "geo"
     t.text     "property_attributes"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.integer  "total_area"
     t.string   "property_for"
     t.boolean  "hot"
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20130610133749) do
     t.date     "new_until"
     t.string   "slug"
     t.string   "url"
+    t.boolean  "on_main",             :default => false
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"
