@@ -6,7 +6,7 @@ set :application, "alanyaproperties"
 set :deploy_to, "/var/www/#{application}"
 
 set :scm, :git
-set :repository,  "git@github.com:faustman/alanya.git"
+set :repository,  "git@bitbucket.org:faustman_/alanya.git"
 set :deploy_via, :remote_cache
 ssh_options[:forward_agent] = true
 

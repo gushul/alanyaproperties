@@ -8,7 +8,7 @@
         </div>
         <%= f.input :description, input_html: {size: '100x10', class: 'redactor'} %>
         <%= f.input :hot %>
-        <%= f.input :on_main %>
+        <%# f.input :on_main %>
         <%= f.input :new_until, as: :string, input_html: { class: 'datepicker' } %>
         <div class="row">
           <%= f.input :property_for, collection: Property::ACTIONS, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'} %>

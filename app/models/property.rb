@@ -9,7 +9,8 @@ class Property < ActiveRecord::Base
   has_many :photos, as: :gallery, dependent: :destroy
 
   scope :property_for, ->(action) { where(property_for: action) }
-  scope :on_main, where(on_main: true)
+  # scope :on_main, where(on_main: true) # Not use
+  scope :hot, where(hot: true)
 
   belongs_to :city
   has_many :reservations, dependent: :destroy
@@ -18,7 +19,7 @@ class Property < ActiveRecord::Base
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
                   :name, :photo, :price, :property_type, :city_id, :property_for,
                   :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until,
-                  :url, :on_main
+                  :url
 
   validates :name, :oid, :description, :property_kind, :photo, :price,
             :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true
