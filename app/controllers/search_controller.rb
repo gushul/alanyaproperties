@@ -24,7 +24,7 @@ class SearchController < ApplicationController
     if params[:type].blank? || params[:type] == 'all' || params[:type] == 'buy' || params[:type] == 'id'
       @properties_buy = Property.search do
         if params[:type] == 'id'
-          with :oid, params[:q]
+          with :oid, params[:q].upcase
         else
           fulltext params[:q]
         end
