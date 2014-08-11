@@ -6,7 +6,7 @@ set :application, "alanyaproperties"
 set :deploy_to, "/var/www/#{application}"
 
 set :scm, :git
-set :repository,  "git@bitbucket.org:faustman_/alanya.git"
+set :repository,  "git@bitbucket.org:alanyaproperties/alanya.git"
 set :deploy_via, :remote_cache
 ssh_options[:forward_agent] = true
 
@@ -25,6 +25,14 @@ after "deploy:restart", "deploy:cleanup"
 # these http://github.com/rails/irs_process_scripts
 
 set :shared_children, shared_children + %w{public/uploads solr}
+
+namespace :uploads do
+  task :symlink, :except => { :no_release => true } do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+end
+
+after "deploy:finalize_update", "db:symlink"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do

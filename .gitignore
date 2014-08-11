@@ -25,3 +25,4 @@
 
 # Sitemap
 /public/sitemap.xml.gz
+config/database.yml
