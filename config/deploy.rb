@@ -26,7 +26,7 @@ after "deploy:restart", "deploy:cleanup"
 
 set :shared_children, shared_children + %w{public/uploads solr}
 
-namespace :uploads do
+namespace :db do
   task :symlink, :except => { :no_release => true } do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
