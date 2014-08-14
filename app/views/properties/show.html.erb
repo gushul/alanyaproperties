@@ -7,7 +7,7 @@
 
   <div class="buy_item">
     <div class="item_price"><%= number_to_currency @property.price, 'euro' %></div>
-    <h1 class="h1"><%= @property.name %></h1>
+    <h1 class="h1"><%= @property.name %> <%= edit(edit_admin_property_path(@property)) %></h1>
 
     <div class="hr"></div>
     <div class="buy_item_text">

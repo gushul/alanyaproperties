@@ -10,7 +10,7 @@
   <%# render 'shared/top_offer' %>
   <%= render_cell :banner, :top %>
 
-  <h1 class="h1"><%= @service.name %></h1>
+  <h1 class="h1"><%= @service.name %> <%= edit(edit_admin_service_path(@service)) %></h1>
 
   <div class="services_content clearfix">
     <%= raw @service.body %>

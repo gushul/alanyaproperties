@@ -51,4 +51,8 @@ module ApplicationHelper
 
     chars.html_safe
   end
+
+  def edit(route_path)
+    link_to "(Ред.)", route_path, class: 'edit-link' if current_admin
+  end
 end

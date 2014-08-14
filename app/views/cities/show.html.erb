@@ -15,7 +15,7 @@
       <%= link_to "Арендовать жилье в #{@city.name_case3}", rent_search_path(city_id: [@city.id]), class: 'order_link' %>
 
       <div class="clear"></div>
-
+      <%= edit(edit_admin_city_path(@city)) %>
       <%= raw @city.description %>
     </div>
 

@@ -10,7 +10,7 @@
   <%= render 'shared/mini_slider' %>
   <!--<%# render 'shared/top_offer' %>-->
 
-  <h1 class="h1"><%= @about_page.title %></h1>
+  <h1 class="h1"><%= @about_page.title %> <%= edit(edit_admin_about_page_path) %></h1>
 
   <!--<div class="services_content clearfix">-->
     <%= raw @about_page.body %>

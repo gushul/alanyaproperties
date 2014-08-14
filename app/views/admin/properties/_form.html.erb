@@ -40,6 +40,7 @@
     </div>
     <div class="form-actions">
       <%= f.button :submit, :class => 'btn-primary' %>
+      <%= link_to "Settings", admin_property_settings_path(@property), class: 'btn' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                   admin_properties_path, :class => 'btn' %>
     </div>
