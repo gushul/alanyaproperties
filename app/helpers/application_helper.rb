@@ -38,6 +38,10 @@ module ApplicationHelper
     content_for(:description) { page_description }
   end
 
+  def keywords(page_keywords)
+    content_for(:keywords) { page_keywords }
+  end
+
   def readmore(text, length = 75)
     chars = text.mb_chars
     if chars.length > length

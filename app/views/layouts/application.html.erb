@@ -5,6 +5,9 @@
   <title><%= content_for?(:title) ? yield(:title) : "Alanya Properties" %></title>
 
   <meta name="description" content="<%= yield :description %>"/>
+  <% if content_for?(:keywords) %>
+    <meta name="keywords" content="<%= yield :keywords %>"/>
+  <% end %>
 
   <%= stylesheet_link_tag "application", :media => "screen, projection" %>
   <!-- что бы телефон не ломался из-за скайпа -->

@@ -70,3 +70,4 @@ gem 'capistrano'
 gem 'sunspot_rails'
 gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 
+gem 'quiet_assets', group: :development

@@ -1,5 +1,7 @@
 <% title @settings.title.blank? ? "#{@property.name}. #{t "property.for.#{@property.property_for}"} недвижимости в #{@property.city.name_case3}, Турция." : @settings.title %>
 <% description @settings.description.blank? ? "#{t "property.for.#{@property.property_for}"} недвижимости по цене #{@property.price} евро. Лучшие предолжения от застройщика в Турции. Большой выбор квартир и вилл у моря." : @settings.description %>
+<% keywords @settings.keywords %>
+
 <div class="buy_page">
   <%= render_cell :property, :sidebar, for: @property.property_for, city: @property.city %>
 

@@ -14,6 +14,10 @@ class Setting < ActiveRecord::Base
       emails: {type: :text, hint: "Contact emails. Список через запятую", validate: {email_list: true}},
       seo_title: {type: :string, hint: "Seo title"},
       seo_description: {type: :text, hint: "Seo description"},
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
       text: {type: :text, hint: "Текст над формой", html: true},
       phones: {type: :string, hint: "Телефоны через запятую"},
       address: {type: :text, hint: 'Контактный адрес в левой панели'},
@@ -29,12 +33,20 @@ class Setting < ActiveRecord::Base
       title: { type: :string, hint: "Title on main page", validate: { presence: true } },
       description: { type: :text, hint: "Description on main page", validate: { presence: true } },
       seo_title: { type: :string, hint: "Title over seo text on bottom" },
-      seo_text: { type: :text, hint: "Seo text on bottom", html: true }
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
+      seo_text: { type: :text, hint: "Seo text on bottom", html: true },
     },
     buy: {
       title: { type: :string, hint: "Title on buy page", validate: { presence: true } },
       description: { type: :text, hint: "Description on buy page", validate: { presence: true } },
       search_description: { type: :text, hint: "Description on buy page", validate: { presence: true } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true },
       search_seo_text: { type: :text, hint: "Seo text on bottom on search page", html: true }
     },
@@ -42,12 +54,20 @@ class Setting < ActiveRecord::Base
       title: { type: :string, hint: "Title on rent page", validate: { presence: true } },
       description: { type: :text, hint: "Description on rent page", validate: { presence: true } },
       search_description: { type: :text, hint: "Description on buy page", validate: { presence: true } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true },
       search_seo_text: { type: :text, hint: "Seo text on bottom on search page", html: true }
     },
     transfer: {
       title: { type: :string, hint: "Title on transfer page", validate: { presence: true } },
       description: { type: :text, hint: "Description on transfer page", validate: { presence: true } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true }
     },
     reservation: {
@@ -62,29 +82,53 @@ class Setting < ActiveRecord::Base
     # },
     about_page: {
       title: { type: :string, hint: "Title on AboutPage", validate: { presence: true } },
-      description: { type: :text, hint: "Description on AboutPage", validate: { presence: true } }
+      description: { type: :text, hint: "Description on AboutPage", validate: { presence: true } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
     },
     service_page: {
       title: { type: :string, hint: "Title on service page", validate: { presence: true } },
       description: { type: :text, hint: "Description on service page", validate: { presence: true } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
     },
     city: {
       title: { type: :string, hint: "Title on city page", validate: { presence: true } },
       description: { type: :text, hint: "Description on city page", validate: { presence: true } },
-      search_seo_text: { type: :text, hint: "Seo text on bottom on search page", html: true }
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
+      search_seo_text: { type: :text, hint: "Seo text on bottom on search page", html: true },
     },
     turkey_news_index: {
       title: { type: :string, hint: "Title on about turkey page", validate: { presence: true } },
       description: { type: :text, hint: "Description on about turkey page", validate: { presence: true } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
       seo_text: { type: :text, hint: "Seo text on bottom", html: true }
     },
     turkey_news: {
       title: { type: :string, hint: "Title on turkey news page", validate: { presence: true } },
-      description: { type: :text, hint: "Description on turkey news page", validate: { presence: true } }
+      description: { type: :text, hint: "Description on turkey news page", validate: { presence: true } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
     },
     property: {
       title: { type: :string, hint: "Title on property page. Leave blank for default title", validate: { presence: false } },
-      description: { type: :text, hint: "Description on property page. Leav blank for default description", validate: { presence: false } }
+      description: { type: :text, hint: "Description on property page. Leave blank for default description", validate: { presence: false } },
+      keywords: {
+        type: :string,
+        hint: "Content for a tag keywords",
+      },
     }
   }
 
