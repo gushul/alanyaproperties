@@ -1,7 +1,6 @@
 <%= simple_form_for [:admin, @turkey_news], :html => {:class => 'form-horizontal'} do |f| %>
     <div class="row form-inline form-horizontal">
       <%= f.input :title, input_html: {class: 'input-xxlarge'}, wrapper_html: {class: 'span8', style: 'width: 726px;'} %>
-      <%= f.input :article_type, input_html: {class: 'input-xxlarge'}, wrapper_html: {class: 'span8', style: 'width: 726px;'} %>
       <%= f.input :url, as: :string, input_html: {class: 'input-xlarge', style: 'width: 398px;'}, wrapper_html: {class: 'span4'}, label: false, placeholder: 'Slug' %>
     </div>
     <% if @turkey_news.article_type == 'seismic_map' || @turkey_news.article_type == 'cost_of_living' %>
