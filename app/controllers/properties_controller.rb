@@ -39,7 +39,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
       with(:hot, true) if params[:hot].present?
       order_by :price, :asc
 
-      paginate :page => params[:page], :per_page => 9
+      paginate :page => params[:page], :per_page => 15
     end.results
     @seo_text =
       case
