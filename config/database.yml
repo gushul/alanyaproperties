@@ -39,4 +39,5 @@ production:
   pool: 5
   username: alanyaproperties
   password: XjLUbdf3AjZd8P
-  host: localhost
+  host: 127.0.0.1
+  port: 3307

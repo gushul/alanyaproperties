@@ -66,6 +66,7 @@
                 <li class="<%= 'active' if params[:controller] == 'admin/turkey_news' %>"><%= link_to "Turkey News", admin_turkey_news_index_path %></li>
                 <li class="<%= 'active' if current_page?(admin_turkey_news_sliders_path) %>"><%= link_to "Slider", admin_turkey_news_sliders_path %></li>
                 <li class="<%= 'active' if current_page?([:edit, :admin, TurkeyNews.get_seismic_map]) %>"><%= link_to "Seismic map", [:edit, :admin, TurkeyNews.get_seismic_map] %></li>
+                <li class="<%= 'active' if current_page?([:edit, :admin, TurkeyNews.get_cost_of_living]) %>"><%= link_to "Cost of living", [:edit, :admin, TurkeyNews.get_cost_of_living] %></li>
                 <li class="<%= 'active' if current_page?(admin_turkey_news_index_settings_path) %>"><%= link_to "Settings", admin_turkey_news_index_settings_path %></li>
               </ul>
             </li>
