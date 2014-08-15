@@ -37,7 +37,7 @@
               %a.search_item ПОИСК
               .search_input{style: "display:none;"}
                 %form{action: "/search", method: "GET"}
-                  %input#main-search-input.input{name: "q", type: "text"}/
+                  %input#main-search-input.input{name: "q", type: "text", value: params[:q]}/
                   %i.search_btn
       / END header
       / BEGIN content

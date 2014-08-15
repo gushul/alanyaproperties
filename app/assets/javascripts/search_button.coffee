@@ -19,6 +19,7 @@ navigationTween = (stage) ->
 $ ->
   if $(".search_item").length
     $(".search_input").hide()
+    navigationTween 0 if window.location.pathname.match(/^\/search/)
     $(".search_item").click ->
       navigationTween 0
 
