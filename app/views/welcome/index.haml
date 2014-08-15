@@ -1,0 +1,75 @@
+- title @settings.title
+- description @settings.description
+- keywords @settings.keywords
+
+.main_slider_holder
+  #main-slider.main_slider
+    .items_holder
+      - @sliders.each do |slider|
+        .item{style: "background-image: url('#{image_path slider.photo.big}');"}
+          = link_to(''.html_safe, slider.video, class: 'video play_video', alt: 'Play Video') if slider.video?
+          %span.item_info
+            %span.item_header
+              %span.item_price= number_to_currency slider.price, 'euro'
+              %span.item_title= slider.title
+            %span.item_content
+              %span.item_text= slider.description
+              %a.item_more{href: slider.link} Читать далее
+    .toggles
+      - @sliders.each do
+        %i.toggle
+    .arrow.left
+    .arrow.right
+.main_links.clearfix
+  %a.mlink.mlink1{href: buy_search_path}
+    %i>
+    Квартиры на продажу
+  %i.mlink_separ
+  %a.mlink.mlink2{href: buy_search_path(property_type: ['villa'])}
+    %i>
+    Виллы на продажу
+  %i.mlink_separ
+  %a.mlink.mlink3{href: Service.exists?(4) ? service_path(Service.find(4)) : services_path}
+    %i>
+    Кредит в Турции
+  %i.mlink_separ
+  %a.mlink.mlink4{href: Service.exists?(3) ? service_path(Service.find(3)) : services_path}
+    %i>
+    Вид на жительство
+  %i.mlink_separ
+  %a.mlink.mlink5{href: Service.exists?(1) ? service_path(Service.find(1)) : services_path}
+    %i>
+    Ознакомительный тур
+/ Begin MailChimp Signup Form
+.email_subscribe
+  %form#mc-embedded-subscribe-form.validate{action: "http://alanyaproperties.us6.list-manage.com/subscribe/post?u=614113bd37&id=015a5b2c51", method: "post", name: "mc-embedded-subscribe-form", novalidate: "", target: "_blank"}
+    %label{for: "mce-EMAIL"} Введите свой e-mail, чтобы подписаться на новости и горячие предложения
+    %input#mce-EMAIL.email.email_input{name: "EMAIL", placeholder: "email address", type: "email", value: ""}/
+    %span.btn.white.btn_input
+      %i.input
+        %input#mc-embedded-subscribe.button{name: "subscribe", type: "submit", value: "Subscribe"}/
+      Подписаться
+      %i.icon.email_icon
+/ End mc_embed_signup
+.offers.clearfix
+  - @properties.each do |property|
+    = link_to property, class: "offer_link#{' new' if property.new? }" do
+      = image_tag property.photo.thumb2
+      - if property.hot?
+        %i.ribbon_plus_orange.plus
+        %i.ribbon_hot_dial
+      - elsif property.new?
+        %i.ribbon_plus_blue.plus
+        %i.ribbon_new
+      - else
+        %i.ribbon_plus_orange.plus
+      %span.offer_info.clearfix
+        %span.price= number_to_currency property.price, 'euro'
+        %span.title= property.city.name
+        = property.name
+.main_text
+  %h3
+    = @settings.seo_title
+    = edit(admin_main_settings_path)
+  .expander
+    = simple_format @settings.seo_text
