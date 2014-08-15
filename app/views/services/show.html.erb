@@ -12,6 +12,7 @@
 
   <h1 class="h1"><%= @service.name %> <%= edit(edit_admin_service_path(@service)) %></h1>
 
+  <%= render_breadcrumbs %>
   <div class="services_content clearfix">
     <%= raw @service.body %>
   </div>

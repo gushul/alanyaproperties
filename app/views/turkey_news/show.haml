@@ -1,0 +1,27 @@
+- @content_class = 'city_page'
+- title @settings.title || @turkey_news.title
+- description @settings.description
+- keywords @settings.keywords
+
+= render 'shared/turkey_navbar'
+.right_clmn
+  = render_breadcrumbs
+  %h3
+    = @turkey_news.title
+    = edit(edit_admin_turkey_news_path)
+  - if @turkey_news.article_type == 'seismic_map'
+    .main_slider_holder.inner_slider_holder
+      .main_slider.inner_slider{style: "height: 288px;"}
+        .items_holder
+          .item{style: "background-image: url('#{image_path @turkey_news.photo.map}');"}
+            %span.item_info
+    .city_content
+      .city_text
+        = raw @turkey_news.body
+  - else
+    .services_content.clearfix
+      = raw @turkey_news.body
+= link_to_unless_current "Карта сейсмоактивности Турции", TurkeyNews.get_seismic_map, class: 'earthquake_map' do
+  %span.earthquake_map.act Карта сейсмоактивности Турции
+= render_cell :banner, :left
+.clear

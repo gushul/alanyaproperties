@@ -1,0 +1,17 @@
+- @content_class = 'services_page'
+- title @settings.title || @about_page.title
+- description @settings.description
+- keywords @settings.keywords
+
+= render 'sidebar_nav'
+.right_clmn
+  = render 'shared/mini_slider'
+  / </haml_block><haml_silent></haml_silent><haml_block>
+  = render_breadcrumbs
+  %h1.h1
+    = @about_page.title
+    = edit(edit_admin_about_page_path)
+  / <div class="services_content clearfix">
+  = raw @about_page.body
+  / </div>
+.clear

@@ -1,0 +1,68 @@
+- title @settings.title.blank? ? "#{@property.name}. #{t "property.for.#{@property.property_for}"} недвижимости в #{@property.city.name_case3}, Турция." : @settings.title
+- description @settings.description.blank? ? "#{t "property.for.#{@property.property_for}"} недвижимости по цене #{@property.price} евро. Лучшие предолжения от застройщика в Турции. Большой выбор квартир и вилл у моря." : @settings.description
+- keywords @settings.keywords
+
+
+.buy_page
+  = render_cell :property, :sidebar, for: @property.property_for, city: @property.city
+  = render_breadcrumbs
+  .buy_item
+    .item_price= number_to_currency @property.price, 'euro'
+    %h1.h1
+      = @property.name
+      = edit(edit_admin_property_path(@property))
+    .hr
+    .buy_item_text
+      .buy_item_photos.clearfix
+        - master_photo = @property.photos.shift || @property.photo
+        .img.big= photo_tag master_photo, style: :big, title: master_photo.respond_to?(:title) ? master_photo.title : @property.name, alt: master_photo.respond_to?(:alt) ? master_photo.alt : @property.name
+        - @property.photos.each do |photo|
+          .img= photo_tag photo, title: photo.title, alt: photo.alt
+      = raw @property.description
+      = link_to "НАЗАД", request.env["HTTP_REFERER"] || "/#{@property.property_for}/search", class: "btn gray back_btn"
+      %a.btn.big.send_offer{href: offer_property_path(@property)} ОТПРАВИТЬ ЗАПРОС
+      .clear
+    .buy_item_info
+      .line.bt0
+        %strong
+          ID объекта: #{@property.oid}
+      .line
+        Город: #{link_to @property.city.name, @property.city}
+      .line
+        Тип недвижимости: #{@property.property_type}
+      .line
+        Общая площадь: #{@property.total_area} кв. м
+      .line
+        Расстояние до моря: #{@property.to_sea} м
+      - @property.property_attributes.each do |attr, value|
+        .line
+          = t "property_attribute.#{attr.name}"
+          \: #{attr.answer(value)}
+      = link_to [:map, @property], class: 'buy_item_map property_map' do
+        %span.map= image_tag(map_mini_image(@property.lat, @property.lng))
+        %span.title Смотреть на карте
+    .clear
+    - if false # disable block
+      .hr
+      %h3.relative_offers_title Вас могут заинтересовать подобные предложения
+      %ul.relative_offers.clearfix
+        %li.li
+          .img= image_tag 'img.png'
+          .relative_offer_content
+            .title Жилой коплекс “Семь Звезд”
+            .text
+              город: Алания
+              %br/
+              комнат/спален: 1+1
+          .price 25 000 €
+          %span.btn ПОДРОБНЕЕ
+  .buy_filter
+    %form{action: "/#{@property.property_for}/search", method: "GET"}
+      = render 'filter'
+      .filter_section.city
+        %span.btn.btn_input.big
+          ИСКАТЬ
+          %i.input
+            %input{type: "submit"}/
+  .clear
+  = render_cell :property, :sidebar, position: 'bottom', for: @property.property_for, banner: true

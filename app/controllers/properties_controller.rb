@@ -1,13 +1,19 @@
+# encoding: utf-8
 class PropertiesController < ApplicationController #< InheritedResources::Base
                                                    # has_scope :property_for, default: 'buy'
                                                    # custom_actions resource: :map, collection: :search
   include PropertiesHelper
   layout false, only: [:map, :offer, :offer_thanks]
 
+  add_breadcrumb "Главная", :root_path
+
   def index
     @cities = City.all
     @properties = properties.limit(3)
     @settings = Setting.get(params[:property_for] || 'buy')
+    path = params[:property_for] == 'rent' ? rent_search_path : buy_search_path
+    title = params[:property_for] == 'rent' ? 'Аренда' : 'Покупка'
+    add_breadcrumb title, path
   end
 
   def search
@@ -41,11 +47,19 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
       when params[:city_id].present? && params[:city_id].size == 1
         Setting.get(class: 'City', id: params[:city_id].first).search_seo_text
       end.try(:html_safe)
+
+    path  = params[:property_for] == 'rent' ? rent_search_path : buy_search_path
+    title = params[:property_for] == 'rent' ? 'Аренда' : 'Покупка'
+    add_breadcrumb title, path
   end
 
   def show
     @property = Property.find(params[:id])
     @settings = Setting.get(@property)
+    path  = @property.property_for == 'rent' ? rent_search_path : buy_search_path
+    title = @property.property_for == 'rent' ? 'Аренда' : 'Покупка'
+    add_breadcrumb title, path
+    add_breadcrumb @property.name, path
   end
 
   def map

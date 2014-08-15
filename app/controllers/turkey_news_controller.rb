@@ -3,9 +3,13 @@ class TurkeyNewsController < InheritedResources::Base
   respond_to :html
   respond_to :atom, :rss, only: :index
 
+  add_breadcrumb "Главная", :root_path
+
   def index
     @sliders = Slider.slider_type('turkey_news')
     @settings = Setting.get('turkey_news_index')
+
+    add_breadcrumb "Новости Турции", turkey_news_index_path
     super do |format|
       format.atom do
         @title = "Новости Турции, Алании и других городов побережья средиземного моря"
@@ -20,6 +24,8 @@ class TurkeyNewsController < InheritedResources::Base
 
   def show
     # attr_writer :attr_names
+    add_breadcrumb "Новости Турции", turkey_news_index_path
+    add_breadcrumb resource.title, turkey_news_index_path
     show! do
       @settings = Setting.get(@turkey_news)
     end
