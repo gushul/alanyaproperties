@@ -1,0 +1,81 @@
+!!!
+%html{xmlns: "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %title= content_for?(:title) ? yield(:title) : "Alanya Properties"
+    %meta{content: yield(:description), name: "description"}/
+    - if content_for?(:keywords)
+      %meta{content: yield(:keywords), name: "keywords"}/
+    = stylesheet_link_tag "application", :media => "screen, projection"
+    / что бы телефон не ломался из-за скайпа
+    %meta{content: "SKYPE_TOOLBAR_PARSER_COMPATIBLE", name: "SKYPE_TOOLBAR"}/
+    = javascript_include_tag "application"
+    = auto_discovery_link_tag :atom, "/news"
+    = auto_discovery_link_tag :rss, "/news.rss"
+    = csrf_meta_tags
+    /[if IE 7]
+      <script>browser_class = 'ie_7';</script>
+    /[if IE 8]
+      <script>browser_class = 'ie_8';</script>
+    = render 'shared/ga' if Rails.env.production?
+  %body
+    / BEGIN wrapper
+    .wrapper.min_width
+      / BEGIN header
+      .header.clearfix
+        = link_to root_path, class: 'logo', title: 'Alanya Properties' do
+          = image_tag 'logo.png', alt: 'Alanya Properties Logo'
+        %table.nav
+          %tr
+            %td.td= menu_link "КУПИТЬ", buy_url
+            %td.td= menu_link "АРЕНДОВАТЬ", rent_url
+            %td.td= menu_link "УСЛУГИ", services_url
+            %td.td= menu_link "О ТУРЦИИ", turkey_news_index_url
+            %td.td= menu_link "О НАС", about_pages_url
+            %td.td= menu_link "КОНТАКТЫ", contacts_url
+            %td.td.last_td
+              %a.search_item ПОИСК
+              .search_input{style: "display:none;"}
+                %form{action: "/search", method: "GET"}
+                  %input#main-search-input.input{name: "q", type: "text"}/
+                  %i.search_btn
+      / END header
+      / BEGIN content
+      %div{class: "content #{@content_class}"}
+        = yield
+      / END content
+      / BEGIN footer
+      .footer
+        .inner.clearfix
+          %ul.fot_nav
+            %li.li.first= menu_link "Купить", buy_url
+            %li.li= menu_link "Арендовать", rent_url
+            %li.li= menu_link "Услуги", services_url
+            %li.li= menu_link "О Турции", turkey_news_index_url
+            %li.li= menu_link "О нас", about_pages_url
+            %li.li= menu_link "Контакты", contacts_url
+            %li.li= menu_link "Поиск", search_url
+            %li.li= menu_link "Карта сайта", sitemap_url
+          .fright
+            %i.fot_separ
+            .phone
+              Телефон : #{@global_settings.phone}
+            %i.fot_separ
+            %a.icon.fot_rss{href: turkey_news_index_path, title: "RSS Feed"}
+            %i.fot_separ
+            %a.icon.fot_fb{href: @global_settings.facebook, target: "_blank", title: "Facebook Page"}
+        .copyright= @global_settings.copyright
+      / END footer
+    / END wrapper
+    %table.popup_table.hide
+      %tr
+        %td.pt_td
+          / !!! popup_leaveorder
+          / <script>visible_popup       = 'popup';</script>
+          .popup.clearfix
+            Popup
+            %i.close
+          #back.back.none
+    = render 'shared/ym' if Rails.env.production?
+    = render 'shared/livezilla' if Rails.env.production?
+    = render 'shared/to_top'
