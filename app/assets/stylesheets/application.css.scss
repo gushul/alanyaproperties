@@ -227,3 +227,10 @@ a.offer_link:hover {
 }
 
 a.edit-link { color: green !important; }
+
+button.submit-search {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: inherit;
+}

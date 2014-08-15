@@ -36,9 +36,10 @@
             %td.td.last_td
               %a.search_item ПОИСК
               .search_input{style: "display:none;"}
-                %form{action: "/search", method: "GET"}
-                  %input#main-search-input.input{name: "q", type: "text", value: params[:q]}/
-                  %i.search_btn
+                = form_tag search_path, method: :get do
+                  = text_field_tag 'q', params[:q], id: 'main-search-input'
+                  = button_tag(type: "submit", class: 'submit-search') do
+                    %i.search_btn
       / END header
       / BEGIN content
       %div{class: "content #{@content_class}"}
