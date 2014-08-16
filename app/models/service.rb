@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  attr_accessible :body, :is_main, :name, :url
+  attr_accessible :body, :is_main, :name, :url, :created_at
 
   validates :body, :name, presence: true
 

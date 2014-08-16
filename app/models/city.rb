@@ -1,7 +1,5 @@
 class City < ActiveRecord::Base
-
-
-  attr_accessible :name, :cover_attributes, :description, :name_case, :name_case2, :name_case3, :url
+  attr_accessible :name, :cover_attributes, :description, :name_case, :name_case2, :name_case3, :url, :created_at
   has_many :properties, dependent: :destroy
   has_one :cover, as: :attachment, class_name: Asset::CityCover, dependent: :destroy
   accepts_nested_attributes_for :cover

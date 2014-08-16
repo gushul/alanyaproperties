@@ -7,8 +7,10 @@
 //= require redactor-rails/langs/ru
 //= require jquery.dataTables.min
 //= require jquery-fileupload/basic
-//= require bootstrap-datepicker
+//= require bootstrap-datetimepicker/bootstrap-datetimepicker
+//= require bootstrap-datetimepicker/bootstrap-datetimepicker_ru
 //= require DT_bootstrap
+//= require_tree ./admin
 
 $(function () {
     initDataTable('.data-table')
@@ -34,12 +36,4 @@ $(function () {
     });
 
     // $('.redactor2').redactor({convertDivs: false});
-
-    $('.datepicker').datepicker({
-      weekStart: 1,
-      autoclose: true,
-      todayHighlight: true,
-      todayBtn: 'linked',
-      format: 'yyyy-mm-dd'
-    })
 })

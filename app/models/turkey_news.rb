@@ -1,6 +1,6 @@
 class TurkeyNews < ActiveRecord::Base
 
-  attr_accessible :body, :title, :teaser, :photo, :url, :photo_cache
+  attr_accessible :body, :title, :teaser, :photo, :url, :photo_cache, :created_at
 
   validates :title, :teaser, :body, :photo, presence: true
   validates :teaser, :length => {:maximum => 360}

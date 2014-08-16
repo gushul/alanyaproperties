@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @service], :html => {:class => 'form-horizontal'} do |f|
+  .row.form-inline.form-horizontal
+    = f.input :name, input_html: {class: 'input-xxlarge'}, wrapper_html: {class: 'span8', style: 'width: 726px;'}
+    = f.input :url, input_html: {class: 'input-xlarge', style: 'width: 398px;'}, wrapper_html: {class: 'span4'}, label: false, placeholder: 'Slug', as: :string
+  = f.input :body, input_html: {class: 'redactor', style: "width: 975px; height: 50px;"}
+  = f.input :is_main
+  = f.input :created_at, as: :string, input_html: { class: 'datetimepicker', value: f.object.created_at.to_s(:db) }
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), admin_services_path, class: 'btn'

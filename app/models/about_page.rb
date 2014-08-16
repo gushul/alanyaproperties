@@ -1,6 +1,6 @@
 class AboutPage < ActiveRecord::Base
 
-  attr_accessible :body, :slug, :title, :url, :default
+  attr_accessible :body, :slug, :title, :url, :default, :created_at
 
   validates :body, :title, :url, presence: true
 

@@ -2,7 +2,7 @@
  *= require bootstrap_and_overrides
  *= require redactor-rails
  *= require DT_bootstrap
- *= require datepicker
+ *= require bootstrap-datetimepicker/bootstrap-datetimepicker
  *= require_self
  */
 

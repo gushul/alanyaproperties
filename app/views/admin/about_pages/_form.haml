@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @about_page], :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title
+  = f.input :body, input_html: { class: 'redactor' }
+  = f.input :url
+  = f.input :default
+  = f.input :created_at, as: :string, input_html: { class: 'datetimepicker', value: f.object.created_at.to_s(:db) }
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), admin_about_pages_path, class: 'btn'
