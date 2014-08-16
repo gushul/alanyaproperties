@@ -53,6 +53,12 @@ namespace :deploy do
   end
 end
 
+namespace :deploy do
+  task :cov, roles: :app do
+    run %Q{cd #{current_release} && #{rake} RAILS_ENV=#{rails_env} "count_of_views:seed"}
+  end
+end
+
 after "deploy:update_code", "deploy:copy_old_sitemap"
 namespace :deploy do
   task :copy_old_sitemap do
