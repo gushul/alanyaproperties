@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @settings = Setting.get('service_page', @service)
+    @service.increment!(:count_of_views)
 
     add_breadcrumb 'Услуги', services_path
     add_breadcrumb @service.name, service_path

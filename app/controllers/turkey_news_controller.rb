@@ -24,6 +24,7 @@ class TurkeyNewsController < InheritedResources::Base
 
   def show
     # attr_writer :attr_names
+    resource.increment!(:count_of_views)
     add_breadcrumb "Новости Турции", turkey_news_index_path
     add_breadcrumb resource.title, turkey_news_index_path
     show! do

@@ -1,9 +1,11 @@
 class TurkeyNews < ActiveRecord::Base
 
-  attr_accessible :body, :title, :teaser, :photo, :url, :photo_cache, :created_at
+  attr_accessible :body, :title, :teaser, :photo, :url, :photo_cache, :created_at, :count_of_views
 
   validates :title, :teaser, :body, :photo, presence: true
-  validates :teaser, :length => {:maximum => 360}
+  validates :teaser, length: { maximum: 360 }
+  validates :count_of_views, numericality: true
+
   mount_uploader :photo, TurkeyNewsPhotoUploader
 
   has_one :setting, as: :model, dependent: :destroy

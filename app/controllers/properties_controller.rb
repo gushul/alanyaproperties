@@ -55,6 +55,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
 
   def show
     @property = Property.find(params[:id])
+    @property.increment!(:count_of_views)
     @settings = Setting.get(@property)
     path  = @property.property_for == 'rent' ? rent_search_path : buy_search_path
     title = @property.property_for == 'rent' ? 'Аренда' : 'Покупка'

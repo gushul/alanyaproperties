@@ -1,7 +1,8 @@
 class Service < ActiveRecord::Base
-  attr_accessible :body, :is_main, :name, :url, :created_at
+  attr_accessible :body, :is_main, :name, :url, :created_at, :count_of_views
 
   validates :body, :name, presence: true
+  validates :count_of_views, numericality: true
 
   has_one :setting, as: :model, dependent: :destroy
 

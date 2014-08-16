@@ -9,6 +9,7 @@
   %h3
     = @turkey_news.title
     = edit(edit_admin_turkey_news_path)
+  = render partial: 'shared/count_of_views', locals: { count_of_views: @turkey_news.count_of_views }
   - if @turkey_news.article_type == 'seismic_map'
     .main_slider_holder.inner_slider_holder
       .main_slider.inner_slider{style: "height: 288px;"}

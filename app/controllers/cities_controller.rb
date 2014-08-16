@@ -18,8 +18,8 @@ class CitiesController < ApplicationController
   # GET /cities/1.json
   def show
     @city = City.find(params[:id])
-
     @settings = Setting.get(@city)
+    @city.increment!(:count_of_views)
 
     add_breadcrumb "О Турции", turkey_news_index_path
     add_breadcrumb @city.name, city_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140814095250) do
+ActiveRecord::Schema.define(:version => 20140816153609) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(:version => 20140814095250) do
     t.string   "url"
     t.string   "slug"
     t.boolean  "default"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "count_of_views", :default => 0, :null => false
   end
 
   add_index "about_pages", ["slug"], :name => "index_about_pages_on_slug", :unique => true
@@ -72,8 +73,8 @@ ActiveRecord::Schema.define(:version => 20140814095250) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.text     "description"
     t.string   "name_case"
     t.string   "url"
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20140814095250) do
     t.string   "name_case2"
     t.string   "name_case3"
     t.string   "keywords"
+    t.integer  "count_of_views", :default => 0, :null => false
   end
 
   add_index "cities", ["slug"], :name => "index_cities_on_slug", :unique => true
@@ -153,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20140814095250) do
     t.string   "url"
     t.boolean  "on_main",             :default => false
     t.string   "keywords"
+    t.integer  "count_of_views",      :default => 0,     :null => false
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"
@@ -201,10 +204,11 @@ ActiveRecord::Schema.define(:version => 20140814095250) do
     t.text     "body"
     t.boolean  "is_main"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "url"
     t.string   "keywords"
+    t.integer  "count_of_views", :default => 0, :null => false
   end
 
   create_table "settings", :force => true do |t|
@@ -251,10 +255,11 @@ ActiveRecord::Schema.define(:version => 20140814095250) do
     t.text     "body"
     t.string   "slug"
     t.string   "photo"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "article_type"
     t.string   "url"
+    t.integer  "count_of_views", :default => 0, :null => false
   end
 
 end

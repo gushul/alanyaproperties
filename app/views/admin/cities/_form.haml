@@ -6,6 +6,7 @@
   = f.input :name_case2, hint: "Имя в падеже для ФОТО"
   = f.input :name_case3, hint: "Имя в падеже для \"Купить недвижимость в ...\""
   = f.input :description, input_html: { class: 'redactor' }
+  = f.input :count_of_views
   = f.input :created_at, as: :string, input_html: { class: 'datetimepicker', value: f.object.created_at.to_s(:db) }
   = f.simple_fields_for :cover do |ff|
     = ff.input :asset, as: :image_preview, input_html: { preview_version: :thumb }, label: "Cover"

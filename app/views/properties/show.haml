@@ -18,6 +18,7 @@
         .img.big= photo_tag master_photo, style: :big, title: master_photo.respond_to?(:title) ? master_photo.title : @property.name, alt: master_photo.respond_to?(:alt) ? master_photo.alt : @property.name
         - @property.photos.each do |photo|
           .img= photo_tag photo, title: photo.title, alt: photo.alt
+      = render partial: 'shared/count_of_views', locals: { count_of_views: @property.count_of_views }
       = raw @property.description
       = link_to "НАЗАД", request.env["HTTP_REFERER"] || "/#{@property.property_for}/search", class: "btn gray back_btn"
       %a.btn.big.send_offer{href: offer_property_path(@property)} ОТПРАВИТЬ ЗАПРОС

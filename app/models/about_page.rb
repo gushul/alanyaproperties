@@ -1,8 +1,9 @@
 class AboutPage < ActiveRecord::Base
 
-  attr_accessible :body, :slug, :title, :url, :default, :created_at
+  attr_accessible :body, :slug, :title, :url, :default, :created_at, :count_of_views
 
   validates :body, :title, :url, presence: true
+  validates :count_of_views, numericality: true
 
   has_one :setting, as: :model, dependent: :destroy
 
