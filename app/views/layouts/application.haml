@@ -63,8 +63,6 @@
               Телефон : #{@global_settings.phone}
             %i.fot_separ
             %a.icon.fot_rss{href: turkey_news_index_path, title: "RSS Feed"}
-            %i.fot_separ
-            %a.icon.fot_fb{href: @global_settings.facebook, target: "_blank", title: "Facebook Page"}
         .copyright= @global_settings.copyright
       / END footer
     / END wrapper
@@ -80,3 +78,4 @@
     = render 'shared/ym' if Rails.env.production?
     = render 'shared/livezilla' if Rails.env.production?
     = render 'shared/to_top'
+    = render 'layouts/sticky_buttons'
