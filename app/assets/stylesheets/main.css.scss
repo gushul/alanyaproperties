@@ -4,36 +4,6 @@
 //  @return url(../images/#{$img});
 //}
 
-@font-face {
-    font-family: 'MyriadPro';
-    src: url('font/MyriadPro-Light.eot');
-    src: local('☺'),
-    url('font/MyriadPro-Light.ttf') format('truetype'),
-    url('font/MyriadPro-Light.svg') format('svg');
-    font-weight: 100;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'MyriadPro';
-    src: url('font/mpr-webfont.eot');
-    src: url('font/mpr-webfont.eot?#iefix') format('embedded-opentype'),
-    url('font/mpr-webfont.woff') format('woff'),
-    url('font/mpr-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'MyriadPro';
-    src: url('font/myriadpro-bold-webfont.eot');
-    src: url('font/myriadpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('font/myriadpro-bold-webfont.woff') format('woff'),
-    url('font/myriadpro-bold-webfont.ttf') format('truetype'),
-    url('font/myriadpro-bold-webfont.svgz#MyriadPro') format('svg'),
-    url('font/myriadpro-bold-webfont.svg#MyriadPro') format('svg');
-    font-weight: bold;
-    font-style: normal;
-}
 
 html {
   height: 100%;
