@@ -10,6 +10,7 @@ class City < ActiveRecord::Base
   has_many :photos,  as: :gallery, dependent: :destroy
   has_many :sliders, as: :model, dependent: :destroy
   has_one  :setting, as: :model, dependent: :destroy
+  has_many :hot_offers, as: :offerable
 
   include FriendlyId
   friendly_id :to_slugged, :use => :slugged

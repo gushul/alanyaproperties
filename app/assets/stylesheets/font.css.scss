@@ -1,14 +1,3 @@
-@mixin font-face($family, $url-without-ext, $font-weight: normal, $font-style: normal) {
-  @font-face {
-    font-family: "#{$family}";
-    src: font-url("#{$url-without-ext}.eot");
-    src: font-url("#{$url-without-ext}.eot?#iefix") format("embedded-opentype"),
-         font-url("#{$url-without-ext}.woff") format("woff"),
-         font-url("#{$url-without-ext}.ttf") format("truetype"),
-         font-url("#{$url-without-ext}.svg##{$url-without-ext}") format("svg");
-    font-weight: $font-weight;
-    font-style: $font-style;
-  }
-}
+@import "base/base";
 
 @include font-face("MyriadPro", "MyriadPro-Regular");

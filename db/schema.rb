@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140816153609) do
+ActiveRecord::Schema.define(:version => 20140817161120) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -119,6 +119,19 @@ ActiveRecord::Schema.define(:version => 20140816153609) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "hot_offers", :force => true do |t|
+    t.integer  "offerable_id"
+    t.string   "offerable_type"
+    t.string   "title"
+    t.string   "description"
+    t.boolean  "publish",        :default => false, :null => false
+    t.string   "color",                             :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  add_index "hot_offers", ["offerable_type", "offerable_id"], :name => "index_hot_offers_on_offerable_type_and_offerable_id"
 
   create_table "photos", :force => true do |t|
     t.string   "title"

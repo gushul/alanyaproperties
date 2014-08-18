@@ -1419,59 +1419,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.offers {
-  margin: 0 -25px 0 0;
-}
-
-.offer_link {
-  background: image-url("offers_bg.png") no-repeat center bottom;
-  padding: 0 0 8px;
-  width: 222px;
-  height: 175px;
-  float: left;
-  margin: 0 24px 0 0;
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-decoration: none;
-  &:hover {
-    color: white;
-  }
-  img {
-    width: 218px;
-    height: 171px;
-    border: 2px solid white;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2px 0px rgba(185, 185, 185, 1);
-    box-shadow: 0 1px 2px 0px rgba(185, 185, 185, 1);
-  }
-  .offer_info {
-    position: absolute;
-    width: 204px;
-    padding: 2px 7px;
-    bottom: 10px;
-    z-index: 2;
-    left: 2px;
-    background: image-url("orange_blank.png") repeat;
-    -webkit-border-radius: 0 0 3px 3px;
-    border-radius: 0 0 3px 3px;
-    font-size: 11px;
-    line-height: 11px;
-  }
-  .title {
-    font-weight: bold;
-  }
-  .price {
-    float: right;
-    font-size: 24px;
-    line-height: 24px;
-    margin: 6px 0 5px 10px;
-  }
-  &.new .offer_info {
-    background-image: image-url("blue_blank.png");
-  }
-}
 
 .ribbon_plus_orange {
   position: absolute;

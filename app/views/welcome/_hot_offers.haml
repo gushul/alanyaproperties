@@ -1,16 +1,3 @@
 .offers.clearfix
-  - @properties.each do |property|
-    = link_to property, class: "offer_link#{' new' if property.new? }" do
-      = image_tag property.photo.thumb2
-      - if property.hot?
-        %i.ribbon_plus_orange.plus
-        %i.ribbon_hot_dial
-      - elsif property.new?
-        %i.ribbon_plus_blue.plus
-        %i.ribbon_new
-      - else
-        %i.ribbon_plus_orange.plus
-      %span.offer_info.clearfix
-        %span.price= number_to_currency property.price, 'euro'
-        %span.title= property.city.name
-        = property.name
+  - @hot_offers_property.each do |o|
+    = render partial: 'shared/offer', locals: { offer: o }

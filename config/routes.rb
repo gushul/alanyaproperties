@@ -1,19 +1,11 @@
 Alanya::Application.routes.draw do
-
-
-
   get "sitemap" => "sitemap#index"
 
   match 'reservations' => 'reservations#index'
 
-
   get "search" => "search#index"
 
   resources :about_pages, path: 'about'
-
-
-  # resources :contact_messages
-
 
   get 'contacts' => 'contacts#index'
   post 'contacts' => 'contacts#send_message'
@@ -129,6 +121,10 @@ Alanya::Application.routes.draw do
     end
     resources :banners
     get '', action: :index
+
+    namespace :hot_offers do
+      resources :properties, :cities
+    end
   end
 
   root to: 'welcome#index'

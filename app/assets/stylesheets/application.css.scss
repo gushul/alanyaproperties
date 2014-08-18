@@ -8,8 +8,10 @@
  *= require breadcrumb
  *= require to_top
  *= require sticky_buttons
+ *= require_tree ./shared
  *= require_self
  */
+
 
 .img a:focus, a.buy_item_map:focus {
     outline: none;
@@ -123,19 +125,6 @@ label.with_error {
 
 .apatment_list_bot {
   position: relative;
-}
-
-.offer_link .offer_info {
-  display: none;
-}
-
-a.offer_link:hover {
-  .offer_info {
-    display: block;
-  }
-  .plus {
-    display: none;
-  }
 }
 
 .play_video {

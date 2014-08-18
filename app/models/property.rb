@@ -15,6 +15,7 @@ class Property < ActiveRecord::Base
   belongs_to :city
   has_many :reservations, dependent: :destroy
   has_one :setting, as: :model, dependent: :destroy
+  has_many :hot_offers, as: :offerable
 
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
                   :name, :photo, :price, :property_type, :city_id, :property_for,
