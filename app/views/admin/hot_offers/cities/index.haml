@@ -1,0 +1,19 @@
+.page-header
+  %h1 Плашки горячих предложений Городов
+
+.row
+  .span12
+    %p.lead Плашки будут отображаться в случайном порядке
+
+.row
+  - @resources.each do |r|
+    .span3
+      %p
+        %span.label{ class: r.publish ? "label-success" : "label-warning" }= r.publish ? "Опубликована" : "Неопубликована"
+      = render partial: 'shared/offer_city', locals: { offer: r }
+      = link_to 'Ред.', { controller: controller_name, action: "edit", id: r }, class: 'btn btn-success'
+      = link_to "Удалить", { controller: controller_name, action: "destroy", id: r }, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
+%hr
+.row
+  .span3
+    = link_to 'Добавить', { controller: controller_name, action: 'new' }, class: 'btn btn-primary'

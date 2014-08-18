@@ -30,7 +30,6 @@
 
             <div class="container nav-collapse">
               <ul class="nav">
-                <li class="<%= 'active' if current_page?(admin_dashboard_path) %>"><%= link_to "Dashboard", admin_dashboard_path %></li>
                 <li class="<%= 'active' if  params[:controller] =~ /admin\/propert/ %> dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties <b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -40,7 +39,16 @@
                     <li class="<%= 'active' if current_page?(admin_hot_offers_properties_path) %>"><%= link_to "Горячие предложения", admin_hot_offers_properties_path %></li>
                   </ul>
                 </li>
-                <li class="<%= 'active' if params[:controller] == 'admin/cities' %>"><%= link_to "Cities", admin_cities_path %></li>
+
+                <li class="<%= 'active' if params[:controller] == 'admin/cities' %> dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cities <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="<%= 'active' if current_page?(admin_cities_path) %>"><%= link_to "Cities", admin_cities_path %></li>
+                    <li class="<%= 'active' if current_page?(admin_hot_offers_cities_path) %>"><%= link_to "Горячие предложения", admin_hot_offers_cities_path %></li>
+                  </ul>
+                </li>
+
+
                 <li class="<%= 'active' if params[:controller] == 'admin/services' %>"><%= link_to "Services", admin_services_path %></li>
                 <li class="<%= 'active' if  params[:controller] =~ /admin\/turkey_news/ %> dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Turkey News <b class="caret"></b></a>

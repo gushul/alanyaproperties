@@ -1,3 +1,4 @@
-.offers.clearfix
-  - @hot_offers_property.each do |o|
-    = render partial: 'shared/offer', locals: { offer: o }
+- if @hot_offers_property.present?
+  .offers.clearfix
+    - @hot_offers_property.each do |o|
+      = render partial: 'shared/offer', locals: { offer: o }
