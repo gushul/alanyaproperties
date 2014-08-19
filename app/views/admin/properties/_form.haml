@@ -30,5 +30,5 @@
           = ff.input attr.name, as: attr.attribute_type
   .form-actions
     = f.button :submit, class: 'btn-primary'
-    = link_to "Settings", admin_property_settings_path(@property), class: 'btn'
+    = link_to "Settings", admin_property_settings_path(@property), class: 'btn' unless @property.new_record?
     = link_to t('.cancel', default: t("helpers.links.cancel")), admin_properties_path, class: 'btn'
