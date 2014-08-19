@@ -14,6 +14,7 @@ class AboutPagesController < InheritedResources::Base
     resource.increment!(:count_of_views)
     add_breadcrumb 'О нас', about_pages_path
     add_breadcrumb resource.title, about_page_path
+    @paywall = resource.paywall
     show! do
       @settings = Setting.get(@about_page)
     end

@@ -16,11 +16,13 @@ class Property < ActiveRecord::Base
   has_many :reservations, dependent: :destroy
   has_one :setting, as: :model, dependent: :destroy
   has_many :hot_offers, as: :offerable
+  has_one :paywall_entity, as: :entity
+  has_one :paywall, through: :paywall_entity
 
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
                   :name, :photo, :price, :property_type, :city_id, :property_for,
                   :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until,
-                  :url, :created_at, :count_of_views
+                  :url, :created_at, :count_of_views, :paywall, :paywall_entity
 
   validates :name, :oid, :description, :property_kind, :photo, :price,
             :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true

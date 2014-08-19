@@ -1,11 +1,13 @@
 class AboutPage < ActiveRecord::Base
 
-  attr_accessible :body, :slug, :title, :url, :default, :created_at, :count_of_views
+  attr_accessible :body, :slug, :title, :url, :default, :created_at, :count_of_views, :paywall, :paywall_entity
 
   validates :body, :title, :url, presence: true
   validates :count_of_views, numericality: true
 
   has_one :setting, as: :model, dependent: :destroy
+  has_one :paywall_entity, as: :entity
+  has_one :paywall, through: :paywall_entity
 
   include FriendlyId
   friendly_id :to_slugged, :use => :slugged

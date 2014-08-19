@@ -125,6 +125,8 @@ Alanya::Application.routes.draw do
     namespace :hot_offers do
       resources :properties, :cities
     end
+
+    resources :paywalls
   end
 
   root to: 'welcome#index'

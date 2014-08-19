@@ -12,6 +12,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @settings = Setting.get('service_page', @service)
     @service.increment!(:count_of_views)
+    @paywall = @service.paywall
 
     add_breadcrumb 'Услуги', services_path
     add_breadcrumb @service.name, service_path

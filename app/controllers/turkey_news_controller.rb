@@ -27,6 +27,7 @@ class TurkeyNewsController < InheritedResources::Base
     resource.increment!(:count_of_views)
     add_breadcrumb "Новости Турции", turkey_news_index_path
     add_breadcrumb resource.title, turkey_news_index_path
+    @paywall = resource.paywall
     show! do
       @settings = Setting.get(@turkey_news)
     end

@@ -6,6 +6,7 @@
   = f.input :is_main
   = f.input :count_of_views
   = f.input :created_at, as: :string, input_html: { class: 'datetimepicker' }
+  = f.input :paywall, collection: Paywall.all.map { |p| [p.name, p.id] }, selected: f.object.try(:paywall).try(:id), include_blank: true
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to t('.cancel', default: t("helpers.links.cancel")), admin_services_path, class: 'btn'

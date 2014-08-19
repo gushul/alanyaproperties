@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140817161120) do
+ActiveRecord::Schema.define(:version => 20140820113913) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -132,6 +132,28 @@ ActiveRecord::Schema.define(:version => 20140817161120) do
   end
 
   add_index "hot_offers", ["offerable_type", "offerable_id"], :name => "index_hot_offers_on_offerable_type_and_offerable_id"
+
+  create_table "paywall_entities", :force => true do |t|
+    t.integer  "paywall_id"
+    t.integer  "entity_id"
+    t.string   "entity_type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "paywall_entities", ["paywall_id", "entity_id", "entity_type"], :name => "paywall_entities_index"
+
+  create_table "paywalls", :force => true do |t|
+    t.string   "name",                             :null => false
+    t.string   "title"
+    t.text     "content",                          :null => false
+    t.integer  "seconds",       :default => 0,     :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "show_on_leave", :default => false
+  end
+
+  add_index "paywalls", ["name"], :name => "index_paywalls_on_name", :unique => true
 
   create_table "photos", :force => true do |t|
     t.string   "title"

@@ -10,6 +10,7 @@
   = f.input :photo, as: :image_preview, input_html: {preview_version: :thumb}
   = f.input :photo_cache, as: :hidden
   = f.input :count_of_views
+  = f.input :paywall, collection: Paywall.all.map { |p| [p.name, p.id] }, selected: f.object.try(:paywall).try(:id), include_blank: true
   = f.input :created_at, as: :string, input_html: { class: 'datetimepicker' }
   .form-actions
     = f.button :submit, 'Save', class: 'btn-primary'

@@ -20,6 +20,7 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @settings = Setting.get(@city)
     @city.increment!(:count_of_views)
+    @paywall = @city.paywall
 
     add_breadcrumb "О Турции", turkey_news_index_path
     add_breadcrumb @city.name, city_path

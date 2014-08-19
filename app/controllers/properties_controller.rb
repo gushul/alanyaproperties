@@ -57,6 +57,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
     @property = Property.find(params[:id])
     @property.increment!(:count_of_views)
     @settings = Setting.get(@property)
+    @paywall = @property.paywall
     path  = @property.property_for == 'rent' ? rent_search_path : buy_search_path
     title = @property.property_for == 'rent' ? 'Аренда' : 'Покупка'
     add_breadcrumb title, path

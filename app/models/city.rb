@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-  attr_accessible :name, :cover_attributes, :description, :name_case, :name_case2, :name_case3, :url, :created_at, :count_of_views
+  attr_accessible :name, :cover_attributes, :description, :name_case, :name_case2, :name_case3, :url, :created_at, :count_of_views, :paywall, :paywall_entity
   has_many :properties, dependent: :destroy
   has_one :cover, as: :attachment, class_name: Asset::CityCover, dependent: :destroy
   accepts_nested_attributes_for :cover
@@ -11,6 +11,8 @@ class City < ActiveRecord::Base
   has_many :sliders, as: :model, dependent: :destroy
   has_one  :setting, as: :model, dependent: :destroy
   has_many :hot_offers, as: :offerable
+  has_one :paywall_entity, as: :entity
+  has_one :paywall, through: :paywall_entity
 
   include FriendlyId
   friendly_id :to_slugged, :use => :slugged

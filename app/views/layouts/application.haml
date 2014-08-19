@@ -79,3 +79,6 @@
     = render 'shared/livezilla' if Rails.env.production?
     = render 'shared/to_top'
     = render 'layouts/sticky_buttons'
+    - if @paywall.present?
+      = render partial: "shared/modal", locals: { paywall: @paywall }
+    #blank

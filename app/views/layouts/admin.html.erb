@@ -88,6 +88,7 @@
                     <li class="<%= 'active' if current_page?(admin_reservation_settings_path) %>"><%= link_to "Reservation", admin_reservation_settings_path %></li>
                     <li class="<%= 'active' if current_page?(admin_buy_settings_path) %>"><%= link_to "Buy Settings", admin_buy_settings_path %></li>
                     <li class="<%= 'active' if current_page?(admin_rent_settings_path) %>"><%= link_to "Rent Settings", admin_rent_settings_path %></li>
+                    <li class="<%= 'active' if current_page?(admin_paywalls_path) %>"><%= link_to "Paywalls", admin_paywalls_path %></li>
                   </ul>
                 </li>
                 <li class="<%= 'active' if params[:controller] == 'admin/users' %>"><%= link_to "Users", admin_users_path %></li>

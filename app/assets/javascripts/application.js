@@ -3,7 +3,7 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-ru
 //= require jquery.ui.tooltip
-// require jquery-ui-1.9.2.custom.min
+//= require jquery.modal/jquery.modal
 //= require wiselinks
 //= require modernizr
 //= require script
@@ -13,6 +13,8 @@
 //= require jquery.expander
 //= require to_top
 //= require search_button
+//= require ouibounce
+//= require_tree ./application
 
 $(function () {
   window.wiselinks = new Wiselinks($('body'), {html4: false});

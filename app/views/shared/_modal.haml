@@ -1,0 +1,11 @@
+- if paywall.present?
+  - if paywall.seconds > 0
+    :javascript
+      modalTimeout = "#{paywall.seconds * 1000}";
+    .modal
+      %h4= paywall.title
+      = raw paywall.content
+
+  - if paywall.show_on_leave?
+    :javascript
+      modalOnLeave = true;
