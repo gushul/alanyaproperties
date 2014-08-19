@@ -5,7 +5,7 @@
   = f.input :body, input_html: {class: 'redactor', style: "width: 975px; height: 50px;"}
   = f.input :is_main
   = f.input :count_of_views
-  = f.input :created_at, as: :string, input_html: { class: 'datetimepicker', value: f.object.created_at.to_s(:db) }
+  = f.input :created_at, as: :string, input_html: { class: 'datetimepicker' }
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to t('.cancel', default: t("helpers.links.cancel")), admin_services_path, class: 'btn'
