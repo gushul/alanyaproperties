@@ -164,7 +164,7 @@ initMainSlider = ->
 
   addSliderEvents()
 
-  setInterval(sliderEvent, 4000)
+  setInterval(sliderEvent, 7000)
 
   return
 
