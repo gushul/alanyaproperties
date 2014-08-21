@@ -61,7 +61,9 @@ Alanya::Application.routes.draw do
     resources :reservations #, only: [:index, :show]
     resources :properties do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :property
-      resources :photos
+      resources :photos do
+        post :sort, on: :collection
+      end
       resources :reservations
       collection do
         resources :property_attributes do
@@ -73,7 +75,9 @@ Alanya::Application.routes.draw do
     end
     resources :cities do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :city
-      resources :photos
+      resources :photos do
+        post :sort, on: :collection
+      end
       resources :sliders do
         post 'sort', on: :collection
       end

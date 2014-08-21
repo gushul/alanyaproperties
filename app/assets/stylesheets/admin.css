@@ -3,6 +3,7 @@
  *= require redactor-rails
  *= require DT_bootstrap
  *= require bootstrap-datetimepicker/bootstrap-datetimepicker
+ *= require_tree ./admin
  *= require_tree ./shared
  *= require_self
  */
