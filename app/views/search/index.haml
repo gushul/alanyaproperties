@@ -1,0 +1,89 @@
+- @content_class = 'search_page'
+- title build_title_with_page "Результаты поиска: #{params[:q]}"
+= render_cell :property, :sidebar, for: 'search', banner: true
+.clear
+.search_results.clearfix
+  %h1.h2.right_clmn.main_title
+    Результаты поиска: #{params[:q]}
+  .clear
+  .search_filter
+    %form{:action => "", :method => "GET"}
+      %h2.h2 Расширенный поиск
+      %input.input{:name => "q", :placeholder => "введите сочетание слов для поиска", :type => "text", :value => params[:q]}/
+      .hr
+      %label{:class => "filter_label label_radio #{'act' if params[:type].blank? || params[:type] == 'all'}"}
+        = radio_button_tag 'type', 'all', params[:type].blank? || params[:type] == 'all'
+        Искать по всему сайту
+      %label{:class => "filter_label label_radio #{'act' if params[:type] == 'buy'}"}
+        = radio_button_tag 'type', 'buy', params[:type] == 'buy'
+        Искать в материалах о покупке
+        %br>/
+        и продаже недвижимости
+      %label{:class => "filter_label label_radio #{'act' if params[:type] == 'rent'}"}
+        = radio_button_tag 'type', 'rent', params[:type] == 'rent'
+        Искать в материалах об аренде
+      %label{:class => "filter_label label_radio #{'act' if params[:type] == 'id'}"}
+        = radio_button_tag 'type', 'id', params[:type] == 'id'
+        Искать по ID объекта
+      %span.btn.big.btn_input
+        ИСКАТЬ
+        %i.input
+          %input{:type => "submit"}/
+  .search_content.right_clmn
+    - unless [@cities, @articles, @properties_buy, @properies_rent].map {|t| !t.blank? }.any?
+      %h3.h2 Ничего не найденно
+      %div  
+    - if !@cities.blank?
+      %h3.h2 Найденные города
+      .hr
+      %ul.search_list
+        - @cities.each do |city|
+          %li.li
+            = link_to image_tag(city.cover.asset.thumb), city, class: 'img'
+            = link_to city.name, city, class: 'title'
+            %span.text
+              = truncate strip_tags(sanitize(city.description)), length: 200
+    - if !@articles.blank?
+      %h3.h2 Найденные статьи
+      .hr
+      %ul.search_list
+        - @articles.each do |article|
+          %li.li
+            = link_to image_tag(article.photo.thumb), article, class: 'img'
+            = link_to article.title, article, class: 'title'
+            %span.text
+              = truncate strip_tags(sanitize(article.teaser)), length: 200
+    - if !@properties_buy.blank?
+      %h3.h2 Найденные объекты на продажу
+      .hr
+      %ul.search_list.small
+        - @properties_buy.each do |property|
+          %li.li
+            = link_to image_tag(property.photo.thumb), property, class: 'img'
+            %span.text
+              = property.name
+              %br/
+              город: #{property.city.name}
+              %br/
+              комнат/спален: #{property.property_type}
+              %br/
+              = number_to_currency property.price, 'euro'
+            = link_to 'ПОДРОБНЕЕ', property, class: 'more'
+    - if !@properties_rent.blank?
+      %h3.h2 Найденные объекты для аренды
+      .hr
+      %ul.search_list.small
+        - @properties_rent.each do |property|
+          %li.li
+            = link_to image_tag(property.photo.thumb), property, class: 'img'
+            %span.text
+              = property.name
+              %br/
+              город: #{property.city.name}
+              %br/
+              комнат/спален: #{property.property_type}
+              %br/
+              = number_to_currency property.price, 'euro'
+            = link_to 'ПОДРОБНЕЕ', property, class: 'more'
+  = render_cell :property, :sidebar, for: 'search-bottom'
+  = paginate @pager if @pager
