@@ -35,6 +35,10 @@ class TurkeyNewsController < InheritedResources::Base
 
   protected
   def collection
-    @turkey_news ||= end_of_association_chain.where(article_type: nil).page(params[:page]).per(10)
+    @turkey_news ||=
+      end_of_association_chain
+        .where(article_type: nil)
+        .reorder('created_at DESC')
+        .page(params[:page]).per(10)
   end
 end

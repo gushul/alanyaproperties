@@ -16,6 +16,7 @@
     %ul.new_list
       - @turkey_news.each do |news|
         %li.li.clearfix
+          = l news.created_at, format: :long
           = link_to image_tag(news.photo.thumb), news, class: 'img'
           .info= news.teaser.html_safe
           = link_to 'Подробнее', news, class: 'more'
