@@ -12,7 +12,7 @@
     = edit(edit_admin_about_page_path)
   = render_breadcrumbs
   = render partial: 'shared/count_of_views', locals: { count_of_views: @about_page.count_of_views }
-  / <div class="services_content clearfix">
-  = raw @about_page.body
+  .b-content__text
+    = raw @about_page.body
   / </div>
 .clear

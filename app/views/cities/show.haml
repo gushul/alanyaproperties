@@ -13,7 +13,8 @@
       = edit(edit_admin_city_path(@city))
       = render_breadcrumbs
       = render partial: 'shared/count_of_views', locals: { count_of_views: @city.count_of_views }
-      = raw @city.description
+      .b-content__text
+        = raw @city.description
     - unless @city.photos.blank?
       %h2.h2
         Фото #{@city.name_case2}
