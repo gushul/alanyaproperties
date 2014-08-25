@@ -69,49 +69,43 @@ a.offer_link:hover {
 
 
 .ribbon-wrapper {
-  width: 100%;
-  height: 100%;
+  @include size(100% 100%);
+  @include position(absolute, -3px null null -3px);
   overflow: hidden;
-  position: absolute;
-  top: -3px;
-  left: -3px;
-}
 
-.ribbon {
-  font: bold 15px Sans-Serif;
-  color: white;
-  text-align: center;
-  text-shadow: rgba(139, 139, 139, 0.5) 0px 1px 0px;
-  -webkit-transform: rotate(315deg);
-  -moz-transform: rotate(315deg);
-  -ms-transform: rotate(315deg);
-  -o-transform: rotate(315deg);
-  position: relative;
-  padding: 7px 0;
-  left: -72px;
-  top: 15px;
-  width: 100%;
-  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-  word-spacing: 9999999px;
-  margin: 0 auto;
-  z-index: 9999;
-  &:before, &:after {
-    content: "";
-    border-top: 3px solid #6e8900;
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
-    position: absolute;
-    bottom: -3px;
-  }
-  &:before {
-    left: 0;
-  }
-  &:after {
-    right: 0;
+  .ribbon {
+    @include size(100% 40px);
+    @include position(relative, 20px null null -78px);
+    opacity: 0.8;
+    @include transform(rotate(313deg));
+    -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    &:before, &:after {
+      content: "";
+      border-top: 3px solid #6e8900;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      position: absolute;
+      bottom: -3px;
+    }
+    &:before { left: 0; }
+    &:after { right: 0; }
   }
 
+  .ribbon__text {
+    width: 100%;
+    @include position(absolute, 20px null null -78px);
+    padding: 7px 0;
+    opacity: 1;
+    font: bold 14px/14px Sans-Serif;
+    color: white;
+    text-align: center;
+    text-shadow: rgba(139, 139, 139, 0.5) 0px 1px 0px;
+    @include transform(rotate(313deg));
+    word-spacing: 9999999px;
+    z-index: 9999;
+  }
 }
 .r-red    { @include background-image(linear-gradient($red, darken($red, 10%))); }
 .r-orange { @include background-image(linear-gradient($orange, darken($orange, 10%))); }

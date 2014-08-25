@@ -4,7 +4,8 @@
   = image_tag offerable.photo.thumb2
   - if offer.title.present?
     .ribbon-wrapper
-      .ribbon{ class: "r-#{offer.color}" }= offer.title
+      .ribbon{ class: "r-#{offer.color}" }
+      .ribbon__text= offer.title
   %span.offer_info.clearfix{ class: "r-#{offer.color}" }
     %span.price= number_to_currency offerable.price, 'euro'
     %span.title= offerable.name
