@@ -1,0 +1,5 @@
+%li.li
+  = link_to image_tag(article.photo.thumb), article, class: 'img'
+  = link_to article.title, article, class: 'title'
+  %span.text
+    = truncate strip_tags(sanitize(article.teaser)), length: 200

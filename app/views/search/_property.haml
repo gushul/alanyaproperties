@@ -1,0 +1,11 @@
+%li.li
+  = link_to image_tag(property.photo.thumb), property, class: 'img'
+  %span.text
+    = property.name
+    %br/
+    город: #{property.city.name}
+    %br/
+    комнат/спален: #{property.property_type}
+    %br/
+    = number_to_currency property.price, 'euro'
+  = link_to 'ПОДРОБНЕЕ', property, class: 'more'

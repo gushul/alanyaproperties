@@ -51,7 +51,7 @@ class Property < ActiveRecord::Base
   searchable do
     text :name
     text :description, :stored => true
-    string :oid
+    text :oid
     string :property_type
     string :property_for
     string :property_kind
