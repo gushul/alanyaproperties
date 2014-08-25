@@ -4,5 +4,5 @@
   - if offerable.cover.asset.present?
     = image_tag offerable.cover.asset.cover
   .ribbon-wrapper
-    .ribbon{ class: "r-#{offer.color}" }
+    .ribbon.one_word{ class: "r-#{offer.color}" }
     .ribbon__text= offer.title.present? ? offer.title : offerable.name

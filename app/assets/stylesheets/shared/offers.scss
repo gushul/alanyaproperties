@@ -91,6 +91,9 @@ a.offer_link:hover {
     }
     &:before { left: 0; }
     &:after { right: 0; }
+    &.one_word {
+      height: 30px;
+    }
   }
 
   .ribbon__text {
@@ -98,7 +101,7 @@ a.offer_link:hover {
     @include position(absolute, 20px null null -78px);
     padding: 7px 0;
     opacity: 1;
-    font: 15px/15px  'MyriadPro', Tahoma, Geneva, sans-serif;
+    font: 16px/16px  'MyriadPro', Tahoma, Geneva, sans-serif;
     color: white;
     text-align: center;
     text-shadow: rgba(139, 139, 139, 0.5) 0px 1px 0px;
