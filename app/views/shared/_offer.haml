@@ -1,12 +1,12 @@
-- offerable = offer.offerable
+- title = offer.title.present? ? offer.title : 'Горячее предложение'
+- color = offer.color.present? ? offer.color : 'orange'
 
-= link_to offerable, class: "offer_link#{' new' if offerable.new? }" do
-  = image_tag offerable.photo.thumb2
-  - if offer.title.present?
-    - one_word = offer.title.split.size <= 1 ? 'one_word' : nil
-    .ribbon-wrapper
-      .ribbon{ class: "r-#{offer.color} #{one_word}" }
-      .ribbon__text= offer.title
-  %span.offer_info.clearfix{ class: "r-#{offer.color}" }
-    %span.price= number_to_currency offerable.price, 'euro'
-    %span.title= offerable.name
+= link_to offer, class: "offer_link" do
+  = image_tag offer.photo.thumb2.url
+  - one_word = title.split.size <= 1 ? 'one_word' : nil
+  .ribbon-wrapper
+    .ribbon{ class: "r-#{color} #{one_word}" }
+    .ribbon__text= title
+  %span.offer_info.clearfix{ class: "r-#{color}" }
+    %span.price= number_to_currency offer.price, 'euro'
+    %span.title= offer.name
