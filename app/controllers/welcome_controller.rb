@@ -20,7 +20,8 @@ FROM
             AND publish = 1) hot_offers ON hot_offers.offerable_id = properties.id
 WHERE
     properties.hot = 1
-UNION SELECT
+UNION
+SELECT
     properties . *,
     hot_offers.*
 FROM

@@ -9,9 +9,9 @@
   - @resources.each do |r|
     .span3
       %p
-        %span.label{ class: r.publish ? "label-success" : "label-warning" }= r.publish ? "Опубликована" : "Неопубликована"
+        %span.label{ class: r.publish? ? "label-success" : "label-warning" }= r.publish? ? "Опубликована" : "Неопубликована"
       = render partial: 'shared/offer', locals: { offer: r }
-      = link_to 'Ред.', { controller: controller_name, action: "edit", id: r }, class: 'btn btn-success'
+      = link_to 'Ред.', { controller: controller_name, action: "edit", id: (controller_name == 'properties' ? r.hot_offer_id : r.id) }, class: 'btn btn-success'
       = link_to "Удалить", { controller: controller_name, action: "destroy", id: r }, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
 %hr
 .row
