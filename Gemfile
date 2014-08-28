@@ -73,6 +73,7 @@ gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in developm
 gem "breadcrumbs_on_rails"
 gem 'haml-rails'
 gem 'bourbon'
+gem 'airbrake'
 
 group :development do
   gem 'quiet_assets'
