@@ -6,6 +6,7 @@
 = render 'shared/turkey_navbar'
 .right_clmn
   = render_breadcrumbs
+  .b-shared-buttons= render 'shared/shared_buttons'
   %h3
     = @turkey_news.title
     = edit(edit_admin_turkey_news_path)

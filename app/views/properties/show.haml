@@ -6,6 +6,7 @@
 .buy_page
   = render_cell :property, :sidebar, for: @property.property_for, city: @property.city
   = render_breadcrumbs
+  .b-shared-buttons= render 'shared/shared_buttons'
   .buy_item
     .item_price= number_to_currency @property.price, 'euro'
     %h1.h1
