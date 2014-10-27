@@ -40,6 +40,9 @@
                   = text_field_tag 'q', params[:q], id: 'main-search-input'
                   = button_tag(type: "submit", class: 'submit-search') do
                     %i.search_btn
+      %div.b-phone-number
+        %span.phone-title Бесплатные звонки для клиентов со всей России
+        %span.phone-number 8-800-500-78-28
       / END header
       / BEGIN content
       %div{class: "content #{@content_class}"}

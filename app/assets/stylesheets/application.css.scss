@@ -225,3 +225,16 @@ button.submit-search {
   margin: 0;
   display: inherit;
 }
+
+.b-phone-number {
+  float: right;
+  padding-top: 10px;
+
+  .phone-title {
+    color: #02afad;
+  }
+  .phone-number {
+    color: #ff8040;
+    padding-left: 10px;
+  }
+}
