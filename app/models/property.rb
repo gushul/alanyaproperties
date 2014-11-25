@@ -5,6 +5,8 @@ class Property < ActiveRecord::Base
   # serialize :geo, Hash
   store :geo, accessors: [:lat, :lng]
 
+  OFFERS = %w(hot sold)
+
   mount_uploader :photo, PropertyPhotoUploader
   has_many :photos, as: :gallery, dependent: :destroy
 
@@ -22,7 +24,7 @@ class Property < ActiveRecord::Base
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
                   :name, :photo, :price, :property_type, :city_id, :property_for,
                   :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until,
-                  :url, :created_at, :count_of_views, :paywall, :paywall_entity
+                  :url, :created_at, :count_of_views, :paywall, :paywall_entity, :offer
 
   validates :name, :oid, :description, :property_kind, :photo, :price,
             :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true

@@ -6,7 +6,7 @@
         = f.input :oid, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}
         = f.input :url, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}, label: "Slug", as: :string
       = f.input :description, input_html: {size: '100x10', class: 'redactor'}
-      = f.input :hot
+      = f.input :offer, collection: Property::OFFERS
       = f.input :new_until, as: :string, input_html: { class: 'datepicker' }
       .row
         = f.input :property_for, collection: Property::ACTIONS, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}
