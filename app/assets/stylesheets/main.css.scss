@@ -3063,3 +3063,14 @@ a.buy_item_map {
     height: 180px;
   }
 }
+
+.print-button {
+  float: left;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: image-url('mail.png');
+}
+.yashare-auto-init {
+  float: left;
+}

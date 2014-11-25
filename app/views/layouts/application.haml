@@ -7,6 +7,7 @@
     - if content_for?(:keywords)
       %meta{content: yield(:keywords), name: "keywords"}/
     = stylesheet_link_tag "application", :media => "screen, projection"
+    = stylesheet_link_tag "print", :media => "print"
     / что бы телефон не ломался из-за скайпа
     %meta{content: "SKYPE_TOOLBAR_PARSER_COMPATIBLE", name: "SKYPE_TOOLBAR"}/
     = javascript_include_tag "application"
@@ -22,7 +23,7 @@
     / BEGIN wrapper
     .wrapper.min_width
       / BEGIN header
-      .header.clearfix
+      .header.clearfix.no-print
         = link_to root_path, class: 'logo', title: 'Alanya Properties' do
           = image_tag 'logo.png', alt: 'Alanya Properties Logo'
         %table.nav
@@ -49,7 +50,7 @@
         = yield
       / END content
       / BEGIN footer
-      .footer
+      .footer.no-print
         .inner.clearfix
           %ul.fot_nav
             %li.li.first= menu_link "Купить", buy_url
