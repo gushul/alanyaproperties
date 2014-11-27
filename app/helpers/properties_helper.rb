@@ -20,6 +20,14 @@ module PropertiesHelper
     link_to(img, url, title: argv[:title], class: "property_#{photo.video? ? 'video' : 'photo'}")
   end
 
+  def wicked_pdf_photo_tag(photo, argv)
+    style = argv.delete(:style) || :small
+    url = photo.video? ? photo.video : photo.url
+    img = wicked_pdf_image_tag(photo.send(style), argv)
+    img += wicked_pdf_image_tag('play_video_mini.png', class: 'play_video') if photo.video?
+    link_to(img, url, title: argv[:title], class: "property_#{photo.video? ? 'video' : 'photo'}")
+  end
+
   def build_path(property, action = nil)
     [property.property_for, property].unshift(action)
   end

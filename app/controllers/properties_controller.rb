@@ -62,6 +62,12 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
     title = @property.property_for == 'rent' ? 'Аренда' : 'Покупка'
     add_breadcrumb title, path
     add_breadcrumb @property.name, path
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: @property.name, template: 'properties/show_wicked', layout: 'pdf'
+      end
+    end
   end
 
   def map

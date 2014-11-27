@@ -227,6 +227,9 @@ GEM
     whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
+    wicked_pdf (0.11.0)
+      rails
+    wkhtmltopdf-binary (0.9.9.3)
     yaml_db (0.2.3)
 
 PLATFORMS
@@ -270,5 +273,7 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicorn
   whenever
+  wicked_pdf
   wiselinks!
+  wkhtmltopdf-binary
   yaml_db

@@ -41,6 +41,8 @@ gem "breadcrumbs_on_rails"
 gem 'haml-rails'
 gem 'bourbon'
 gem 'airbrake'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development do
   gem 'capistrano'
