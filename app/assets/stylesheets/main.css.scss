@@ -3071,6 +3071,13 @@ a.buy_item_map {
   height: 24px;
   background-image: image-url('printer.png');
 }
+.pdf-button{
+  float: left;
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: image-url('pdf.png');
+}
 .yashare-auto-init {
   float: left;
 }
