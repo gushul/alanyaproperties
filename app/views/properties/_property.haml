@@ -1,17 +1,18 @@
 %li.li
   .apatment_list_top
     .apatment_list_bot.clearfix
-      = link_to image_tag(property.photo.thumb), property
-      - if property.new?
-        %i.ribbon_new
-      - else
-        - case property.offer
-        - when 'hot'
-          %i.ribbon_hot_dial
-        - when 'sold'
-          .ribbon-wrapper
-            .ribbon{ class: "r-green one_word" }
-            .ribbon__text Продано
+      = link_to property do
+        = image_tag(property.photo.thumb)
+        - if property.new?
+          %i.ribbon_new
+        - else
+          - case property.offer
+          - when 'hot'
+            %i.ribbon_hot_dial
+          - when 'sold'
+            .ribbon-wrapper
+              .ribbon{ class: "r-green one_word" }
+              .ribbon__text Продано
       .title= link_to property.name, property
       %table.table
         %tr
