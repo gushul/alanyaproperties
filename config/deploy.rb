@@ -55,7 +55,7 @@ end
 
 # rake task sample
 namespace :deploy do
-  task :rake, roles: :app do
+  task :run_rake, roles: :app do
     run %Q{cd #{current_release} && #{rake} RAILS_ENV=#{rails_env} task:reindex}
   end
 end
