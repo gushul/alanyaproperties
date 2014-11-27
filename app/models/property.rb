@@ -53,7 +53,10 @@ class Property < ActiveRecord::Base
   searchable do
     text :name
     text :description, :stored => true
-    text :oid
+    text :oid, default_boost: 1.5
+    text :oid_split, default_boost: 1.5 do
+      oid.downcase.gsub('-', ' ')
+    end
     string :property_type
     string :property_for
     string :property_kind
