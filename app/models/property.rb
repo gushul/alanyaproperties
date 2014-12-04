@@ -6,6 +6,7 @@ class Property < ActiveRecord::Base
   store :geo, accessors: [:lat, :lng]
 
   OFFERS = %w(hot sold)
+  DISTANCES = [10, 100, 200, 400, 500, 800, 1000, 1500]
 
   mount_uploader :photo, PropertyPhotoUploader
   has_many :photos, as: :gallery, dependent: :destroy

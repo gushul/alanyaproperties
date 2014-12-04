@@ -53,7 +53,7 @@
   %h2
     %span.has-tooltip{title: t("tooltips.#{property_for}.to_sea")} Расстояние до моря
   .filter_label_holder.clearfix
-    - [100, 200, 400, 500, 800].each do |distance|
+    - Property::DISTANCES.each do |distance|
       - checked = (params[:to_sea] || []).member?(distance.to_s)
       %label{class: "filter_label label_checkbox#{' act' if checked}"}
         = check_box_tag 'to_sea[]', distance, checked
