@@ -1,4 +1,5 @@
-= link_to '', property_path(@property, format: :pdf), ref: 'nofollow', target: '_blank', class: 'pdf-button'
+- if @property
+  = link_to '', property_path(@property, format: :pdf), ref: 'nofollow', target: '_blank', class: 'pdf-button'
 %a.print-button{href: "#", onclick: " window.print(); return false", ref: "nofollow"}
 :erb
   <script type="text/javascript" src="//yandex.st/share/share.js"
