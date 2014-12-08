@@ -65,7 +65,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: @property.name, template: 'properties/show_wicked', layout: 'pdf'
+        render pdf: @property.name, template: 'properties/show_pdf', layout: 'pdf'
       end
     end
   end

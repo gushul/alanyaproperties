@@ -4,7 +4,5 @@
     %meta{charset: "utf-8"}/
     = wicked_pdf_stylesheet_link_tag "pdf"
   %body
-    #header
-      = wicked_pdf_image_tag 'logo.png'
-    #content
-      = yield
+    = render 'layouts/pdf/header'
+    = yield
