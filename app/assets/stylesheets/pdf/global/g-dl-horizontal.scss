@@ -11,4 +11,9 @@
   dd {
     margin-left: 110px;
   }
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
 }
