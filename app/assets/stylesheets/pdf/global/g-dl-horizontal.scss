@@ -2,14 +2,17 @@
   dt {
     float: left;
     width: 100px;
-    overflow: hidden;
     clear: left;
     text-align: left;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
+    height: 18px;
   }
   dd {
     margin-left: 110px;
+    height: 18px;
   }
   &:after {
     display: table;
