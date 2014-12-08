@@ -2,7 +2,10 @@ module PropertiesHelper
   def property_path(property, options = {})
     polymorphic_path build_path(property), options
   end
-  alias :property_url :property_path
+
+  def property_url(property, options = {})
+    polymorphic_url build_path(property), options
+  end
 
   def map_property_path(property)
     polymorphic_path build_path(property, :map)

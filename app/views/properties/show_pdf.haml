@@ -1,12 +1,13 @@
 - master_photo = @property.photos.shift || @property.photo
 
-.b-mainbar
-  .g-row
-    %h1= @property.name
-  .g-row
-    .b-master-photo
-      = wicked_pdf_photo_tag master_photo, style: :big
-= render 'sidebar_pdf'
+.g-row
+  .b-mainbar
+    .g-row
+      %h1= @property.name
+    .g-row
+      .b-master-photo
+        = wicked_pdf_photo_tag master_photo, style: :big
+  = render 'sidebar_pdf'
 .g-row
   - @property.photos.order('position asc').each do |photo|
     = wicked_pdf_photo_tag photo, title: photo.title, alt: photo.alt
