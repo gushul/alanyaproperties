@@ -67,4 +67,4 @@
           %i.input
             %input{type: "submit"}/
   .clear
-  = render_cell :property, :sidebar, position: 'bottom', for: @property.property_for, banner: true
+  .no-print= render_cell :property, :sidebar, position: 'bottom', for: @property.property_for, banner: true
