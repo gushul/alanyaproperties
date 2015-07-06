@@ -13,7 +13,7 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
-gem 'wiselinks', github: 'igor-alexandrov/wiselinks'
+gem 'wiselinks', '1.2.1'
 
 gem 'simple_form'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
