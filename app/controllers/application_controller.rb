@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :default_settings
-  @services = Service.where(is_main: false).all
 
   def default_settings
     @global_settings = Setting.get('global')
