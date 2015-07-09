@@ -1,0 +1,32 @@
+/ BEGIN header
+.header-number
+  .phone
+    .title
+      %p Бесплатные звонки для клиентов со всей России:
+      %p Телефон в Турции:
+      %p Телефон в Москве:
+    .numbers
+      %p 8 800 500 78 28
+      %p +90 532 300 53 08
+      %p +7 916 795 00 28
+  .web
+    %p
+      = image_tag 'mail.png'
+      info@alanyaproperties.com
+    %p
+      = image_tag('skype.png', size: "16")
+      alanyaproperties
+.header.clearfix.no-print
+  = link_to root_path, class: 'logo', title: 'Alanya Properties' do
+    = image_tag 'logo.png', alt: 'Alanya Properties Logo'
+  %table.nav
+    %tr
+      %td.td= menu_link "ГЛАВНАЯ", root_url
+      %td.td= menu_link "НАШИ ПРОЕКТЫ", AboutPage.find(2)
+      %td.td= menu_link "ВСЯ НЕДВИЖИМОСТЬ", rent_url
+      %td.td= menu_link "О КОМПАНИИ", about_pages_url
+      %td.td= menu_link "УСЛУГИ", services_url
+      %td.td= menu_link "БЕСПЛАТНЫЙ ТУР", about_pages_url
+      %td.td= menu_link "КОНТАКТЫ", contacts_url
+/ END header
+/ BEGIN content
