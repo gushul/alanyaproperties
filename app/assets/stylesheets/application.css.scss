@@ -8,6 +8,9 @@
  *= require breadcrumb
  *= require to_top
  *= require jquery.modal/jquery.modal
+ *= require header
+ *= require footer
+ *= require sidebar
  *= require_tree ./shared
  *= require_tree ./blocks
  *= require_self

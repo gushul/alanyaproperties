@@ -22,53 +22,11 @@
   %body
     / BEGIN wrapper
     .wrapper.min_width
-      / BEGIN header
-      .header.clearfix.no-print
-        = link_to root_path, class: 'logo', title: 'Alanya Properties' do
-          = image_tag 'logo.png', alt: 'Alanya Properties Logo'
-        %table.nav
-          %tr
-            %td.td= menu_link "КУПИТЬ", buy_url
-            %td.td= menu_link "АРЕНДОВАТЬ", rent_url
-            %td.td= menu_link "УСЛУГИ", services_url
-            %td.td= menu_link "О ТУРЦИИ", turkey_news_index_url
-            %td.td= menu_link "О НАС", about_pages_url
-            %td.td= menu_link "КОНТАКТЫ", contacts_url
-            %td.td.last_td
-              %a.search_item ПОИСК
-              .search_input{style: "display:none;"}
-                = form_tag search_path, method: :get do
-                  = text_field_tag 'q', params[:q], id: 'main-search-input'
-                  = button_tag(type: "submit", class: 'submit-search') do
-                    %i.search_btn
-      %div.b-phone-number
-        %span.phone-title Бесплатные звонки для клиентов со всей России
-        %span.phone-number 8-800-500-78-28
-      / END header
-      / BEGIN content
+      = render 'layouts/header'
       %div{class: "content #{@content_class}"}
         = yield
-      / END content
       / BEGIN footer
-      .footer.no-print
-        .inner.clearfix
-          %ul.fot_nav
-            %li.li.first= menu_link "Купить", buy_url
-            %li.li= menu_link "Арендовать", rent_url
-            %li.li= menu_link "Услуги", services_url
-            %li.li= menu_link "О Турции", turkey_news_index_url
-            %li.li= menu_link "О нас", about_pages_url
-            %li.li= menu_link "Контакты", contacts_url
-            %li.li= menu_link "Поиск", search_url
-            %li.li= menu_link "Карта сайта", sitemap_url
-          .fright
-            %i.fot_separ
-            .phone
-              Телефон : #{@global_settings.phone}
-            %i.fot_separ
-            %a.icon.fot_rss{href: turkey_news_index_path, title: "RSS Feed"}
-        .copyright= @global_settings.copyright
-      / END footer
+      = render 'layouts/footer'
     / END wrapper
     %table.popup_table.hide.no-print
       %tr

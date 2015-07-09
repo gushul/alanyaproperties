@@ -7,8 +7,7 @@ module ApplicationHelper
       when /#{link}/
         # <div class="div"><a class="act" href="" title="АКТИВНЫЙ ПУНКТ МЕНЮ, ССЫЛКА">УСЛУГИ</a><i class="nav_active"></i></div>
         content_tag :div, class: 'div' do
-          link_to(name, link, class: 'act') +
-              content_tag(:i, nil, class: 'nav_active')
+          link_to(name, link)
         end
       else
         link_to name, link
