@@ -2,68 +2,95 @@
   .inner.clearfix
     %ul.inline
       %li
-        = link_to "Квартиры в Турции", buy_search_path(query: "ruby on rails")
+        = link_to "Квартиры в Турции", buy_search_path(property_type: "studio")
       %li
-        Квартиры в Анталии
+        = link_to buy_search_path(property_type: "studio", city_id: "2") do
+          Квартиры в Анталии
       %li
-        Квартиры в Алании
+        = link_to buy_search_path(property_type: "studio", city_id: "1") do
+          Квартиры в Алании
       %li
-        Квартиры в Авсалларе
+        = link_to buy_search_path(property_type: "studio", city_id: "13") do
+          Квартиры в Авсалларе
       %li
-        Квартиры в Махмутларе
+        = link_to buy_search_path(property_type: "studio", city_id: "9") do
+          Квартиры в Махмутларе
       %li
-        Квартиры в Кестеле
+        = link_to buy_search_path(property_type: "studio", city_id: "8") do
+          Квартиры в Кестеле
     %ul.inline
       %li
-        Квартиры в Кемере
+        = link_to buy_search_path(property_type: "studio", city_id: "7") do
+          Квартиры в Кемере
       %li
-        Квартиры в Белеке
+        = link_to buy_search_path(property_type: "studio", city_id: "3") do
+          Квартиры в Белеке
       %li
-        Квартиры в Сиде
+        = link_to buy_search_path(property_type: "studio", city_id: "10") do
+          Квартиры в Сиде
       %li
-        Квартиры в Фетхие
+        = link_to buy_search_path(property_type: "studio", city_id: "") do
+          Квартиры в Фетхие
       %li
-        Квартиры в Бодруме
+        = link_to buy_search_path(property_type: "studio", city_id: "4") do
+          Квартиры в Бодруме
       %li
-        Квартиры в Измир
+        = link_to buy_search_path(property_type: "studio", city_id: "") do
+          Квартиры в Измир
     %ul.inline
       %li
-        Квартиры в Мерсине
+        = link_to buy_search_path(property_type: "studio", city_id: "") do
+          Квартиры в Мерсине
       %li
-        Квартиры в Стамбуле
+        = link_to buy_search_path(property_type: "studio", city_id: "") do
+          Квартиры в Стамбуле
       %li
-        Квартиры в Чешме
+        = link_to buy_search_path(property_type: "studio", city_id: "") do
+          Квартиры в Чешме
       %li
-        Виллы в Турции
+        = link_to buy_search_path(property_type: "lilla", city_id: "") do
+          Виллы в Турции
       %li
-        Виллы в Анталии
+        = link_to buy_search_path(property_type: "lilla", city_id: "2") do
+          Виллы в Анталии
       %li
-        Виллы в Алании
+        = link_to buy_search_path(property_type: "lilla", city_id: "1") do
+          Виллы в Алании
     %ul.inline
       %li
-        Виллы в Авсалларе
+        = link_to buy_search_path(property_type: "lilla", city_id: "13") do
+          Виллы в Авсалларе
       %li
-        Виллы в Махмутларе
+        = link_to buy_search_path(property_type: "lilla", city_id: "9") do
+          Виллы в Махмутларе
       %li
-        Виллы в Кестеле
+        = link_to buy_search_path(property_type: "lilla", city_id: "8") do
+          Виллы в Кестеле
       %li
-        Виллы в Кемере
+        = link_to buy_search_path(property_type: "lilla", city_id: "7") do
+          Виллы в Кемере
       %li
-        Виллы в Белеке
+        = link_to buy_search_path(property_type: "lilla", city_id: "3") do
+          Виллы в Белеке
       %li
-        Виллы в Сиде
+        = link_to buy_search_path(property_type: "lilla", city_id: "10") do
+          Виллы в Сиде
     %ul.inline
       %li
-        Виллы в Фетхие
+        = link_to buy_search_path(property_type: "lilla", city_id: "") do
+          Виллы в Фетхие
       %li
-        Виллы в Бодруме
+        = link_to buy_search_path(property_type: "lilla", city_id: " 4") do
+          Виллы в Бодруме
       %li
-        Виллы в Измир
+        = link_to buy_search_path(property_type: "lilla", city_id: "") do
+          Виллы в Измир
       %li
-        Виллы в Мерсине
+        = link_to buy_search_path(property_type: "lilla", city_id: "") do
+          Виллы в Мерсине
       %li
-        Виллы в Стамбуле
+        = link_to buy_search_path(property_type: "lilla", city_id: "") do
+          Виллы в Стамбуле
       %li
-        Виллы в Чешме
-
-/ END footer
+        = link_to buy_search_path(property_type: "lilla", city_id: "") do
+          Виллы в Чешме

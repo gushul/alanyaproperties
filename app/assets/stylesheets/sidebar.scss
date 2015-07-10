@@ -82,3 +82,35 @@ ul.sidebar_list {
 
   }
 }
+.icon{
+  display: block;
+  margin-top: 20px;
+
+  &:first_child {
+    margin-top: none
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    margin-left: -10px;
+  }
+  .sidebar-label {
+    background-color: #35b8b7;
+    color: #6d6e70;;
+    display: block;
+    font-weight: bold;
+    line-height: 1.31em;
+    vertical-align: middle;
+    width: 240px;
+    margin: 0 0 0 -10px !important;
+    padding: 0 0 0 0;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
+  }
+
+
+}
