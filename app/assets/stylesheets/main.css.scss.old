@@ -2313,7 +2313,7 @@ a.buy_item_map:hover {
 
 .main_slider .item_info {
   position: absolute;
-  right: 300px;
+  right: 60px;
   bottom: 25px;
   width: 380px;
   z-index: 2;

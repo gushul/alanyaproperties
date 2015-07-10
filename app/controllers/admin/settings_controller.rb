@@ -2,7 +2,6 @@ class Admin::SettingsController < AdminController
   inherit_resources
 
   belongs_to :service, :about_page, :city, :turkey_news, :property,
-
     polymorphic: true, optional: true
 
   def edit

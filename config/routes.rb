@@ -1,11 +1,19 @@
 Alanya::Application.routes.draw do
+
+
+
   get "sitemap" => "sitemap#index"
 
   match 'reservations' => 'reservations#index'
 
+
   get "search" => "search#index"
 
   resources :about_pages, path: 'about'
+
+
+  # resources :contact_messages
+
 
   get 'contacts' => 'contacts#index'
   post 'contacts' => 'contacts#send_message'
@@ -61,9 +69,7 @@ Alanya::Application.routes.draw do
     resources :reservations #, only: [:index, :show]
     resources :properties do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :property
-      resources :photos do
-        post :sort, on: :collection
-      end
+      resources :photos
       resources :reservations
       collection do
         resources :property_attributes do
@@ -75,9 +81,7 @@ Alanya::Application.routes.draw do
     end
     resources :cities do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :city
-      resources :photos do
-        post :sort, on: :collection
-      end
+      resources :photos
       resources :sliders do
         post 'sort', on: :collection
       end
@@ -125,12 +129,6 @@ Alanya::Application.routes.draw do
     end
     resources :banners
     get '', action: :index
-
-    namespace :hot_offers do
-      resources :properties, :cities
-    end
-
-    resources :paywalls
   end
 
   root to: 'welcome#index'

@@ -1,10 +1,7 @@
-# encoding: utf-8
 # TODO: Remove notusage actions
 class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
-  add_breadcrumb "Главная", :root_path
-
   def index
     @cities = City.all
 
@@ -18,12 +15,8 @@ class CitiesController < ApplicationController
   # GET /cities/1.json
   def show
     @city = City.find(params[:id])
-    @settings = Setting.get(@city)
-    @city.increment!(:count_of_views)
-    @paywall = @city.paywall
 
-    add_breadcrumb "О Турции", turkey_news_index_path
-    add_breadcrumb @city.name, city_path
+    @settings = Setting.get(@city)
 
     respond_to do |format|
       format.html # show.html.erb

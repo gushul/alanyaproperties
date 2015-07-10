@@ -1,5 +1,0 @@
-- if @hot_offers_cities.present?
-  %h2 Города
-  .offers.clearfix
-    - @hot_offers_cities.each do |o|
-      = render partial: 'shared/offer_city', locals: { offer: o }

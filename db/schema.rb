@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141125162303) do
+ActiveRecord::Schema.define(:version => 20140519102013) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -19,9 +19,8 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
     t.string   "url"
     t.string   "slug"
     t.boolean  "default"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.integer  "count_of_views", :default => 0, :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "about_pages", ["slug"], :name => "index_about_pages_on_slug", :unique => true
@@ -73,16 +72,14 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.text     "description"
     t.string   "name_case"
     t.string   "url"
     t.string   "slug"
     t.string   "name_case2"
     t.string   "name_case3"
-    t.string   "keywords"
-    t.integer  "count_of_views", :default => 0, :null => false
   end
 
   add_index "cities", ["slug"], :name => "index_cities_on_slug", :unique => true
@@ -120,41 +117,6 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "hot_offers", :force => true do |t|
-    t.integer  "offerable_id"
-    t.string   "offerable_type"
-    t.string   "title"
-    t.string   "description"
-    t.boolean  "publish",        :default => false, :null => false
-    t.string   "color",                             :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-  end
-
-  add_index "hot_offers", ["offerable_type", "offerable_id"], :name => "index_hot_offers_on_offerable_type_and_offerable_id"
-
-  create_table "paywall_entities", :force => true do |t|
-    t.integer  "paywall_id"
-    t.integer  "entity_id"
-    t.string   "entity_type"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "paywall_entities", ["paywall_id", "entity_id", "entity_type"], :name => "paywall_entities_index"
-
-  create_table "paywalls", :force => true do |t|
-    t.string   "name",                             :null => false
-    t.string   "title"
-    t.text     "content",                          :null => false
-    t.integer  "seconds",       :default => 0,     :null => false
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
-    t.boolean  "show_on_leave", :default => false
-  end
-
-  add_index "paywalls", ["name"], :name => "index_paywalls_on_name", :unique => true
-
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.string   "alt"
@@ -164,11 +126,9 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "video"
-    t.integer  "position"
   end
 
   add_index "photos", ["gallery_id", "gallery_type"], :name => "index_photos_on_gallery_id_and_gallery_type"
-  add_index "photos", ["position"], :name => "index_photos_on_position"
 
   create_table "properties", :force => true do |t|
     t.string   "name"
@@ -183,17 +143,14 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
     t.text     "property_attributes"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.boolean  "hot"
-    t.integer  "to_sea"
     t.integer  "total_area"
     t.string   "property_for"
+    t.boolean  "hot"
+    t.integer  "to_sea"
     t.date     "new_until"
     t.string   "slug"
     t.string   "url"
     t.boolean  "on_main",             :default => false
-    t.string   "keywords"
-    t.integer  "count_of_views",      :default => 0,     :null => false
-    t.string   "offer"
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"
@@ -242,11 +199,9 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
     t.text     "body"
     t.boolean  "is_main"
     t.string   "slug"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "url"
-    t.string   "keywords"
-    t.integer  "count_of_views", :default => 0, :null => false
   end
 
   create_table "settings", :force => true do |t|
@@ -293,11 +248,10 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
     t.text     "body"
     t.string   "slug"
     t.string   "photo"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "article_type"
     t.string   "url"
-    t.integer  "count_of_views", :default => 0, :null => false
   end
 
 end

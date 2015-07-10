@@ -1,9 +1,0 @@
-- model_class = Paywall
-.page-header
-  %h1= t '.title', default: model_class.model_name.human.pluralize
-%p= resource.title
-%p= resource.name
-%p= raw resource.content
-%p= resource.seconds
-= link_to 'Ред.', edit_admin_paywall_path, class: 'btn btn-success'
-= link_to 'Назад', admin_paywalls_path, class: 'btn btn-default'

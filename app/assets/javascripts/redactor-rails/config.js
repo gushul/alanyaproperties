@@ -13,7 +13,6 @@ $(document).ready(
       "fileGetJson":"/redactor_rails/documents",
       "path":"/assets/redactor-rails",
       "css":"style.css",
-      "covertDivs": false,
-      lang:"ru"
-  });
+      "covertDivs": false}
+  );
 });
