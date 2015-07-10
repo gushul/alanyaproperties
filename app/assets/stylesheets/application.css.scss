@@ -11,6 +11,7 @@
  *= require header
  *= require footer
  *= require sidebar
+ *= require nav
  *= require_tree ./shared
  *= require_tree ./blocks
  *= require_self
