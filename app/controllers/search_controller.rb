@@ -23,11 +23,7 @@ class SearchController < ApplicationController
 
     if params[:type].blank? || params[:type] == 'all' || params[:type] == 'buy' || params[:type] == 'id'
       @properties_buy = Property.search do
-        if params[:type] == 'id'
-          with :oid, params[:q].upcase
-        else
-          fulltext params[:q]
-        end
+        fulltext params[:q]
         with :property_for, 'buy'
         paginate :page => params[:page], :per_page => 3
       end.results
@@ -35,12 +31,7 @@ class SearchController < ApplicationController
     end
     if params[:type].blank? || params[:type] == 'all' || params[:type] == 'rent' || params[:type] == 'id'
       @properties_rent = Property.search do
-        if params[:type] == 'id'
-          with :oid, params[:q]
-        else
-          fulltext params[:q]
-        end
-
+        fulltext params[:q]
         with :property_for, 'rent'
         paginate :page => params[:page], :per_page => 3
       end.results

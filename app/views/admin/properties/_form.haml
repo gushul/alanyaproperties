@@ -1,0 +1,35 @@
+= simple_form_for [:admin, @property], html: {class: 'form-horizontal2'} do |f|
+  .row
+    .span7
+      .row
+        = f.input :name, input_html: {class: 'input-xlarge'}, wrapper_html: {class: 'span3'}
+        = f.input :oid, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}
+        = f.input :url, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}, label: "Slug", as: :string
+      = f.input :description, input_html: {size: '100x10', class: 'redactor'}
+      = f.input :offer, collection: Property::OFFERS
+      = f.input :new_until, as: :string, input_html: { class: 'datepicker' }
+      .row
+        = f.input :property_for, collection: Property::ACTIONS, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}
+        = f.input :property_type, collection: Property::TYPES, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}
+        = f.input :property_kind, collection: Property::KINDS, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}
+      = f.input :total_area
+      = f.input :price
+      = f.association :city
+      = f.input :photo, as: :image_preview, input_html: {preview_version: :thumb}
+      = f.input :photo_cache, as: :hidden
+      = f.input :created_at, as: :string, input_html: { class: 'datetimepicker' }
+      = f.input :count_of_views
+      = f.input :paywall, collection: Paywall.all.map { |p| [p.name, p.id] }, selected: f.object.try(:paywall).try(:id), include_blank: true
+      .row
+        %h3 Map
+        = f.input :lat, as: :float, wrapper_html: {class: 'span2'}, input_html: {class: 'input-medium'}
+        = f.input :lng, as: :float, wrapper_html: {class: 'span2'}, input_html: {class: 'input-medium'}
+      = f.input :to_sea, collection: Property::DISTANCES
+    .span4
+      = f.simple_fields_for :property_attributes, @property.property_attributes do |ff|
+        - PropertyAttribute.all.each do |attr|
+          = ff.input attr.name, as: attr.attribute_type
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to "Settings", admin_property_settings_path(@property), class: 'btn' unless @property.new_record?
+    = link_to t('.cancel', default: t("helpers.links.cancel")), admin_properties_path, class: 'btn'

@@ -1,0 +1,19 @@
+- @content_class = 'services_page'
+- title @settings.title || @about_page.title
+- description @settings.description
+- keywords @settings.keywords
+
+= render 'sidebar_nav'
+.right_clmn
+  = render 'shared/mini_slider'
+  / </haml_block><haml_silent></haml_silent><haml_block>
+  %h1.h1
+    = @about_page.title
+    = edit(edit_admin_about_page_path)
+  .b-shared-buttons= render 'shared/shared_buttons'
+  = render_breadcrumbs
+  = render partial: 'shared/count_of_views', locals: { count_of_views: @about_page.count_of_views }
+  .b-content__text
+    = raw @about_page.body
+  / </div>
+.clear

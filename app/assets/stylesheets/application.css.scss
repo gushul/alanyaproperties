@@ -1,20 +1,21 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+ *= require normalize
  *= require font
  *= require jquery-ui-1.9.2.custom
  * require jquery.ui.datepicker
  *= require main
  *= require colorbox
+ *= require breadcrumb
+ *= require to_top
+ *= require jquery.modal/jquery.modal
+ *= require header
+ *= require footer
+ *= require sidebar
+ *= require_tree ./shared
+ *= require_tree ./blocks
  *= require_self
  */
+
 
 .img a:focus, a.buy_item_map:focus {
     outline: none;
@@ -130,19 +131,6 @@ label.with_error {
   position: relative;
 }
 
-.offer_link .offer_info {
-  display: none;
-}
-
-a.offer_link:hover {
-  .offer_info {
-    display: block;
-  }
-  .plus {
-    display: none;
-  }
-}
-
 .play_video {
   z-index: 100;
   left: 50%;
@@ -232,3 +220,24 @@ a.offer_link:hover {
   text-decoration: none;
 }
 
+a.edit-link { color: green !important; }
+
+button.submit-search {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: inherit;
+}
+
+.b-phone-number {
+  float: right;
+  padding-top: 10px;
+
+  .phone-title {
+    color: #02afad;
+  }
+  .phone-number {
+    color: #ff8040;
+    padding-left: 10px;
+  }
+}

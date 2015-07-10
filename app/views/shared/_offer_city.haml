@@ -1,0 +1,9 @@
+- offerable = offer.offerable
+
+= link_to offerable, class: "offer_link" do
+  - if offerable.cover.asset.present?
+    = image_tag offerable.cover.asset.cover
+  - one_word = offer.title.split.size <= 1 ? 'one_word' : nil
+  .ribbon-wrapper
+    .ribbon{ class: "r-#{offer.color} #{one_word}" }
+    .ribbon__text= offer.title.present? ? offer.title : offerable.name

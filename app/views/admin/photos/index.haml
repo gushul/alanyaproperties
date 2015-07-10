@@ -1,0 +1,13 @@
+- model_class = Photo
+.page-header
+  %h1
+    = parent.name
+    Photos
+%p.text-header
+  Для изменения позиции фотографии перетащиее фотографию на нужное место
+%ul#sortable-photos.row= render @photos
+= form_for [:admin, parent, Photo.new] do |f|
+  = f.label :picture, "Upload photos:"
+  = f.file_field :picture, multiple: true, name: "photo[picture]"
+%span.btn.btn-primary.hidden#js-post-photos-position Изменить позиции
+

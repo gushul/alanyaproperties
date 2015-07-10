@@ -1,23 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'mysql2'
-# gem 'sqlite3'
 
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
   gem "jquery-fileupload-rails"
 end
@@ -25,9 +13,8 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
-gem 'wiselinks', github: 'igor-alexandrov/wiselinks'
+gem 'wiselinks', '1.2.1'
 
-# Manage UI
 gem 'simple_form'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'slim'
@@ -41,32 +28,25 @@ gem 'simple_form_fancy_uploads'
 gem 'redactor-rails'
 gem 'cells'
 gem 'sitemap_generator'
-# Cron
 gem 'whenever', :require => false
-
 gem 'yaml_db'
-
 gem 'kaminari'
-
 gem "friendly_id", "~> 4.0.9"
 gem 'babosa'
 gem 'russian', '~> 0.6.0'
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
 gem 'unicorn'
-
-# Deploy with Capistrano
-gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
-# Search Engine
 gem 'sunspot_rails'
-gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+gem 'sunspot_solr'
+gem "breadcrumbs_on_rails"
+gem 'haml-rails'
+gem 'bourbon'
+gem 'airbrake'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+group :development do
+  gem 'capistrano'
+  gem 'quiet_assets'
+  gem 'thin'
+end
 

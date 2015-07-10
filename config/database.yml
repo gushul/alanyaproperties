@@ -12,10 +12,11 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: alanya_development
+  host: localhost
+  database: alanyaproperties
   pool: 5
   username: root
-  password: ""
+  password: '664578'
   host: localhost
 
 # Warning: The database defined as "test" will be erased and

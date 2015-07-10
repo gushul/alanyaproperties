@@ -1,12 +1,16 @@
 class TurkeyNews < ActiveRecord::Base
 
-  attr_accessible :body, :title, :teaser, :photo, :url, :photo_cache
+  attr_accessible :body, :title, :teaser, :photo, :url, :photo_cache, :created_at, :count_of_views, :paywall, :paywall_entity
 
   validates :title, :teaser, :body, :photo, presence: true
-  validates :teaser, :length => {:maximum => 360}
+  validates :teaser, length: { maximum: 360 }
+  validates :count_of_views, numericality: true
+
   mount_uploader :photo, TurkeyNewsPhotoUploader
 
   has_one :setting, as: :model, dependent: :destroy
+  has_one :paywall_entity, as: :entity
+  has_one :paywall, through: :paywall_entity
 
   default_scope { order('updated_at DESC') }
 

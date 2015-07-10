@@ -1,0 +1,12 @@
+- title = offer.title.present? ? offer.title : 'Горячее предложение'
+- color = offer.color.present? ? offer.color : 'orange'
+
+= link_to offer, class: "offer_link" do
+  = image_tag offer.photo.thumb2.url
+  - one_word = title.split.size <= 1 ? 'one_word' : nil
+  .ribbon-wrapper
+    .ribbon{ class: "r-#{color} #{one_word}" }
+    .ribbon__text= title
+  %span.offer_info.clearfix{ class: "r-#{color}" }
+    %span.price= number_to_currency offer.price, 'euro'
+    %span.title= offer.name

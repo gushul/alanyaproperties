@@ -1,8 +1,11 @@
 module PropertiesHelper
-  def property_path(property)
-    polymorphic_path build_path(property)
+  def property_path(property, options = {})
+    polymorphic_path build_path(property), options
   end
-  alias :property_url :property_path
+
+  def property_url(property, options = {})
+    polymorphic_url build_path(property), options
+  end
 
   def map_property_path(property)
     polymorphic_path build_path(property, :map)
@@ -17,6 +20,14 @@ module PropertiesHelper
     url = photo.video? ? photo.video : photo.url
     img = image_tag(photo.send(style), argv)
     img += image_tag('play_video_mini.png', class: 'play_video') if photo.video?
+    link_to(img, url, title: argv[:title], class: "property_#{photo.video? ? 'video' : 'photo'}")
+  end
+
+  def wicked_pdf_photo_tag(photo, argv)
+    style = argv.delete(:style) || :small
+    url = photo.video? ? photo.video : photo.url
+    img = wicked_pdf_image_tag(photo.send(style), argv)
+    img += wicked_pdf_image_tag('play_video_mini.png', class: 'play_video') if photo.video?
     link_to(img, url, title: argv[:title], class: "property_#{photo.video? ? 'video' : 'photo'}")
   end
 

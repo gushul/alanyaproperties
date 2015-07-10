@@ -3,4 +3,8 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-Agent: *
 # Disallow: /
+
+User-Agent: *
+Disallow:
+Host: alanyaproperties.ru
 Sitemap: http://www.alanyaproperties.ru/sitemap.xml.gz

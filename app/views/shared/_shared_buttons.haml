@@ -1,0 +1,9 @@
+- if @property
+  = link_to '', property_path(@property, format: :pdf), ref: 'nofollow', target: '_blank', class: 'pdf-button'
+%a.print-button{href: "#", onclick: " window.print(); return false", ref: "nofollow"}
+:erb
+  <script type="text/javascript" src="//yandex.st/share/share.js"
+  charset="utf-8"></script>
+  <div class="yashare-auto-init" data-yashareL10n="ru"
+  data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,moimir,gplus" data-yashareTheme="counter"
+  ></div>

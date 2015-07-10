@@ -1,0 +1,27 @@
+%li.li
+  .apatment_list_top
+    .apatment_list_bot.clearfix
+      = link_to property do
+        = image_tag(property.photo.thumb)
+        - if property.new?
+          %i.ribbon_new
+        - else
+          - case property.offer
+          - when 'hot'
+            %i.ribbon_hot_dial
+          - when 'sold'
+            .ribbon-wrapper
+              .ribbon{ class: "r-green one_word" }
+              .ribbon__text Продано
+      .title= link_to property.name, property
+      %table.table
+        %tr
+          %th город:
+          %td= property.city.name
+        %tr
+          %th комнат/спален:
+          %td= property.property_type
+      = link_to "ПОДРОБНЕЕ", property, class: 'btn'
+      .prise= number_to_currency property.price, 'euro'
+- if (property_counter + 1) % 3 == 0
+  %li.clear

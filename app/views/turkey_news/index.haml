@@ -1,0 +1,32 @@
+- title build_title_with_page @settings.title
+- description @settings.description
+- keywords @settings.keywords
+
+- @content_class = 'city_page'
+= render 'shared/turkey_navbar'
+.right_clmn
+  = render 'shared/mini_slider'
+  .city_content
+    .city_text.inner
+      %div
+        = raw @settings.seo_text
+    %h1.h3
+      Новости Турции, Алании и других городов побережья средиземного моря #{edit(admin_turkey_news_index_settings_path)}
+    = render_breadcrumbs
+    %ul.new_list
+      - @turkey_news.each do |news|
+        %li.li.clearfix
+          = l news.created_at, format: :long
+          = link_to image_tag(news.photo.thumb), news, class: 'img'
+          .info= news.teaser.html_safe
+          = link_to 'Подробнее', news, class: 'more'
+    = paginate @turkey_news
+    / <a class="city_next" href="" title="">Далее</a>
+    .clear
+= link_to_unless_current "Карта сейсмоактивности Турции", TurkeyNews.get_seismic_map, class: 'earthquake_map' do |name|
+  %span.earthquake_map.act Карта сейсмоактивности Турции
+= link_to_unless_current "РАСХОДЫ НА ПРОЖИВАНИЕ", TurkeyNews.get_cost_of_living, class: 'earthquake_map' do |name|
+  %span.earthquake_map.act РАСХОДЫ НА ПРОЖИВАНИЕ
+= render_cell :banner, :left
+.clear
+

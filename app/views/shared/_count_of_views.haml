@@ -1,0 +1,4 @@
+.b-count-of-views
+  %span.has-tooltip{title: "Количество просмотров: #{ number_with_delimiter count_of_views } раз" }
+    = image_tag 'eye.png'
+    = number_with_delimiter count_of_views

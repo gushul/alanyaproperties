@@ -1,0 +1,20 @@
+.page-header
+  %h1 Плашки горячих предложений Недвижимости
+
+.row
+  .span12
+    - if controller_name = 'properties'
+      %p.lead Данные плашки не только создают горячее предложениe, но и перекрывают плашки горячих предложений недвижимости. Это может понадобиться для объектов недвижимости которым надо изменить статус "Горячее предлoжение" на иной (к примеру "Продано").
+
+.row
+  - @resources.each do |r|
+    .span3
+      %p
+        %span.label{ class: r.publish? ? "label-success" : "label-warning" }= r.publish? ? "Опубликована" : "Неопубликована"
+      = render partial: 'shared/offer', locals: { offer: r }
+      = link_to 'Ред.', { controller: controller_name, action: "edit", id: (controller_name == 'properties' ? r.hot_offer_id : r.id) }, class: 'btn btn-success'
+      = link_to "Удалить", { controller: controller_name, action: "destroy", id: r }, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
+%hr
+.row
+  .span3
+    = link_to 'Добавить', { controller: controller_name, action: 'new' }, class: 'btn btn-primary'
