@@ -26,7 +26,7 @@ after "deploy:restart", "deploy:cleanup"
 
 set :shared_children, shared_children + %w{public/uploads solr}
 
-namespace :db do
+namespace :uploads do
   task :symlink, :except => { :no_release => true } do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
@@ -50,13 +50,6 @@ namespace :deploy do
         logger.info "Skipping asset pre-compilation because there were no asset changes"
       end
     end
-  end
-end
-
-# rake task sample
-namespace :deploy do
-  task :run_rake, roles: :app do
-    run %Q{cd #{current_release} && #{rake} RAILS_ENV=#{rails_env} task:reindex}
   end
 end
 

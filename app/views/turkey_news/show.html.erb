@@ -1,0 +1,42 @@
+<% @content_class = 'city_page' %>
+
+<% title @settings.title || @turkey_news.title %>
+<% description @settings.description %>
+
+<%= render 'shared/turkey_navbar' %>
+
+<div class="right_clmn">
+  <h3><%= @turkey_news.title %></h3>
+  <% if @turkey_news.article_type == 'seismic_map' %>
+    <div class="main_slider_holder inner_slider_holder">
+      <div class="main_slider inner_slider" style="height: 288px;">
+          <div class="items_holder">
+              <div class="item" style="background-image: url('<%= image_path @turkey_news.photo.map %>');">
+                  <span class="item_info">
+                  </span>
+              </div>
+           </div>
+      </div>
+    </div>
+
+    <div class="city_content">
+      <div class="city_text">
+        <%= raw @turkey_news.body %>
+      </div>
+    </div>
+  <% else %>
+
+  <div class="services_content clearfix">
+    <%= raw @turkey_news.body %>
+  </div>
+  <% end %>
+</div>
+
+<%= link_to_unless_current "Карта сейсмоактивности Турции", TurkeyNews.get_seismic_map, class: 'earthquake_map' do %>
+  <span class="earthquake_map act">Карта сейсмоактивности Турции</span>
+<% end %>
+
+<%= render_cell :banner, :left %>
+
+<div class="clear"></div>
+

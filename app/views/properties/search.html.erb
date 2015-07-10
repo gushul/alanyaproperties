@@ -1,0 +1,36 @@
+<%= title build_title_with_page %>
+<%= description(@settings.search_description) if request.query_string.blank? %>
+<%= render_cell :property, :sidebar, position: 'top', for: params[:property_for], banner: true %>
+
+<div class="results">
+  <h1 class="h1"><%= build_title %></h1>
+
+  <div class="inner clearfix">
+    <div class="clmn fleft">
+      <form class="live-form" action="<%= "/#{params[:property_for]}/search" %>" method="GET" data-push="partial" data-target="#live">
+      <%= render 'filter' %>
+      </form>
+    </div>
+    <div class="clmn fright" role="live" id="live" style="width:712px;">
+      <ul class="apartment_list clearfix">
+        <% if @properties.size > 0 %>
+          <%= render @properties %>
+        <% else %>
+          <li style="text-align: center;" class="nothin">
+            <h3>Результатов нет</h3>
+          </li>
+        <% end %>
+      </ul>
+      <%= paginate @properties %>
+    </div>
+  </div>
+</div>
+
+<%= render_cell :property, :sidebar, type: 'reservation' %>
+
+<div class="clmn_right">
+  <div class="text" id="seo-text">
+    <%= @seo_text %>
+  </div>
+</div>
+<div class="clear"></div>

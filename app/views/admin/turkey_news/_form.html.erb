@@ -1,0 +1,20 @@
+<%= simple_form_for [:admin, @turkey_news], :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="row form-inline form-horizontal">
+      <%= f.input :title, input_html: {class: 'input-xxlarge'}, wrapper_html: {class: 'span8', style: 'width: 726px;'} %>
+      <%= f.input :url, as: :string, input_html: {class: 'input-xlarge', style: 'width: 398px;'}, wrapper_html: {class: 'span4'}, label: false, placeholder: 'Slug' %>
+    </div>
+    <% if @turkey_news.article_type == 'seismic_map' %>
+      <%= f.input :teaser, as: :hidden %>
+    <% else %>
+      <%= f.input :teaser, input_html: {class: 'redactor', style: "width: 975px; height: 50px;"} %>
+    <% end %>
+    <%= f.input :body, input_html: {class: 'redactor', style: "width: 975px; height: 50px;"} %>
+    <%= f.input :photo, as: :image_preview, input_html: {preview_version: :thumb} %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <div class="form-actions">
+      <%= f.button :submit, 'Save', :class => 'btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  admin_turkey_news_index_path, :class => 'btn' %>
+      <%= link_to("Settings", admin_turkey_news_settings_path(@turkey_news), class: 'btn btn-success') if @turkey_news.article_type == 'seismic_map' %>
+    </div>
+<% end %>

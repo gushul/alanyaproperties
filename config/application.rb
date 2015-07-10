@@ -16,7 +16,7 @@ module Alanya
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-     config.autoload_paths += %W(#{Rails.root}/app.controllers/concerns)
+    # config.autoload_paths += %W(#{config.root}/extras)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -59,7 +59,5 @@ module Alanya
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-
-    config.assets.paths << "#{Rails.root}/app/assets/fonts"
   end
 end

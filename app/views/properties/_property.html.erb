@@ -1,0 +1,27 @@
+<li class="li">
+  <div class="apatment_list_top">
+    <div class="apatment_list_bot clearfix">
+      <%= link_to image_tag(property.photo.thumb), property %>
+      <% if property.hot? %>
+        <i class="ribbon_hot_dial"></i>
+      <% elsif property.new? %>
+        <i class="ribbon_new"></i>
+      <% end -%>
+      <div class="title"><%= link_to property.name, property %></div>
+      <table class="table">
+        <tr>
+          <th>город:</th>
+          <td><%= property.city.name %></td>
+        </tr>
+        <tr>
+          <th>комнат/спален:</th>
+          <td><%= property.property_type %></td>
+        </tr>
+      </table>
+      <%= link_to "ПОДРОБНЕЕ", property, class: 'btn' %>
+      <div class="prise"><%= number_to_currency property.price, 'euro' %></div>
+    </div>
+  </div>
+</li>
+<% if (property_counter + 1) % 3 == 0 %><li class="clear"></li>
+<% end %>

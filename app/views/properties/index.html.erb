@@ -1,0 +1,50 @@
+<% title @settings.title %>
+<% description @settings.description %>
+<%= render_cell :property, :sidebar, position: 'top', for: params[:property_for], banner: true %>
+
+
+<div class="filter">
+  <% case params[:property_for] %>
+  <% when 'buy' %>
+      <h1>Недвижимость в Турции на продажу</h1>
+  <% when 'rent' %>
+      <h1>Недвижимость в Турции в аренду</h1>
+  <% end -%>
+  <div class="inner clearfix">
+    <form action="<%= "/#{params[:property_for]}/search" %>" method="GET">
+      <div class="clmn fleft">
+        <%= render 'filter' %>
+      </div>
+      <div class="clmn fright">
+        <div class="filter_section city">
+          <h2><span class="has-tooltip" title="<%= t("tooltips.#{params[:property_for]}.city") %>">Выберите города</span></h2>
+
+          <div class="filter_label_holder clearfix">
+            <% @cities.each do |city| %>
+              <label class="filter_label label_checkbox"><input type="checkbox" name="city_id[]" value="<%= city.id %>"><%= image_tag city.cover.asset.thumb %>
+                <div class="readmore"><p>Подробнее о городе <a href="<%= url_for city %>">Здесь ▶</a></p></div>
+                  <span class="title"><%= city.name %></span></label>
+            <% end %>
+          </div>
+
+          <span class="btn btn_input big">ИСКАТЬ<i class="input"><input type="submit"/></i></span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%= render_cell :property, :sidebar, type: 'reservation' %>
+
+<div class="clmn_right">
+  <% if false # Disabled %>
+  <ul class="apartment_list clearfix">
+    <%= render @properties %>
+  </ul>
+  <% end %>
+
+  <div class="text">
+    <%= raw @settings.seo_text %>
+  </div>
+</div>
+<div class="clear"></div>

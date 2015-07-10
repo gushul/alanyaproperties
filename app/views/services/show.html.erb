@@ -1,0 +1,23 @@
+<% @content_class = 'services_page' %>
+
+<% title @settings.title || @service.name %>
+<% description @settings.description %>
+
+<%= render 'sidebar_nav' %>
+
+<div class="right_clmn">
+  <%# render 'shared/top_offer' %>
+  <%= render_cell :banner, :top %>
+
+  <h1 class="h1"><%= @service.name %></h1>
+
+  <div class="services_content clearfix">
+    <%= raw @service.body %>
+  </div>
+</div>
+
+<%= link_to "ЗАДАТЬ ВОПРОС", contacts_path, class: 'btn usk_question big' %>
+
+<%= render_cell :banner, :left %>
+
+<div class="clear"></div>

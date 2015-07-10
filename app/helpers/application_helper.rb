@@ -7,7 +7,8 @@ module ApplicationHelper
       when /#{link}/
         # <div class="div"><a class="act" href="" title="АКТИВНЫЙ ПУНКТ МЕНЮ, ССЫЛКА">УСЛУГИ</a><i class="nav_active"></i></div>
         content_tag :div, class: 'div' do
-          link_to(name, link)
+          link_to(name, link, class: 'act') +
+              content_tag(:i, nil, class: 'nav_active')
         end
       else
         link_to name, link
@@ -37,10 +38,6 @@ module ApplicationHelper
     content_for(:description) { page_description }
   end
 
-  def keywords(page_keywords)
-    content_for(:keywords) { page_keywords }
-  end
-
   def readmore(text, length = 75)
     chars = text.mb_chars
     if chars.length > length
@@ -49,9 +46,5 @@ module ApplicationHelper
     end
 
     chars.html_safe
-  end
-
-  def edit(route_path)
-    link_to "(Ред.)", route_path, class: 'edit-link' if current_admin
   end
 end

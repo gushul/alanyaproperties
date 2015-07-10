@@ -1,0 +1,42 @@
+<% title build_title_with_page @settings.title %>
+<% description @settings.description %>
+<% @content_class = 'city_page' %>
+<%= render 'shared/turkey_navbar' %>
+
+<div class="right_clmn">
+  <%= render 'shared/mini_slider' %>
+  <div class="city_content">
+
+    <div class="city_text inner">
+      <div>
+        <%= raw @settings.seo_text %>
+      </div>
+    </div>
+
+    <h1 class="h3">Новости Турции, Алании и других городов побережья средиземного моря</h1>
+    <ul class="new_list">
+      <% @turkey_news.each do |news| %>
+          <li class="li clearfix">
+            <%= link_to image_tag(news.photo.thumb), news, class: 'img' %>
+            <div class="info"><%= news.teaser.html_safe %></div>
+            <%= link_to 'Подробнее', news, class: 'more' %>
+          </li>
+      <% end %>
+    </ul>
+    <%= paginate @turkey_news %>
+
+    <!--<a class="city_next" href="" title="">Далее</a>-->
+    <div class="clear"></div>
+  </div>
+</div>
+
+<%= link_to_unless_current "Карта сейсмоактивности Турции", TurkeyNews.get_seismic_map, class: 'earthquake_map' do |name| %>
+  <span class="earthquake_map act">Карта сейсмоактивности Турции</span>
+<% end %>
+<%= link_to_unless_current "РАСХОДЫ НА ПРОЖИВАНИЕ", TurkeyNews.get_cost_of_living, class: 'earthquake_map' do |name| %>
+  <span class="earthquake_map act">РАСХОДЫ НА ПРОЖИВАНИЕ</span>
+<% end %>
+
+<%= render_cell :banner, :left %>
+
+<div class="clear"></div>
