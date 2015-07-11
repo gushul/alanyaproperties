@@ -56,7 +56,7 @@
 
 
     .email
-      = form_for @message do |f|
+      = form_for @message, url: '' do |f|
         = f.text_field :contact_name, placeholder: 'Ваш name', class: 'input'
         = f.text_field :contact_skype, placeholder: 'Ваш skype', class: 'input'
         = f.email_field :contact_email, placeholder: 'Ваш e-mail', class: 'input'
