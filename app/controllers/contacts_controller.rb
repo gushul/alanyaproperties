@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
     @message = ContactMessage.new
   end
 
+
   def map
     lat, lng = @setting.geo.split(/\s*,\s*/)
     @property = OpenStruct.new lat: lat, lng: lng, name: ''
