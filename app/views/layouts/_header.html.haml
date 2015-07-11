@@ -16,17 +16,4 @@
     %p
       = image_tag('skype.png', size: "16")
       alanyaproperties
-.header.clearfix.no-print
-  = link_to root_path, class: 'logo', title: 'Alanya Properties' do
-    = image_tag 'logo.png', alt: 'Alanya Properties Logo'
-  %table.nav
-    %tr
-      %td.td= menu_link "ГЛАВНАЯ", root_url
-      %td.td= menu_link "НАШИ ПРОЕКТЫ", AboutPage.find(2)
-      %td.td= menu_link "ВСЯ НЕДВИЖИМОСТЬ", rent_url
-      %td.td= menu_link "О КОМПАНИИ", about_pages_url
-      %td.td= menu_link "УСЛУГИ", services_url
-      %td.td= menu_link "БЕСПЛАТНЫЙ ТУР", about_pages_url
-      %td.td= menu_link "КОНТАКТЫ", contacts_url
-/ END header
-/ BEGIN content
+= render "layouts/header_nav"
