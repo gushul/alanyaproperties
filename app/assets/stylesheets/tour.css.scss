@@ -43,5 +43,55 @@
       margin:  50px 0;
     }
 
+    .message{
+      display: block;
+      position:  relative;
+
+      h3 {
+        font-size:  16px;
+      }
+      label {
+       display:block;
+       margin-bottom:  5px;
+
+      }
+      .input {
+        width: 200px;
+        height: 20px;
+      }
+      .left {
+        display: block;
+        float:left;
+        clear: all;
+        margin: 0 90px 30px 0;
+
+      }
+      .right {
+        display: block;
+        float:left;
+        clear: all;
+        margin: 0 90px 30px 0;
+      }
+      .form-message{
+        position: relative;
+        display: block;
+        margin-bottom:  10px;
+
+        textarea {
+          width: 90%;
+          height: 45px;
+        }
+      }
+      .submit {
+        position: relative;
+        display: block;
+
+        input {
+          width: 150px;
+        }
+      }
+    }
+
   }
+
 }

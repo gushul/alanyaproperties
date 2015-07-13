@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141125162303) do
+ActiveRecord::Schema.define(:version => 20150711151729) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20141125162303) do
     t.datetime "updated_at",        :null => false
     t.date     "from"
     t.date     "to"
+    t.string   "contact_skype"
   end
 
   add_index "contact_messages", ["contact_person_id"], :name => "index_contact_messages_on_contact_person_id"

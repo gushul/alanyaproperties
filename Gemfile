@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'modernizr-rails'
 gem 'wiselinks', '1.2.1'
+gem "recaptcha", :require => "recaptcha/rails"
 
 gem 'simple_form'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
