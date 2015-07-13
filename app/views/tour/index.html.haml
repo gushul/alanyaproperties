@@ -76,6 +76,7 @@
             = label :contactmethod_email, 'Проверочный код'
           .submit
             .left
+              = recaptcha_tags
             .right
               =  f.submit 'Отправить'
 
