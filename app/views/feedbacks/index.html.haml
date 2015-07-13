@@ -1,0 +1,40 @@
+= render 'shared/nav'
+.right_clmn
+  .tour
+    %h2.label
+      Отзывы покупателей недвижимости в Турции
+    .tour-content
+      .message.height308
+        %h3
+          Заказать бесплатный ознакомительный тур
+        = form_for @message do |f|
+          .left
+            = label :contactmethod_name, 'Имя'
+            = f.text_field :name, class: 'input'
+          .right
+            = label :contactmethod_email, 'E-mail'
+            = f.text_field :email, class: 'input'
+          .form-message
+            = label :contactmethod_message, 'Сообщение'
+            = f.text_area :message
+          .captcha
+            = label :contactmethod_code, 'Проверочный код'
+          .submit
+            .left
+              = recaptcha_tags
+            .right
+              =  f.submit 'Отправить'
+
+      .comment
+        - @comments.each do |comment|
+          .label
+            .left
+              = comment.name
+            .right
+              = comment.created_at.strftime("%d.%m.%Y")
+
+          %p
+            = raw(comment.message)
+
+
+

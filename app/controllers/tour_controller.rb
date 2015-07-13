@@ -5,6 +5,10 @@ class TourController < ApplicationController
     @message = ContactMessage.new
   end
 
+  def send_message
+
+  end
+
   private
   def settings
     @setting = Setting.get('contacts')
