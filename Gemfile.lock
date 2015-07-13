@@ -157,6 +157,7 @@ GEM
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    recaptcha (0.4.0)
     redactor-rails (0.4.5)
       devise
       mime-types
@@ -253,6 +254,7 @@ DEPENDENCIES
   mysql2
   quiet_assets
   rails (= 3.2.12)
+  recaptcha
   redactor-rails
   responders
   russian (~> 0.6.0)

@@ -18,7 +18,7 @@
         %li
           %b
             Бронирование дат.
-          Мы хотим гарантировать вам наше полное внимание, и поэтому просим вас заранее сообщить нам планируемые даты посещения Турции, чтобы мы могли обеспечить бронирование дат в нашем расписании
+          Мы хотим гарантировать вам наше полное внимание, и поэтому просим вас заранее сообщить нам планируемые даты посещения Турции, чтобы мы могли обеспечить бронирование дат  в нашем расписании
 
 
         %li
@@ -55,13 +55,28 @@
       %hr
 
 
-    .email
-      = form_for @message, url: '' do |f|
-        = f.text_field :contact_name, placeholder: 'Ваш name', class: 'input'
-        = f.text_field :contact_skype, placeholder: 'Ваш skype', class: 'input'
-        = f.email_field :contact_email, placeholder: 'Ваш e-mail', class: 'input'
-        = f.phone_field :contact_phone, placeholder: 'Ваш телефон + xx xxx xxx xxxx', class: 'input'
-        = f.text_area :contact_name, placeholder: 'Ваше имя и фамилия', class: 'input'
+      .message
+        %h3
+          Заказать бесплатный ознакомительный тур
+        = form_for @message, url: '' do |f|
+          .left
+            = label :contactmethod_name, 'Имя'
+            = f.text_field :contact_name, class: 'input'
+            = label :contactmethod_skype, 'Skype'
+            = f.text_field :contact_skype, class: 'input'
+          .right
+            = label :contactmethod_email, 'E-mail'
+            = f.email_field :contact_email, class: 'input'
+            = label :contactmethod_phone, 'Телефон'
+            = f.phone_field :contact_phone, class: 'input'
+          .form-message
+            = label :contactmethod_message, 'Сообщение'
+            = f.text_area :contact_name
+          .captcha
+            = label :contactmethod_email, 'Проверочный код'
+          .submit
+            .left
+            .right
+              =  f.submit 'Отправить'
 
-      .clear
 
