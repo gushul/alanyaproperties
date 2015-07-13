@@ -34,7 +34,7 @@
   %label{:for => "first_item"}
 .filter_section.type
   %h2.sidebar-h2
-    %span.has-tooltip{title: t("tooltips.#{property_for}.property_type")} Тип недвижимости
+    Тип недвижимости
   .filter_label_holder.clearfix
     - Property::TYPES.each do |type|
       - checked = (params[:property_type] || []).member?(type)
@@ -61,7 +61,7 @@
       \%
       .filter_section.cities
   %h2.sidebar-h2
-    %span.has-tooltip{title: t("tooltips.#{property_for}.city")} Расположение
+    Расположение
   .filter_label_holder.clearfix
     - City.all.each do |city|
       - checked = (params[:city_id] || []).member?(city.id.to_s)
@@ -73,7 +73,7 @@
   <input placeholder="Цены от,  &euro;" name="price">
 .filter_section.distance.general
   %h2.sidebar-h2
-    %span.has-tooltip{title: t("tooltips.#{property_for}.to_sea")} Расстояние до моря
+    Расстояние до моря
   .filter_label_holder.clearfix
     - Property::DISTANCES.each do |distance|
       - checked = (params[:to_sea] || []).member?(distance.to_s)
