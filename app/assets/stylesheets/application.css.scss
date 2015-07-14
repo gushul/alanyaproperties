@@ -13,6 +13,9 @@
  *= require sidebar
  *= require nav
  *= require tour
+ *= require jquery.desoslide.min
+ *= require animate.min
+ *= require properties
  *= require_tree ./shared
  *= require_tree ./blocks
  *= require_self

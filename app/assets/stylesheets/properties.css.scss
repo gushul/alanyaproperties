@@ -1,0 +1,53 @@
+.buy_item{
+  margin-top:  40px;
+  padding-top:  0 !important;
+  border-top: 0 !important;
+
+  .label {
+   background-color: #35b8b7;
+    color: #6d6e70;
+    display: block;
+    font-size: 11pt;
+    font-weight: bold;
+    height: 22px;
+    line-height: 1.61em;
+    margin-bottom: 20px !important;
+    margin-left: -16px;
+    margin-top: 0 !important;
+    padding: 4px 5px 4px 35px;
+    text-align: left;
+    vertical-align: middle;
+    width: 99%;
+  }
+   .item_price {
+    color: #4d4d4d;
+    float: right;
+    font-size: 11pt;
+    height: 22px;
+    line-height: 2.01em;
+    margin: 0 0 10px;
+    min-width: 120px;
+    padding: 0 10px;
+    text-align: right;
+}
+  .buy_item_info {
+
+    .line.bt0 {
+      .price {
+        color: #02afad;
+      }
+
+    }
+
+    .line {
+        text-align: left;
+      .span {
+        display:inline-block;
+        float: right;
+        text-align: right;
+      }
+    }
+
+  }
+
+}

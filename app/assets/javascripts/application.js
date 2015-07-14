@@ -14,7 +14,9 @@
 //= require to_top
 //= require search_button
 //= require ouibounce
+//= require jquery.desoslide.min.js
 //= require_tree ./application
+
 
 $(function () {
   window.wiselinks = new Wiselinks($('body'), {html4: false});
