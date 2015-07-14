@@ -12,6 +12,10 @@ Alanya::Application.routes.draw do
   get 'contacts/map'
   get 'contacts/thanks'
   get 'tour' => 'tour#index'
+  post 'tour' => 'tour#send_message'
+  get 'feedbacks' => 'feedbacks#index'
+  post 'feedbacks' =>  'feedbacks#create'
+  get 'feedbacks/thanks'
 
   resources :turkey_news, path: 'turkey', only: [:index, :show] do
     collection do
