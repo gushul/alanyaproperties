@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Include.create(name: 'Кондиционеры')
+Include.create(name: 'Бытовая техника')
+Include.create(name: 'Электронагреватель воды')
+Include.create(name: 'Мебель')
+Include.create(name: 'Оформление ТАПУ')
+Include.create(name: 'Оформление ИСКАНА')

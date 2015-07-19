@@ -216,8 +216,8 @@ ActiveRecord::Schema.define(:version => 20150719042715) do
   add_index "properties", ["slug"], :name => "index_properties_on_slug"
 
   create_table "properties_includes", :force => true do |t|
-    t.integer  "inludes_id"
-    t.integer  "properties_id"
+    t.integer  "include_id"
+    t.integer  "property_id"
     t.datetime "appointment_date"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
