@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150713113154) do
+ActiveRecord::Schema.define(:version => 20150719042715) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -142,6 +142,12 @@ ActiveRecord::Schema.define(:version => 20150713113154) do
 
   add_index "hot_offers", ["offerable_type", "offerable_id"], :name => "index_hot_offers_on_offerable_type_and_offerable_id"
 
+  create_table "includes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "paywall_entities", :force => true do |t|
     t.integer  "paywall_id"
     t.integer  "entity_id"
@@ -203,10 +209,19 @@ ActiveRecord::Schema.define(:version => 20150713113154) do
     t.string   "keywords"
     t.integer  "count_of_views",      :default => 0,     :null => false
     t.string   "offer"
+    t.float    "credit_rate"
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"
   add_index "properties", ["slug"], :name => "index_properties_on_slug"
+
+  create_table "properties_includes", :force => true do |t|
+    t.integer  "inludes_id"
+    t.integer  "properties_id"
+    t.datetime "appointment_date"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "property_attributes", :force => true do |t|
     t.string   "name"

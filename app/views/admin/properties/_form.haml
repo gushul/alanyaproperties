@@ -21,6 +21,9 @@
       = f.input :count_of_views
       = f.input :paywall, collection: Paywall.all.map { |p| [p.name, p.id] }, selected: f.object.try(:paywall).try(:id), include_blank: true
       .row
+        %h3 Credit
+        = f.input :credit_rate, as: :float, wrapper_html: {class: 'span2'}, input_html: {class: 'input-medium'}
+      .row
         %h3 Map
         = f.input :lat, as: :float, wrapper_html: {class: 'span2'}, input_html: {class: 'input-medium'}
         = f.input :lng, as: :float, wrapper_html: {class: 'span2'}, input_html: {class: 'input-medium'}

@@ -16,6 +16,8 @@ class Property < ActiveRecord::Base
   scope :hot, where(hot: true)
 
   belongs_to :city
+  has_many :property_includes
+  has_many :includes, through: :property_includes
   has_many :reservations, dependent: :destroy
   has_one :setting, as: :model, dependent: :destroy
   has_many :hot_offers, as: :offerable

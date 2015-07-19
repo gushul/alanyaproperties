@@ -33,10 +33,22 @@
   .buy_item_info {
 
     .line.bt0 {
+      margin: 5px 0;
       .price {
         color: #02afad;
+        font-size: 15pt;
       }
 
+    }
+    ul {
+      padding-left: 0 !important;
+      margin-top: 0 !important;
+      .line:nth-child(even) {
+        background-color: #f5f5f5;
+      }
+      .line:nth-child(odd) {
+        background-color: #eee;
+      }
     }
 
     .line {
