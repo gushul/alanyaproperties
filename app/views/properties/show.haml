@@ -11,12 +11,11 @@
       = edit(edit_admin_property_path(@property))
     .buy_item_text
       .buy_item_photos.clearfix
-        #slideshow
-        .slidesho_thumbs
-          %ul#slideshow_thumbs.desoslide-thumbs-horizontal.list-inline.text-center
-            - @property.photos.order('position asc').each do |photo|
-              %li
-                = link_to image_tag(photo.url(:small)), image_path(photo.url(:big))
+        #gallery-1.royalSlider.rsDefault
+          - @property.photos.order('position asc').each do |photo|
+            = link_to photo.url, class:"rsImg" do
+              = image_tag photo.url(:big), class:"rsTmb"
+
       = raw @property.description
       = link_to "НАЗАД", request.env["HTTP_REFERER"] || "/#{@property.property_for}/search", class: "btn gray back_btn"
       %a.btn.big.send_offer{href: offer_property_path(@property)} ОТПРАВИТЬ ЗАПРОС
@@ -25,37 +24,55 @@
       .line.bt0
         %strong.price
           Цена: #{number_to_currency @property.price, 'euro'}
-      .line
-        Город:
+      .line.grey_dark
+        Город
         .span
           #{link_to @property.city.name, @property.city}
-      .line
-        Тип недвижимости:
+      .line.grey_light
+        Тип недвижимости
         .span
           #{@property.property_type}
-      .line
-        Общая площадь:
+      .line.grey_dark
+        Общая площадь
         .span
           #{@property.total_area} кв. м
-      .line
+      .line.grey_light
         Расстояние до моря: #{@property.to_sea} м
-      - @property.property_attributes.each do |attr, value|
-        .line
-          = t "property_attribute.#{attr.name}"
-          \: #{attr.answer(value)}
+      %ul
+        - @property.property_attributes.each do |attr, value|
+          .line
+            = t "property_attribute.#{attr.name}"
+            .span
+              #{attr.answer(value)}
       = link_to [:map, @property], class: 'buy_item_map property_map' do
         %span.map= image_tag(map_mini_image(@property.lat, @property.lng))
         %span.title Смотреть на карте
   = render 'shared/nav'
 
 :javascript
-  $('#slideshow').desoSlide({
-    thumbs: $('#slideshow_thumbs li > a'),
-    overlay: 'none',
-    auto: {
-        start: true
+  $('#gallery-1').royalSlider({
+    fullscreen: {
+      enabled: true,
+      nativeFS: true
+    },
+    controlNavigation: 'thumbnails',
+    autoScaleSlider: true,
+    autoScaleSliderWidth: 960,
+    autoScaleSliderHeight: 850,
+    loop: false,
+    imageScaleMode: 'fit-if-smaller',
+    navigateByClick: true,
+    numImagesToPreload:2,
+    arrowsNav:true,
+    arrowsNavAutoHide: true,
+    arrowsNavHideOnTouch: true,
+    keyboardNavEnabled: true,
+    fadeinLoadedSlide: true,
+    globalCaption: true,
+    globalCaptionInside: false,
+    thumbs: {
+      appendSpan: true,
+      firstMargin: true,
+      paddingBottom: 4
     }
-  }
-  );
-    console.log("uaoll");
-  $('#slideshow').desoSlide('rebuild');
+  });

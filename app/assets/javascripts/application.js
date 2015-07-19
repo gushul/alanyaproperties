@@ -14,7 +14,7 @@
 //= require to_top
 //= require search_button
 //= require ouibounce
-//= require jquery.desoslide.min.js
+//= require royalSlider
 //= require_tree ./application
 
 

@@ -16,6 +16,7 @@
  *= require jquery.desoslide.min
  *= require animate.min
  *= require properties
+ *= require_tree ./royalSlider
  *= require_tree ./shared
  *= require_tree ./blocks
  *= require_self
@@ -219,6 +220,12 @@ label.with_error {
   top: 555px;
   left: 384px;
 }
+.grey_dark {
+  background-color: #eee;
+}
+.grey_light {
+  background-color: #f5f5f5;
+}
 
 .apartment_list .title a {
   text-decoration: none;
@@ -244,4 +251,10 @@ button.submit-search {
     color: #ff8040;
     padding-left: 10px;
   }
+}
+#gallery-1 {
+width: 100%;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
 }
