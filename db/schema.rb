@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150719042715) do
+ActiveRecord::Schema.define(:version => 20150720082611) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -148,6 +148,17 @@ ActiveRecord::Schema.define(:version => 20150719042715) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "manager_people", :force => true do |t|
+    t.string   "name"
+    t.string   "position"
+    t.string   "skype"
+    t.string   "location"
+    t.string   "phono"
+    t.string   "language"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "paywall_entities", :force => true do |t|
     t.integer  "paywall_id"
     t.integer  "entity_id"
@@ -231,6 +242,14 @@ ActiveRecord::Schema.define(:version => 20150719042715) do
     t.integer  "position",       :default => 0, :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "property_manager_people", :force => true do |t|
+    t.integer  "manager_person_id"
+    t.integer  "property_id"
+    t.datetime "appointment_date"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "redactor_assets", :force => true do |t|
