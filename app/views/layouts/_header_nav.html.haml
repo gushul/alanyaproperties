@@ -8,7 +8,7 @@
       %td#properties.td= menu_link "ВСЯ НЕДВИЖИМОСТЬ", rent_url
       %td#about.td= menu_link "О КОМПАНИИ", about_pages_url
       %td.td= menu_link "УСЛУГИ", services_url
-      %td.td= menu_link "БЕСПЛАТНЫЙ ТУР", about_pages_url
+      %td.td= menu_link "БЕСПЛАТНЫЙ ТУР", tour_url
       %td.td= menu_link "КОНТАКТЫ", contacts_url
 
 #about-target.sub.about
@@ -24,4 +24,3 @@
     -City.all.each do |city|
       %li
         = link_to "НЕДВИЖИМОСТЬ в #{city.name}", city
-
