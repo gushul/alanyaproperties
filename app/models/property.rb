@@ -33,7 +33,7 @@ class Property < ActiveRecord::Base
                   :name, :photo, :price, :property_type, :city_id, :property_for,
                   :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until,
                   :url, :created_at, :count_of_views, :paywall, :paywall_entity,
-                  :offer, :credit_rate, :include_ids
+                  :offer, :credit_rate, :include_ids, :manager_person_ids
 
   validates :name, :oid, :description, :property_kind, :photo, :price,
             :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150720082611) do
+ActiveRecord::Schema.define(:version => 20150720102238) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -153,10 +153,12 @@ ActiveRecord::Schema.define(:version => 20150720082611) do
     t.string   "position"
     t.string   "skype"
     t.string   "location"
-    t.string   "phono"
+    t.string   "phone"
     t.string   "language"
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "photo"
   end
 
   create_table "paywall_entities", :force => true do |t|

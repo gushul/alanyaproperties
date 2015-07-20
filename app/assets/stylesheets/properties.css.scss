@@ -54,7 +54,8 @@
     }
 
     .line {
-        padding-left: 10px;
+      padding-top: 5px;
+      padding-left: 10px;
 
         text-align: left;
       .span {
@@ -88,5 +89,20 @@
     text-align: left;
     display: block;
     margin-bottom: 5px;
+  }
+}
+.person {
+  display: block;
+  background-color: #eee;
+  clear:both;
+  Overflow:auto;
+  .person_photo {
+    float: left;
+    width: 35%
+  }
+  .person_info {
+    float: left;
+    width: 65%;
+    text-align: left;
   }
 }

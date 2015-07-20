@@ -61,6 +61,7 @@ Alanya::Application.routes.draw do
 
   devise_for :admin, controllers: {sessions: 'admin/sessions'}
   namespace :admin do
+    resources :manager_people
     resources :users
     get :dashboard
     resources :reservations #, only: [:index, :show]

@@ -1,0 +1,18 @@
+%h1 Listing manager_people
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @manager_people.each do |manager_person|
+    %tr
+      %td= manager_person.name
+      %td= link_to 'Show', admin_manager_person_path(manager_person)
+      %td= link_to 'Edit', edit_admin_manager_person_path(manager_person)
+      %td= link_to 'Destroy', admin_manager_person_path(manager_person), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Manager person', new_admin_manager_person_path
