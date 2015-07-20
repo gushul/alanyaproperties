@@ -5,7 +5,7 @@ class CreateManagerPeople < ActiveRecord::Migration
       t.string :position
       t.string :skype
       t.string :location
-      t.string :phono
+      t.string :phone
       t.string :language
 
       t.timestamps

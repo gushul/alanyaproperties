@@ -1,20 +1,12 @@
-= form_for @manager_person do |f|
-  - if @manager_person.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@manager_person.errors.count, "error")} prohibited this manager_person from being saved:"
-      %ul
-        - @manager_person.errors.full_messages.each do |msg|
-          %li= msg
-
-  .actions
-    = f.submit 'Save'
 = simple_form_for [:admin, @manager_person], :html => {:class => 'form-horizontal'} do |f|
   = f.input :name
-  = f.input :post
+  = f.input :phone
+  = f.input :position
+  = f.input :location
+  = f.input :language
   = f.input :photo, as: :image_preview, input_html: {preview_version: :thumb}
   = f.input :photo_cache, as: :hidden
-  = f.input :default
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-      admin_contact_people_path, :class => 'btn'                   |
+      admin_manager_people_path, :class => 'btn'                   |

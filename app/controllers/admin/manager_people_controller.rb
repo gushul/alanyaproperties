@@ -44,11 +44,9 @@ class Admin::ManagerPeopleController < AdminController
 
     respond_to do |format|
       if @manager_person.save
-        format.html { redirect_to @manager_person, notice: 'Manager person was successfully created.' }
-        format.json { render json: @manager_person, status: :created, location: @manager_person }
+        format.html { redirect_to admin_manager_people_path, notice: 'Manager person was successfully created.' }
       else
         format.html { render action: "new" }
-        format.json { render json: @manager_person.errors, status: :unprocessable_entity }
       end
     end
   end

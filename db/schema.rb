@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(:version => 20150720102238) do
     t.string   "position"
     t.string   "skype"
     t.string   "location"
-    t.string   "phono"
+    t.string   "phone"
     t.string   "language"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
