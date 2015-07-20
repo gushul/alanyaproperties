@@ -72,13 +72,25 @@
         - @property.manager_people.each do |person|
           .person
             .person_photo
-              = image_tag person.photo
+              - if person.photo
+                = image_tag person.photo_url(:thumb)
             .person_info
               .person_title
                 .name
-                  = person.name
+                  - if person.name
+                    %b
+                      = person.name
                 .position
-                  = person.position
+                  - if person.position
+                    = person.position
+                %br
+                = person.location
+                = person.language
+                = person.email
+                = person.phone
+                = person.skype
+
+
 
 
   = render 'shared/nav'
