@@ -3,4 +3,6 @@ class ManagerPerson < ActiveRecord::Base
 
   has_many :property_manager_people
   has_many :properties, through: :property_manager_people
+
+  mount_uploader :photo, ManagerPersonPhotoUploader
 end
