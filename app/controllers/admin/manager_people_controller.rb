@@ -58,11 +58,9 @@ class Admin::ManagerPeopleController < AdminController
 
     respond_to do |format|
       if @manager_person.update_attributes(params[:manager_person])
-        format.html { redirect_to @manager_person, notice: 'Manager person was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to admin_manager_people_path, notice: 'Manager person was successfully created.' }
       else
         format.html { render action: "edit" }
-        format.json { render json: @manager_person.errors, status: :unprocessable_entity }
       end
     end
   end

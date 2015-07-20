@@ -7,6 +7,7 @@ class CreateManagerPeople < ActiveRecord::Migration
       t.string :location
       t.string :phone
       t.string :language
+      t.string :email
 
       t.timestamps
     end

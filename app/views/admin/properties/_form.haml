@@ -34,6 +34,7 @@
           = ff.input attr.name, as: attr.attribute_type
       %h3 Include in price
       = f.association :includes, as: :check_boxes
+      = f.association :manager_people, as: :check_boxes
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to "Settings", admin_property_settings_path(@property), class: 'btn' unless @property.new_record?

@@ -29,6 +29,11 @@
   %dd= @manager_person.position
   %dt
     %strong
+      = model_class.human_attribute_name(:email)
+      \:
+  %dd= @manager_person.email
+  %dt
+    %strong
       = model_class.human_attribute_name(:photo)
       \:
   %dd= image_tag @manager_person.photo

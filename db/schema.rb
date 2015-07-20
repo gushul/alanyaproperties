@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20150720102238) do
     t.string   "location"
     t.string   "phone"
     t.string   "language"
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "photo"

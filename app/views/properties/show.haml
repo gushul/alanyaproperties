@@ -67,6 +67,20 @@
               %input#percentage{:name => "percentage", :type => "text", :value => "#{@property.credit_rate}"}
                 %label{:for => "payment"} Ежемесячный платеж
                 %input#payment{:name => "payment", :readonly => "readonly", :type => "text", :value => ""}
+      %br
+      - unless @property.manager_people.blank?
+        - @property.manager_people.each do |person|
+          .person
+            .person_photo
+              = image_tag person.photo
+            .person_info
+              .person_title
+                .name
+                  = person.name
+                .position
+                  = person.position
+
+
   = render 'shared/nav'
 
 :javascript
