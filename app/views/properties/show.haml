@@ -44,9 +44,29 @@
             = t "property_attribute.#{attr.name}"
             .span
               #{attr.answer(value)}
-      = link_to [:map, @property], class: 'buy_item_map property_map' do
-        %span.map= image_tag(map_mini_image(@property.lat, @property.lng))
-        %span.title Смотреть на карте
+      - unless @property.includes.empty?
+        .line.bt0
+          %strong
+            В стоимость входит
+        %ul
+          - @property.includes.each do |include|
+            .line
+              = include.name
+      %br
+      - unless @property.credit_rate.blank?
+        .line.grey_dark
+          .center
+            Условия кредита
+        %form#loan{:action => "", :method => "POST", :name => "myform", class: "calc"}
+          %input#price{:name => "price", :type => "hidden", :value => "#{ @property.price} €"}
+            %label{:for => "first"} Первоначальный взнос
+            %input#first{:name => "first", :type => "text", value: "#{@property.price / 2} €"}
+            %label{:for => "months"} Срок кредита, лет
+            %input#months{:name => "months", :type => "text", :value => "10"}
+              %label{:for => "percentage"} Процентная ставка, %
+              %input#percentage{:name => "percentage", :type => "text", :value => "#{@property.credit_rate}"}
+                %label{:for => "payment"} Ежемесячный платеж
+                %input#payment{:name => "payment", :readonly => "readonly", :type => "text", :value => ""}
   = render 'shared/nav'
 
 :javascript
