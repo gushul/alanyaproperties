@@ -1,21 +1,27 @@
 require "bundler/capistrano"
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
+ssh_options[:forward_agent] = true
+default_run_options[:pty] = true
 
 set :application, "alanyaproperties"
 set :deploy_to, "/var/www/#{application}"
 
 set :scm, :git
-set :repository,  "git@bitbucket.org:alanyaproperties/alanya.git"
+#set :repository,  "git@bitbucket.org:alanyaproperties/alanya.git"
+set :repository,  "git@github.com:gushul/alanyaproperties.git"
+
 set :deploy_via, :remote_cache
 ssh_options[:forward_agent] = true
 
-set :user, "deploy" # you could even do `set :user, application` here
+#set :user, "deploy" # you could even do `set :user, application` here
+set :user, "deployer" # you could even do `set :user, application` here
 # cap assumes you want to do things with sudo on remote servers, we don't and in fact
 # intentionally can't, no problem:
 set :use_sudo, false
 
-server "alanyaproperties.ru", :app, :web, :db, :primary => true
+#server "alanyaproperties.ru", :app, :web, :db, :primary => true
+server "188.166.94.133", :app, :web, :db, :primary => true
 
 set :keep_releases, 5
 # if you want to clean up old releases on each deploy uncomment this:
@@ -71,4 +77,3 @@ after "deploy", "refresh_sitemaps"
 task :refresh_sitemaps do
   run "cd #{latest_release} && RAILS_ENV=#{rails_env} rake sitemap:refresh"
 end
-
