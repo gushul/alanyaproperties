@@ -2,7 +2,8 @@
 - description @settings.description
 - keywords @settings.keywords
 .sidebar
-  = render 'welcome/filter'
+  %form{action: "/buy/search", method: "GET"}
+    = render 'welcome/filter'
   = render 'welcome/property_info'
   =# render 'welcome/info'
   = render 'welcome/services'
