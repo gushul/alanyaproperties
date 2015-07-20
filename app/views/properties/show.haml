@@ -24,6 +24,14 @@
       .line.bt0
         %strong.price
           Цена: #{number_to_currency @property.price, 'euro'}
+      .line.grey_light
+        Вид сделки
+        .span
+          - if @property.property_for == "buy"
+            Продажа
+          - if @property.property_for == "rent"
+            Арендв 
+
       .line.grey_dark
         Город
         .span
