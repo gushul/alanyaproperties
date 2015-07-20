@@ -27,7 +27,8 @@ class Property < ActiveRecord::Base
   attr_accessible :oid, :property_attributes, :description, :geo, :property_kind,
                   :name, :photo, :price, :property_type, :city_id, :property_for,
                   :total_area, :photo_cache, :hot, :to_sea, :lat, :lng, :new_until,
-                  :url, :created_at, :count_of_views, :paywall, :paywall_entity, :offer
+                  :url, :created_at, :count_of_views, :paywall, :paywall_entity,
+                  :offer, :credit_rate, :include_ids
 
   validates :name, :oid, :description, :property_kind, :photo, :price,
             :property_type, :city, :property_for, :total_area, :to_sea, :geo, :lat, :lng, presence: true

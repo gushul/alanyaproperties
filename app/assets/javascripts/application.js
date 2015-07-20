@@ -15,6 +15,7 @@
 //= require search_button
 //= require ouibounce
 //= require royalSlider
+//= require calc
 //= require_tree ./application
 
 

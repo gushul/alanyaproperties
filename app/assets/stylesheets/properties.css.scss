@@ -35,8 +35,10 @@
     .line.bt0 {
       margin: 5px 0;
       .price {
-        color: #02afad;
         font-size: 15pt;
+      }
+      strong {
+        color: #02afad;
       }
 
     }
@@ -52,14 +54,39 @@
     }
 
     .line {
+        padding-left: 10px;
+
         text-align: left;
       .span {
         display:inline-block;
         float: right;
         text-align: right;
       }
+      .center {
+        text-align: center;
+      }
+
     }
 
   }
 
+}
+.calc {
+  margin: 10px 20px 0;
+
+  input {
+    display: inline-block;
+    width: 140px;
+    margin-bottom: 10px;
+
+  }
+
+  label {
+    color: #222222;
+    font-size: 12px;
+    line-height: 140%;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+  }
 }
