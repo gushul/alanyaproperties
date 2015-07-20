@@ -72,7 +72,7 @@ class Admin::ManagerPeopleController < AdminController
     @manager_person.destroy
 
     respond_to do |format|
-      format.html { redirect_to manager_people_url }
+      format.html { redirect_to admin_manager_people_url }
       format.json { head :no_content }
     end
   end
