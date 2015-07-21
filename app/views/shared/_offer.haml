@@ -5,16 +5,18 @@
   = image_tag offer.photo.thumb2.url
   - one_word = title.split.size <= 1 ? 'one_word' : nil
   .info
-    %p
+    .p
       = offer.name
-    %p
-      Город
-      %span.city
+    %hr
+    .p
+      город:
+      .span
         = offer.city.name
-    %p
-      комнат/спален
-      %span.room
+    .p
+      комнат/спален:
+      .span
         = offer.property_attributes.rooms
-    %p
+    .p.price
       = number_to_currency offer.price, 'euro'
-      = button_to "ПОДРОБНЕЕ", offer, method: :get
+      .span.button
+        = link_to "ПОДРОБНЕЕ", offer, class: "btn btn_input send_btn"
