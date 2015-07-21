@@ -40,7 +40,7 @@ FROM
             AND publish = 1) hot_offers ON hot_offers.offerable_id = properties.id
 
 ORDER BY rand()
-LIMIT 4
+LIMIT 9
 })
 
     @hot_offers_cities   = HotOffer.cities.published.includes(:offerable).shuffle

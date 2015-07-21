@@ -2,14 +2,15 @@
 - description @settings.description
 - keywords @settings.keywords
 .sidebar
+
   %form{action: "/buy/search", method: "GET"}
-    = render 'welcome/filter'
-  = render 'welcome/property_info'
+    = render 'shared/sidebar/filter'
+  = render 'shared/sidebar/property_info'
   =# render 'welcome/info'
-  = render 'welcome/services'
-  = render 'welcome/our_achives'
-  = render 'welcome/contacts'
-  = render 'welcome/icon'
+  = render 'shared/sidebar/services'
+  = render 'shared/sidebar/our_achives'
+  = render 'shared/sidebar/contacts'
+  = render 'shared/sidebar/icon'
 .content_with_sidebar
   .main_slider_holder
     #main-slider.main_slider
@@ -34,4 +35,3 @@
   / End mc_embed_signup
   = render 'welcome/main_text'
   = render 'welcome/hot_offers'
-  = render 'welcome/hot_offers_cities'
