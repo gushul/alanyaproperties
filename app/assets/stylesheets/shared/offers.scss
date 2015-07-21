@@ -19,27 +19,30 @@ a.offer_link:hover {
 }
 
 .offer_link {
-  background: image-url("offers_bg.png") no-repeat center bottom;
+  display: block;
+  float:left;
   padding: 0 0 8px;
   width: 222px;
-  height: 175px;
-  float: left;
-  margin: 0 24px 0 0;
+  margin: 0 22px 0 0;
   position: relative;
   z-index: 1;
   color: white;
   text-decoration: none;
+
   &:hover {
     color: white;
   }
   img {
     width: 218px;
     height: 171px;
+
+  }
+  .info {
+    width: 215px;
+    background-color: white ;
     border: 2px solid white;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 1px 2px 0px rgba(185, 185, 185, 1);
-    box-shadow: 0 1px 2px 0px rgba(185, 185, 185, 1);
+    color: black;
+
   }
   .offer_info {
     position: absolute;
