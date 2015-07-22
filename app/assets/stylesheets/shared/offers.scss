@@ -17,12 +17,29 @@ a.offer_link:hover {
 .offers {
   margin: 0 -25px 0 0;
 }
+.label_offer {
+  background-color: #35b8b7;
+  color: #6d6e70;
+  display: block;
+  font-size: 11pt;
+  font-weight: bold;
+  height: 22px;
+  line-height: 1.61em;
+  margin-bottom: 20px !important;
+  margin-left: -10px;
+  margin-top: 0 !important;
+  padding: 4px 4px 4px 35px;
+  text-align: left;
+  vertical-align: middle;
+  width: 698px;
+}
 
 .offer_link {
   display: block;
   float:left;
   padding: 0 0 8px;
   width: 222px;
+  min-height: 375px;
   margin: 0 22px 0 0;
   position: relative;
   z-index: 1;
@@ -38,10 +55,26 @@ a.offer_link:hover {
 
   }
   .info {
-    width: 215px;
+    width: 195px;
     background-color: white ;
     border: 2px solid white;
     color: black;
+    padding: 10px 10px;
+
+    .p{
+      dispay: block;
+      margin: 10px 0 0 0;
+
+      .span {
+        display: inline-block;
+        float: right;
+        text-align: right;
+
+      }
+      .span.button {
+        margin-top: -5px;
+      }
+    }
 
   }
   .offer_info {
@@ -60,10 +93,10 @@ a.offer_link:hover {
     font-weight: bold;
   }
   .price {
-    float: right;
     font-size: 24px;
     line-height: 24px;
-    margin: 6px 0 5px 10px;
+    margin: 6px 0 5px 0;
+
   }
   &.new .offer_info {
     background-image: image-url("blue_blank.png");

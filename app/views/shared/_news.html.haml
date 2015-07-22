@@ -1,0 +1,9 @@
+.offer_link.news
+  %p
+    %span.title
+      = news.title
+    = image_tag(news.photo.thumb.url, seze: "100x100")
+  %p
+    =raw news.teaser
+  %p.title
+    = link_to "ПОДРОБНЕЕ >", news, class: "title"

@@ -1,5 +1,5 @@
 - if @hot_offers_property.present?
-  %h2 Горячие предложения
+  %h2.label_offer Горячие предложения
   .offers.clearfix
     - @hot_offers_property.each do |o|
       = render partial: 'shared/offer', locals: { offer: o }
