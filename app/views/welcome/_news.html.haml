@@ -1,0 +1,5 @@
+- unless @turkey_news.blank?
+  %h2.label_news Последние новости
+  .news.clearfix
+    - @turkey_news.each do |news|
+      = render partial: 'shared/news', locals: { news: news }

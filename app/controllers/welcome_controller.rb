@@ -47,5 +47,6 @@ LIMIT 9
     @properties = Property.hot.order('RAND()').limit(4)
     @sliders = Slider.unscoped.slider_type('main').order('RAND()')
     @settings = Setting.get('main')
+    @turkey_news = TurkeyNews.where(article_type: nil).reorder('created_at DESC').limit(6)
   end
 end
