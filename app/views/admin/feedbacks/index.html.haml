@@ -1,0 +1,31 @@
+%h1 Listing admin_feedbacks
+
+%table
+  %tr
+    %th name
+    %th |
+    %th email
+    %th |
+    %th message
+    %th |
+    %th
+    %th
+    %th
+
+  - @admin_feedbacks.each do |admin_feedback|
+    %tr
+      %td= admin_feedback.name
+      %td |
+      %td= admin_feedback.email
+      %td |
+      %td= admin_feedback.message
+      %td |
+      %td= link_to 'Show', admin_feedback_path(admin_feedback)
+      %td |
+      %td= link_to 'Edit', edit_admin_feedback_path(admin_feedback)
+      %td |
+      %td= link_to 'Destroy', admin_feedback_path(admin_feedback), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Feedback', new_admin_feedback_path

@@ -65,6 +65,7 @@ Alanya::Application.routes.draw do
     resources :users
     get :dashboard
     resources :reservations #, only: [:index, :show]
+    resources :feedbacks
     resources :properties do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :property
       resources :photos do
