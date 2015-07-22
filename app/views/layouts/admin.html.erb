@@ -79,6 +79,7 @@
                   </ul>
                 </li>
                 <li class="<%= 'active' if params[:controller] == 'admin/banners' %>"><%= link_to "Banners", admin_banners_path %></li>
+                <li class="<%= 'active' if params[:controller] == 'admin/feedback' %>"><%= link_to "Отзывы", admin_feedbacks_path %></li>
                 <li class="<%= 'active' if  params[:controller] =~ /admin\/settings/ %> dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
                   <ul class="dropdown-menu">

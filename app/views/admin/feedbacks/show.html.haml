@@ -1,0 +1,16 @@
+%br
+%br
+%br
+%p
+  name:
+  = @admin_feedback.name
+%p
+  email:
+  = @admin_feedback.email
+%p
+  message:
+  = @admin_feedback.message
+
+= link_to 'Edit', edit_admin_feedback_path(@admin_feedback)
+\|
+= link_to 'Back', admin_feedbacks_path
