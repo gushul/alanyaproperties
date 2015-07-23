@@ -16,6 +16,7 @@ Alanya::Application.routes.draw do
   get 'feedbacks' => 'feedbacks#index'
   post 'feedbacks' =>  'feedbacks#create'
   get 'feedbacks/thanks'
+  get 'our_team' => 'teams#index'
 
   resources :turkey_news, path: 'turkey', only: [:index, :show] do
     collection do
@@ -66,6 +67,7 @@ Alanya::Application.routes.draw do
     get :dashboard
     resources :reservations #, only: [:index, :show]
     resources :feedbacks
+    resources :teams
     resources :properties do
       match 'settings' => 'settings#edit', as: :settings, settings_type: :property
       resources :photos do

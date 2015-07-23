@@ -1,0 +1,13 @@
+= simple_form_for [:admin, @team_member], :html => {:class => 'form-horizontal'} do |f|
+  = f.input :name
+  = f.input :phone
+  = f.input :skype
+  = f.input :position
+  = f.input :language
+  = f.input :email
+  = f.input :photo, as: :image_preview, input_html: {preview_version: :thumb}
+  = f.input :photo_cache, as: :hidden
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), |
+      admin_manager_people_path, :class => 'btn'                   |
