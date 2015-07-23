@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150720102238) do
+ActiveRecord::Schema.define(:version => 20150723134057) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -315,6 +315,17 @@ ActiveRecord::Schema.define(:version => 20150720102238) do
     t.datetime "updated_at",                :null => false
     t.integer  "position",   :default => 0
     t.string   "video"
+  end
+
+  create_table "team_members", :force => true do |t|
+    t.string   "email"
+    t.string   "phone"
+    t.string   "languages"
+    t.string   "name"
+    t.string   "position"
+    t.string   "photo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "transfers", :force => true do |t|
