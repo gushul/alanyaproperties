@@ -54,6 +54,7 @@ class PropertiesController < ApplicationController #< InheritedResources::Base
   end
 
   def show
+    @message = ContactMessage.new
     @property = Property.find(params[:id])
     @property.increment!(:count_of_views)
     @settings = Setting.get(@property)

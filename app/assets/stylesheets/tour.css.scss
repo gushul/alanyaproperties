@@ -120,3 +120,52 @@
   }
 
 }
+.buy_item_text {
+  .message{
+    display: block;
+    position:  relative;
+
+    h3 {
+      font-size:  16px;
+    }
+    label {
+     display:block;
+     margin-bottom:  5px;
+
+    }
+    .input {
+      width: 180px;
+      height: 20px;
+    }
+    .left {
+      display: block;
+      float:left;
+      clear: all;
+      margin: 0 30px 30px 0;
+
+    }
+    .right {
+      display: block;
+      float:left;
+      clear: all;
+      margin: 0 10px 30px 0;
+    }
+    .form-message{
+      display: block;
+      margin-bottom:  10px;
+
+      textarea {
+        width: 90%;
+        height: 45px;
+      }
+    }
+    .submit {
+      position: relative;
+      display: block;
+
+      input {
+        width: 150px;
+      }
+    }
+  }
+}
