@@ -455,11 +455,19 @@ a.btn {
     }
   }
   &.big.send_offer {
-    float: right;
-    width: 222px;
+    width: 180px;
     font-size: 19px;
     line-height: 21px;
-    padding: 6px 0 3px;
+    padding: 7px 0 5px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  &.green{
+    background-color: #35b8b7 !important;
+  }
+  &.margin_right {
+    margin-right: 20px;
   }
   &.white {
     background: white;

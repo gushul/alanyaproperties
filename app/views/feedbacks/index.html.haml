@@ -6,7 +6,7 @@
     .tour-content
       .message.height308
         %h3
-          Заказать бесплатный ознакомительный тур
+           Оставить отзыв
         = form_for @message do |f|
           .left
             = label :contactmethod_name, 'Имя'
@@ -35,6 +35,3 @@
 
           %p
             = raw(comment.message)
-
-
-
