@@ -7,6 +7,7 @@ class CreateTeamMembers < ActiveRecord::Migration
       t.string :name
       t.string :position
       t.string :photo
+      t.string :skype
 
       t.timestamps
     end

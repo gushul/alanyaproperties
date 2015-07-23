@@ -1,17 +1,36 @@
-%h1 Listing teams
+= render 'shared/nav'
+.right_clmn
+  .tour
+    %h2.label
+      Наша команда
+    - @members.each do |member|
+      .persone_send.act
+       = image_tag member.photo.thumb
 
-%table
-  %tr
-    %th
-    %th
-    %th
+    .persone_send.act
+    .tour-content
+      .message.height308
+        %h3
+          Задайте свой вопрос
 
-  - @teams.each do |team|
-    %tr
-      %td= link_to 'Show', team
-      %td= link_to 'Edit', edit_team_path(team)
-      %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Team', new_team_path
+        = form_for @message, url: '' do |f|
+          .left
+            = label :contactmethod_name, 'Имя'
+            = f.text_field :contact_name, class: 'input'
+            = label :contactmethod_skype, 'Skype'
+            = f.text_field :contact_skype, class: 'input'
+          .right
+            = label :contactmethod_email, 'E-mail'
+            = f.text_field :contact_email, class: 'input'
+            = label :contactmethod_phone, 'Телефон'
+            = f.text_field :contact_phone, class: 'input'
+          .form-message
+            = label :contactmethod_message, 'Сообщение'
+            = f.text_area :contact_name
+          .captcha
+            = label :contactmethod_email, 'Проверочный код'
+          .submit
+            .left
+              = recaptcha_tags
+            .right
+              =  f.submit 'Отправить'

@@ -2,58 +2,58 @@
 .page-header
   %h1= t '.title', :default => model_class.model_name.human
 %dl.dl-horizontal
-  - if @team_member.name?
+  - if @team.name?
     %dt
       %strong
         = model_class.human_attribute_name(:name)
         \:
-    %dd= @team_member.name
-  - if @team_member.phone?
+    %dd= @team.name
+  - if @team.phone?
     %dt
       %strong
         = model_class.human_attribute_name(:phone)
         \:
-    %dd= @team_member.phone
-  - if @team_member.skype?
+    %dd= @team.phone
+  - if @team.skype?
     %dt
       %strong
         = model_class.human_attribute_name(:skype)
         \:
-    %dd= @team_member.skype
-  - if @team_member.language?
+    %dd= @team.skype
+  - if @team.language?
     %dt
       %strong
         = model_class.human_attribute_name(:language)
         \:
-    %dd= @team_member.language
-  - if @team_member.position?
+    %dd= @team.language
+  - if @team.position?
     %dt
       %strong
         = model_class.human_attribute_name(:position)
         \:
-    %dd= @team_member.position
-  - if @team_member.email?
+    %dd= @team.position
+  - if @team.email?
     %dt
       %strong
         = model_class.human_attribute_name(:email)
         \:
-    %dd= @team_member.email
+    %dd= @team.email
   %br
-  - if @team_member.photo?
+  - if @team.photo?
     %dt
       %strong
         = model_class.human_attribute_name(:photo)
         \:
-    %dd= image_tag @team_member.photo
+    %dd= image_tag @team.photo
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), |
-    admin_manager_people_path, :class => 'btn'               |
+    admin_team_members_path, :class => 'btn'               |
   -#
   = link_to t('.edit', :default => t("helpers.links.edit")),         |
-    edit_admin_team_member_path(@team_member), :class => 'btn' |
+    edit_admin_team_member_path(@team), :class => 'btn' |
   -#
   = link_to t('.destroy', :default => t("helpers.links.destroy")),                                             |
-    admin_team_member_path(@team_member),                                                                |
+    admin_team_member_path(@team),                                                                |
     :method => 'delete',                                                                                       |
     :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))}, |
     :class => 'btn btn-danger'

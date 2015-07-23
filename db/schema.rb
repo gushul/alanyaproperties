@@ -324,6 +324,7 @@ ActiveRecord::Schema.define(:version => 20150723134057) do
     t.string   "name"
     t.string   "position"
     t.string   "photo"
+    t.string   "skype"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

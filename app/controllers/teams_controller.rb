@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.all
+    @members = TeamMember.all
+    @message = ContactMessage.new
 
     respond_to do |format|
       format.html # index.html.erb
