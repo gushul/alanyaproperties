@@ -17,6 +17,7 @@ Alanya::Application.routes.draw do
   post 'feedbacks' =>  'feedbacks#create'
   get 'feedbacks/thanks'
   get 'our_team' => 'teams#index'
+  get 'our_partners' => 'partners#index'
 
   resources :turkey_news, path: 'turkey', only: [:index, :show] do
     collection do

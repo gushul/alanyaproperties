@@ -1,0 +1,59 @@
+= render 'shared/nav'
+.right_clmn
+  .tour
+    %h2.label
+      Наша команда
+    .tour-content
+      .team
+
+        - @partners.each do |partner|
+          .team_person
+            .left
+              - if partner.photo
+                = image_tag  partner.photo.thumb
+            .right
+              %b
+                = partner.name
+              %p
+                = partner.position
+              %br
+              - if partner.phone?
+                %p
+                  Телефон:
+                  = partner.phone
+              - if partner.skype?
+                %p
+                  Skype:
+                  = partner.skype
+              - if partner.languages?
+                %p
+                  Языки:
+                  = partner.languages
+              - if partner.email?
+                %p
+                  = partner.email
+      .message.height308
+        %h3
+          Задайте свой вопрос
+
+        = form_for @message, url: '' do |f|
+          .left
+            = label :contactmethod_name, 'Имя'
+            = f.text_field :contact_name, class: 'input'
+            = label :contactmethod_skype, 'Skype'
+            = f.text_field :contact_skype, class: 'input'
+          .right
+            = label :contactmethod_email, 'E-mail'
+            = f.text_field :contact_email, class: 'input'
+            = label :contactmethod_phone, 'Телефон'
+            = f.text_field :contact_phone, class: 'input'
+          .form-message
+            = label :contactmethod_message, 'Сообщение'
+            = f.text_area :contact_name
+          .captcha
+            = label :contactmethod_email, 'Проверочный код'
+          .submit
+            .left
+              = recaptcha_tags
+            .right
+              =  f.submit 'Отправить'
