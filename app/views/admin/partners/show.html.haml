@@ -1,0 +1,59 @@
+- model_class = ContactPerson
+.page-header
+  %h1= t '.title', :default => model_class.model_name.human
+%dl.dl-horizontal
+  - if @admin_partner.name?
+    %dt
+      %strong
+        = model_class.human_attribute_name(:name)
+        \:
+    %dd= @admin_partner.name
+  - if @admin_partner.phone?
+    %dt
+      %strong
+        = model_class.human_attribute_name(:phone)
+        \:
+    %dd= @admin_partner.phone
+  - if @admin_partner.skype?
+    %dt
+      %strong
+        = model_class.human_attribute_name(:skype)
+        \:
+    %dd= @admin_partner.skype
+  - if @admin_partner.languages?
+    %dt
+      %strong
+        = model_class.human_attribute_name(:languages)
+        \:
+    %dd= @admin_partner.languages
+  - if @admin_partner.position?
+    %dt
+      %strong
+        = model_class.human_attribute_name(:position)
+        \:
+    %dd= @admin_partner.position
+  - if @admin_partner.email?
+    %dt
+      %strong
+        = model_class.human_attribute_name(:email)
+        \:
+    %dd= @admin_partner.email
+  %br
+  - if @admin_partner.photo?
+    %dt
+      %strong
+        = model_class.human_attribute_name(:photo)
+        \:
+    %dd= image_tag @admin_partner.photo.thumb
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), |
+    admin_team_members_path, :class => 'btn'               |
+  -#
+  = link_to t('.edit', :default => t("helpers.links.edit")),         |
+    edit_admin_team_member_path(@admin_partner), :class => 'btn' |
+  -#
+  = link_to t('.destroy', :default => t("helpers.links.destroy")),                                             |
+    admin_team_member_path(@admin_partner),                                                                |
+    :method => 'delete',                                                                                       |
+    :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))}, |
+    :class => 'btn btn-danger'

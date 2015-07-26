@@ -1,0 +1,19 @@
+%h1 Listing admin_partners
+
+%table
+  %tr
+    %th
+    %th
+    %th
+    %th
+
+  - @admin_partners.each do |admin_partner|
+    %tr
+      %td= admin_partner.name
+      %td= link_to 'Show', admin_partner_path(admin_partner)
+      %td= link_to 'Edit', edit_admin_partner_path(admin_partner)
+      %td= link_to 'Destroy', admin_partner_path(admin_partner), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Partner', new_admin_partner_path
