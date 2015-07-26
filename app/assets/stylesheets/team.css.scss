@@ -1,0 +1,31 @@
+.team {
+  display: block;
+  margin: 10px;
+
+  .team_person {
+    display: inline-block;
+    margin-bottom: 30px;
+    text-align: left;
+    vertical-align: top;
+    width: 49%;
+
+    .left {
+      float: left;
+      width: 40%;
+    }
+    .right {
+      float: left;
+      margin-left: 2%;
+      width: 58%;
+    }
+
+
+    p {
+      margin: 2px 0;
+
+    }
+    br {
+
+    }
+  }
+}

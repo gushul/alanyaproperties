@@ -20,12 +20,12 @@
         = model_class.human_attribute_name(:skype)
         \:
     %dd= @team.skype
-  - if @team.language?
+  - if @team.languages?
     %dt
       %strong
-        = model_class.human_attribute_name(:language)
+        = model_class.human_attribute_name(:languages)
         \:
-    %dd= @team.language
+    %dd= @team.languages
   - if @team.position?
     %dt
       %strong

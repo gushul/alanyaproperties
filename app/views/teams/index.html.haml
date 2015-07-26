@@ -3,12 +3,35 @@
   .tour
     %h2.label
       Наша команда
-    - @members.each do |member|
-      .persone_send.act
-       = image_tag member.photo.thumb
-
-    .persone_send.act
     .tour-content
+      .team
+
+        - @members.each do |member|
+          .team_person
+            .left
+              - if member.photo
+                = image_tag  member.photo.thumb
+            .right
+              %b
+                = member.name
+              %p
+                = member.position
+              %br
+              - if member.phone?
+                %p
+                  Телефон:
+                  = member.phone
+              - if member.skype?
+                %p
+                  Skype:
+                  = member.skype
+              - if member.languages?
+                %p
+                  Языки:
+                  = member.languages
+              - if member.email?
+                %p
+                  = member.email
       .message.height308
         %h3
           Задайте свой вопрос
