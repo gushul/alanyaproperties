@@ -37,7 +37,7 @@ class Admin::TeamsController < AdminController
   # POST /admin/teams
   # POST /admin/teams.json
   def create
-    @team = TeamMember.new(params[:admin_team])
+    @team = TeamMember.new(params[:team_member])
 
     respond_to do |format|
       if @team.save
@@ -51,10 +51,13 @@ class Admin::TeamsController < AdminController
   # PUT /admin/teams/1
   # PUT /admin/teams/1.json
   def update
-     @team = TeamMember.find(params[:id])
+    @team = TeamMember.find(params[:id])
+    p "===="
+    p params
+    p "===="
 
     respond_to do |format|
-      if @team.update_attributes(params[:admin_team])
+      if @team.update_attributes(params[:team_member])
         format.html { redirect_to admin_team_members_path, notice: 'Team was successfully updated.' }
       else
         format.html { render action: "edit" }
