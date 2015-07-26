@@ -37,7 +37,7 @@ class Admin::TeamsController < AdminController
   # POST /admin/teams
   # POST /admin/teams.json
   def create
-    @teams = TeamMember.new(params[:admin_team])
+    @team = TeamMember.new(params[:admin_team])
 
     respond_to do |format|
       if @team.save
