@@ -1,0 +1,6 @@
+.persone_send_holder.clearfix
+  - ContactPerson.all.each do |p|
+    %label{:class => "persone_send label_radio act", style:"margin-left: 25px; margin-top: 30px;"}
+      = image_tag p.photo.thumb
+      %span.name= p.name
+      %span.position= p.post

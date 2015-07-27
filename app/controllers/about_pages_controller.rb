@@ -20,6 +20,9 @@ class AboutPagesController < InheritedResources::Base
     end
   end
 
+  def history
+  end
+
   def sliders
     @sliders = Slider.slider_type('about_pages')
   end
