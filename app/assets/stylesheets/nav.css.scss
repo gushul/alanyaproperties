@@ -4,7 +4,9 @@
   border-radius: 5px;
   box-shadow: 0 0 3px 0 #a4a4a4;
   position: absolute;
+  top: 137px;
   width: auto;
+
   min-width: 100px;
   z-index: 10;
 
@@ -20,7 +22,7 @@
   }
 
   &.about {
-    margin: 0px 0px 0px 580px;
+    margin: 0px 0px 0px 585px;
   }
 
   &.properties {

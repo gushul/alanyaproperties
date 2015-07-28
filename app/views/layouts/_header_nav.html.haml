@@ -15,7 +15,12 @@
   %ul
     -AboutPage.all.each do |page|
       %li
-        = link_to page.title, page
+        - if page.menu_title
+          = link_to page.menu_title, page
+        - else
+          = link_to page.title, page
+      %li
+        = link "Отзывы клиентов", feedbacks_path
 #project-target.sub.project
   %ul
 
@@ -23,4 +28,4 @@
   %ul
     -City.all.each do |city|
       %li
-        = link_to "НЕДВИЖИМОСТЬ в #{city.name}", city
+        = link_to "Недвижимость в #{city.name}", city
