@@ -1159,10 +1159,13 @@ h1, h2, h3, h4, h5, h6 {
     }
     .filter_label {
       text-decoration: underline;
-      text-transform: uppercase;
       margin-right: 20px;
       margin-left: -4px;
       margin-top: 9px;
+      font-size: 14px;
+      width: 45px;
+      font-family: "MyriadPro";
+      list-style: 17px;
       display: inline-block;
       *display: inline;
       *zoom: 1;
@@ -1176,6 +1179,9 @@ h1, h2, h3, h4, h5, h6 {
         color: white;
         text-decoration: none;
       }
+    }
+    .filter_label:hover {
+      text-decoration: none;
     }
   }
   &.period {
