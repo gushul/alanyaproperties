@@ -29,45 +29,25 @@ $(function () {
   $('.main_slider .video').colorbox({iframe:true, innerWidth:500, innerHeight:409});
 
 
-  $('#about').hover(function()
+  $("#about, #about-target").mouseenter(function()
     {
       $('#about-target').show();
-  })
-  $('#about-target').hover(function()
-    {
-      $('#about-target').show();
-  })
-  $('#about').mouseleave(function()
+  });
+  $('#about, #about-target').mouseleave(function()
     {$('#about-target').hide();
-  })
-  $('#about-target').mouseleave(function()
-    {$('#about-target').hide();
-  })
- $('#properties').hover(function()
+  });
+ $('#properties-target, #properties').hover(function()
     {$('#properties-target').show();
-  })
- $('#properties-target').hover(function()
-    {$('#properties-target').show();
-  })
- $('#properties-target').mouseleave(function()
+  });
+ $('#properties-target, #properties').mouseleave(function()
     {$('#properties-target').hide();
-  })
- $('#properties').mouseleave(function()
-    {$('#properties-target').hide();
-  })
-
-  $('#project').hover(function()
+  });
+  $('#project-target, #project').hover(function()
     {$('#project-target').show();
-  })
-  $('#project-target').hover(function()
-    {$('#project-target').show();
-  })
-  $('#project').mouseleave(function()
+  });
+  $('#project, #project-target').mouseleave(function()
     {$('#project-target').hide();
-  })
-  $('#project-target').mouseleave(function()
-    {$('#project-target').hide();
-  })
+  });
 
   $('.live-form').change(function(e){
     // Wiselinks load
