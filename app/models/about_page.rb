@@ -1,6 +1,6 @@
 class AboutPage < ActiveRecord::Base
 
-  attr_accessible :body, :slug, :title, :url, :default, :created_at, :count_of_views, :paywall, :paywall_entity
+  attr_accessible :body, :slug, :title, :url, :default, :created_at, :count_of_views, :paywall, :paywall_entity, :menu_title
 
   validates :body, :title, :url, presence: true
   validates :count_of_views, numericality: true
