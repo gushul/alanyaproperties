@@ -5,7 +5,7 @@
     %tr
       %td.td= menu_link "ГЛАВНАЯ", root_url
       %td#project.td= menu_link "НАШИ ПРОЕКТЫ", AboutPage.find(2)
-      %td#properties.td= menu_link "ВСЯ НЕДВИЖИМОСТЬ", rent_url
+      %td#properties.td= menu_link "ВСЯ НЕДВИЖИМОСТЬ", buy_url
       %td#about.td= menu_link "О КОМПАНИИ", about_pages_url
       %td.td= menu_link "УСЛУГИ", services_url
       %td.td= menu_link "БЕСПЛАТНЫЙ ТУР", tour_url
@@ -20,6 +20,10 @@
         - else
           = link_to page.title, page
     %li
+      = link_to "Наша команда", our_team_path
+    %li
+      = link_to "Наши партнеры", our_partners_path
+    %li
       = link_to "Отзывы клиентов", feedbacks_path
 #project-target.sub.project
   %ul
@@ -28,4 +32,4 @@
   %ul
     -City.all.each do |city|
       %li
-        = link_to "Недвижимость в #{city.name}", city
+        = link_to "Недвижимость в #{city.name}", buy_search_path( city_id: "#{city.id}")
