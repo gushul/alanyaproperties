@@ -15,12 +15,16 @@
 }
 .sidebar-h2 {
   margin: 10px 0 !important;
+  margin-left: 10px !important;
+  &.m-bottom-none {
+    margin-bottom: 0 !important;
+  }
 }
 .submit-filter {
   margin: 10px 0 ;
 
   .btn.big {
-    padding: 12px 70px;
+    padding: 7px 70px;
     margin: 0 5px;
     text-align: center;
     display: inline-block;
@@ -29,17 +33,18 @@
    -webkit-border-radius: 50px;
    -khtml-border-radius:50px;
     border-radius: 50px;
+    text-transform: none;
   }
 }
 .filter_section.property-for{
-    font-size: 22px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 26px;
     margin: 0 0 9px;
     padding-top: 15px !important;
-    .label {
-      display:inline-block;
-      text-align:left;
+    label {
+      margin-left: 10px;
     }
+
     .radio-sidebar{
     }
 }

@@ -37,7 +37,7 @@
       %input.percents{name: "percents", value: params[:percents] || 10}/
       \%
       .filter_section.cities
-  %h2.sidebar-h2
+  %h2.sidebar-h2.m-bottom-none
     Расположение
   .filter_label_holder.clearfix
     - City.all.each do |city|
