@@ -15,7 +15,7 @@
   %ul
     -AboutPage.all.each do |page|
       %li
-        - if page.menu_title
+        - if page.try(:menu_title)
           = link_to page.menu_title, page
         - else
           = link_to page.title, page
