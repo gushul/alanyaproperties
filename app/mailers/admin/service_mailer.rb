@@ -20,6 +20,10 @@ class Admin::ServiceMailer < ActionMailer::Base
   #   en.admin.service_mailer.contacts.subject
   #
   def contacts(contact_message)
+    p "===="
+    p "contacts"
+    p "contacts"
+    p "===="
     @settings = Setting.get('contacts')
     @contact_message = contact_message
 
