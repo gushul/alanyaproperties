@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150727140450) do
+ActiveRecord::Schema.define(:version => 20150730144346) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -236,6 +236,7 @@ ActiveRecord::Schema.define(:version => 20150727140450) do
     t.integer  "count_of_views",      :default => 0,     :null => false
     t.string   "offer"
     t.float    "credit_rate"
+    t.boolean  "our",                 :default => false
   end
 
   add_index "properties", ["city_id"], :name => "index_properties_on_city_id"

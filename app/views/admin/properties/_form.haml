@@ -14,6 +14,7 @@
         = f.input :property_kind, collection: Property::KINDS, input_html: {class: 'input-medium'}, wrapper_html: {class: 'span2'}
       = f.input :total_area
       = f.input :price
+      = f.input :our , inline_label: 'Our project'
       = f.association :city
       = f.input :photo, as: :image_preview, input_html: {preview_version: :thumb}
       = f.input :photo_cache, as: :hidden
