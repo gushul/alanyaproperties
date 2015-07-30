@@ -14,6 +14,7 @@ class Property < ActiveRecord::Base
   scope :property_for, ->(action) { where(property_for: action) }
   # scope :on_main, where(on_main: true) # Not use
   scope :hot, where(hot: true)
+  scope :our, where(our: true)
 
   belongs_to :city
 
