@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150730144346) do
+ActiveRecord::Schema.define(:version => 20150730160039) do
 
   create_table "about_pages", :force => true do |t|
     t.string   "title"
@@ -369,6 +369,14 @@ ActiveRecord::Schema.define(:version => 20150730144346) do
     t.string   "article_type"
     t.string   "url"
     t.integer  "count_of_views", :default => 0, :null => false
+  end
+
+  create_table "useful_news", :force => true do |t|
+    t.string   "title"
+    t.string   "teaser"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

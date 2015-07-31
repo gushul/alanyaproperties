@@ -1,0 +1,38 @@
+%p#notice= notice
+
+
+= link_to 'Edit', edit_admin_useful_news_path(@admin_useful_news)
+\|
+= link_to 'Back', admin_useful_news_index_path
+
+- model_class = TurkeyNews
+.page-header
+  %h1= t '.title', :default => model_class.model_name.human
+%dl.dl-horizontal
+  %dt
+    %strong
+      = model_class.human_attribute_name(:title)
+      \:
+  %dd= @admin_useful_news.title
+  %dt
+    %strong
+      = model_class.human_attribute_name(:teaser)
+      \:
+  %dd= @admin_useful_news.teaser
+  %dt
+    %strong
+      = model_class.human_attribute_name(:body)
+      \:
+  %dd= @admin_useful_news.body
+.form-actions
+  = link_to 'Back', |
+    admin_useful_news_index_path, :class => 'btn'                        |
+  -#
+  = link_to 'Edit', |
+    edit_admin_useful_news_path(@admin_useful_news), class: 'btn'
+  -#
+  = link_to 'Destroy',                                             |
+    admin_useful_news_path(@admin_useful_news),                                                                            |
+    :method => 'delete',                                                                                       |
+    :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))}, |
+    :class => 'btn btn-danger'                                                                                 |

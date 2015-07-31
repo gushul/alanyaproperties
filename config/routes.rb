@@ -65,6 +65,7 @@ Alanya::Application.routes.draw do
   namespace :admin do
     resources :manager_people
     resources :users
+    resources :useful_news
     resources :partners
     get :dashboard
     resources :reservations #, only: [:index, :show]

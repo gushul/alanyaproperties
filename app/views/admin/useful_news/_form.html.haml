@@ -1,0 +1,8 @@
+= simple_form_for [:admin, @admin_useful_news], :html => {:class => 'form-horizontal'} do |f|
+  .row.form-inline.form-horizontal
+    = f.input :title, input_html: {class: 'input-xxlarge'}, wrapper_html: {class: 'span8', style: 'width: 726px;'}
+    = f.input :teaser, input_html: {class: 'input-xxlarge'}, wrapper_html: {class: 'span8', style: 'width: 726px;'}
+  = f.input :body, input_html: {class: 'redactor', style: "width: 975px; height: 250px;"}
+  .form-actions
+    = f.button :submit, 'Save', class: 'btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), admin_useful_news_index_path, class: 'btn'
