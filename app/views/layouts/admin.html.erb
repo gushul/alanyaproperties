@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -55,6 +55,7 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Turkey News <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="<%= 'active' if params[:controller] == 'admin/turkey_news' %>"><%= link_to "Turkey News", admin_turkey_news_index_path %></li>
+                    <li class="<%= 'active' if params[:controller] == 'admin/useful_news' %>"><%= link_to "Useful News", admin_useful_news_index_path %></li>
                     <li class="<%= 'active' if current_page?(admin_turkey_news_sliders_path) %>"><%= link_to "Slider", admin_turkey_news_sliders_path %></li>
                     <li class="<%= 'active' if current_page?([:edit, :admin, TurkeyNews.get_seismic_map]) %>"><%= link_to "Seismic map", [:edit, :admin, TurkeyNews.get_seismic_map] %></li>
                     <% if TurkeyNews.get_cost_of_living %>
